@@ -1,5 +1,7 @@
 # FTSE Quality Scorecard
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jathnagulan-cmd/ftse-quality-scorecard/blob/main/scorecard_colab.ipynb)
+
 A Python tool that scores UK-listed companies on the fundamental strength of
 the underlying business, using numbers from their annual reports.
 
@@ -257,6 +259,8 @@ Flagged deliberately, so they can be fixed or at least understood:
 | One outlier skewed backtest averages | Report medians alongside means |
 
 ## Running it
+
+The quickest way is the Colab notebook: click **Open in Colab** at the top of this page and run the cells. Nothing to install. To run it on your own computer instead:
 
 Requires Python 3.10+.
 
