@@ -16,7 +16,7 @@ overall quality score.
 |---|---|---|
 | Profitability | Does it earn good returns on its capital, and is that improving? | Built |
 | Balance sheet strength | Could it survive a bad few years? | Built |
-| Earnings quality | Does reported profit actually turn into cash? | Planned |
+| Earnings quality | Does reported profit actually turn into cash? | Built |
 | Valuation | Is the market price reasonable for what you get? | Planned |
 
 Scores are **relative**: each metric is ranked against the other companies in
@@ -57,6 +57,26 @@ business models: supermarkets run negative working capital by design
 (customers pay at the till, suppliers are paid weeks later), which puts a
 solvent Tesco in the "distress" zone.
 
+### Pillar 3: Earnings quality
+
+| Metric | Formula | Better when |
+|---|---|---|
+| Cash conversion | Σ Operating cash flow (pre-interest) ÷ Σ EBITDA, all years available | Higher |
+| Accrual ratio (Sloan) | (Net income − Operating cash flow) ÷ Average total assets | Lower |
+| Receivables gap | Receivables growth − Revenue growth, latest year | Lower |
+
+Two adjustments keep the comparison fair:
+
+- **Interest classification.** IFRS lets companies show interest paid as
+  either an operating or a financing cash flow (Rolls-Royce uses financing;
+  the others use operating). Operating cash flow is restated to the same basis
+  for every company: pre-interest when compared with EBITDA, post-interest
+  when compared with net income.
+- **Unstable profits.** Cash conversion is only calculated when EBITDA was
+  positive in every year. Otherwise the summed denominator can be tiny and the
+  ratio explodes (Ocado's first run showed 488%). Such companies rank last on
+  that metric instead of being rewarded for it.
+
 ### Overall score
 
 For now, a simple equal-weighted average of the pillars built so far.
@@ -91,6 +111,7 @@ scorecard/statements.py     reading line items, shared by every pillar
 scorecard/scoring.py        percentile ranking into scores /100
 scorecard/profitability.py  pillar 1 metrics
 scorecard/balance_sheet.py  pillar 2 metrics
+scorecard/earnings_quality.py  pillar 3 metrics
 run.py                      runs the scorecard end to end
 tests/                      tests using invented, hand-checkable numbers
 ```

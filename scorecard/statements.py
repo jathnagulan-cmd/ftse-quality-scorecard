@@ -27,6 +27,16 @@ ROW_NAMES = {
     # under IFRS 16: a 20-year store lease is debt in all but name.
     "total_debt": ["Total Debt"],
     "cash": ["Cash Cash Equivalents And Short Term Investments", "Cash And Cash Equivalents"],
+    "receivables": ["Accounts Receivable", "Receivables"],
+    # Cash flow statement
+    "operating_cash_flow": ["Operating Cash Flow", "Cash Flow From Continuing Operating Activities"],
+    # The profit figure the cash flow statement starts from, so the two match
+    "net_income_cf": ["Net Income From Continuing Operations", "Net Income"],
+    # Interest paid that the company chose to classify as operating. Some put
+    # it under financing instead (IFRS allows both), so we add it back to put
+    # every company's operating cash flow on the same pre-interest basis.
+    "interest_paid_in_ocf": ["Interest Paid Cfo"],
+    "interest_paid_in_financing": ["Interest Paid Cff"],
 }
 
 

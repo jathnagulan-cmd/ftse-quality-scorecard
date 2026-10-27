@@ -51,7 +51,7 @@ def margin_trend(margins: pd.Series) -> float:
     return (m.iloc[-1] - m.iloc[0]) / (len(m) - 1)
 
 
-def company_metrics(income: pd.DataFrame, balance: pd.DataFrame) -> dict[str, float]:
+def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.DataFrame | None = None) -> dict[str, float]:
     """Calculate the four profitability metrics for one company.
 
     Level metrics use the most recent year; the trend uses every year available.

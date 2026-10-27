@@ -21,7 +21,7 @@ DEFAULT_TICKERS = {
 
 
 def fetch_statements(ticker: str) -> dict[str, pd.DataFrame]:
-    """Return the annual income statement and balance sheet for one company.
+    """Return the annual income statement, balance sheet and cash flow for one company.
 
     Yahoo Finance returns each statement as a table where rows are line items
     (e.g. "Total Revenue") and columns are financial year-end dates.
@@ -31,9 +31,11 @@ def fetch_statements(ticker: str) -> dict[str, pd.DataFrame]:
     t = yf.Ticker(ticker)
     income = t.income_stmt
     balance = t.balance_sheet
-    if income is None or income.empty or balance is None or balance.empty:
-        raise ValueError(f"No annual statements returned for {ticker}")
-    return {"income": income, "balance": balance}
+    cashflow = t.cashflow
+    for name, df in [("income", income), ("balance", balance), ("cash flow", cashflow)]:
+        if df is None or df.empty:
+            raise ValueError(f"No annual {name} statement returned for {ticker}")
+    return {"income": income, "balance": balance, "cashflow": cashflow}
 
 
 def fetch_all(tickers: dict[str, str] | None = None) -> dict[str, dict[str, pd.DataFrame]]:

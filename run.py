@@ -7,17 +7,22 @@ Usage:
 import numpy as np
 import pandas as pd
 
-from scorecard import balance_sheet, profitability
+from scorecard import balance_sheet, earnings_quality, profitability
 from scorecard.data import DEFAULT_TICKERS, fetch_all
 
 PILLARS = {
     "profitability_score": profitability,
     "balance_sheet_score": balance_sheet,
+    "earnings_quality_score": earnings_quality,
 }
 
 
 def pct(s: pd.Series) -> pd.Series:
     return (s * 100).round(1)
+
+
+def fmt_pct(s: pd.Series) -> pd.Series:
+    return s.map(lambda x: "n/a" if pd.isna(x) else ("not meaningful" if np.isinf(x) else f"{x * 100:.1f}"))
 
 
 def fmt_multiple(s: pd.Series) -> pd.Series:
@@ -30,7 +35,7 @@ def main() -> None:
 
     results = {}
     for score_col, pillar in PILLARS.items():
-        rows = {DEFAULT_TICKERS[t]: pillar.company_metrics(s["income"], s["balance"]) for t, s in statements.items()}
+        rows = {DEFAULT_TICKERS[t]: pillar.company_metrics(s["income"], s["balance"], s["cashflow"]) for t, s in statements.items()}
         results[score_col] = pillar.score(pd.DataFrame.from_dict(rows, orient="index"))
         results[score_col].to_csv(f"outputs/{score_col.replace('_score', '')}.csv")
 
@@ -56,12 +61,23 @@ def main() -> None:
     print("\nPillar 2: Balance sheet strength  (Altman Z'' shown for reference, not scored)\n")
     print(view.to_string())
 
+    # Pillar 3 view
+    e = results["earnings_quality_score"]
+    view = pd.DataFrame({
+        "Cash conversion %": fmt_pct(e["cash_conversion"]),
+        "Accrual ratio %": pct(e["accrual_ratio"]),
+        "Receivables gap (pp)": pct(e["receivables_gap"]),
+        "Score /100": e["earnings_quality_score"],
+    })
+    print("\nPillar 3: Earnings quality\n")
+    print(view.to_string())
+
     # Overall: simple average of the pillars built so far
     overall = pd.DataFrame({col: res[col] for col, res in results.items()})
     overall["overall_score"] = overall.mean(axis=1).round(1)
     overall = overall.sort_values("overall_score", ascending=False)
     overall.to_csv("outputs/overall.csv")
-    overall.columns = ["Profitability", "Balance sheet", "Overall"]
+    overall.columns = ["Profitability", "Balance sheet", "Earnings quality", "Overall"]
     print("\nOverall (equal-weighted average of pillars built so far)\n")
     print(overall.to_string())
     print("\nResults saved to outputs/")

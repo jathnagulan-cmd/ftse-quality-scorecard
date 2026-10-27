@@ -93,7 +93,7 @@ def z_zone(z: float) -> str:
     return "safe" if z > 2.6 else "grey" if z >= 1.1 else "distress"
 
 
-def company_metrics(income: pd.DataFrame, balance: pd.DataFrame) -> dict[str, float]:
+def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.DataFrame | None = None) -> dict[str, float]:
     ebit = latest_value(income, "ebit")
     ebitda = ebit + latest_value(income, "depreciation")
     net_debt = latest_value(balance, "total_debt") - latest_value(balance, "cash")
