@@ -61,12 +61,13 @@ def main(refresh: bool = False) -> None:
     print(view.tail(10).to_string())
 
     p = results["profitability_score"].loc[WATCHLIST]
-    print("\nWatchlist: profitability detail (margins ranked within peer group)\n")
+    print("\nWatchlist: profitability detail (multi-year averages; margins ranked within peer group)\n")
     print(pd.DataFrame({
         "Peer group": p["peer_group"],
         "Gross margin %": fmt_pct(p["gross_margin"]), "Gross rank": p["gross_margin_rank"].round(0),
         "Op margin %": fmt_pct(p["operating_margin"]), "Op rank": p["operating_margin_rank"].round(0),
         "ROCE %": fmt_pct(p["roce"]), "ROCE rank": p["roce_rank"].round(0),
+        "Margin swing (pp)": fmt_pct(p["margin_stability"]),
         "Profit score": p["profitability_score"],
     }).to_string())
     print("\nWatchlist: overall\n")

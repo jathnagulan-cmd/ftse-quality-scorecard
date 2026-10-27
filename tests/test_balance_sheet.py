@@ -63,3 +63,18 @@ def test_low_debt_ranks_best():
     result = score(metrics)
     assert list(result.index) == ["Safe", "Average", "Stretched"]
     assert result.loc["Safe", "balance_sheet_score"] == 100.0
+
+
+def test_utility_leverage_judged_against_utilities():
+    metrics = pd.DataFrame(
+        {
+            "net_debt_to_ebitda": [6.0, 7.0, 8.0, 1.0, 2.0, 3.0],
+            "interest_cover": [3.0, 2.5, 2.0, 15.0, 10.0, 5.0],
+            "equity_ratio": [0.3] * 6,
+        },
+        index=["Water A", "Water B", "Water C", "Retail A", "Retail B", "Retail C"],
+    )
+    groups = pd.Series(["Utilities"] * 3 + ["Retail"] * 3, index=metrics.index)
+    result = score(metrics, groups)
+    # The least-indebted water company scores as well as the least-indebted retailer
+    assert result.loc["Water A", "balance_sheet_score"] == result.loc["Retail A", "balance_sheet_score"]

@@ -32,18 +32,37 @@ accounts work differently (a bank's debt is its raw material, insurers have
 no gross margin), so these metrics would be meaningless for them. That leaves
 72 scored companies.
 
-### Peer-relative margins
+### Peer-relative metrics
 
-Gross and operating margins are driven by the business model, so they are
-ranked only against similar companies. A supermarket's 7% gross margin is
-not worse than a luxury brand's 68%; they are different businesses. Each
-company is compared within its industry (e.g. Grocery Stores) when at least
-three FTSE companies share it, otherwise within its sector, otherwise against
-everyone. ROCE, margin trend and the other pillars are ranked across the whole
-universe because they mean the same in any business.
+Some metrics are driven by the business model rather than business quality,
+so they are ranked only against similar companies:
 
-This changed Tesco's profitability score from 50 to 70: its margins are thin
-for the FTSE, but the best among UK grocers.
+- **Gross and operating margin.** A supermarket's 7% gross margin is not worse
+  than a luxury brand's 68%; they are different businesses.
+- **Net debt / EBITDA and interest cover.** A regulated water company with
+  government-set, inflation-linked revenue can safely carry far more debt
+  than a fashion retailer.
+
+Each company is compared within its industry (e.g. Grocery Stores) when at
+least two FTSE companies share it, otherwise within its sector, otherwise
+against everyone. ROCE, margin trend, stability and earnings quality are
+ranked across the whole universe because they mean the same in any business.
+
+### Handling cyclical companies
+
+A score built on the latest year flatters companies at the top of their cycle.
+With record silver prices, Fresnillo ranked 1st of 72. Two changes address it:
+
+- **Multi-year averages.** ROCE and margins are averaged over every year
+  available rather than taken from the latest year alone.
+- **Margin stability.** A new metric scores how much operating margin swings
+  from year to year. Quality businesses earn steady margins whatever the
+  economy does. It is ranked universe-wide on purpose: within a sector, the
+  least volatile miner would still score well.
+
+Fresnillo moved from 1st to 20th and Antofagasta (copper) from 31st to 61st.
+Note the related trap for valuation: cyclicals look cheapest on P/E at the
+peak, exactly when profits are about to fall.
 
 ### Pillar 1: Profitability
 
@@ -53,6 +72,9 @@ for the FTSE, but the best among UK grocers.
 | Operating margin | EBIT ÷ Revenue | Share of sales left after operating costs |
 | Gross margin | Gross profit ÷ Revenue | Pricing power |
 | Margin trend | Average yearly change in operating margin | Direction of travel, not just level |
+| Margin stability | Standard deviation of operating margin across years (lower is better) | Resilience through the cycle |
+
+ROCE and both margins are averages over every year available (usually four).
 
 EBIT means reported operating profit. Yahoo's own "EBIT" line is only used
 as a fallback, because it is rebuilt from pre-tax profit and can include
@@ -85,7 +107,7 @@ solvent Tesco in the "distress" zone.
 | Metric | Formula | Better when |
 |---|---|---|
 | Cash conversion | Σ Operating cash flow (pre-interest) ÷ Σ EBITDA, all years available | Higher |
-| Accrual ratio (Sloan) | (Net income − Operating cash flow) ÷ Average total assets | Lower |
+| Accrual ratio (Sloan) | (Net income − Operating cash flow) ÷ Average total assets, floored at −5% | Lower |
 | Receivables gap | Receivables growth − Revenue growth, latest year | Lower |
 
 Two adjustments keep the comparison fair:
@@ -100,6 +122,9 @@ Two adjustments keep the comparison fair:
   cash behind it. Disposal gains and losses are stripped out of net income
   first (Smiths Group's £1.7bn disposal gain had produced an accrual ratio of
   40% of total assets; adjusted, 4.7%).
+- **Write-downs.** Large non-cash impairments push profit below cash flow,
+  which the raw accrual ratio rewards (Burberry: −13%). Values below −5% are
+  treated as −5%, so a write-down earns no extra credit.
 - **Unstable profits.** Cash conversion is only calculated when EBITDA was
   positive in every year. Otherwise the summed denominator can be tiny and the
   ratio explodes (Ocado's first run showed 488%). Such companies rank last on
@@ -113,23 +138,40 @@ For now, a simple equal-weighted average of the pillars built so far.
 
 Flagged deliberately, so they can be fixed or at least understood:
 
-- **Sector-structural leverage.** Regulated utilities (e.g. Severn Trent)
-  carry high debt by design, financed against stable regulated income. The
-  balance sheet pillar ranks leverage across all sectors, so it treats this as
-  weakness. Same problem as gross margins had, same likely fix.
-- **Classification quirks.** Yahoo classifies Ocado as a grocer. Its 38% gross
-  margin reflects a technology and logistics model, which gives it a flattering
-  rank against Tesco and Sainsbury's.
+- **Turnarounds are under-rewarded.** Averaging over four years drags in the
+  bad early years of a genuine recovery, and the recovery itself shows up as
+  margin instability. Rolls-Royce fell from 8th to 22nd when averages were
+  introduced. The model can't yet tell a cyclical boom from a structural
+  improvement.
+- **Four years is not a full cycle.** Commodity and economic cycles run 7-10
+  years; the free data only covers about four.
+- **Peer groups of two are coarse.** Beating your only rival earns full marks
+  and losing earns half, so near-identical businesses can end up far apart
+  (Severn Trent and United Utilities). Shrinking small-group ranks towards the
+  middle would soften this.
 - **Negative equity from buybacks.** Asset-light companies that return large
   amounts of capital (e.g. InterContinental Hotels) can show negative equity,
   which the equity ratio reads as fragility.
-- **Write-downs flatter the accrual ratio.** Large non-cash impairments push
-  profit below cash flow, which the Sloan ratio rewards (e.g. Burberry).
 - **Funding by share issues.** A loss-making company that raises equity
   repeatedly can score well on equity ratio despite needing outside money.
 - **Stale constituent list.** The universe is a snapshot; four companies
   (Ashtead, Hargreaves Lansdown, Phoenix, DS Smith) returned no data, two of
   them having since been taken over.
+
+### Fixed so far
+
+| Problem | Fix |
+|---|---|
+| Yahoo's EBIT included non-operating gains (Rolls-Royce +£2.8bn) | Use reported operating profit |
+| Altman Z'' put Tesco in "distress" | Reported, not scored |
+| Interest classified differently under IFRS | Restate all operating cash flow to one basis |
+| Near-zero EBITDA gave Ocado 488% cash conversion | Require positive EBITDA every year |
+| Supermarket margins penalised against luxury brands | Rank margins within industry |
+| Disposal gain gave Smiths Group a 40% accrual ratio | Strip disposal gains from net income |
+| Peak-cycle miners ranked top | Multi-year averages plus margin stability |
+| Utilities penalised for normal regulated debt | Rank leverage within industry |
+| Write-downs rewarded by the accrual ratio | Floor at −5% |
+| Ocado classified as a grocer | Override in `data/universe.csv` |
 
 ## Running it
 

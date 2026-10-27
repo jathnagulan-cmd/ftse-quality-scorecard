@@ -5,7 +5,7 @@ without its lenders or shareholders having to rescue it?
 
 Scored metrics (latest annual report):
 
-  Net debt / EBITDA  (lower is better)
+  Net debt / EBITDA  (lower is better; ranked within peer group)
         Net debt = Total debt (including leases) - Cash and short-term investments
         EBITDA   = Operating profit + Depreciation and amortisation
         Roughly: how many years of operating cash profit it would take to pay
@@ -14,7 +14,8 @@ Scored metrics (latest annual report):
         We build EBITDA ourselves because Yahoo's EBITDA line has the same
         non-operating distortions as its EBIT line.
 
-  Interest cover = Operating profit / Interest expense  (higher is better)
+  Interest cover = Operating profit / Interest expense  (higher is better;
+                   ranked within peer group)
         How many times over profits cover the interest bill. Below ~3x, a
         bad year starts to threaten the company's ability to pay its lenders.
 
@@ -108,6 +109,15 @@ def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.Da
     }
 
 
+# How much debt a business can safely carry depends on how predictable its
+# cash flows are, which is largely a feature of its industry. A regulated
+# water company with inflation-linked, government-set revenues can run at 8x
+# net debt/EBITDA; a fashion retailer at that level would be in trouble. So
+# leverage and interest cover are ranked within peer groups. The equity
+# ratio stays universe-wide as an absolute measure of loss-absorbing cushion.
+PEER_RELATIVE = ("net_debt_to_ebitda", "interest_cover")
+
+
 def score(metrics: pd.DataFrame, peer_groups: pd.Series | None = None) -> pd.DataFrame:
     """Score on the three scored metrics; the Altman columns ride along unscored."""
-    return rank_and_score(metrics, HIGHER_IS_BETTER, "balance_sheet_score")
+    return rank_and_score(metrics, HIGHER_IS_BETTER, "balance_sheet_score", peer_groups, PEER_RELATIVE)

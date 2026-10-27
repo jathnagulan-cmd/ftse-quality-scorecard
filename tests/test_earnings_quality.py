@@ -75,3 +75,12 @@ def test_disposal_gain_is_not_counted_as_uncashed_profit():
     })
     # (520 - 500 - 15) / 1000, not (520 - 15) / 1000
     assert company_metrics(income, balance, cashflow)["accrual_ratio"] == pytest.approx(0.005)
+
+
+def test_write_downs_stop_earning_credit_below_the_floor():
+    metrics = pd.DataFrame(
+        {"cash_conversion": [0.9, 0.9], "accrual_ratio": [-0.05, -0.15], "receivables_gap": [0.0, 0.0]},
+        index=["Clean", "Big write-down"],
+    )
+    result = score(metrics)
+    assert result.loc["Clean", "earnings_quality_score"] == result.loc["Big write-down", "earnings_quality_score"]

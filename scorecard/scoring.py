@@ -11,7 +11,7 @@ Two kinds of ranking:
   businesses. So margins are compared within peer groups.
 
 Peer groups use the narrowest classification with enough members: the
-company's industry (e.g. "Grocery Stores") if at least MIN_PEERS companies
+company's industry (e.g. "Grocery Stores") if at least MIN_PEERS (2) companies
 share it, otherwise its broader sector (e.g. "Consumer Defensive"), otherwise
 the whole universe.
 """
@@ -20,7 +20,7 @@ from __future__ import annotations
 
 import pandas as pd
 
-MIN_PEERS = 3
+MIN_PEERS = 2
 
 
 def assign_peer_groups(info: pd.DataFrame, min_peers: int = MIN_PEERS) -> pd.Series:

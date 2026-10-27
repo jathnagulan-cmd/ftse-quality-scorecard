@@ -20,7 +20,9 @@ Scored metrics:
         The gap between accounting profit and cash, scaled by company size.
         Richard Sloan (1996) showed that companies with high accruals tend to
         see earnings fall back later. A negative number means cash is running
-        AHEAD of profit, usually because of large non-cash charges.
+        AHEAD of profit, usually because of large non-cash charges. Values
+        below -5% are treated as -5% for scoring, so write-downs stop
+        earning credit.
 
   Receivables gap = Growth in receivables - Growth in revenue (latest year,
                     percentage points)  (lower is better)
@@ -54,9 +56,14 @@ from scorecard.statements import get_row
 
 HIGHER_IS_BETTER = {
     "cash_conversion": True,
-    "accrual_ratio": False,
+    "accrual_ratio_floored": False,
     "receivables_gap": False,
 }
+
+# Below this, a more negative accrual ratio earns no extra credit. Very
+# negative accruals usually mean big non-cash write-downs (Burberry: -13%),
+# and a write-down is a sign a past investment went wrong, not of quality.
+ACCRUAL_FLOOR = -0.05
 
 
 def _row(df: pd.DataFrame, item: str) -> pd.Series:
@@ -127,4 +134,6 @@ def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.Da
 
 
 def score(metrics: pd.DataFrame, peer_groups: pd.Series | None = None) -> pd.DataFrame:
+    metrics = metrics.copy()
+    metrics["accrual_ratio_floored"] = metrics["accrual_ratio"].clip(lower=ACCRUAL_FLOOR)
     return rank_and_score(metrics, HIGHER_IS_BETTER, "earnings_quality_score")

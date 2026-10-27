@@ -29,6 +29,7 @@ def test_supermarket_not_penalised_for_supermarket_margins():
             "operating_margin": [0.05, 0.03, 0.01, 0.20, 0.15, 0.10],
             "gross_margin": [0.08, 0.06, 0.04, 0.70, 0.60, 0.50],
             "margin_trend": [0.0] * 6,
+            "margin_stability": [0.01] * 6,
         },
         index=["Grocer A", "Grocer B", "Grocer C", "Brand A", "Brand B", "Brand C"],
     )

@@ -1,9 +1,14 @@
 """Pillar 1: Profitability.
 
 The question this pillar answers: does the business earn good returns on the
-money tied up in it, and is that getting better or worse?
+money tied up in it, reliably, through good years and bad?
 
-Metrics (all calculated from annual reports):
+Metrics (all calculated from annual reports). ROCE and the two margins are
+AVERAGES over every year available (usually four), not just the latest year.
+A single year flatters companies at the top of their cycle: a silver miner
+with record silver prices looks like a wonderful business until prices fall.
+Ideally the average would cover a full cycle (7-10 years); four years is what
+the free data allows.
 
   EBIT here means reported operating profit (see statements.py for why).
 
@@ -23,11 +28,18 @@ Metrics (all calculated from annual reports):
 
   Margin trend = change in operating margin per year over the period available
         Direction matters as much as level. An improving 8% margin can be a
-        better sign than a decaying 15% one.
+        better sign than a decaying 15% one. On its own this rewards cyclical
+        booms (Fresnillo's margin rose ~13 points a year with the silver
+        price), which is why it is paired with stability below.
+
+  Margin stability = standard deviation of operating margin across years
+                     (percentage points; lower is better)
+        How much margins swing from year to year. Quality businesses earn
+        steady margins whatever the economy does; commodity producers,
+        airlines and housebuilders don't. Needs at least three years.
 
 Scoring: each metric is converted to a percentile rank (100 = best), then
-the four ranks are
-averaged into a pillar score out of 100. This is a *relative* score: it says
+the five ranks are averaged into a pillar score out of 100. This is a *relative* score: it says
 how a company compares with its peers, not whether it is good in absolute
 terms. Gross and operating margin are ranked only against peers in the
 same industry (see scoring.py), because a supermarket and a luxury brand
@@ -51,10 +63,24 @@ def margin_trend(margins: pd.Series) -> float:
     return (m.iloc[-1] - m.iloc[0]) / (len(m) - 1)
 
 
-def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.DataFrame | None = None) -> dict[str, float]:
-    """Calculate the four profitability metrics for one company.
+def margin_stability(margins: pd.Series) -> float:
+    """Standard deviation of operating margin across years. NaN with under 3 years."""
+    m = margins.dropna()
+    if len(m) < 3:
+        return np.nan
+    return float(m.std(ddof=0))
 
-    Level metrics use the most recent year; the trend uses every year available.
+
+def average(s: pd.Series) -> float:
+    s = s.dropna()
+    return float(s.mean()) if len(s) else np.nan
+
+
+def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.DataFrame | None = None) -> dict[str, float]:
+    """Calculate the five profitability metrics for one company.
+
+    Levels are averaged over every year available; latest-year figures are
+    kept alongside for reference but not scored.
     """
     revenue = get_row(income, "revenue")
     gross_profit = get_row(income, "gross_profit")
@@ -70,10 +96,14 @@ def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.Da
         return float(s.iloc[-1]) if len(s) else np.nan
 
     return {
-        "roce": latest(roce),
-        "operating_margin": latest(op_margin),
-        "gross_margin": latest(gross_margin),
+        "roce": average(roce),
+        "operating_margin": average(op_margin),
+        "gross_margin": average(gross_margin),
         "margin_trend": margin_trend(op_margin),
+        "margin_stability": margin_stability(op_margin),
+        "roce_latest": latest(roce),
+        "operating_margin_latest": latest(op_margin),
+        "years_of_data": int(op_margin.notna().sum()),
     }
 
 
@@ -82,12 +112,15 @@ HIGHER_IS_BETTER = {
     "operating_margin": True,
     "gross_margin": True,
     "margin_trend": True,
+    "margin_stability": False,
 }
 
 
 # Margins depend on the business model, so they are compared within peer
-# groups. ROCE and the margin trend mean the same in any industry, so they
-# are compared across everyone.
+# groups. ROCE, the trend and stability mean the same in any industry, so they
+# are compared across everyone. (Ranking stability within sector would defeat
+# the point: every miner is volatile, so the least volatile miner would still
+# score well.)
 PEER_RELATIVE = ("gross_margin", "operating_margin")
 
 
