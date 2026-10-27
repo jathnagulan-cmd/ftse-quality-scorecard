@@ -25,6 +25,12 @@ company gets plain-English **strengths, red flags and notes**, and a
 **shortlist** picks out quality businesses at sensible prices (quality 60+,
 valuation 40+, at most one red flag).
 
+A second, **long-term shortlist** applies the same rules and also drops
+cyclical industries and any company whose operating margin moved more than
+3 points across the years available. It is meant for buying and holding
+steady businesses for years. These extra rules come from that goal, not from
+the backtest.
+
 **This is a screen for deciding what to research, not a buy list.** It reads
 four years of accounts and nothing else: no news, guidance, management or
 anything after the last annual report.
@@ -41,6 +47,26 @@ measures each company's twelve-month total return including dividends.
 | Quality (three pillars) | 5 of 6 periods | about +15 points a year |
 | Valuation | 2 of 6 periods | slightly negative |
 | Shortlist vs average company | 5 of 6 periods | about +4 points a year |
+
+### Against a FTSE 100 tracker
+
+The real alternative to picking shares is buying a FTSE 100 tracker fund and
+doing nothing, so the backtest compares each list with one (iShares Core FTSE
+100, dividends included).
+
+| Over twelve months | Average return | Beat the tracker |
+|---|---|---|
+| FTSE 100 tracker | +15.7% | |
+| Full shortlist | +20.1% | 4 of 6 periods |
+| Long-term shortlist | −0.9% | 0 of 3 periods |
+
+The long-term list needs three years of margins, so it only exists from 2025,
+and in that year steady, defensive businesses badly lagged the market. Part of
+the tracker's lead comes from banks, which the scorecard excludes: from May
+2025 to May 2026 HSBC returned 65% and Barclays 47%. On this evidence, a
+tracker would have beaten the long-term list, and that should be taken
+seriously. Two-year returns are also reported, but only two dates have two
+full years of history.
 
 The quality signal looks real; valuation showed nothing in this window. The
 weights have **not** been changed to fit this result: six overlapping periods
@@ -233,6 +259,7 @@ python run.py             # scores everything and prints the shortlist with its 
 python run.py --refresh   # re-downloads statements and prices
 python backtest.py        # tests the scores against past returns
 python build_dashboard.py # builds outputs/dashboard.html from the latest results
+python check_trading212.py  # optional: which companies are on Trading 212 (needs your API key)
 python -m pytest       # checks the calculations on hand-worked examples
 ```
 
@@ -241,6 +268,16 @@ company's rank and scores), `shortlist.csv`, `backtest.csv`, and
 `dashboard.html`, a single phone-friendly page with the shortlist, red flags
 and a breakdown for every company. The first run takes a few
 minutes; data is cached in `data/cache/` afterwards.
+
+## Trading 212 availability
+
+Trading 212 publishes its instrument list only through its API.
+`check_trading212.py` fetches it once with your own API key (create one in the
+app with the **metadata** permission only, never trading access) and saves
+`data/trading212.csv`, which holds only tickers and yes/no. Companies confirmed
+as unavailable are left out of both shortlists; until the check has been run,
+every company shows as "not checked" and nothing is excluded. The key is read
+from your terminal environment and is never written to a file.
 
 ## Data and limitations
 
@@ -264,7 +301,9 @@ scorecard/valuation.py      pillar 4 metrics
 scorecard/prices.py         share prices, exchange rates, market values
 scorecard/engine.py         scores every company as of any date (point-in-time)
 scorecard/flags.py          strengths, red flags, notes and the shortlist
-backtest.py                 point-in-time backtest
+backtest.py                 point-in-time backtest, with a FTSE 100 tracker benchmark
+check_trading212.py         records which companies are tradeable on Trading 212
+scorecard/trading212.py     matching companies to Trading 212 instruments
 build_dashboard.py          builds the dashboard page
 dashboard/template.html     dashboard page template
 run.py                      runs the scorecard end to end

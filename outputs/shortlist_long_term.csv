@@ -1,0 +1,11 @@
+name,rank,ticker,sector,profitability_score,balance_sheet_score,earnings_quality_score,valuation_score,quality_score,overall_score
+Airtel Africa,2,AAF.L,Communication Services,70.0,62.5,88.7,78.9,73.7,75.0
+Howden Joinery,4,HWDN.L,Consumer Cyclical,65.5,83.1,72.0,70.4,73.5,72.8
+Rightmove,8,RMV.L,Communication Services,66.0,98.1,54.9,57.0,73.0,69.0
+Tesco,10,TSCO.L,Consumer Defensive,75.0,76.9,61.6,60.6,71.2,68.5
+Auto Trader Group,11,AUTO.L,Communication Services,73.9,63.4,63.9,69.7,67.1,67.7
+Associated British Foods,13,ABF.L,Consumer Defensive,47.8,79.2,62.5,73.9,63.2,65.8
+Intertek,16,ITRK.L,Industrials,74.0,76.4,69.9,41.5,73.4,65.4
+Reckitt Benckiser,17,RKT.L,Consumer Defensive,82.2,62.5,41.7,71.1,62.1,64.4
+Next,21,NXT.L,Consumer Cyclical,75.3,82.4,43.1,46.5,66.9,61.8
+BT Group,25,BT-A.L,Communication Services,66.9,51.9,67.4,54.2,62.1,60.1

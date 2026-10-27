@@ -21,8 +21,13 @@ REGULATED = ("Utilities - Regulated",)
 # these, so their averages may still flatter them.
 CYCLICAL_KEYWORDS = (
     "Airlines", "Mining", "Metals", "Gold", "Copper", "Oil & Gas", "Residential Construction",
-    "Chemicals", "Steel", "Building Materials", "Auto", "Lodging", "Leisure", "Travel",
+    "Chemicals", "Steel", "Building Materials", "Auto", "Lodging", "Travel",
 )
+
+# Long-term shortlist: as the main shortlist, but only businesses whose
+# profits have held steady. Excludes cyclical industries and any company
+# whose operating margin swung by more than this across the years available.
+LONG_TERM_MAX_MARGIN_SWING = 0.03
 
 SHORTLIST_MIN_QUALITY = 60
 SHORTLIST_MIN_VALUATION = 40
@@ -32,6 +37,10 @@ SHORTLIST_SIZE = 10
 
 def _ok(x) -> bool:
     return x is not None and not (isinstance(x, float) and np.isnan(x))
+
+
+def is_cyclical(industry) -> bool:
+    return isinstance(industry, str) and any(k in industry for k in CYCLICAL_KEYWORDS)
 
 
 def company_flags(p: pd.Series, b: pd.Series, e: pd.Series, v: pd.Series, industry: str) -> dict[str, list[str]]:
@@ -52,7 +61,7 @@ def company_flags(p: pd.Series, b: pd.Series, e: pd.Series, v: pd.Series, indust
         good.append(f"Very steady margins: operating margin moved less than 1 point across {int(p.years_of_data)} years")
     if _ok(p.margin_stability) and p.margin_stability > 0.05:
         bad.append(f"Volatile margins (swing of {p.margin_stability * 100:.0f} points): cyclical or erratic profits")
-    if isinstance(industry, str) and any(k in industry for k in CYCLICAL_KEYWORDS):
+    if is_cyclical(industry):
         notes.append(f"Cyclical industry ({industry}): the data may not include a full downturn, so treat strong scores with caution")
     if _ok(p.years_of_data) and p.years_of_data < 3:
         notes.append(f"Only {int(p.years_of_data)} years of data: averages and stability are less reliable")
@@ -110,12 +119,35 @@ def all_flags(results: dict[str, pd.DataFrame], info: pd.DataFrame) -> dict[str,
     }
 
 
-def shortlist(overall: pd.DataFrame, flags: dict[str, dict[str, list[str]]]) -> pd.DataFrame:
-    """Good businesses at sensible prices with few red flags, best first."""
-    red = pd.Series({n: len(f["red_flags"]) for n, f in flags.items()})
+def _base_rules(overall: pd.DataFrame, flags: dict, tradeable: pd.Series | None) -> pd.Series:
+    red = pd.Series({n: len(f["red_flags"]) for n, f in flags.items()}).reindex(overall.index)
     ok = (
         (overall["quality_score"] >= SHORTLIST_MIN_QUALITY)
         & (overall["valuation_score"] >= SHORTLIST_MIN_VALUATION)
-        & (red.reindex(overall.index) <= SHORTLIST_MAX_RED_FLAGS)
+        & (red <= SHORTLIST_MAX_RED_FLAGS)
     )
+    if tradeable is not None:
+        # Only rule out companies CONFIRMED as unavailable; unchecked ones stay
+        ok &= tradeable.reindex(overall.index).fillna("unchecked") != "no"
+    return ok
+
+
+def shortlist(overall: pd.DataFrame, flags: dict, tradeable: pd.Series | None = None) -> pd.DataFrame:
+    """Good businesses at sensible prices with few red flags, best first."""
+    return overall[_base_rules(overall, flags, tradeable)].head(SHORTLIST_SIZE)
+
+
+def long_term_shortlist(
+    overall: pd.DataFrame, flags: dict, profitability: pd.DataFrame, info: pd.DataFrame,
+    tradeable: pd.Series | None = None,
+) -> pd.DataFrame:
+    """The shortlist restricted to steady businesses, for buying and holding for years.
+
+    Drops cyclical industries and companies whose margins swung more than
+    LONG_TERM_MAX_MARGIN_SWING. These rules come from the goal (long-term
+    holding), not from the backtest.
+    """
+    swing = profitability["margin_stability"].reindex(overall.index)
+    cyclical = info["industry"].reindex(overall.index).map(is_cyclical)
+    ok = _base_rules(overall, flags, tradeable) & (swing <= LONG_TERM_MAX_MARGIN_SWING) & ~cyclical
     return overall[ok].head(SHORTLIST_SIZE)

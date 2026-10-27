@@ -13,6 +13,19 @@
   "Tesco",
   "Auto Trader Group"
  ],
+ "long_term_shortlist": [
+  "Airtel Africa",
+  "Howden Joinery",
+  "Rightmove",
+  "Tesco",
+  "Auto Trader Group",
+  "Associated British Foods",
+  "Intertek",
+  "Reckitt Benckiser",
+  "Next",
+  "BT Group"
+ ],
+ "trading212_checked": false,
  "companies": [
   {
    "name": "International Airlines Group",
@@ -64,6 +77,8 @@
     ]
    },
    "shortlisted": true,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Airlines"
   },
   {
@@ -115,6 +130,8 @@
     "notes": []
    },
    "shortlisted": true,
+   "long_term": true,
+   "trading212": "unchecked",
    "peer_group": "Industry: Telecom Services"
   },
   {
@@ -169,6 +186,8 @@
     ]
    },
    "shortlisted": true,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Airlines"
   },
   {
@@ -218,6 +237,8 @@
     "notes": []
    },
    "shortlisted": true,
+   "long_term": true,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Cyclical"
   },
   {
@@ -270,6 +291,8 @@
     ]
    },
    "shortlisted": true,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Energy"
   },
   {
@@ -323,6 +346,8 @@
     ]
    },
    "shortlisted": true,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Oil & Gas Integrated"
   },
   {
@@ -376,6 +401,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Communication Services"
   },
   {
@@ -426,6 +453,8 @@
     "notes": []
    },
    "shortlisted": true,
+   "long_term": true,
+   "trading212": "unchecked",
    "peer_group": "Industry: Internet Content & Information"
   },
   {
@@ -479,6 +508,8 @@
     ]
    },
    "shortlisted": true,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Other Industrial Metals & Mining"
   },
   {
@@ -529,6 +560,8 @@
     "notes": []
    },
    "shortlisted": true,
+   "long_term": true,
+   "trading212": "unchecked",
    "peer_group": "Industry: Grocery Stores"
   },
   {
@@ -578,6 +611,8 @@
     "notes": []
    },
    "shortlisted": true,
+   "long_term": true,
+   "trading212": "unchecked",
    "peer_group": "Industry: Internet Content & Information"
   },
   {
@@ -625,11 +660,11 @@
      "Net cash: holds more cash than debt"
     ],
     "red_flags": [],
-    "notes": [
-     "Cyclical industry (Leisure): the data may not include a full downturn, so treat strong scores with caution"
-    ]
+    "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Cyclical"
   },
   {
@@ -679,6 +714,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": true,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Defensive"
   },
   {
@@ -731,6 +768,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Basic Materials"
   },
   {
@@ -781,6 +820,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Tobacco"
   },
   {
@@ -830,6 +871,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": true,
+   "trading212": "unchecked",
    "peer_group": "Industry: Specialty Business Services"
   },
   {
@@ -879,6 +922,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": true,
+   "trading212": "unchecked",
    "peer_group": "Industry: Household & Personal Products"
   },
   {
@@ -935,6 +980,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Residential Construction"
   },
   {
@@ -990,6 +1037,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Lodging"
   },
   {
@@ -1039,6 +1088,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Defensive"
   },
   {
@@ -1089,6 +1140,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": true,
+   "trading212": "unchecked",
    "peer_group": "Industry: Apparel Retail"
   },
   {
@@ -1142,6 +1195,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Grocery Stores"
   },
   {
@@ -1193,6 +1248,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Apparel Retail"
   },
   {
@@ -1244,6 +1301,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Drug Manufacturers - Specialty & Generic"
   },
   {
@@ -1295,6 +1354,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": true,
+   "trading212": "unchecked",
    "peer_group": "Industry: Telecom Services"
   },
   {
@@ -1350,6 +1411,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Oil & Gas Integrated"
   },
   {
@@ -1401,6 +1464,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Publishing"
   },
   {
@@ -1453,6 +1518,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Cyclical"
   },
   {
@@ -1502,6 +1569,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Cyclical"
   },
   {
@@ -1551,6 +1620,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Publishing"
   },
   {
@@ -1598,6 +1669,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Drug Manufacturers - General"
   },
   {
@@ -1650,6 +1723,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Utilities"
   },
   {
@@ -1697,6 +1772,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "All companies"
   },
   {
@@ -1749,6 +1826,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Telecom Services"
   },
   {
@@ -1798,6 +1877,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Specialty Industrial Machinery"
   },
   {
@@ -1851,6 +1932,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Basic Materials"
   },
   {
@@ -1900,6 +1983,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Drug Manufacturers - Specialty & Generic"
   },
   {
@@ -1955,6 +2040,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Utilities"
   },
   {
@@ -2004,6 +2091,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Healthcare"
   },
   {
@@ -2051,6 +2140,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Healthcare"
   },
   {
@@ -2104,6 +2195,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Cyclical"
   },
   {
@@ -2153,6 +2246,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Industrials"
   },
   {
@@ -2205,6 +2300,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Basic Materials"
   },
   {
@@ -2254,6 +2351,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Specialty Business Services"
   },
   {
@@ -2306,6 +2405,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Other Industrial Metals & Mining"
   },
   {
@@ -2362,6 +2463,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Residential Construction"
   },
   {
@@ -2416,6 +2519,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Utilities - Regulated Water"
   },
   {
@@ -2465,6 +2570,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Specialty Business Services"
   },
   {
@@ -2517,6 +2624,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Lodging"
   },
   {
@@ -2569,6 +2678,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Aerospace & Defense"
   },
   {
@@ -2616,6 +2727,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Specialty Industrial Machinery"
   },
   {
@@ -2666,6 +2779,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Defensive"
   },
   {
@@ -2715,6 +2830,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Household & Personal Products"
   },
   {
@@ -2765,6 +2882,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Specialty Business Services"
   },
   {
@@ -2815,6 +2934,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Aerospace & Defense"
   },
   {
@@ -2864,6 +2985,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Industrials"
   },
   {
@@ -2914,6 +3037,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Drug Manufacturers - General"
   },
   {
@@ -2969,6 +3094,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Residential Construction"
   },
   {
@@ -3020,6 +3147,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Utilities"
   },
   {
@@ -3069,6 +3198,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Industrials"
   },
   {
@@ -3118,6 +3249,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Cyclical"
   },
   {
@@ -3170,6 +3303,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Basic Materials"
   },
   {
@@ -3220,6 +3355,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Specialty Industrial Machinery"
   },
   {
@@ -3272,6 +3409,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Tobacco"
   },
   {
@@ -3322,6 +3461,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Cyclical"
   },
   {
@@ -3375,6 +3516,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Residential Construction"
   },
   {
@@ -3424,6 +3567,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Specialty Industrial Machinery"
   },
   {
@@ -3479,6 +3624,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Other Industrial Metals & Mining"
   },
   {
@@ -3531,6 +3678,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Basic Materials"
   },
   {
@@ -3587,6 +3736,8 @@
     ]
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Defensive"
   },
   {
@@ -3640,6 +3791,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Utilities - Regulated Water"
   },
   {
@@ -3694,6 +3847,8 @@
     "notes": []
    },
    "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Industry: Specialty Industrial Machinery"
   }
  ]

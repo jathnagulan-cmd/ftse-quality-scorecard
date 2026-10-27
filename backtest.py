@@ -39,11 +39,15 @@ import pandas as pd
 
 from scorecard.data import fetch_universe, load_universe
 from scorecard.engine import score_universe
-from scorecard.flags import all_flags, shortlist
+from scorecard.flags import all_flags, long_term_shortlist, shortlist
 from scorecard.prices import load_prices, price_on
 
 FORMATION_DATES = pd.to_datetime(["2024-05-01", "2024-08-01", "2024-11-01", "2025-02-01", "2025-05-01", "2025-08-01", "2025-11-01"])
 HORIZON = pd.DateOffset(months=12)
+LONG_HORIZON = pd.DateOffset(months=24)
+# The realistic alternative to picking shares: a FTSE 100 tracker fund.
+# iShares Core FTSE 100 ETF; its dividend-adjusted price gives total return.
+BENCHMARK = "ISF.L"
 SCORES = ["overall_score", "quality_score", "valuation_score"]
 GROUPS = 5
 
@@ -57,9 +61,9 @@ def forward_returns(tickers: pd.Series, adjusted: pd.DataFrame, start: pd.Timest
     return pd.Series(out)
 
 
-def evaluate(date, results, info, prices) -> dict:
+def evaluate(date, results, info, prices, horizon=HORIZON) -> dict:
     overall = results["overall"]
-    rets = forward_returns(overall["ticker"], prices["adjusted"], date, date + HORIZON)
+    rets = forward_returns(overall["ticker"], prices["adjusted"], date, date + horizon)
     df = overall.join(rets.rename("ret")).dropna(subset=["ret"])
     row = {"date": date.strftime("%Y-%m-%d"), "companies": len(df), "universe_return": df["ret"].mean(),
            "universe_median": df["ret"].median()}
@@ -74,32 +78,41 @@ def evaluate(date, results, info, prices) -> dict:
         # Medians: one share going up 400% can't swing these
         row[f"{key}_median_spread"] = med.iloc[-1] - med.iloc[0]
         row[f"{key}_rank_corr"] = df[sc].corr(df["ret"], method="spearman")
-    short = shortlist(overall, all_flags(results, info))
+    flags = all_flags(results, info)
+    short = shortlist(overall, flags)
     short_rets = df.loc[df.index.intersection(short.index), "ret"]
     row["shortlist_size"] = len(short_rets)
     row["shortlist_return"] = short_rets.mean() if len(short_rets) else np.nan
     row["shortlist_median"] = short_rets.median() if len(short_rets) else np.nan
+    # Long-term shortlist, held as an equal-weighted portfolio (so the mean is what you'd earn)
+    lt = long_term_shortlist(overall, flags, results["profitability_score"], info)
+    lt_rets = df.loc[df.index.intersection(lt.index), "ret"]
+    row["long_term_size"] = len(lt_rets)
+    row["long_term_return"] = lt_rets.mean() if len(lt_rets) else np.nan
+    row["benchmark_return"] = forward_returns(pd.Series({"FTSE 100 tracker": BENCHMARK}), prices["adjusted"], date, date + horizon).iloc[0]
     return row
 
 
 def main() -> None:
     statements, info = fetch_universe(load_universe())
-    prices = load_prices(list(info["ticker"]))
+    prices = load_prices(list(info["ticker"]) + [BENCHMARK])
     last_price_date = prices["adjusted"].dropna(how="all").index.max()
 
-    rows = []
+    rows, long_rows = [], []
     for date in FORMATION_DATES:
         if date + HORIZON > last_price_date:
             print(f"  {date:%Y-%m-%d}: skipped, twelve months haven't passed yet")
             continue
         results = score_universe(statements, info, prices, as_of=date)
         rows.append(evaluate(date, results, info, prices))
+        if date + LONG_HORIZON <= last_price_date:
+            long_rows.append(evaluate(date, results, info, prices, LONG_HORIZON))
         print(f"  {date:%Y-%m-%d}: scored {rows[-1]['companies']} companies")
 
     res = pd.DataFrame(rows).set_index("date")
     res.to_csv("outputs/backtest.csv")
 
-    pct = lambda x: f"{x * 100:+.1f}%"  # noqa: E731
+    pct = lambda x: "n/a" if x is None or pd.isna(x) else f"{x * 100:+.1f}%"  # noqa: E731
     print("\nTwelve-month total returns after each formation date\n")
     table = pd.DataFrame({
         "Companies": res["companies"],
@@ -111,6 +124,9 @@ def main() -> None:
         "Rank corr": res["overall_rank_corr"].round(2),
         "Shortlist": res["shortlist_return"].map(lambda x: "n/a" if pd.isna(x) else pct(x)),
         "Shortlist n": res["shortlist_size"],
+        "Long-term": res["long_term_return"].map(lambda x: "n/a" if pd.isna(x) else pct(x)),
+        "Long-term n": res["long_term_size"],
+        "FTSE tracker": res["benchmark_return"].map(pct),
     })
     print(table.to_string())
 
@@ -130,7 +146,20 @@ def main() -> None:
     summary["shortlist_median_avg"] = res["shortlist_median"].mean()
     summary["universe_median_avg"] = res["universe_median"].mean()
     summary["shortlist_beat_universe_median"] = int((res["shortlist_median"] > res["universe_median"]).sum())
+    summary["benchmark_avg"] = res["benchmark_return"].mean()
+    summary["shortlist_beat_benchmark"] = int((res["shortlist_return"] > res["benchmark_return"]).sum())
+    summary["long_term_avg"] = res["long_term_return"].mean()
+    summary["long_term_beat_benchmark"] = int((res["long_term_return"] > res["benchmark_return"]).sum())
+    # The long-term list needs three years of margins, so early dates have none
+    summary["long_term_periods"] = int(res["long_term_return"].notna().sum())
     summary["by_period"] = json.loads(res.reset_index().to_json(orient="records"))
+    if long_rows:
+        lr = pd.DataFrame(long_rows)
+        summary["two_year"] = json.loads(lr[[
+            "date", "companies", "universe_median", "quality_median_spread", "shortlist_return",
+            "long_term_return", "long_term_size", "benchmark_return",
+        ]].to_json(orient="records"))
+        lr.to_csv("outputs/backtest_two_year.csv", index=False)
 
     print("\nAverages across periods\n")
     for key in ["overall", "quality", "valuation"]:
@@ -142,6 +171,14 @@ def main() -> None:
           f" beat it in {summary['shortlist_beat_universe']}/{len(res)} periods")
     print(f"  shortlist median {pct(summary['shortlist_median_avg'])} vs universe median {pct(summary['universe_median_avg'])},"
           f" beat it in {summary['shortlist_beat_universe_median']}/{len(res)} periods")
+    print(f"\n  Against a FTSE 100 tracker ({pct(summary['benchmark_avg'])} average):")
+    print(f"    shortlist  {pct(summary['shortlist_avg'])}, beat the tracker in {summary['shortlist_beat_benchmark']}/{len(res)} periods")
+    print(f"    long-term  {pct(summary['long_term_avg'])}, beat the tracker in {summary['long_term_beat_benchmark']}/{summary['long_term_periods']} periods with a list")
+    if long_rows:
+        print("\nTwo-year returns (only dates with two full years of history)\n")
+        for r in summary["two_year"]:
+            print(f"  {r['date']}: shortlist {pct(r['shortlist_return'])}, long-term {pct(r['long_term_return'])}"
+                  f" ({r['long_term_size']} shares), FTSE tracker {pct(r['benchmark_return'])}")
 
     with open("outputs/backtest.json", "w") as f:
         json.dump(summary, f, indent=1, default=float)

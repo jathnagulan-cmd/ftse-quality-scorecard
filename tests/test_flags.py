@@ -46,3 +46,22 @@ def test_shortlist_rules():
     flags = {n: {"red_flags": [], "strengths": [], "notes": []} for n in overall.index}
     flags["Good but flagged"]["red_flags"] = ["a", "b"]
     assert list(shortlist(overall, flags).index) == ["Good and fair"]
+
+
+def test_long_term_shortlist_drops_cyclicals_and_volatile_margins():
+    from scorecard.flags import long_term_shortlist
+
+    names = ["Steady grocer", "Airline", "Volatile retailer"]
+    overall = pd.DataFrame({"quality_score": [70] * 3, "valuation_score": [60] * 3}, index=names)
+    flags = {n: {"red_flags": [], "strengths": [], "notes": []} for n in names}
+    profitability = pd.DataFrame({"margin_stability": [0.01, 0.01, 0.06]}, index=names)
+    info = pd.DataFrame({"industry": ["Grocery Stores", "Airlines", "Apparel Retail"]}, index=names)
+    assert list(long_term_shortlist(overall, flags, profitability, info).index) == ["Steady grocer"]
+
+
+def test_only_confirmed_unavailable_companies_are_removed():
+    names = ["Listed", "Not on platform", "Not checked"]
+    overall = pd.DataFrame({"quality_score": [70] * 3, "valuation_score": [60] * 3}, index=names)
+    flags = {n: {"red_flags": [], "strengths": [], "notes": []} for n in names}
+    tradeable = pd.Series({"Listed": "yes", "Not on platform": "no"})
+    assert list(shortlist(overall, flags, tradeable).index) == ["Listed", "Not checked"]

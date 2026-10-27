@@ -19,8 +19,9 @@ import pandas as pd
 
 from scorecard.data import fetch_universe, load_universe
 from scorecard.engine import score_universe
-from scorecard.flags import all_flags, shortlist
+from scorecard.flags import all_flags, long_term_shortlist, shortlist
 from scorecard.prices import load_prices
+from scorecard.trading212 import load_availability
 
 PILLAR_FILES = {
     "profitability_score": "profitability",
@@ -43,7 +44,7 @@ def _clean(x):
     return x
 
 
-def build_json(results, info, flags, short, as_of) -> dict:
+def build_json(results, info, flags, short, long_term, tradeable, as_of) -> dict:
     companies = []
     for name, row in results["overall"].iterrows():
         entry = {
@@ -56,13 +57,19 @@ def build_json(results, info, flags, short, as_of) -> dict:
             "metrics": {},
             "flags": flags[name],
             "shortlisted": name in short.index,
+            "long_term": name in long_term.index,
+            "trading212": tradeable.get(name, "unchecked") if tradeable is not None else "unchecked",
         }
         for key in PILLAR_FILES:
             r = results[key].loc[name]
             entry["metrics"].update({k: _clean(v) for k, v in r.items() if k != "peer_group" and not k.endswith("_rank") and not k.endswith("_score")})
         entry["peer_group"] = results["profitability_score"].loc[name, "peer_group"]
         companies.append(entry)
-    return {"as_of": as_of.strftime("%Y-%m-%d"), "count": len(companies), "shortlist": list(short.index), "companies": companies}
+    return {
+        "as_of": as_of.strftime("%Y-%m-%d"), "count": len(companies),
+        "shortlist": list(short.index), "long_term_shortlist": list(long_term.index),
+        "trading212_checked": tradeable is not None, "companies": companies,
+    }
 
 
 def main(refresh: bool = False) -> None:
@@ -74,14 +81,17 @@ def main(refresh: bool = False) -> None:
     results = score_universe(statements, info, prices, as_of)
     flags = all_flags(results, info)
     overall = results["overall"]
-    short = shortlist(overall, flags)
+    tradeable = load_availability()
+    short = shortlist(overall, flags, tradeable)
+    long_term = long_term_shortlist(overall, flags, results["profitability_score"], info, tradeable)
 
     for key, fname in PILLAR_FILES.items():
         results[key].to_csv(f"outputs/{fname}.csv")
     overall.to_csv("outputs/overall.csv")
     short.to_csv("outputs/shortlist.csv")
+    long_term.to_csv("outputs/shortlist_long_term.csv")
     with open("outputs/scorecard.json", "w") as f:
-        json.dump(build_json(results, info, flags, short, as_of), f, indent=1)
+        json.dump(build_json(results, info, flags, short, long_term, tradeable, as_of), f, indent=1)
 
     view = overall.rename(columns={
         "profitability_score": "Profit", "balance_sheet_score": "Balance",
@@ -102,6 +112,11 @@ def main(refresh: bool = False) -> None:
             print(f"   ! {s}")
         for s in f["notes"]:
             print(f"   ? {s}")
+    print("\nLong-term shortlist: same rules, no cyclical industries, margins steady within 3 points\n")
+    for name in long_term.index:
+        print(f"  {name}  (overall {overall.loc[name, 'overall_score']}, quality {overall.loc[name, 'quality_score']}, value {overall.loc[name, 'valuation_score']})")
+    if tradeable is None:
+        print("\nTrading 212 availability not checked yet: run check_trading212.py with your API key.")
     print("\nThis is a screen, not advice. Check the latest annual report and news before acting.")
     print("Full results saved to outputs/")
 
