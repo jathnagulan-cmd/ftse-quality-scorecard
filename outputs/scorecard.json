@@ -60,16 +60,16 @@
     "accrual_ratio": -0.0361,
     "receivables_gap": -0.2771,
     "accrual_ratio_floored": -0.0361,
-    "ev_to_ebit": 7.9492,
+    "ev_to_ebit": 7.9503,
     "fcf_yield": 0.1082,
-    "pe_latest": 6.6817,
-    "market_cap": 22330175305.8907,
-    "enterprise_value": 28307175305.8907
+    "pe_latest": 6.6828,
+    "market_cap": 22333911943.128,
+    "enterprise_value": 28310911943.128
    },
    "flags": {
     "strengths": [
      "Profits backed by cash: 110% cash conversion",
-     "Cheap on normalised profits: 7.9x average operating profit"
+     "Cheap on normalised profits: 8.0x average operating profit"
     ],
     "red_flags": [],
     "notes": [
@@ -114,11 +114,11 @@
     "accrual_ratio": -0.0721,
     "receivables_gap": -0.3439,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 10.8319,
+    "ev_to_ebit": 10.8326,
     "fcf_yield": 0.0778,
-    "pe_latest": 19.791,
-    "market_cap": 13438120167.6872,
-    "enterprise_value": 18972120167.6872
+    "pe_latest": 19.7929,
+    "market_cap": 13439372070.0856,
+    "enterprise_value": 18973372070.0856
    },
    "flags": {
     "strengths": [
@@ -328,11 +328,11 @@
     "accrual_ratio": -0.0238,
     "receivables_gap": 0.0279,
     "accrual_ratio_floored": -0.0238,
-    "ev_to_ebit": 9.0716,
+    "ev_to_ebit": 9.0724,
     "fcf_yield": 0.099,
-    "pe_latest": 16.6729,
-    "market_cap": 297393642062.2583,
-    "enterprise_value": 343406642062.2583
+    "pe_latest": 16.6744,
+    "market_cap": 297421347411.6027,
+    "enterprise_value": 343434347411.6027
    },
    "flags": {
     "strengths": [
@@ -490,11 +490,11 @@
     "accrual_ratio": -0.057,
     "receivables_gap": 0.0598,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 9.4525,
+    "ev_to_ebit": 9.4533,
     "fcf_yield": 0.0496,
-    "pe_latest": 13.8856,
-    "market_cap": 138384213504.5159,
-    "enterprise_value": 154449213504.5159
+    "pe_latest": 13.8869,
+    "market_cap": 138397105451.2041,
+    "enterprise_value": 154462105451.2041
    },
    "flags": {
     "strengths": [
@@ -751,11 +751,11 @@
     "accrual_ratio": -0.0576,
     "receivables_gap": -1.4795,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 13.6647,
+    "ev_to_ebit": 13.666,
     "fcf_yield": 0.036,
-    "pe_latest": 18.7869,
-    "market_cap": 12760092517.2901,
-    "enterprise_value": 12945592517.2901
+    "pe_latest": 18.7887,
+    "market_cap": 12761281254.2732,
+    "enterprise_value": 12946781254.2732
    },
    "flags": {
     "strengths": [],
@@ -1074,11 +1074,11 @@
     "accrual_ratio": -0.039,
     "receivables_gap": 0.0205,
     "accrual_ratio_floored": -0.039,
-    "ev_to_ebit": 19.5754,
+    "ev_to_ebit": 19.5785,
     "fcf_yield": 0.0354,
-    "pe_latest": 21.4311,
-    "market_cap": 20153841659.8635,
-    "enterprise_value": 21336741659.8635
+    "pe_latest": 21.4347,
+    "market_cap": 20157214118.6189,
+    "enterprise_value": 21340114118.6189
    },
    "flags": {
     "strengths": [
@@ -1285,11 +1285,11 @@
     "accrual_ratio": 0.0307,
     "receivables_gap": 0.0417,
     "accrual_ratio_floored": 0.0307,
-    "ev_to_ebit": 10.8726,
+    "ev_to_ebit": 10.8734,
     "fcf_yield": 0.0477,
-    "pe_latest": 12.4162,
-    "market_cap": 4991312543.5393,
-    "enterprise_value": 6352312543.5393
+    "pe_latest": 12.4174,
+    "market_cap": 4991777536.8618,
+    "enterprise_value": 6352777536.8618
    },
    "flags": {
     "strengths": [
@@ -1391,11 +1391,11 @@
     "accrual_ratio": -0.0597,
     "receivables_gap": 0.2003,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 6.3263,
+    "ev_to_ebit": 6.3268,
     "fcf_yield": 0.1262,
-    "pe_latest": 2279.6099,
-    "market_cap": 125378546958.8524,
-    "enterprise_value": 161193546958.8524
+    "pe_latest": 2279.8223,
+    "market_cap": 125390227290.7509,
+    "enterprise_value": 161205227290.7509
    },
    "flags": {
     "strengths": [
@@ -1809,11 +1809,11 @@
     "accrual_ratio": -0.0927,
     "receivables_gap": 0.0896,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 17.2711,
-    "fcf_yield": 0.1219,
+    "ev_to_ebit": 17.2724,
+    "fcf_yield": 0.1218,
     "pe_latest": null,
-    "market_cap": 32814422420.9839,
-    "enterprise_value": 73121422420.9839
+    "market_cap": 32819913447.8594,
+    "enterprise_value": 73126913447.8594
    },
    "flags": {
     "strengths": [
@@ -1914,11 +1914,11 @@
     "accrual_ratio": -0.1026,
     "receivables_gap": 0.0869,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 23.61,
+    "ev_to_ebit": 23.6123,
     "fcf_yield": 0.0309,
-    "pe_latest": 17.0128,
-    "market_cap": 23545527585.5346,
-    "enterprise_value": 21640024585.5346
+    "pe_latest": 17.0144,
+    "market_cap": 23547721099.366,
+    "enterprise_value": 21642218099.366
    },
    "flags": {
     "strengths": [
@@ -2077,11 +2077,11 @@
     "accrual_ratio": -0.0809,
     "receivables_gap": 0.1554,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 25.6187,
+    "ev_to_ebit": 25.6207,
     "fcf_yield": 0.0398,
-    "pe_latest": 35.7895,
-    "market_cap": 6263160743.9857,
-    "enterprise_value": 7713160743.9857
+    "pe_latest": 35.7928,
+    "market_cap": 6263744223.3607,
+    "enterprise_value": 7713744223.3607
    },
    "flags": {
     "strengths": [],
@@ -2128,11 +2128,11 @@
     "accrual_ratio": -0.0486,
     "receivables_gap": 0.0307,
     "accrual_ratio_floored": -0.0486,
-    "ev_to_ebit": 20.8117,
+    "ev_to_ebit": 20.8133,
     "fcf_yield": 0.0357,
-    "pe_latest": 20.3007,
-    "market_cap": 12687922398.0014,
-    "enterprise_value": 15457922398.0014
+    "pe_latest": 20.3026,
+    "market_cap": 12689104411.5779,
+    "enterprise_value": 15459104411.5779
    },
    "flags": {
     "strengths": [],
@@ -2283,11 +2283,11 @@
     "accrual_ratio": -0.0678,
     "receivables_gap": -0.0122,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 8.6276,
+    "ev_to_ebit": 8.6285,
     "fcf_yield": 0.0541,
-    "pe_latest": 24.8136,
-    "market_cap": 4094244108.8975,
-    "enterprise_value": 6684244108.8975
+    "pe_latest": 24.8178,
+    "market_cap": 4094929222.417,
+    "enterprise_value": 6684929222.417
    },
    "flags": {
     "strengths": [
@@ -2388,11 +2388,11 @@
     "accrual_ratio": -0.0634,
     "receivables_gap": 0.3318,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 10.1232,
+    "ev_to_ebit": 10.124,
     "fcf_yield": 0.0394,
     "pe_latest": null,
-    "market_cap": 54727265458.3109,
-    "enterprise_value": 64062265458.3109
+    "market_cap": 54732363879.3722,
+    "enterprise_value": 64067363879.3722
    },
    "flags": {
     "strengths": [],
@@ -2764,11 +2764,11 @@
     "accrual_ratio": -0.032,
     "receivables_gap": 0.0442,
     "accrual_ratio_floored": -0.032,
-    "ev_to_ebit": 13.8902,
+    "ev_to_ebit": 13.8911,
     "fcf_yield": 0.0468,
-    "pe_latest": 21.9988,
-    "market_cap": 51785177748.9305,
-    "enterprise_value": 73539177748.9305
+    "pe_latest": 22.0009,
+    "market_cap": 51790002083.5412,
+    "enterprise_value": 73544002083.5412
    },
    "flags": {
     "strengths": [],
@@ -2816,11 +2816,11 @@
     "accrual_ratio": -0.0149,
     "receivables_gap": 0.7755,
     "accrual_ratio_floored": -0.0149,
-    "ev_to_ebit": 15.231,
+    "ev_to_ebit": 15.2332,
     "fcf_yield": 0.047,
-    "pe_latest": 13.4615,
-    "market_cap": 127466896086.9229,
-    "enterprise_value": 150051896086.9229
+    "pe_latest": 13.4637,
+    "market_cap": 127488225859.0325,
+    "enterprise_value": 150073225859.0325
    },
    "flags": {
     "strengths": [],
@@ -2867,11 +2867,11 @@
     "accrual_ratio": -0.0227,
     "receivables_gap": -0.0317,
     "accrual_ratio_floored": -0.0227,
-    "ev_to_ebit": 23.898,
+    "ev_to_ebit": 23.8997,
     "fcf_yield": 0.0528,
-    "pe_latest": 24.459,
-    "market_cap": 11495750196.8381,
-    "enterprise_value": 15304750196.8381
+    "pe_latest": 24.4613,
+    "market_cap": 11496821147.0203,
+    "enterprise_value": 15305821147.0203
    },
    "flags": {
     "strengths": [],
@@ -3022,11 +3022,11 @@
     "accrual_ratio": -0.0199,
     "receivables_gap": 0.1468,
     "accrual_ratio_floored": -0.0199,
-    "ev_to_ebit": 31.2989,
+    "ev_to_ebit": 31.3015,
     "fcf_yield": 0.0298,
-    "pe_latest": 25.8791,
-    "market_cap": 264613475685.5968,
-    "enterprise_value": 288043475685.5968
+    "pe_latest": 25.8815,
+    "market_cap": 264638127217.2646,
+    "enterprise_value": 288068127217.2646
    },
    "flags": {
     "strengths": [],
@@ -3184,11 +3184,11 @@
     "accrual_ratio": -0.0219,
     "receivables_gap": 0.2521,
     "accrual_ratio_floored": -0.0219,
-    "ev_to_ebit": 23.4544,
+    "ev_to_ebit": 23.4563,
     "fcf_yield": 0.0361,
-    "pe_latest": 23.0532,
-    "market_cap": 34625944883.5165,
-    "enterprise_value": 39854944883.5165
+    "pe_latest": 23.0554,
+    "market_cap": 34629170654.8973,
+    "enterprise_value": 39858170654.8973
    },
    "flags": {
     "strengths": [],
@@ -3604,11 +3604,11 @@
     "accrual_ratio": -0.0406,
     "receivables_gap": 0.1626,
     "accrual_ratio_floored": -0.0406,
-    "ev_to_ebit": 11.9076,
+    "ev_to_ebit": 11.9084,
     "fcf_yield": 0.0568,
-    "pe_latest": 232.4968,
-    "market_cap": 84396345835.0036,
-    "enterprise_value": 122964345835.0036
+    "pe_latest": 232.5185,
+    "market_cap": 84404208243.3205,
+    "enterprise_value": 122972208243.3205
    },
    "flags": {
     "strengths": [],
@@ -3620,7 +3620,7 @@
     ],
     "notes": [
      "Cyclical industry (Other Industrial Metals & Mining): the data may not include a full downturn, so treat strong scores with caution",
-     "Headline P/E of 232 reflects unusually low latest-year profit, not price alone"
+     "Headline P/E of 233 reflects unusually low latest-year profit, not price alone"
     ]
    },
    "shortlisted": false,
@@ -3661,11 +3661,11 @@
     "accrual_ratio": 0.0036,
     "receivables_gap": 0.4181,
     "accrual_ratio_floored": 0.0036,
-    "ev_to_ebit": 21.3918,
+    "ev_to_ebit": 21.3937,
     "fcf_yield": 0.0027,
-    "pe_latest": 32.6883,
-    "market_cap": 43439464092.383,
-    "enterprise_value": 45602964092.383
+    "pe_latest": 32.6913,
+    "market_cap": 43443510935.8853,
+    "enterprise_value": 45607010935.8853
    },
    "flags": {
     "strengths": [],
