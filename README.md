@@ -31,6 +31,13 @@ cyclical industries and any company whose operating margin moved more than
 steady businesses for years. These extra rules come from that goal, not from
 the backtest.
 
+The dashboard also shows each company's **price trend** (1-month, 1-year and
+5-year change, and distance from the 52-week high and low) with a note when a
+share has risen more than 50% in a year or sits more than 30% below its
+52-week high. These are shown for context and deliberately **not scored**:
+price momentum works over months, not years, and rewarding it would push the
+tool towards chasing whatever has recently gone up.
+
 **This is a screen for deciding what to research, not a buy list.** It reads
 four years of accounts and nothing else: no news, guidance, management or
 anything after the last annual report.

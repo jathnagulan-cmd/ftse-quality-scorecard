@@ -145,6 +145,8 @@ th { font-family: var(--font-body); font-weight: 600; color: var(--muted); font-
 .ranges button { flex: 1; font: inherit; font-family: var(--font-data); font-size: 0.8rem; padding: 5px 0; border: 0; border-radius: 6px; background: none; color: var(--muted); cursor: pointer; }
 .ranges button[aria-pressed="true"] { background: var(--accent-soft); color: var(--ink); font-weight: 500; }
 .chart-foot { font-size: 0.74rem; color: var(--muted); }
+.trend { font-size: 0.8rem; color: var(--muted); font-family: var(--font-data); }
+.pos { color: var(--good); } .neg { color: var(--bad); }
 
 footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-width: 75ch; }
 
@@ -285,6 +287,32 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
   }
 
   const byName = Object.fromEntries(S.companies.map((c) => [c.name, c]));
+
+  // Price trend: shown for context, never part of any score
+  const trendCache = {};
+  function trend(ticker) {
+    if (ticker in trendCache) return trendCache[ticker];
+    const s = (DATA.prices || {})[ticker] || {}, y = s["1Y"] || [];
+    if (y.length < 2) return (trendCache[ticker] = null);
+    const last = y[y.length - 1][1];
+    const from = (k) => (s[k] && s[k].length > 1 ? last / s[k][0][1] - 1 : null);
+    const highs = y.map((p) => p[1]);
+    const hi = Math.max(...highs), lo = Math.min(...highs);
+    const five = s["5Y"] || [];
+    const years = five.length > 1 ? (five[five.length - 1][0] - five[0][0]) / 3.156e10 : 0;
+    return (trendCache[ticker] = {
+      m1: from("1M"), y1: from("1Y"), y5: from("5Y"), y5years: years,
+      high: hi, low: lo, fromHigh: last / hi - 1, fromLow: last / lo - 1,
+    });
+  }
+  const trendText = (v) => (v == null ? "n/a" : (v >= 0 ? "+" : "−") + Math.abs(v * 100).toFixed(1) + "%");
+  function flagsFor(c) {
+    const f = { strengths: c.flags.strengths, red_flags: c.flags.red_flags, notes: [...c.flags.notes] };
+    const t = trend(c.ticker);
+    if (t && t.y1 != null && t.y1 > 0.5) f.notes.push(`Share price up ${(t.y1 * 100).toFixed(0)}% in a year: check you're not buying straight after a big run-up`);
+    if (t && t.fromHigh < -0.3) f.notes.push(`${Math.abs(t.fromHigh * 100).toFixed(0)}% below its 52-week high: find out why before treating it as cheap`);
+    return f;
+  }
   const flagList = (f, limit) => {
     const items = [
       ...f.strengths.map((t) => ["good", t]), ...f.red_flags.map((t) => ["bad", t]), ...f.notes.map((t) => ["note", t]),
@@ -309,7 +337,8 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
       return `<button type="button" class="pick" data-open="${esc(n)}">
         <div class="pick-top"><span class="pick-name">${esc(n)}${t212(c)}</span><span class="pick-score">${c.scores.overall_score.toFixed(0)}</span></div>
         <span class="muted" style="font-size:.8rem">${esc(c.ticker)} · ${esc(c.industry || c.sector)} · quality ${c.scores.quality_score.toFixed(0)}, value ${c.scores.valuation_score.toFixed(0)}</span>
-        <ul>${flagList(c.flags)}</ul></button>`;
+        ${(() => { const t = trend(c.ticker); return t ? `<span class="trend">Price: 1Y <span class="${t.y1 >= 0 ? "pos" : "neg"}">${trendText(t.y1)}</span> · ${Math.abs(t.fromHigh * 100).toFixed(0)}% below 52-week high</span>` : ""; })()}
+        <ul>${flagList(flagsFor(c))}</ul></button>`;
     }).join("") : `<p class="muted">Nothing meets these rules this month.</p>`;
   }
   $("sl-long").addEventListener("click", () => { slMode = "long"; renderShortlist(); });
@@ -330,8 +359,17 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
       ${p.metrics.map(([k, l, f]) => `<div class="kv"><span>${l}</span><span>${f(c.metrics[k])}</span></div>`).join("")}</div>`).join("");
     return `<div class="detail" role="region" aria-label="${esc(c.name)} detail">
       <div class="chart" data-ticker="${esc(c.ticker)}" data-ccy="${esc(c.quote_currency || "GBp")}"></div>
-      <ul class="detail-flags" style="list-style:none;margin:0;padding:0">${flagList(c.flags) || '<li class="muted">No flags.</li>'}</ul>
+      <ul class="detail-flags" style="list-style:none;margin:0;padding:0">${flagList(flagsFor(c)) || '<li class="muted">No flags.</li>'}</ul>
       <div class="groups">${groups}
+        ${(() => { const t = trend(c.ticker), ccy = c.quote_currency || "GBp";
+          const px = (v) => ccy === "GBp" ? v.toFixed(v < 100 ? 2 : 1) + "p" : ({ USD: "$", EUR: "€", GBP: "£" }[ccy] || "") + v.toFixed(2);
+          return t ? `<div class="group"><h3><span>Price trend (not scored)</span></h3>
+          <div class="kv"><span>1 month</span><span>${trendText(t.m1)}</span></div>
+          <div class="kv"><span>1 year</span><span>${trendText(t.y1)}</span></div>
+          <div class="kv"><span>${t.y5years >= 4.5 ? "5 years" : "Since " + new Date(Date.now() - t.y5years * 3.156e10).getFullYear()}</span><span>${trendText(t.y5)}</span></div>
+          <div class="kv"><span>52-week high</span><span>${px(t.high)}</span></div>
+          <div class="kv"><span>52-week low</span><span>${px(t.low)}</span></div>
+          <div class="kv"><span>From 52-week high</span><span>${trendText(t.fromHigh)}</span></div></div>` : ""; })()}
         <div class="group"><h3><span>Size</span></h3>
           <div class="kv"><span>Market value</span><span>${money(c.metrics.market_cap, c.reporting_currency)}</span></div>
           <div class="kv"><span>Enterprise value</span><span>${money(c.metrics.enterprise_value, c.reporting_currency)}</span></div>
@@ -354,7 +392,7 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
       const isOpen = open.has(c.name), red = c.flags.red_flags.length;
       return `<button type="button" class="row" aria-expanded="${isOpen}" data-name="${esc(c.name)}">
         <span class="rank">${c.rank}</span>
-        <span class="co"><b>${esc(c.name)}${c.long_term ? '<span class="tag lt">LONG-TERM</span>' : c.shortlisted ? '<span class="tag">SHORTLIST</span>' : ""}${c.trading212 === "no" ? '<span class="tag no">NOT ON T212</span>' : ""}${red ? `<span class="redcount">${red} flag${red > 1 ? "s" : ""}</span>` : ""}</b><span>${esc(c.ticker)} · ${esc(c.industry || c.sector)}</span></span>
+        <span class="co"><b>${esc(c.name)}${c.long_term ? '<span class="tag lt">LONG-TERM</span>' : c.shortlisted ? '<span class="tag">SHORTLIST</span>' : ""}${c.trading212 === "no" ? '<span class="tag no">NOT ON T212</span>' : ""}${red ? `<span class="redcount">${red} flag${red > 1 ? "s" : ""}</span>` : ""}</b><span>${esc(c.ticker)} · ${esc(c.industry || c.sector)}${(() => { const t = trend(c.ticker); return t && t.y1 != null ? ` · 1Y <span class="${t.y1 >= 0 ? "pos" : "neg"}">${trendText(t.y1)}</span>` : ""; })()}</span></span>
         <span class="meters">${meter(c.scores.profitability_score, "Profit")}${meter(c.scores.balance_sheet_score, "Balance")}${meter(c.scores.earnings_quality_score, "Cash")}${meter(c.scores.valuation_score, "Value")}</span>
         <span class="overall">${c.scores.overall_score.toFixed(0)}</span>
       </button>${isOpen ? detail(c) : ""}`;
