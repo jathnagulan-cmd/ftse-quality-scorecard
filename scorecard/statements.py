@@ -37,6 +37,10 @@ ROW_NAMES = {
     # every company's operating cash flow on the same pre-interest basis.
     "interest_paid_in_ocf": ["Interest Paid Cfo"],
     "interest_paid_in_financing": ["Interest Paid Cff"],
+    # The cash flow statement's reconciling line that removes profit or loss
+    # on selling a business (negative for a gain). Adding it to net income
+    # strips the one-off out.
+    "disposal_adjustment": ["Gain Loss On Sale Of Business"],
 }
 
 

@@ -25,13 +25,13 @@ Metrics (all calculated from annual reports):
         Direction matters as much as level. An improving 8% margin can be a
         better sign than a decaying 15% one.
 
-Scoring: each metric is converted to a percentile rank within the group of
-companies being compared (100 = best; with five companies the worst gets
-20), then the four ranks are
+Scoring: each metric is converted to a percentile rank (100 = best), then
+the four ranks are
 averaged into a pillar score out of 100. This is a *relative* score: it says
 how a company compares with its peers, not whether it is good in absolute
-terms. With only five companies the ranks are coarse; they get more
-meaningful as the universe grows.
+terms. Gross and operating margin are ranked only against peers in the
+same industry (see scoring.py), because a supermarket and a luxury brand
+have structurally different margins.
 """
 
 from __future__ import annotations
@@ -85,6 +85,12 @@ HIGHER_IS_BETTER = {
 }
 
 
-def score(metrics: pd.DataFrame) -> pd.DataFrame:
+# Margins depend on the business model, so they are compared within peer
+# groups. ROCE and the margin trend mean the same in any industry, so they
+# are compared across everyone.
+PEER_RELATIVE = ("gross_margin", "operating_margin")
+
+
+def score(metrics: pd.DataFrame, peer_groups: pd.Series | None = None) -> pd.DataFrame:
     """Percentile-rank the metrics and average them into a pillar score /100."""
-    return rank_and_score(metrics, HIGHER_IS_BETTER, "profitability_score")
+    return rank_and_score(metrics, HIGHER_IS_BETTER, "profitability_score", peer_groups, PEER_RELATIVE)

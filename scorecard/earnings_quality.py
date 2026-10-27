@@ -27,6 +27,13 @@ Scored metrics:
         If money owed by customers grows much faster than sales, revenue may
         be being booked before it can be collected: a classic warning sign.
 
+Disposals: profit on selling a business lands in net income, but the sale
+proceeds are an investing cash flow, never an operating one. Left in, a big
+disposal looks like profit with no cash behind it (Smiths Group's £1.7bn gain
+in 2026 produced an accrual ratio of 40% of total assets). The cash flow
+statement's own reconciling line for disposal gains is used to strip them out
+of net income before the accrual ratio is calculated.
+
 Consistency fix: IFRS lets companies classify interest paid as either an
 operating or a financing cash flow. Rolls-Royce puts it in financing, the
 others in operating. Left alone, that would make Rolls-Royce's operating cash
@@ -55,7 +62,7 @@ HIGHER_IS_BETTER = {
 def _row(df: pd.DataFrame, item: str) -> pd.Series:
     """A line item with missing interest-classification rows treated as zero."""
     s = get_row(df, item)
-    return s.fillna(0) if item.startswith("interest_paid") else s
+    return s.fillna(0) if item.startswith("interest_paid") or item == "disposal_adjustment" else s
 
 
 def operating_cash_flows(cashflow: pd.DataFrame) -> tuple[pd.Series, pd.Series]:
@@ -110,10 +117,14 @@ def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.Da
     pre, post = operating_cash_flows(cashflow)
     return {
         "cash_conversion": cash_conversion(pre, ebitda),
-        "accrual_ratio": accrual_ratio(get_row(cashflow, "net_income_cf"), post, get_row(balance, "total_assets")),
+        "accrual_ratio": accrual_ratio(
+            get_row(cashflow, "net_income_cf") + _row(cashflow, "disposal_adjustment"),
+            post,
+            get_row(balance, "total_assets"),
+        ),
         "receivables_gap": growth(get_row(balance, "receivables")) - growth(get_row(income, "revenue")),
     }
 
 
-def score(metrics: pd.DataFrame) -> pd.DataFrame:
+def score(metrics: pd.DataFrame, peer_groups: pd.Series | None = None) -> pd.DataFrame:
     return rank_and_score(metrics, HIGHER_IS_BETTER, "earnings_quality_score")

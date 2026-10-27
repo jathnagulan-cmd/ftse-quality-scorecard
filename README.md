@@ -19,8 +19,31 @@ overall quality score.
 | Earnings quality | Does reported profit actually turn into cash? | Built |
 | Valuation | Is the market price reasonable for what you get? | Planned |
 
-Scores are **relative**: each metric is ranked against the other companies in
-the group, so a score says how a company compares with its peers.
+Scores are **relative**: each metric is ranked against other companies, so a
+score says how a company compares with its peers, not whether it is good in
+absolute terms.
+
+### Universe
+
+The FTSE 100 (constituent snapshot from December 2025, in `data/universe.csv`),
+plus Burberry and Ocado from the original watchlist. **Banks, insurers, asset
+managers, investment trusts and property companies are excluded.** Their
+accounts work differently (a bank's debt is its raw material, insurers have
+no gross margin), so these metrics would be meaningless for them. That leaves
+72 scored companies.
+
+### Peer-relative margins
+
+Gross and operating margins are driven by the business model, so they are
+ranked only against similar companies. A supermarket's 7% gross margin is
+not worse than a luxury brand's 68%; they are different businesses. Each
+company is compared within its industry (e.g. Grocery Stores) when at least
+three FTSE companies share it, otherwise within its sector, otherwise against
+everyone. ROCE, margin trend and the other pillars are ranked across the whole
+universe because they mean the same in any business.
+
+This changed Tesco's profitability score from 50 to 70: its margins are thin
+for the FTSE, but the best among UK grocers.
 
 ### Pillar 1: Profitability
 
@@ -72,6 +95,11 @@ Two adjustments keep the comparison fair:
   the others use operating). Operating cash flow is restated to the same basis
   for every company: pre-interest when compared with EBITDA, post-interest
   when compared with net income.
+- **Disposals.** A profit on selling a business sits in net income, but the
+  proceeds are an investing cash flow, so a big sale looks like profit with no
+  cash behind it. Disposal gains and losses are stripped out of net income
+  first (Smiths Group's £1.7bn disposal gain had produced an accrual ratio of
+  40% of total assets; adjusted, 4.7%).
 - **Unstable profits.** Cash conversion is only calculated when EBITDA was
   positive in every year. Otherwise the summed denominator can be tiny and the
   ratio explodes (Ocado's first run showed 488%). Such companies rank last on
@@ -81,19 +109,42 @@ Two adjustments keep the comparison fair:
 
 For now, a simple equal-weighted average of the pillars built so far.
 
+## Known limitations
+
+Flagged deliberately, so they can be fixed or at least understood:
+
+- **Sector-structural leverage.** Regulated utilities (e.g. Severn Trent)
+  carry high debt by design, financed against stable regulated income. The
+  balance sheet pillar ranks leverage across all sectors, so it treats this as
+  weakness. Same problem as gross margins had, same likely fix.
+- **Classification quirks.** Yahoo classifies Ocado as a grocer. Its 38% gross
+  margin reflects a technology and logistics model, which gives it a flattering
+  rank against Tesco and Sainsbury's.
+- **Negative equity from buybacks.** Asset-light companies that return large
+  amounts of capital (e.g. InterContinental Hotels) can show negative equity,
+  which the equity ratio reads as fragility.
+- **Write-downs flatter the accrual ratio.** Large non-cash impairments push
+  profit below cash flow, which the Sloan ratio rewards (e.g. Burberry).
+- **Funding by share issues.** A loss-making company that raises equity
+  repeatedly can score well on equity ratio despite needing outside money.
+- **Stale constituent list.** The universe is a snapshot; four companies
+  (Ashtead, Hargreaves Lansdown, Phoenix, DS Smith) returned no data, two of
+  them having since been taken over.
+
 ## Running it
 
 Requires Python 3.10+.
 
 ```bash
 pip install -r requirements.txt
-python run.py          # fetches data and prints the scorecard
+python run.py             # fetches data (cached after the first run) and prints the scorecard
+python run.py --refresh   # re-downloads everything
 python -m pytest       # checks the calculations on hand-worked examples
 ```
 
-Results are saved to `outputs/` (one CSV per pillar plus `overall.csv`).
-
-Starter companies: Diageo, Rolls-Royce, Tesco, Burberry, Ocado.
+Results are saved to `outputs/` (one CSV per pillar plus `overall.csv`, which
+has every company's rank and pillar scores). The first run takes a few
+minutes; data is cached in `data/cache/` afterwards.
 
 ## Data and limitations
 
@@ -106,9 +157,10 @@ against the company's published annual report.
 ## Project structure
 
 ```
-scorecard/data.py           fetching statements (the only part that uses the internet)
+scorecard/data.py           fetching and caching statements, sector exclusions
+data/universe.csv           companies to score (edit to change the universe)
 scorecard/statements.py     reading line items, shared by every pillar
-scorecard/scoring.py        percentile ranking into scores /100
+scorecard/scoring.py        peer groups and percentile ranking into scores /100
 scorecard/profitability.py  pillar 1 metrics
 scorecard/balance_sheet.py  pillar 2 metrics
 scorecard/earnings_quality.py  pillar 3 metrics

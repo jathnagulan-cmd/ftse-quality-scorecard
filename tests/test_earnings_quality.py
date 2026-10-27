@@ -62,3 +62,16 @@ def test_cash_backed_profit_ranks_best():
     )
     result = score(metrics)
     assert list(result.index) == ["Cash-backed", "Average", "Paper profits"]
+
+
+def test_disposal_gain_is_not_counted_as_uncashed_profit():
+    income = frame({"Total Revenue": [100, 100], "Operating Income": [10, 10], "Reconciled Depreciation": [5, 5]})
+    balance = frame({"Total Assets": [1000, 1000], "Accounts Receivable": [10, 10]})
+    cashflow = frame({
+        "Operating Cash Flow": [15, 15],
+        # 20 of underlying profit plus a 500 gain on selling a division
+        "Net Income From Continuing Operations": [20, 520],
+        "Gain Loss On Sale Of Business": [0, -500],
+    })
+    # (520 - 500 - 15) / 1000, not (520 - 15) / 1000
+    assert company_metrics(income, balance, cashflow)["accrual_ratio"] == pytest.approx(0.005)

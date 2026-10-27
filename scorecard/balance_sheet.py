@@ -108,6 +108,6 @@ def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.Da
     }
 
 
-def score(metrics: pd.DataFrame) -> pd.DataFrame:
+def score(metrics: pd.DataFrame, peer_groups: pd.Series | None = None) -> pd.DataFrame:
     """Score on the three scored metrics; the Altman columns ride along unscored."""
     return rank_and_score(metrics, HIGHER_IS_BETTER, "balance_sheet_score")
