@@ -51,6 +51,7 @@ def build_json(results, info, flags, short, long_term, tradeable, as_of) -> dict
             "name": name, "ticker": row["ticker"], "sector": row["sector"],
             "industry": info.loc[name].get("industry"), "rank": int(row["rank"]),
             "reporting_currency": info.loc[name].get("financialCurrency"),
+            "quote_currency": info.loc[name].get("currency") or "GBp",
             "scores": {k: _clean(row[k]) for k in
                        ["profitability_score", "balance_sheet_score", "earnings_quality_score",
                         "valuation_score", "quality_score", "overall_score"]},

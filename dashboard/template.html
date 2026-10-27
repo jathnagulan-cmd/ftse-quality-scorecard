@@ -128,6 +128,24 @@ th { font-family: var(--font-body); font-weight: 600; color: var(--muted); font-
 .kv span:last-child { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
 .empty { padding: 20px 14px; color: var(--muted); }
 
+/* Price chart */
+.chart { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px 10px; display: grid; gap: 8px; }
+.chart-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; min-height: 48px; }
+.chart-price { font-family: var(--font-data); font-size: 1.6rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.chart-change { font-family: var(--font-data); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.chart-change.up { color: var(--good); } .chart-change.down { color: var(--bad); }
+.chart-when { font-size: 0.78rem; color: var(--muted); display: block; }
+.chart svg { display: block; width: 100%; height: 190px; touch-action: pan-y; cursor: crosshair; }
+.chart .line { fill: none; stroke-width: 1.8; stroke-linejoin: round; }
+.chart .up { stroke: var(--good); } .chart .down { stroke: var(--bad); }
+.chart .base { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 4; opacity: .6; }
+.chart .cross { stroke: var(--muted); stroke-width: 1; }
+.chart .axis { fill: var(--muted); font-family: var(--font-data); font-size: 10px; }
+.ranges { display: flex; gap: 4px; justify-content: space-between; max-width: 340px; }
+.ranges button { flex: 1; font: inherit; font-family: var(--font-data); font-size: 0.8rem; padding: 5px 0; border: 0; border-radius: 6px; background: none; color: var(--muted); cursor: pointer; }
+.ranges button[aria-pressed="true"] { background: var(--accent-soft); color: var(--ink); font-weight: 500; }
+.chart-foot { font-size: 0.74rem; color: var(--muted); }
+
 footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-width: 75ch; }
 
 @media (max-width: 720px) {
@@ -311,6 +329,7 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
     const groups = PILLARS.map((p) => `<div class="group"><h3><span>${p.label}</span><span class="num">${isNum(c.scores[p.key]) ? c.scores[p.key].toFixed(0) : "–"}</span></h3>
       ${p.metrics.map(([k, l, f]) => `<div class="kv"><span>${l}</span><span>${f(c.metrics[k])}</span></div>`).join("")}</div>`).join("");
     return `<div class="detail" role="region" aria-label="${esc(c.name)} detail">
+      <div class="chart" data-ticker="${esc(c.ticker)}" data-ccy="${esc(c.quote_currency || "GBp")}"></div>
       <ul class="detail-flags" style="list-style:none;margin:0;padding:0">${flagList(c.flags) || '<li class="muted">No flags.</li>'}</ul>
       <div class="groups">${groups}
         <div class="group"><h3><span>Size</span></h3>
@@ -340,9 +359,90 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
         <span class="overall">${c.scores.overall_score.toFixed(0)}</span>
       </button>${isOpen ? detail(c) : ""}`;
     }).join("") : `<p class="empty">No companies match. Clear the search or filters to see all ${S.companies.length}.</p>`;
+    drawOpenCharts();
   }
 
+  // ---- Price charts ----
+  const P = DATA.prices || {};
+  const RANGES = ["1D", "1W", "1M", "1Y", "5Y"];
+  const chosenRange = new Map();
+  const fmtPrice = (v, ccy) => ccy === "GBp" ? v.toFixed(v < 100 ? 2 : 1) + "p" : ({ USD: "$", EUR: "€", GBP: "£" }[ccy] || "") + v.toFixed(2);
+  const fmtWhen = (ms, range) => {
+    const d = new Date(ms), tz = { timeZone: "Europe/London" };
+    if (range === "1D") return d.toLocaleTimeString("en-GB", { ...tz, hour: "2-digit", minute: "2-digit" });
+    if (range === "1W") return d.toLocaleString("en-GB", { ...tz, weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+    return d.toLocaleDateString("en-GB", { ...tz, day: "numeric", month: "short", year: "numeric" });
+  };
+  const RANGE_WORDS = { "1D": "today", "1W": "past week", "1M": "past month", "1Y": "past year", "5Y": "past 5 years" };
+
+  function drawChart(box) {
+    const t = box.dataset.ticker, ccy = box.dataset.ccy, series = P[t] || {};
+    const available = RANGES.filter((r) => (series[r] || []).length > 1);
+    if (!available.length) { box.innerHTML = '<p class="muted">No price history available.</p>'; return; }
+    let range = chosenRange.get(t);
+    if (!available.includes(range)) range = available.includes("1Y") ? "1Y" : available[0];
+    const pts = series[range], first = pts[0][1], last = pts[pts.length - 1][1];
+    const dir = last >= first ? "up" : "down";
+    const W = Math.max(280, box.clientWidth - 32), H = 190, padT = 10, padB = 22, padR = 46;
+    const ys = pts.map((p) => p[1]), lo = Math.min(...ys), hi = Math.max(...ys), span = hi - lo || 1;
+    const x = (i) => (i / (pts.length - 1)) * (W - padR);
+    const y = (v) => padT + (1 - (v - lo) / span) * (H - padT - padB);
+    const d = pts.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + " " + y(p[1]).toFixed(1)).join(" ");
+    const gid = "g-" + t.replace(/[^A-Za-z0-9]/g, "");
+    const change = (v) => {
+      const diff = v - first, pc = (diff / first) * 100, sign = diff >= 0 ? "+" : "−";
+      return `<span class="chart-change ${diff >= 0 ? "up" : "down"}">${sign}${fmtPrice(Math.abs(diff), ccy)} (${sign}${Math.abs(pc).toFixed(2)}%)</span>`;
+    };
+    const head = (i) => {
+      const v = pts[i][1];
+      return `<div><span class="chart-price">${fmtPrice(v, ccy)}</span><span class="chart-when">${i === pts.length - 1 ? "Last price · " + RANGE_WORDS[range] : fmtWhen(pts[i][0], range)}</span></div>${change(v)}`;
+    };
+    box.innerHTML = `
+      <div class="chart-head">${head(pts.length - 1)}</div>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(t)} share price, ${RANGE_WORDS[range]}">
+        <defs><linearGradient id="${gid}" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="var(--${dir === "up" ? "good" : "bad"})" stop-opacity=".22"/>
+          <stop offset="1" stop-color="var(--${dir === "up" ? "good" : "bad"})" stop-opacity="0"/>
+        </linearGradient></defs>
+        <line class="base" x1="0" x2="${W - padR}" y1="${y(first)}" y2="${y(first)}"/>
+        <path d="${d} L ${x(pts.length - 1).toFixed(1)} ${H - padB} L 0 ${H - padB} Z" fill="url(#${gid})" stroke="none"/>
+        <path class="line ${dir}" d="${d}"/>
+        <text class="axis" x="${W - padR + 6}" y="${y(hi) + 4}">${fmtPrice(hi, ccy)}</text>
+        <text class="axis" x="${W - padR + 6}" y="${y(lo) + 4}">${fmtPrice(lo, ccy)}</text>
+        <text class="axis" x="0" y="${H - 6}">${fmtWhen(pts[0][0], range)}</text>
+        <text class="axis" x="${W - padR}" y="${H - 6}" text-anchor="end">${fmtWhen(pts[pts.length - 1][0], range)}</text>
+        <g class="hover" hidden><line class="cross" y1="${padT}" y2="${H - padB}"/><circle r="4" class="line ${dir}" fill="var(--surface)"/></g>
+      </svg>
+      <div class="ranges" role="group" aria-label="Time range">${RANGES.map((r) => `<button type="button" data-range="${r}" aria-pressed="${r === range}" ${available.includes(r) ? "" : "disabled"}>${r}</button>`).join("")}</div>
+      <span class="chart-foot">Price when this page was last updated (${updatedText}). For live prices use your broker's app.</span>`;
+    const svg = box.querySelector("svg"), hov = box.querySelector(".hover"), hd = box.querySelector(".chart-head");
+    const cross = hov.querySelector("line"), dot = hov.querySelector("circle");
+    const at = (ev) => {
+      const r = svg.getBoundingClientRect(), px = ((ev.clientX - r.left) / r.width) * W;
+      const i = Math.max(0, Math.min(pts.length - 1, Math.round((px / (W - padR)) * (pts.length - 1))));
+      cross.setAttribute("x1", x(i)); cross.setAttribute("x2", x(i));
+      dot.setAttribute("cx", x(i)); dot.setAttribute("cy", y(pts[i][1]));
+      hov.hidden = false; hd.innerHTML = head(i);
+    };
+    const leave = () => { hov.hidden = true; hd.innerHTML = head(pts.length - 1); };
+    svg.addEventListener("pointermove", at);
+    svg.addEventListener("pointerdown", at);
+    svg.addEventListener("pointerleave", leave);
+    svg.addEventListener("pointerup", (ev) => { if (ev.pointerType !== "mouse") leave(); });
+    box.querySelector(".ranges").addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-range]"); if (!b || b.disabled) return;
+      chosenRange.set(t, b.dataset.range); drawChart(box);
+    });
+  }
+  const updatedText = DATA.prices_built
+    ? new Date(DATA.prices_built).toLocaleString("en-GB", { timeZone: "Europe/London", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })
+    : "unknown";
+  const drawOpenCharts = () => document.querySelectorAll("#rows .chart").forEach(drawChart);
+  let resizeTimer;
+  window.addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(drawOpenCharts, 150); });
+
   $("rows").addEventListener("click", (e) => {
+    if (e.target.closest(".chart")) return;
     const row = e.target.closest(".row"); if (!row) return;
     const n = row.dataset.name; open.has(n) ? open.delete(n) : open.add(n); render();
   });
