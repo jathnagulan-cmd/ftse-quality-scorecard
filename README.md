@@ -31,6 +31,11 @@ the group, so a score says how a company compares with its peers.
 | Gross margin | Gross profit ÷ Revenue | Pricing power |
 | Margin trend | Average yearly change in operating margin | Direction of travel, not just level |
 
+EBIT means reported operating profit. Yahoo's own "EBIT" line is only used
+as a fallback, because it is rebuilt from pre-tax profit and can include
+non-operating gains (for Rolls-Royce in 2025 it overstated operating profit
+by around £2.8bn).
+
 Ratios with a zero or negative denominator are left blank rather than
 reported as misleading numbers.
 

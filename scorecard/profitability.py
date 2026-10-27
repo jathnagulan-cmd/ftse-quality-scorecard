@@ -5,6 +5,8 @@ money tied up in it, and is that getting better or worse?
 
 Metrics (all calculated from annual reports):
 
+  EBIT here means reported operating profit (see ROW_NAMES below for why).
+
   ROCE  (Return on Capital Employed) = EBIT / (Total assets - Current liabilities)
         The headline measure. How much operating profit the business makes for
         every pound of long-term capital invested in it. Above ~15% is strong;
@@ -42,7 +44,9 @@ import pandas as pd
 ROW_NAMES = {
     "revenue": ["Total Revenue", "Operating Revenue"],
     "gross_profit": ["Gross Profit"],
-    "ebit": ["EBIT", "Operating Income"],
+    # Operating Income first: Yahoo's "EBIT" line is rebuilt from pre-tax profit
+    # plus interest, so it can include non-operating items (e.g. hedge gains).
+    "ebit": ["Operating Income", "EBIT"],
     "total_assets": ["Total Assets"],
     "current_liabilities": ["Current Liabilities", "Total Current Liabilities"],
 }
