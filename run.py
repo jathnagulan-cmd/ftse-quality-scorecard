@@ -2,77 +2,107 @@
 
 Usage:
     python run.py              # uses cached data where available
-    python run.py --refresh    # re-downloads everything from Yahoo
+    python run.py --refresh    # re-downloads statements and prices from Yahoo
+
+Writes:
+    outputs/<pillar>.csv       every metric and rank, one file per pillar
+    outputs/overall.csv        ranks and pillar scores for every company
+    outputs/shortlist.csv      quality businesses at sensible prices
+    outputs/scorecard.json     everything above plus flags, for the dashboard
 """
 
+import json
 import sys
 
 import numpy as np
 import pandas as pd
 
-from scorecard import balance_sheet, earnings_quality, profitability
 from scorecard.data import fetch_universe, load_universe
-from scorecard.scoring import assign_peer_groups
+from scorecard.engine import score_universe
+from scorecard.flags import all_flags, shortlist
+from scorecard.prices import load_prices
 
-PILLARS = {
-    "profitability_score": profitability,
-    "balance_sheet_score": balance_sheet,
-    "earnings_quality_score": earnings_quality,
+PILLAR_FILES = {
+    "profitability_score": "profitability",
+    "balance_sheet_score": "balance_sheet",
+    "earnings_quality_score": "earnings_quality",
+    "valuation_score": "valuation",
 }
 
-# The original five, shown in detail at the end so changes are easy to follow
-WATCHLIST = ["Rolls-Royce", "Diageo", "Tesco", "Burberry", "Ocado"]
+
+def _clean(x):
+    """Make numbers JSON-safe: infinities become strings, NaN becomes null."""
+    if isinstance(x, (float, np.floating)):
+        if np.isnan(x):
+            return None
+        if np.isinf(x):
+            return "inf" if x > 0 else "-inf"
+        return round(float(x), 4)
+    if isinstance(x, (np.integer,)):
+        return int(x)
+    return x
 
 
-def fmt_pct(s: pd.Series) -> pd.Series:
-    return s.map(lambda x: "n/a" if pd.isna(x) else ("n/m" if np.isinf(x) else f"{x * 100:.1f}"))
+def build_json(results, info, flags, short, as_of) -> dict:
+    companies = []
+    for name, row in results["overall"].iterrows():
+        entry = {
+            "name": name, "ticker": row["ticker"], "sector": row["sector"],
+            "industry": info.loc[name].get("industry"), "rank": int(row["rank"]),
+            "scores": {k: _clean(row[k]) for k in
+                       ["profitability_score", "balance_sheet_score", "earnings_quality_score",
+                        "valuation_score", "quality_score", "overall_score"]},
+            "metrics": {},
+            "flags": flags[name],
+            "shortlisted": name in short.index,
+        }
+        for key in PILLAR_FILES:
+            r = results[key].loc[name]
+            entry["metrics"].update({k: _clean(v) for k, v in r.items() if k != "peer_group" and not k.endswith("_rank") and not k.endswith("_score")})
+        entry["peer_group"] = results["profitability_score"].loc[name, "peer_group"]
+        companies.append(entry)
+    return {"as_of": as_of.strftime("%Y-%m-%d"), "count": len(companies), "shortlist": list(short.index), "companies": companies}
 
 
 def main(refresh: bool = False) -> None:
     print("Loading company data...")
     statements, info = fetch_universe(load_universe(), refresh=refresh)
-    peers = assign_peer_groups(info)
+    prices = load_prices(list(info["ticker"]), refresh=refresh)
+    as_of = pd.Timestamp.today().normalize()
 
-    results = {}
-    for score_col, pillar in PILLARS.items():
-        rows = {
-            name: pillar.company_metrics(s["income"], s["balance"], s["cashflow"])
-            for name, s in statements.items()
-        }
-        res = pillar.score(pd.DataFrame.from_dict(rows, orient="index"), peers)
-        res.insert(0, "peer_group", peers)
-        res.to_csv(f"outputs/{score_col.replace('_score', '')}.csv")
-        results[score_col] = res
+    results = score_universe(statements, info, prices, as_of)
+    flags = all_flags(results, info)
+    overall = results["overall"]
+    short = shortlist(overall, flags)
 
-    overall = pd.DataFrame({col: res[col] for col, res in results.items()})
-    overall["overall_score"] = overall.mean(axis=1).round(1)
-    overall = info[["ticker", "sector"]].join(overall).sort_values("overall_score", ascending=False)
-    overall.insert(0, "rank", range(1, len(overall) + 1))
+    for key, fname in PILLAR_FILES.items():
+        results[key].to_csv(f"outputs/{fname}.csv")
     overall.to_csv("outputs/overall.csv")
+    short.to_csv("outputs/shortlist.csv")
+    with open("outputs/scorecard.json", "w") as f:
+        json.dump(build_json(results, info, flags, short, as_of), f, indent=1)
 
     view = overall.rename(columns={
         "profitability_score": "Profit", "balance_sheet_score": "Balance",
-        "earnings_quality_score": "Earnings", "overall_score": "Overall",
+        "earnings_quality_score": "Earnings", "valuation_score": "Value",
+        "quality_score": "Quality", "overall_score": "Overall",
     }).drop(columns=["ticker"])
     pd.set_option("display.width", 200)
     print(f"\nTop 15 of {len(view)}\n")
     print(view.head(15).to_string())
-    print("\nBottom 10\n")
-    print(view.tail(10).to_string())
 
-    p = results["profitability_score"].loc[WATCHLIST]
-    print("\nWatchlist: profitability detail (multi-year averages; margins ranked within peer group)\n")
-    print(pd.DataFrame({
-        "Peer group": p["peer_group"],
-        "Gross margin %": fmt_pct(p["gross_margin"]), "Gross rank": p["gross_margin_rank"].round(0),
-        "Op margin %": fmt_pct(p["operating_margin"]), "Op rank": p["operating_margin_rank"].round(0),
-        "ROCE %": fmt_pct(p["roce"]), "ROCE rank": p["roce_rank"].round(0),
-        "Margin swing (pp)": fmt_pct(p["margin_stability"]),
-        "Profit score": p["profitability_score"],
-    }).to_string())
-    print("\nWatchlist: overall\n")
-    print(view.loc[WATCHLIST].to_string())
-    print("\nFull results saved to outputs/")
+    print("\nShortlist: quality >= 60, value >= 40, at most one red flag\n")
+    for name in short.index:
+        f = flags[name]
+        print(f"{name}  (overall {overall.loc[name, 'overall_score']}, quality {overall.loc[name, 'quality_score']}, value {overall.loc[name, 'valuation_score']})")
+        for s in f["strengths"]:
+            print(f"   + {s}")
+        for s in f["red_flags"]:
+            print(f"   ! {s}")
+        for s in f["notes"]:
+            print(f"   ? {s}")
+    print("\nThis is a screen, not advice. Check the latest annual report and news before acting.")
+    print("Full results saved to outputs/")
 
 
 if __name__ == "__main__":

@@ -28,6 +28,8 @@ ROW_NAMES = {
     "total_debt": ["Total Debt"],
     "cash": ["Cash Cash Equivalents And Short Term Investments", "Cash And Cash Equivalents"],
     "receivables": ["Accounts Receivable", "Receivables"],
+    # Shares in issue, excluding any the company holds itself (treasury shares)
+    "shares": ["Ordinary Shares Number", "Share Issued"],
     # Cash flow statement
     "operating_cash_flow": ["Operating Cash Flow", "Cash Flow From Continuing Operating Activities"],
     # The profit figure the cash flow statement starts from, so the two match
@@ -41,6 +43,8 @@ ROW_NAMES = {
     # on selling a business (negative for a gain). Adding it to net income
     # strips the one-off out.
     "disposal_adjustment": ["Gain Loss On Sale Of Business"],
+    "capex": ["Capital Expenditure", "Purchase Of PPE"],
+    "net_income": ["Net Income", "Net Income Common Stockholders"],
 }
 
 

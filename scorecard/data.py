@@ -36,7 +36,10 @@ def load_universe(path: Path = UNIVERSE_FILE) -> pd.DataFrame:
     """The list of companies to score.
 
     Columns: ticker, name, membership (which index), and optional
-    sector_override / industry_override for when Yahoo's data is missing.
+    sector / industry / financialCurrency / currency overrides (columns
+    ending "_override") for when Yahoo's data is missing or wrong.
+    "currency" is the quote currency (GBp = pence); "financialCurrency" is
+    the currency the accounts are reported in.
     """
     return pd.read_csv(path, keep_default_na=False)
 
@@ -99,7 +102,7 @@ def fetch_universe(universe: pd.DataFrame, refresh: bool = False) -> tuple[dict,
             skipped.append(f"{row.name} ({row.ticker}): fetch failed: {e}")
             continue
         # Manual overrides in universe.csv fill gaps where Yahoo returns no sector
-        for field in ("sector", "industry"):
+        for field in ("sector", "industry", "financialCurrency", "currency"):
             override = getattr(row, f"{field}_override", None)
             if isinstance(override, str) and override:
                 meta[field] = override
