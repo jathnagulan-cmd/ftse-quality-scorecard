@@ -25,7 +25,7 @@
   "Next",
   "BT Group"
  ],
- "trading212_checked": false,
+ "trading212_checked": true,
  "companies": [
   {
    "name": "International Airlines Group",
@@ -133,7 +133,7 @@
    },
    "shortlisted": true,
    "long_term": true,
-   "trading212": "unchecked",
+   "trading212": "yes",
    "peer_group": "Industry: Telecom Services"
   },
   {
@@ -242,7 +242,7 @@
    },
    "shortlisted": true,
    "long_term": true,
-   "trading212": "unchecked",
+   "trading212": "yes",
    "peer_group": "Sector: Consumer Cyclical"
   },
   {
@@ -571,7 +571,7 @@
    },
    "shortlisted": true,
    "long_term": true,
-   "trading212": "unchecked",
+   "trading212": "yes",
    "peer_group": "Industry: Grocery Stores"
   },
   {
@@ -623,7 +623,7 @@
    },
    "shortlisted": true,
    "long_term": true,
-   "trading212": "unchecked",
+   "trading212": "yes",
    "peer_group": "Industry: Internet Content & Information"
   },
   {
@@ -888,7 +888,7 @@
    },
    "shortlisted": false,
    "long_term": true,
-   "trading212": "unchecked",
+   "trading212": "yes",
    "peer_group": "Industry: Specialty Business Services"
   },
   {
@@ -1162,7 +1162,7 @@
    },
    "shortlisted": false,
    "long_term": true,
-   "trading212": "unchecked",
+   "trading212": "yes",
    "peer_group": "Industry: Apparel Retail"
   },
   {
@@ -1380,7 +1380,7 @@
    },
    "shortlisted": false,
    "long_term": true,
-   "trading212": "unchecked",
+   "trading212": "yes",
    "peer_group": "Industry: Telecom Services"
   },
   {
