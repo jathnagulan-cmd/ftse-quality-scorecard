@@ -15,7 +15,7 @@ overall quality score.
 | Pillar | Question it answers | Status |
 |---|---|---|
 | Profitability | Does it earn good returns on its capital, and is that improving? | Built |
-| Balance sheet strength | Could it survive a bad few years? | Planned |
+| Balance sheet strength | Could it survive a bad few years? | Built |
 | Earnings quality | Does reported profit actually turn into cash? | Planned |
 | Valuation | Is the market price reasonable for what you get? | Planned |
 
@@ -39,6 +39,28 @@ by around £2.8bn).
 Ratios with a zero or negative denominator are left blank rather than
 reported as misleading numbers.
 
+### Pillar 2: Balance sheet strength
+
+| Metric | Formula | Better when |
+|---|---|---|
+| Net debt / EBITDA | (Total debt incl. leases − Cash) ÷ (Operating profit + D&A) | Lower |
+| Interest cover | Operating profit ÷ Interest expense | Higher |
+| Equity ratio | Shareholders' equity ÷ Total assets | Higher |
+
+EBITDA is built from reported operating profit rather than taken from Yahoo's
+EBITDA line, for the same reason as above. A company with debt and no
+operating cash profit is ranked worst on leverage.
+
+The **Altman Z''-score** (the non-manufacturer version) is reported alongside
+as a cross-check but deliberately not scored. It misreads some healthy
+business models: supermarkets run negative working capital by design
+(customers pay at the till, suppliers are paid weeks later), which puts a
+solvent Tesco in the "distress" zone.
+
+### Overall score
+
+For now, a simple equal-weighted average of the pillars built so far.
+
 ## Running it
 
 Requires Python 3.10+.
@@ -49,7 +71,7 @@ python run.py          # fetches data and prints the scorecard
 python -m pytest       # checks the calculations on hand-worked examples
 ```
 
-Results are saved to `outputs/profitability.csv`.
+Results are saved to `outputs/` (one CSV per pillar plus `overall.csv`).
 
 Starter companies: Diageo, Rolls-Royce, Tesco, Burberry, Ocado.
 
@@ -65,7 +87,10 @@ against the company's published annual report.
 
 ```
 scorecard/data.py           fetching statements (the only part that uses the internet)
-scorecard/profitability.py  pillar 1 metrics and scoring
+scorecard/statements.py     reading line items, shared by every pillar
+scorecard/scoring.py        percentile ranking into scores /100
+scorecard/profitability.py  pillar 1 metrics
+scorecard/balance_sheet.py  pillar 2 metrics
 run.py                      runs the scorecard end to end
 tests/                      tests using invented, hand-checkable numbers
 ```

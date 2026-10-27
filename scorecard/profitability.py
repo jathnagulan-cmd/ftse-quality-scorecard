@@ -5,7 +5,7 @@ money tied up in it, and is that getting better or worse?
 
 Metrics (all calculated from annual reports):
 
-  EBIT here means reported operating profit (see ROW_NAMES below for why).
+  EBIT here means reported operating profit (see statements.py for why).
 
   ROCE  (Return on Capital Employed) = EBIT / (Total assets - Current liabilities)
         The headline measure. How much operating profit the business makes for
@@ -39,36 +39,8 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-# Yahoo labels the same line item differently across companies and over time,
-# so for each item we try a list of names in order of preference.
-ROW_NAMES = {
-    "revenue": ["Total Revenue", "Operating Revenue"],
-    "gross_profit": ["Gross Profit"],
-    # Operating Income first: Yahoo's "EBIT" line is rebuilt from pre-tax profit
-    # plus interest, so it can include non-operating items (e.g. hedge gains).
-    "ebit": ["Operating Income", "EBIT"],
-    "total_assets": ["Total Assets"],
-    "current_liabilities": ["Current Liabilities", "Total Current Liabilities"],
-}
-
-
-def get_row(statement: pd.DataFrame, item: str) -> pd.Series:
-    """Pull one line item from a statement, oldest year first. NaN if missing."""
-    for name in ROW_NAMES[item]:
-        if name in statement.index:
-            row = pd.to_numeric(statement.loc[name], errors="coerce")
-            return row.sort_index()
-    return pd.Series(np.nan, index=sorted(statement.columns))
-
-
-def safe_divide(a: pd.Series, b: pd.Series) -> pd.Series:
-    """Divide, but return NaN where the denominator is zero or negative.
-
-    A negative capital base or negative revenue makes the ratio meaningless,
-    so we'd rather have a gap than a misleading number.
-    """
-    b = b.where(b > 0)
-    return a / b
+from scorecard.scoring import rank_and_score
+from scorecard.statements import get_row, safe_divide
 
 
 def margin_trend(margins: pd.Series) -> float:
@@ -105,15 +77,14 @@ def company_metrics(income: pd.DataFrame, balance: pd.DataFrame) -> dict[str, fl
     }
 
 
-def score(metrics: pd.DataFrame) -> pd.DataFrame:
-    """Turn raw metrics into percentile ranks and a pillar score out of 100.
+HIGHER_IS_BETTER = {
+    "roce": True,
+    "operating_margin": True,
+    "gross_margin": True,
+    "margin_trend": True,
+}
 
-    `metrics` has one row per company and one column per metric.
-    Higher is better for every profitability metric, so no flipping needed.
-    A company missing a metric is scored on the ones it has.
-    """
-    ranks = metrics.rank(pct=True, method="average") * 100
-    ranks.columns = [f"{c}_rank" for c in ranks.columns]
-    result = metrics.join(ranks)
-    result["profitability_score"] = ranks.mean(axis=1, skipna=True).round(1)
-    return result.sort_values("profitability_score", ascending=False)
+
+def score(metrics: pd.DataFrame) -> pd.DataFrame:
+    """Percentile-rank the metrics and average them into a pillar score /100."""
+    return rank_and_score(metrics, HIGHER_IS_BETTER, "profitability_score")
