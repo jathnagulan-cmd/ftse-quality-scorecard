@@ -1,0 +1,327 @@
+<title>FTSE Quality Scorecard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an analyst's screen. Verdict and shortlist first, then the full ranked list; tap a row for the working. */
+:root {
+  --bg: #f5f7f6;
+  --surface: #ffffff;
+  --ink: #15211f;
+  --muted: #5b6b68;
+  --line: #dde4e2;
+  --accent: #0f6e66;
+  --accent-soft: #dcefec;
+  --good: #1f7a3f;
+  --bad: #b3261e;
+  --warn: #9a6200;
+  --bar: #c9d6d3;
+  --font-display: "Bricolage Grotesque", "Public Sans", system-ui, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1514; --surface: #161e1c; --ink: #e3ebe9; --muted: #92a39f; --line: #26322f;
+    --accent: #52c2b5; --accent-soft: #173a36; --good: #5ccf85; --bad: #ff8a80; --warn: #e7b453; --bar: #2b3835;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1514; --surface: #161e1c; --ink: #e3ebe9; --muted: #92a39f; --line: #26322f;
+  --accent: #52c2b5; --accent-soft: #173a36; --good: #5ccf85; --bad: #ff8a80; --warn: #e7b453; --bar: #2b3835;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 28px 56px; display: grid; gap: 36px; }
+h1, h2 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.1; }
+h2 { font-size: 1.25rem; }
+p { margin: 0; }
+.eyebrow { font-family: var(--font-data); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+header { display: grid; gap: 10px; }
+.lede { max-width: 64ch; color: var(--muted); }
+.warning { border-left: 3px solid var(--warn); padding: 8px 12px; background: var(--surface); max-width: 72ch; font-size: 0.9rem; }
+
+section { display: grid; gap: 14px; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+
+/* Backtest verdict */
+.verdict { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 4px; }
+.stat .big { font-family: var(--font-data); font-size: 1.5rem; font-weight: 500; }
+.stat .big.good { color: var(--good); } .stat .big.bad { color: var(--bad); }
+.stat p { font-size: 0.86rem; color: var(--muted); }
+details.method { font-size: 0.9rem; }
+details.method summary { cursor: pointer; color: var(--accent); }
+.table-scroll { overflow-x: auto; margin-top: 10px; }
+table { border-collapse: collapse; font-size: 0.85rem; min-width: 560px; }
+th, td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--line); font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+th:first-child, td:first-child { text-align: left; }
+th { font-family: var(--font-body); font-weight: 600; color: var(--muted); font-size: 0.78rem; }
+
+/* Shortlist */
+.shortlist { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+.pick { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 8px; align-content: start; text-align: left; font: inherit; color: inherit; cursor: pointer; }
+.pick:hover { border-color: var(--accent); }
+.pick-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.pick-name { font-weight: 600; }
+.pick-score { font-family: var(--font-data); font-size: 1.15rem; color: var(--accent); }
+.pick ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 0.86rem; }
+
+.flag { display: grid; grid-template-columns: 14px 1fr; gap: 6px; }
+.flag::before { font-family: var(--font-data); font-weight: 600; }
+.flag.good::before { content: "+"; color: var(--good); }
+.flag.bad::before { content: "!"; color: var(--bad); }
+.flag.note::before { content: "?"; color: var(--warn); }
+
+/* Full list */
+.controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.controls input, .controls select {
+  font: inherit; font-size: 0.9rem; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); min-width: 0;
+}
+.controls input { flex: 1 1 200px; }
+.list { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.row-head, .row { display: grid; grid-template-columns: 34px minmax(0, 1.6fr) repeat(4, minmax(0, 1fr)) 60px; gap: 10px; align-items: center; padding: 9px 14px; }
+.row-head { font-size: 0.74rem; color: var(--muted); border-bottom: 1px solid var(--line); font-weight: 600; }
+.row-head button { all: unset; cursor: pointer; } .row-head button[aria-pressed="true"] { color: var(--accent); }
+.row { width: 100%; border: 0; border-bottom: 1px solid var(--line); background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.row:hover { background: var(--accent-soft); }
+.row[aria-expanded="true"] { background: var(--accent-soft); }
+.rank { font-family: var(--font-data); color: var(--muted); font-size: 0.85rem; }
+.co { min-width: 0; }
+.co b { font-weight: 600; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.co span { font-size: 0.78rem; color: var(--muted); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tag { font-family: var(--font-data); font-size: 0.66rem; letter-spacing: 0.04em; color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; padding: 0 4px; margin-left: 6px; vertical-align: 2px; }
+.redcount { color: var(--bad); font-family: var(--font-data); font-size: 0.72rem; margin-left: 6px; }
+.meter { display: grid; gap: 3px; }
+.meter i { display: block; height: 6px; border-radius: 3px; background: var(--bar); overflow: hidden; }
+.meter i::after { content: ""; display: block; height: 100%; width: var(--w); background: var(--accent); opacity: var(--o, 1); }
+.meter small { font-family: var(--font-data); font-size: 0.72rem; color: var(--muted); }
+.overall { font-family: var(--font-data); font-weight: 500; text-align: right; font-size: 1rem; }
+
+.detail { padding: 16px 14px 20px; border-bottom: 1px solid var(--line); display: grid; gap: 16px; background: var(--bg); }
+.detail-flags { display: grid; gap: 6px; font-size: 0.9rem; max-width: 80ch; }
+.groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.group { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 4px; align-content: start; }
+.group h3 { margin: 0 0 4px; font-size: 0.82rem; display: flex; justify-content: space-between; }
+.kv { display: flex; justify-content: space-between; gap: 12px; font-size: 0.84rem; }
+.kv span:first-child { color: var(--muted); }
+.kv span:last-child { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+.empty { padding: 20px 14px; color: var(--muted); }
+
+footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-width: 75ch; }
+
+@media (max-width: 720px) {
+  .row-head { display: none; }
+  .row { grid-template-columns: 30px minmax(0, 1fr) 54px; row-gap: 8px; }
+  .row .meter { grid-column: span 1; }
+  .row .meters { grid-column: 2 / 4; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .row .overall { grid-column: 3; grid-row: 1; }
+}
+@media (min-width: 721px) { .row .meters { display: contents; } }
+@media (prefers-reduced-motion: no-preference) { .meter i::after { transition: width .3s ease; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow" id="asof"></span>
+    <h1>FTSE Quality Scorecard</h1>
+    <p class="lede">UK companies ranked on four things read from their annual reports: how profitable they are, how strong the balance sheet is, whether profit turns into cash, and what the market is charging for them. Banks, insurers and property companies are excluded because these measures don't fit them.</p>
+    <p class="warning">This is a screen to decide what to research, not a list of what to buy. It cannot see news, management changes or anything after the last annual report. Check the latest results before acting. Not financial advice.</p>
+  </header>
+
+  <section aria-labelledby="bt-h">
+    <div class="section-head"><h2 id="bt-h">Has it worked?</h2><span class="muted" id="bt-sub"></span></div>
+    <div class="verdict" id="verdict"></div>
+    <details class="method">
+      <summary>How this was tested, and why it's weak evidence</summary>
+      <p style="margin-top:8px;max-width:75ch">At each date below, every company was rescored using only the accounts published by then and that day's share price, then followed for twelve months, dividends included. "Top" and "bottom" are the best and worst fifth of companies by overall score. The periods overlap and all sit in one market, the universe is today's FTSE 100 (so companies that dropped out are missing), and trading costs are ignored. Treat it as a sign the quality scores aren't noise, not as proof.</p>
+      <div class="table-scroll"><table id="bt-table"></table></div>
+    </details>
+  </section>
+
+  <section aria-labelledby="sl-h">
+    <div class="section-head"><h2 id="sl-h">Shortlist</h2><span class="muted">Quality 60+, valuation 40+, at most one red flag</span></div>
+    <div class="shortlist" id="shortlist"></div>
+  </section>
+
+  <section aria-labelledby="all-h">
+    <div class="section-head"><h2 id="all-h">All companies</h2><span class="muted" id="count"></span></div>
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search company or ticker" autocomplete="off" aria-label="Search company or ticker">
+      <select id="sector" aria-label="Sector"><option value="">All sectors</option></select>
+      <select id="filter" aria-label="Filter">
+        <option value="">Everything</option>
+        <option value="short">Shortlist only</option>
+        <option value="clean">No red flags</option>
+      </select>
+    </div>
+    <div class="list">
+      <div class="row-head" id="row-head">
+        <span>#</span><span>Company</span>
+        <button type="button" data-sort="profitability_score">Profit</button>
+        <button type="button" data-sort="balance_sheet_score">Balance sheet</button>
+        <button type="button" data-sort="earnings_quality_score">Cash quality</button>
+        <button type="button" data-sort="valuation_score">Value</button>
+        <button type="button" data-sort="overall_score" aria-pressed="true" style="text-align:right">Overall</button>
+      </div>
+      <div id="rows"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Scores are relative: each metric is ranked against the other companies (margins and debt against industry peers), then averaged. 100 means best in the group. Overall weights the three quality pillars and valuation equally.</p>
+    <p>Data from Yahoo Finance; free data has gaps and errors. Code, methods and known limitations: <a href="https://github.com/jathnagulan-cmd/ftse-quality-scorecard" target="_blank" rel="noopener">github.com/jathnagulan-cmd/ftse-quality-scorecard</a></p>
+  </footer>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(function () {
+  const DATA = JSON.parse(document.getElementById("data").textContent);
+  const S = DATA.scorecard, B = DATA.backtest;
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  const isNum = (v) => typeof v === "number" && isFinite(v);
+  const pct = (v, d = 1) => isNum(v) ? (v * 100).toFixed(d) + "%" : v === "inf" ? "n/m" : v === "-inf" ? "n/m" : "n/a";
+  const pp = (v) => isNum(v) ? (v >= 0 ? "+" : "") + (v * 100).toFixed(1) + " pts" : "n/a";
+  const mult = (v) => isNum(v) ? v.toFixed(1) + "x" : v === "inf" ? "no profit" : "n/a";
+  const signedPct = (v) => isNum(v) ? (v >= 0 ? "+" : "") + (v * 100).toFixed(1) + "%" : "n/a";
+  const money = (v, ccy) => {
+    if (!isNum(v)) return "n/a";
+    const sym = { GBP: "£", USD: "$", EUR: "€" }[ccy] || "";
+    return sym + (v / 1e9).toFixed(1) + "bn";
+  };
+
+  const PILLARS = [
+    { key: "profitability_score", label: "Profit", metrics: [
+      ["roce", "ROCE (average)", pct], ["roce_latest", "ROCE (latest year)", pct],
+      ["operating_margin", "Operating margin (avg)", pct], ["gross_margin", "Gross margin (avg)", pct],
+      ["margin_trend", "Margin trend per year", pp], ["margin_stability", "Margin swing", (v) => isNum(v) ? (v * 100).toFixed(1) + " pts" : "n/a"],
+      ["years_of_data", "Years of data", (v) => isNum(v) ? String(v) : "n/a"] ] },
+    { key: "balance_sheet_score", label: "Balance sheet", metrics: [
+      ["net_debt_to_ebitda", "Net debt / EBITDA", mult], ["interest_cover", "Interest cover", mult],
+      ["equity_ratio", "Equity ratio", pct], ["altman_z", "Altman Z'' (not scored)", (v) => isNum(v) ? v.toFixed(2) : "n/a"] ] },
+    { key: "earnings_quality_score", label: "Cash quality", metrics: [
+      ["cash_conversion", "Cash conversion", (v) => pct(v, 0)], ["accrual_ratio", "Accrual ratio", pct],
+      ["receivables_gap", "Receivables vs sales growth", pp] ] },
+    { key: "valuation_score", label: "Value", metrics: [
+      ["ev_to_ebit", "EV / average EBIT", mult], ["fcf_yield", "Free cash flow yield", pct],
+      ["pe_latest", "P/E, latest year (not scored)", (v) => isNum(v) ? v.toFixed(1) : "n/a"] ] },
+  ];
+
+  // Header
+  const asof = new Date(S.as_of + "T00:00:00");
+  $("asof").textContent = "Updated " + asof.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) + " · " + S.count + " companies";
+
+  // Backtest verdict
+  if (B && B.periods) {
+    $("bt-sub").textContent = B.periods + " twelve-month periods, May 2024 to now";
+    const q = B.quality, v = B.valuation;
+    const stat = (big, cls, title, body) => `<div class="stat"><span class="eyebrow">${esc(title)}</span><span class="big ${cls}">${esc(big)}</span><p>${body}</p></div>`;
+    $("verdict").innerHTML = [
+      stat(`${q.periods_top_beat_bottom_median}/${B.periods}`, q.periods_top_beat_bottom_median > B.periods / 2 ? "good" : "bad", "Quality scores",
+        `periods where the top fifth beat the bottom fifth. Typical gap: <span class="num">${signedPct(q.avg_median_spread)}</span> a year (medians).`),
+      stat(`${B.shortlist_beat_universe_median}/${B.periods}`, B.shortlist_beat_universe_median > B.periods / 2 ? "good" : "bad", "Shortlist",
+        `periods where the shortlist beat the average company. <span class="num">${signedPct(B.shortlist_median_avg)}</span> vs <span class="num">${signedPct(B.universe_median_avg)}</span> (medians).`),
+      stat(`${v.periods_top_beat_bottom_median}/${B.periods}`, v.periods_top_beat_bottom_median > B.periods / 2 ? "good" : "bad", "Valuation scores",
+        `periods where the cheapest fifth beat the dearest. No reliable signal yet in this short window.`),
+    ].join("");
+    const rows = B.by_period.map((r) => `<tr><td>${esc(r.date)}</td><td>${r.companies}</td><td>${signedPct(r.universe_median)}</td><td>${signedPct(r.overall_top)}</td><td>${signedPct(r.overall_bottom)}</td><td>${signedPct(r.overall_median_spread)}</td><td>${signedPct(r.shortlist_median)}</td></tr>`).join("");
+    $("bt-table").innerHTML = `<thead><tr><th>Scored on</th><th>Companies</th><th>Median company</th><th>Top fifth (avg)</th><th>Bottom fifth (avg)</th><th>Gap (medians)</th><th>Shortlist (median)</th></tr></thead><tbody>${rows}</tbody>`;
+  }
+
+  const byName = Object.fromEntries(S.companies.map((c) => [c.name, c]));
+  const flagList = (f, limit) => {
+    const items = [
+      ...f.strengths.map((t) => ["good", t]), ...f.red_flags.map((t) => ["bad", t]), ...f.notes.map((t) => ["note", t]),
+    ];
+    return (limit ? items.slice(0, limit) : items).map(([k, t]) => `<li class="flag ${k}">${esc(t)}</li>`).join("");
+  };
+
+  // Shortlist cards
+  $("shortlist").innerHTML = S.shortlist.length ? S.shortlist.map((n) => {
+    const c = byName[n];
+    return `<button type="button" class="pick" data-open="${esc(n)}">
+      <div class="pick-top"><span class="pick-name">${esc(n)}</span><span class="pick-score">${c.scores.overall_score.toFixed(0)}</span></div>
+      <span class="muted" style="font-size:.8rem">${esc(c.ticker)} · ${esc(c.industry || c.sector)} · quality ${c.scores.quality_score.toFixed(0)}, value ${c.scores.valuation_score.toFixed(0)}</span>
+      <ul>${flagList(c.flags)}</ul></button>`;
+  }).join("") : `<p class="muted">Nothing meets the shortlist rules this month.</p>`;
+
+  // Filters
+  [...new Set(S.companies.map((c) => c.sector))].sort().forEach((s) => {
+    const o = document.createElement("option"); o.value = s; o.textContent = s; $("sector").appendChild(o);
+  });
+
+  let sortKey = "overall_score";
+  const open = new Set();
+  const meter = (v, label) => `<span class="meter" title="${label}: ${isNum(v) ? v.toFixed(0) : "n/a"}"><small>${label} ${isNum(v) ? v.toFixed(0) : "–"}</small><i style="--w:${isNum(v) ? v : 0}%"></i></span>`;
+
+  function detail(c) {
+    const groups = PILLARS.map((p) => `<div class="group"><h3><span>${p.label}</span><span class="num">${isNum(c.scores[p.key]) ? c.scores[p.key].toFixed(0) : "–"}</span></h3>
+      ${p.metrics.map(([k, l, f]) => `<div class="kv"><span>${l}</span><span>${f(c.metrics[k])}</span></div>`).join("")}</div>`).join("");
+    return `<div class="detail" role="region" aria-label="${esc(c.name)} detail">
+      <ul class="detail-flags" style="list-style:none;margin:0;padding:0">${flagList(c.flags) || '<li class="muted">No flags.</li>'}</ul>
+      <div class="groups">${groups}
+        <div class="group"><h3><span>Size</span></h3>
+          <div class="kv"><span>Market value</span><span>${money(c.metrics.market_cap, c.reporting_currency)}</span></div>
+          <div class="kv"><span>Enterprise value</span><span>${money(c.metrics.enterprise_value, c.reporting_currency)}</span></div>
+          <div class="kv"><span>Compared against</span><span style="font-family:var(--font-body)">${esc((c.peer_group || "").replace(/^(Industry|Sector): /, ""))}</span></div>
+          <div class="kv"><span>Reports in</span><span>${esc(c.reporting_currency || "n/a")}</span></div>
+        </div>
+      </div></div>`;
+  }
+
+  function render() {
+    const q = $("q").value.trim().toLowerCase(), sec = $("sector").value, f = $("filter").value;
+    let list = S.companies.filter((c) =>
+      (!q || c.name.toLowerCase().includes(q) || c.ticker.toLowerCase().includes(q)) &&
+      (!sec || c.sector === sec) &&
+      (f !== "short" || c.shortlisted) && (f !== "clean" || c.flags.red_flags.length === 0));
+    list = list.slice().sort((a, b) => (b.scores[sortKey] ?? -1) - (a.scores[sortKey] ?? -1));
+    $("count").textContent = list.length === S.companies.length ? `${list.length} companies` : `${list.length} of ${S.companies.length} shown`;
+    $("rows").innerHTML = list.length ? list.map((c) => {
+      const isOpen = open.has(c.name), red = c.flags.red_flags.length;
+      return `<button type="button" class="row" aria-expanded="${isOpen}" data-name="${esc(c.name)}">
+        <span class="rank">${c.rank}</span>
+        <span class="co"><b>${esc(c.name)}${c.shortlisted ? '<span class="tag">SHORTLIST</span>' : ""}${red ? `<span class="redcount">${red} flag${red > 1 ? "s" : ""}</span>` : ""}</b><span>${esc(c.ticker)} · ${esc(c.industry || c.sector)}</span></span>
+        <span class="meters">${meter(c.scores.profitability_score, "Profit")}${meter(c.scores.balance_sheet_score, "Balance")}${meter(c.scores.earnings_quality_score, "Cash")}${meter(c.scores.valuation_score, "Value")}</span>
+        <span class="overall">${c.scores.overall_score.toFixed(0)}</span>
+      </button>${isOpen ? detail(c) : ""}`;
+    }).join("") : `<p class="empty">No companies match. Clear the search or filters to see all ${S.companies.length}.</p>`;
+  }
+
+  $("rows").addEventListener("click", (e) => {
+    const row = e.target.closest(".row"); if (!row) return;
+    const n = row.dataset.name; open.has(n) ? open.delete(n) : open.add(n); render();
+  });
+  $("shortlist").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-open]"); if (!b) return;
+    const n = b.dataset.open; $("q").value = ""; $("sector").value = ""; $("filter").value = "";
+    open.add(n); render();
+    const el = document.querySelector(`.row[data-name="${CSS.escape(n)}"]`);
+    if (el) { el.scrollIntoView({ block: "start", behavior: "smooth" }); el.focus({ preventScroll: true }); }
+  });
+  $("row-head").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-sort]"); if (!b) return;
+    sortKey = b.dataset.sort;
+    document.querySelectorAll("#row-head button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    render();
+  });
+  ["q", "sector", "filter"].forEach((id) => $(id).addEventListener("input", render));
+  render();
+})();
+</script>

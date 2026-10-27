@@ -17,7 +17,39 @@ overall quality score.
 | Profitability | Does it earn good returns on its capital, and is that improving? | Built |
 | Balance sheet strength | Could it survive a bad few years? | Built |
 | Earnings quality | Does reported profit actually turn into cash? | Built |
-| Valuation | Is the market price reasonable for what you get? | Planned |
+| Valuation | Is the market price reasonable for what you get? | Built |
+
+The three quality pillars and valuation are weighted equally in the overall
+score, so quality carries 75% of the weight. On top of the scores, every
+company gets plain-English **strengths, red flags and notes**, and a
+**shortlist** picks out quality businesses at sensible prices (quality 60+,
+valuation 40+, at most one red flag).
+
+**This is a screen for deciding what to research, not a buy list.** It reads
+four years of accounts and nothing else: no news, guidance, management or
+anything after the last annual report.
+
+## Backtest: has it worked?
+
+`backtest.py` reruns the full scorecard at six past dates (May 2024 to August
+2025) exactly as it would have looked then, using only accounts already
+published (a four-month reporting lag) and that day's share price, then
+measures each company's twelve-month total return including dividends.
+
+| Signal | Top fifth beat bottom fifth | Typical gap (medians) |
+|---|---|---|
+| Quality (three pillars) | 5 of 6 periods | about +15 points a year |
+| Valuation | 2 of 6 periods | slightly negative |
+| Shortlist vs average company | 5 of 6 periods | about +4 points a year |
+
+The quality signal looks real; valuation showed nothing in this window. The
+weights have **not** been changed to fit this result: six overlapping periods
+in one market are far too few to tune on, and doing so would make the
+backtest look better while making the model less trustworthy. Limitations:
+short history, overlapping periods, today's FTSE 100 as the universe
+(survivorship bias), and no trading costs. One outlier shows why medians are
+reported too: in February 2025 the model ranked Fresnillo near the bottom,
+then silver prices exploded and it returned 432%.
 
 Scores are **relative**: each metric is ranked against other companies, so a
 score says how a company compares with its peers, not whether it is good in
@@ -130,9 +162,20 @@ Two adjustments keep the comparison fair:
   ratio explodes (Ocado's first run showed 488%). Such companies rank last on
   that metric instead of being rewarded for it.
 
-### Overall score
+### Pillar 4: Valuation
 
-For now, a simple equal-weighted average of the pillars built so far.
+| Metric | Formula | Better when |
+|---|---|---|
+| EV / EBIT | (Market cap + Net debt incl. leases) ÷ Average operating profit | Lower |
+| Free cash flow yield | Average (Operating cash flow before interest − Capex) ÷ EV | Higher |
+
+Both use **average** profit and cash flow, because cyclicals look cheapest on
+a single year's figures exactly at their peak. Market cap is converted from
+the quote currency (pence, or dollars for IHG and Compass) into each
+company's reporting currency. The latest-year P/E is shown but not scored:
+Burberry's is 178 because its profits are temporarily tiny, while on
+normalised figures it is cheap. Ranked across all companies, since cheap
+means cheap in any sector.
 
 ## Known limitations
 
@@ -143,6 +186,9 @@ Flagged deliberately, so they can be fixed or at least understood:
   margin instability. Rolls-Royce fell from 8th to 22nd when averages were
   introduced. The model can't yet tell a cyclical boom from a structural
   improvement.
+- **Airlines and miners can still top the list.** Four years of data starts
+  after the pandemic, so it contains no downturn for most cyclicals. They now
+  carry a caution note, but their scores may still flatter them.
 - **Four years is not a full cycle.** Commodity and economic cycles run 7-10
   years; the free data only covers about four.
 - **Peer groups of two are coarse.** Beating your only rival earns full marks
@@ -172,6 +218,10 @@ Flagged deliberately, so they can be fixed or at least understood:
 | Utilities penalised for normal regulated debt | Rank leverage within industry |
 | Write-downs rewarded by the accrual ratio | Floor at −5% |
 | Ocado classified as a grocer | Override in `data/universe.csv` |
+| Cyclicals look cheap at the peak | Valuation on average profits, not latest |
+| Quote and reporting currencies differ | Convert market cap via FX on the day |
+| Backtest could use unpublished results | Four-month reporting lag in engine.py |
+| One outlier skewed backtest averages | Report medians alongside means |
 
 ## Running it
 
@@ -179,13 +229,17 @@ Requires Python 3.10+.
 
 ```bash
 pip install -r requirements.txt
-python run.py             # fetches data (cached after the first run) and prints the scorecard
-python run.py --refresh   # re-downloads everything
+python run.py             # scores everything and prints the shortlist with its flags
+python run.py --refresh   # re-downloads statements and prices
+python backtest.py        # tests the scores against past returns
+python build_dashboard.py # builds outputs/dashboard.html from the latest results
 python -m pytest       # checks the calculations on hand-worked examples
 ```
 
-Results are saved to `outputs/` (one CSV per pillar plus `overall.csv`, which
-has every company's rank and pillar scores). The first run takes a few
+Results are saved to `outputs/`: one CSV per pillar, `overall.csv` (every
+company's rank and scores), `shortlist.csv`, `backtest.csv`, and
+`dashboard.html`, a single phone-friendly page with the shortlist, red flags
+and a breakdown for every company. The first run takes a few
 minutes; data is cached in `data/cache/` afterwards.
 
 ## Data and limitations
@@ -206,6 +260,13 @@ scorecard/scoring.py        peer groups and percentile ranking into scores /100
 scorecard/profitability.py  pillar 1 metrics
 scorecard/balance_sheet.py  pillar 2 metrics
 scorecard/earnings_quality.py  pillar 3 metrics
+scorecard/valuation.py      pillar 4 metrics
+scorecard/prices.py         share prices, exchange rates, market values
+scorecard/engine.py         scores every company as of any date (point-in-time)
+scorecard/flags.py          strengths, red flags, notes and the shortlist
+backtest.py                 point-in-time backtest
+build_dashboard.py          builds the dashboard page
+dashboard/template.html     dashboard page template
 run.py                      runs the scorecard end to end
 tests/                      tests using invented, hand-checkable numbers
 ```

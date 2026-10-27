@@ -20,6 +20,7 @@
    "sector": "Industrials",
    "industry": "Airlines",
    "rank": 1,
+   "reporting_currency": "EUR",
    "scores": {
     "profitability_score": 76.7,
     "balance_sheet_score": 54.2,
@@ -71,6 +72,7 @@
    "sector": "Communication Services",
    "industry": "Telecom Services",
    "rank": 2,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 70.0,
     "balance_sheet_score": 62.5,
@@ -121,6 +123,7 @@
    "sector": "Industrials",
    "industry": "Airlines",
    "rank": 3,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 48.3,
     "balance_sheet_score": 61.1,
@@ -174,6 +177,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Furnishings, Fixtures & Appliances",
    "rank": 4,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 65.5,
     "balance_sheet_score": 83.1,
@@ -222,6 +226,7 @@
    "sector": "Energy",
    "industry": "Oil & Gas Refining & Marketing",
    "rank": 5,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 73.9,
     "balance_sheet_score": 75.5,
@@ -273,6 +278,7 @@
    "sector": "Energy",
    "industry": "Oil & Gas Integrated",
    "rank": 6,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 41.7,
     "balance_sheet_score": 90.7,
@@ -325,6 +331,7 @@
    "sector": "Communication Services",
    "industry": "Advertising Agencies",
    "rank": 7,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 55.0,
     "balance_sheet_score": 68.5,
@@ -377,6 +384,7 @@
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
    "rank": 8,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 66.0,
     "balance_sheet_score": 98.1,
@@ -426,6 +434,7 @@
    "sector": "Basic Materials",
    "industry": "Other Industrial Metals & Mining",
    "rank": 9,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 63.3,
     "balance_sheet_score": 91.2,
@@ -478,6 +487,7 @@
    "sector": "Consumer Defensive",
    "industry": "Grocery Stores",
    "rank": 10,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 75.0,
     "balance_sheet_score": 76.9,
@@ -527,6 +537,7 @@
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
    "rank": 11,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 73.9,
     "balance_sheet_score": 63.4,
@@ -575,6 +586,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Leisure",
    "rank": 12,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 84.2,
     "balance_sheet_score": 100.0,
@@ -626,6 +638,7 @@
    "sector": "Consumer Defensive",
    "industry": "Packaged Foods",
    "rank": 13,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 47.8,
     "balance_sheet_score": 79.2,
@@ -674,6 +687,7 @@
    "sector": "Basic Materials",
    "industry": "Gold",
    "rank": 14,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 68.1,
     "balance_sheet_score": 80.6,
@@ -725,6 +739,7 @@
    "sector": "Consumer Defensive",
    "industry": "Tobacco",
    "rank": 15,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 65.3,
     "balance_sheet_score": 70.4,
@@ -774,6 +789,7 @@
    "sector": "Industrials",
    "industry": "Specialty Business Services",
    "rank": 16,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 74.0,
     "balance_sheet_score": 76.4,
@@ -822,6 +838,7 @@
    "sector": "Consumer Defensive",
    "industry": "Household & Personal Products",
    "rank": 17,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 82.2,
     "balance_sheet_score": 62.5,
@@ -870,6 +887,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Residential Construction",
    "rank": 18,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 71.1,
     "balance_sheet_score": 83.8,
@@ -925,6 +943,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Lodging",
    "rank": 19,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 71.1,
     "balance_sheet_score": 48.1,
@@ -979,6 +998,7 @@
    "sector": "Consumer Defensive",
    "industry": "Beverages - Non-Alcoholic",
    "rank": 20,
+   "reporting_currency": "EUR",
    "scores": {
     "profitability_score": 66.4,
     "balance_sheet_score": 81.9,
@@ -1027,6 +1047,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Apparel Retail",
    "rank": 21,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 75.3,
     "balance_sheet_score": 82.4,
@@ -1076,6 +1097,7 @@
    "sector": "Consumer Defensive",
    "industry": "Grocery Stores",
    "rank": 22,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 50.6,
     "balance_sheet_score": 47.2,
@@ -1128,6 +1150,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Apparel Retail",
    "rank": 23,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 63.6,
     "balance_sheet_score": 45.4,
@@ -1178,6 +1201,7 @@
    "sector": "Healthcare",
    "industry": "Drug Manufacturers - Specialty & Generic",
    "rank": 24,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 67.5,
     "balance_sheet_score": 88.9,
@@ -1228,6 +1252,7 @@
    "sector": "Communication Services",
    "industry": "Telecom Services",
    "rank": 25,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 66.9,
     "balance_sheet_score": 51.9,
@@ -1278,6 +1303,7 @@
    "sector": "Energy",
    "industry": "Oil & Gas Integrated",
    "rank": 26,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 56.1,
     "balance_sheet_score": 38.0,
@@ -1332,6 +1358,7 @@
    "sector": "Communication Services",
    "industry": "Publishing",
    "rank": 27,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 64.7,
     "balance_sheet_score": 56.0,
@@ -1382,6 +1409,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Home Improvement Retail",
    "rank": 28,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 36.4,
     "balance_sheet_score": 50.7,
@@ -1433,6 +1461,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Department Stores",
    "rank": 29,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 47.8,
     "balance_sheet_score": 53.5,
@@ -1481,6 +1510,7 @@
    "sector": "Communication Services",
    "industry": "Publishing",
    "rank": 30,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 52.2,
     "balance_sheet_score": 95.4,
@@ -1529,6 +1559,7 @@
    "sector": "Healthcare",
    "industry": "Drug Manufacturers - General",
    "rank": 31,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 65.0,
     "balance_sheet_score": 57.9,
@@ -1575,6 +1606,7 @@
    "sector": "Utilities",
    "industry": "Utilities - Diversified",
    "rank": 32,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 50.0,
     "balance_sheet_score": 76.9,
@@ -1626,6 +1658,7 @@
    "sector": "Technology",
    "industry": "Software - Application",
    "rank": 33,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 77.2,
     "balance_sheet_score": 71.8,
@@ -1672,6 +1705,7 @@
    "sector": "Communication Services",
    "industry": "Telecom Services",
    "rank": 34,
+   "reporting_currency": "EUR",
    "scores": {
     "profitability_score": 30.3,
     "balance_sheet_score": 51.9,
@@ -1723,6 +1757,7 @@
    "sector": "Industrials",
    "industry": "Specialty Industrial Machinery",
    "rank": 35,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 70.8,
     "balance_sheet_score": 81.8,
@@ -1771,6 +1806,7 @@
    "sector": "Basic Materials",
    "industry": "Other Precious Metals & Mining",
    "rank": 36,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 51.2,
     "balance_sheet_score": 97.2,
@@ -1823,6 +1859,7 @@
    "sector": "Healthcare",
    "industry": "Drug Manufacturers - Specialty & Generic",
    "rank": 37,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 60.3,
     "balance_sheet_score": 58.3,
@@ -1871,6 +1908,7 @@
    "sector": "Utilities",
    "industry": "Utilities - Independent Power Producers",
    "rank": 38,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 45.3,
     "balance_sheet_score": 50.0,
@@ -1925,6 +1963,7 @@
    "sector": "Healthcare",
    "industry": "Medical Instruments & Supplies",
    "rank": 39,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 62.8,
     "balance_sheet_score": 69.4,
@@ -1973,6 +2012,7 @@
    "sector": "Healthcare",
    "industry": "Medical Devices",
    "rank": 40,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 60.3,
     "balance_sheet_score": 75.5,
@@ -2019,6 +2059,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Luxury Goods",
    "rank": 41,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 43.1,
     "balance_sheet_score": 35.4,
@@ -2071,6 +2112,7 @@
    "sector": "Industrials",
    "industry": "Conglomerates",
    "rank": 42,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 65.6,
     "balance_sheet_score": 96.3,
@@ -2119,6 +2161,7 @@
    "sector": "Basic Materials",
    "industry": "Paper & Paper Products",
    "rank": 43,
+   "reporting_currency": "EUR",
    "scores": {
     "profitability_score": 18.2,
     "balance_sheet_score": 36.9,
@@ -2170,6 +2213,7 @@
    "sector": "Industrials",
    "industry": "Specialty Business Services",
    "rank": 44,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 78.6,
     "balance_sheet_score": 53.2,
@@ -2218,6 +2262,7 @@
    "sector": "Basic Materials",
    "industry": "Other Industrial Metals & Mining",
    "rank": 45,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 40.8,
     "balance_sheet_score": 57.9,
@@ -2269,6 +2314,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Residential Construction",
    "rank": 46,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 48.6,
     "balance_sheet_score": 60.6,
@@ -2324,6 +2370,7 @@
    "sector": "Utilities",
    "industry": "Utilities - Regulated Water",
    "rank": 47,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 62.8,
     "balance_sheet_score": 69.4,
@@ -2377,6 +2424,7 @@
    "sector": "Industrials",
    "industry": "Specialty Business Services",
    "rank": 48,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 51.7,
     "balance_sheet_score": 47.7,
@@ -2425,6 +2473,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Lodging",
    "rank": 49,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 65.0,
     "balance_sheet_score": 67.1,
@@ -2476,6 +2525,7 @@
    "sector": "Industrials",
    "industry": "Aerospace & Defense",
    "rank": 50,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 63.1,
     "balance_sheet_score": 67.6,
@@ -2527,6 +2577,7 @@
    "sector": "Industrials",
    "industry": "Specialty Industrial Machinery",
    "rank": 51,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 69.7,
     "balance_sheet_score": 63.1,
@@ -2573,6 +2624,7 @@
    "sector": "Consumer Defensive",
    "industry": "Beverages - Wineries & Distilleries",
    "rank": 52,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 59.7,
     "balance_sheet_score": 39.8,
@@ -2622,6 +2674,7 @@
    "sector": "Consumer Defensive",
    "industry": "Household & Personal Products",
    "rank": 53,
+   "reporting_currency": "EUR",
    "scores": {
     "profitability_score": 63.1,
     "balance_sheet_score": 56.0,
@@ -2670,6 +2723,7 @@
    "sector": "Industrials",
    "industry": "Specialty Business Services",
    "rank": 54,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 55.0,
     "balance_sheet_score": 34.3,
@@ -2719,6 +2773,7 @@
    "sector": "Industrials",
    "industry": "Aerospace & Defense",
    "rank": 55,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 64.4,
     "balance_sheet_score": 46.3,
@@ -2768,6 +2823,7 @@
    "sector": "Industrials",
    "industry": "Industrial Distribution",
    "rank": 56,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 52.2,
     "balance_sheet_score": 72.2,
@@ -2816,6 +2872,7 @@
    "sector": "Healthcare",
    "industry": "Drug Manufacturers - General",
    "rank": 57,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 61.7,
     "balance_sheet_score": 70.4,
@@ -2865,6 +2922,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Residential Construction",
    "rank": 58,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 16.7,
     "balance_sheet_score": 74.1,
@@ -2919,6 +2977,7 @@
    "sector": "Utilities",
    "industry": "Utilities - Regulated Electric",
    "rank": 59,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 64.4,
     "balance_sheet_score": 49.5,
@@ -2969,6 +3028,7 @@
    "sector": "Industrials",
    "industry": "Consulting Services",
    "rank": 60,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 80.3,
     "balance_sheet_score": 40.3,
@@ -3017,6 +3077,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Restaurants",
    "rank": 61,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 55.6,
     "balance_sheet_score": 52.1,
@@ -3065,6 +3126,7 @@
    "sector": "Basic Materials",
    "industry": "Specialty Chemicals",
    "rank": 62,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 46.9,
     "balance_sheet_score": 64.4,
@@ -3116,6 +3178,7 @@
    "sector": "Industrials",
    "industry": "Specialty Industrial Machinery",
    "rank": 63,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 66.9,
     "balance_sheet_score": 73.1,
@@ -3165,6 +3228,7 @@
    "sector": "Consumer Defensive",
    "industry": "Tobacco",
    "rank": 64,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 47.5,
     "balance_sheet_score": 54.2,
@@ -3216,6 +3280,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Gambling",
    "rank": 65,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 43.8,
     "balance_sheet_score": 10.9,
@@ -3265,6 +3330,7 @@
    "sector": "Consumer Cyclical",
    "industry": "Residential Construction",
    "rank": 66,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 38.6,
     "balance_sheet_score": 85.4,
@@ -3317,6 +3383,7 @@
    "sector": "Industrials",
    "industry": "Specialty Industrial Machinery",
    "rank": 67,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 54.1,
     "balance_sheet_score": 46.6,
@@ -3365,6 +3432,7 @@
    "sector": "Basic Materials",
    "industry": "Other Industrial Metals & Mining",
    "rank": 68,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 32.2,
     "balance_sheet_score": 30.6,
@@ -3419,6 +3487,7 @@
    "sector": "Basic Materials",
    "industry": "Copper",
    "rank": 69,
+   "reporting_currency": "USD",
    "scores": {
     "profitability_score": 60.7,
     "balance_sheet_score": 52.3,
@@ -3470,6 +3539,7 @@
    "sector": "Consumer Defensive",
    "industry": "Grocery Technology & Logistics",
    "rank": 70,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 37.2,
     "balance_sheet_score": 33.3,
@@ -3525,6 +3595,7 @@
    "sector": "Utilities",
    "industry": "Utilities - Regulated Water",
    "rank": 71,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 40.3,
     "balance_sheet_score": 35.6,
@@ -3577,6 +3648,7 @@
    "sector": "Industrials",
    "industry": "Specialty Industrial Machinery",
    "rank": 72,
+   "reporting_currency": "GBP",
    "scores": {
     "profitability_score": 29.7,
     "balance_sheet_score": 43.8,
