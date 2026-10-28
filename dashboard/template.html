@@ -376,8 +376,8 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
     </div>`;
   }
 
-  const t212 = (c) => c.trading212 === "yes" ? '<span class="tag">T212</span>' : c.trading212 === "no" ? '<span class="tag no">NOT ON T212</span>' : "";
-  const T212_NOTE = S.trading212_checked ? "Companies confirmed as unavailable on Trading 212 are left out." : "Trading 212 availability hasn't been checked yet, so nothing is excluded for it.";
+  // Trading 212 availability comes from the owner's own account check, so the
+  // public page doesn't show it (it's still in outputs/*.csv and scorecard.json).
   const RULES = {
     long: "For buying and holding: quality 60+, valuation 40+, at most one red flag, no cyclical industries, and operating margins that moved less than 3 points across the years available. ",
     all: "Quality 60+, valuation 40+, at most one red flag. Includes cyclical companies, marked with a caution note. ",
@@ -385,13 +385,13 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
   let slMode = "long";
   function renderShortlist() {
     const names = slMode === "long" ? (S.long_term_shortlist || []) : S.shortlist;
-    $("sl-rule").textContent = RULES[slMode] + T212_NOTE;
+    $("sl-rule").textContent = RULES[slMode];
     $("sl-long").setAttribute("aria-pressed", String(slMode === "long"));
     $("sl-all").setAttribute("aria-pressed", String(slMode === "all"));
     $("shortlist").innerHTML = names.length ? names.map((n) => {
       const c = byName[n];
       return `<button type="button" class="pick" data-open="${esc(n)}">
-        <div class="pick-top"><span class="pick-name">${esc(n)}${t212(c)}${checkTag(c)}</span><span class="pick-score">${c.scores.overall_score.toFixed(0)}</span></div>
+        <div class="pick-top"><span class="pick-name">${esc(n)}${checkTag(c)}</span><span class="pick-score">${c.scores.overall_score.toFixed(0)}</span></div>
         <span class="muted" style="font-size:.8rem">${esc(c.ticker)} · ${esc(c.industry || c.sector)} · quality ${c.scores.quality_score.toFixed(0)}, value ${c.scores.valuation_score.toFixed(0)}</span>
         ${(() => { const t = trend(c.ticker); return t ? `<span class="trend">Price: 1Y <span class="${t.y1 >= 0 ? "pos" : "neg"}">${trendText(t.y1)}</span> · ${Math.abs(t.fromHigh * 100).toFixed(0)}% below 52-week high</span>` : ""; })()}
         <ul>${flagList(flagsFor(c))}${(() => { const w = recentWarnings(c); return [...w.red_flags.map((t) => ["bad", t]), ...w.notes.map((t) => ["note", t])].map(([k, t]) => `<li class="flag ${k}">Since the annual report: ${esc(t)}</li>`).join(""); })()}</ul></button>`;
@@ -432,7 +432,6 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
           <div class="kv"><span>Enterprise value</span><span>${money(c.metrics.enterprise_value, c.reporting_currency)}</span></div>
           <div class="kv"><span>Compared against</span><span style="font-family:var(--font-body)">${esc((c.peer_group || "").replace(/^(Industry|Sector): /, ""))}</span></div>
           <div class="kv"><span>Reports in</span><span>${esc(c.reporting_currency || "n/a")}</span></div>
-          <div class="kv"><span>On Trading 212</span><span>${esc(c.trading212 === "yes" ? "Yes" : c.trading212 === "no" ? "Not found" : "Not checked")}</span></div>
         </div>
       </div></div>`;
   }
@@ -449,7 +448,7 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
       const isOpen = open.has(c.name), red = c.flags.red_flags.length;
       return `<button type="button" class="row" aria-expanded="${isOpen}" data-name="${esc(c.name)}">
         <span class="rank">${c.rank}</span>
-        <span class="co"><b>${esc(c.name)}${c.long_term ? '<span class="tag lt">LONG-TERM</span>' : c.shortlisted ? '<span class="tag">SHORTLIST</span>' : ""}${c.trading212 === "no" ? '<span class="tag no">NOT ON T212</span>' : ""}${checkTag(c)}${red ? `<span class="redcount">${red} flag${red > 1 ? "s" : ""}</span>` : ""}</b><span>${esc(c.ticker)} · ${esc(c.industry || c.sector)}${(() => { const t = trend(c.ticker); return t && t.y1 != null ? ` · 1Y <span class="${t.y1 >= 0 ? "pos" : "neg"}">${trendText(t.y1)}</span>` : ""; })()}</span></span>
+        <span class="co"><b>${esc(c.name)}${c.long_term ? '<span class="tag lt">LONG-TERM</span>' : c.shortlisted ? '<span class="tag">SHORTLIST</span>' : ""}${checkTag(c)}${red ? `<span class="redcount">${red} flag${red > 1 ? "s" : ""}</span>` : ""}</b><span>${esc(c.ticker)} · ${esc(c.industry || c.sector)}${(() => { const t = trend(c.ticker); return t && t.y1 != null ? ` · 1Y <span class="${t.y1 >= 0 ? "pos" : "neg"}">${trendText(t.y1)}</span>` : ""; })()}</span></span>
         <span class="meters">${meter(c.scores.profitability_score, "Profit")}${meter(c.scores.balance_sheet_score, "Balance")}${meter(c.scores.earnings_quality_score, "Cash")}${meter(c.scores.valuation_score, "Value")}</span>
         <span class="overall">${c.scores.overall_score.toFixed(0)}</span>
       </button>${isOpen ? detail(c) : ""}`;
