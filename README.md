@@ -1,4 +1,4 @@
-# FTSE Quality Scorecard
+# EquiSift: FTSE Quality Scorecard
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jathnagulan-cmd/ftse-quality-scorecard/blob/main/scorecard_colab.ipynb)
 
