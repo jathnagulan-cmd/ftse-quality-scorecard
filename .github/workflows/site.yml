@@ -1,0 +1,98 @@
+# Rebuilds the scorecard with today's prices and news and publishes it to
+# GitHub Pages: every weekday after the London close, whenever the code
+# changes, or on demand (Actions tab > Update website > Run workflow).
+#
+# If Yahoo is unreachable or the page fails check_dashboard.py, nothing is
+# deployed and the site keeps yesterday's version.
+
+name: Update website
+
+on:
+  schedule:
+    # GitHub schedules run in UTC: 17:25 UTC is after the 16:30 London close
+    # in both winter (GMT) and summer (BST). Runs can start a little late.
+    - cron: "25 17 * * 1-5"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scorecard/**"
+      - "dashboard/**"
+      - "data/universe.csv"
+      - "run.py"
+      - "build_dashboard.py"
+      - "build_site.py"
+      - "check_dashboard.py"
+      - "requirements.txt"
+      - ".github/workflows/site.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Month for the cache key
+        id: month
+        run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+
+      # Annual statements are cached for the month (they change only when
+      # new annual reports come out), which keeps Yahoo requests down.
+      # A new month starts with an empty cache, so statements are refetched.
+      - name: Restore Yahoo cache
+        uses: actions/cache@v4
+        with:
+          path: data/cache
+          key: yahoo-${{ steps.month.outputs.month }}-${{ github.run_id }}
+          restore-keys: yahoo-${{ steps.month.outputs.month }}-
+
+      - name: Score, build and check (retries if Yahoo rate-limits)
+        run: |
+          # A restored prices file looks fresh by date, so force today's prices
+          rm -f data/cache/prices.csv
+          for attempt in 1 2 3; do
+            if python run.py && python build_dashboard.py --refresh && python check_dashboard.py; then
+              exit 0
+            fi
+            echo "Attempt $attempt failed; waiting before retrying"
+            sleep 120
+          done
+          echo "Giving up: the site keeps its previous version"
+          exit 1
+
+      - name: Build site
+        run: python build_site.py
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

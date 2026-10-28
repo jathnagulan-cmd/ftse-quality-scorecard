@@ -331,6 +331,25 @@ company's rank and scores), `shortlist.csv`, `backtest.csv`, and
 and a breakdown for every company. The first run takes a few
 minutes; data is cached in `data/cache/` afterwards.
 
+## Website
+
+The dashboard is published with GitHub Pages at
+**https://jathnagulan-cmd.github.io/ftse-quality-scorecard/**.
+`.github/workflows/site.yml` rebuilds it every weekday after the London close
+(and when the code changes): it scores everything with today's prices, fetches
+news and newer results, runs `check_dashboard.py`, wraps the page with
+`build_site.py` and deploys it. If Yahoo is unreachable or the check fails,
+nothing is deployed and the site keeps its last good version. Run it by hand
+from the **Actions** tab (Update website > Run workflow).
+
+```bash
+python check_dashboard.py   # opens the page in a headless browser; exit 1 = don't publish
+python build_site.py        # wraps outputs/dashboard.html into _site/index.html
+```
+
+Trading 212 availability is left off the public page because it comes from
+the owner's own account; it's still in `outputs/`.
+
 ## Trading 212 availability
 
 Trading 212 publishes its instrument list only through its API.
