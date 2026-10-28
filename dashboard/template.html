@@ -2,243 +2,207 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..600&display=swap">
 <style>
-/* Layout: research workspace. Frosted top bar; summary strip; shortlist; ranked ledger.
-   A company opens in a sheet (bottom on phones, right-hand panel on desktop) that tracks the finger. */
+/* Layout: the sieve. One hero chart of every company, ranked, with the few that pass lit in gold;
+   below it the shortlist as a plain ranked list, then everything else, quietly. */
 :root {
-  --bg: #f2f4f7;
+  --bg: #f3f4f6;
   --surface: #ffffff;
-  --surface-2: #f7f8fa;
-  --ink: #0e1828;
-  --muted: #586579;
-  --line: #e1e6ed;
-  --accent: #1d4ea0;
-  --accent-ink: #ffffff;
-  --accent-soft: #e6edf8;
-  --brass: #a46f17;
-  --good: #17733f; --good-soft: #e3f2e9;
-  --bad: #b3261e;  --bad-soft: #fbe9e7;
-  --warn: #9a5b00; --warn-soft: #fbf0dd;
-  --bar: #dfe5ee;
-  --glass: rgba(246, 248, 251, 0.74);
-  --glass-line: rgba(14, 24, 40, 0.08);
-  --scrim: rgba(10, 18, 32, 0.42);
-  --shadow-sm: 0 1px 2px rgba(14, 24, 40, 0.06), 0 1px 1px rgba(14, 24, 40, 0.04);
-  --shadow-lg: 0 24px 64px rgba(10, 18, 32, 0.22), 0 4px 14px rgba(10, 18, 32, 0.10);
-  --font-display: "Schibsted Grotesk", "IBM Plex Sans", system-ui, sans-serif;
-  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --r-sm: 6px; --r-md: 10px; --r-lg: 16px;
+  --ink: #0c1016;
+  --muted: #646d7b;
+  --faint: #a4acb8;
+  --line: #e2e5ea;
+  --bar: #d3d8df;
+  --gold: #b37f0e;
+  --gold-text: #8c6207;
+  --gold-soft: #f6ecd6;
+  --good: #16723e; --bad: #b3261e; --warn: #9a5b00; --warn-soft: #fbefdc;
+  --scrim: rgba(8, 12, 18, 0.45);
+  --shadow: 0 30px 80px rgba(8, 12, 18, 0.22), 0 4px 16px rgba(8, 12, 18, 0.08);
+  --font: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0a111d; --surface: #111a29; --surface-2: #0e1624; --ink: #e5eaf2; --muted: #92a0b5; --line: #222e42;
-    --accent: #7ea6f4; --accent-ink: #0a111d; --accent-soft: #1a2944; --brass: #d8a650;
-    --good: #52cc85; --good-soft: #12301f; --bad: #ff8b80; --bad-soft: #3a1714; --warn: #f0b358; --warn-soft: #34260f;
-    --bar: #253247; --glass: rgba(13, 20, 33, 0.72); --glass-line: rgba(255, 255, 255, 0.07); --scrim: rgba(0, 0, 0, 0.58);
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4); --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.55), 0 4px 14px rgba(0, 0, 0, 0.35);
+    --bg: #0b0d11; --surface: #13161c; --ink: #eceff3; --muted: #9aa3b1; --faint: #5c6573; --line: #22262e;
+    --bar: #2a2f38; --gold: #e3aa3d; --gold-text: #e9b95c; --gold-soft: #2f2410;
+    --good: #55cc88; --bad: #ff8b80; --warn: #f0b358; --warn-soft: #33250f;
+    --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.35);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0a111d; --surface: #111a29; --surface-2: #0e1624; --ink: #e5eaf2; --muted: #92a0b5; --line: #222e42;
-  --accent: #7ea6f4; --accent-ink: #0a111d; --accent-soft: #1a2944; --brass: #d8a650;
-  --good: #52cc85; --good-soft: #12301f; --bad: #ff8b80; --bad-soft: #3a1714; --warn: #f0b358; --warn-soft: #34260f;
-  --bar: #253247; --glass: rgba(13, 20, 33, 0.72); --glass-line: rgba(255, 255, 255, 0.07); --scrim: rgba(0, 0, 0, 0.58);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4); --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.55), 0 4px 14px rgba(0, 0, 0, 0.35);
+  --bg: #0b0d11; --surface: #13161c; --ink: #eceff3; --muted: #9aa3b1; --faint: #5c6573; --line: #22262e;
+  --bar: #2a2f38; --gold: #e3aa3d; --gold-text: #e9b95c; --gold-soft: #2f2410;
+  --good: #55cc88; --bad: #ff8b80; --warn: #f0b358; --warn-soft: #33250f;
+  --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.35);
   color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
-body {
-  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5;
-  -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent;
-}
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--glass); }
-h1, h2, h3 { font-family: var(--font-display); margin: 0; letter-spacing: -0.015em; text-wrap: balance; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; font-variant-numeric: tabular-nums; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
 p { margin: 0; }
-a { color: var(--accent); }
+a { color: inherit; }
 button, input, select { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--r-sm); }
-.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
-.muted { color: var(--muted); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
 .gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-.inner { max-width: 1120px; margin: 0 auto; }
+.inner { max-width: 1080px; margin: 0 auto; }
+.cond { font-stretch: 72%; }
+.muted { color: var(--muted); }
+.pos { color: var(--good); } .neg { color: var(--bad); }
+[data-press] { will-change: transform; touch-action: manipulation; }
 
-/* ---- Top bar: translucent material over the page ---- */
-.topbar {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
-  background: var(--glass); backdrop-filter: saturate(1.6) blur(18px); -webkit-backdrop-filter: saturate(1.6) blur(18px);
-  border-bottom: 1px solid transparent; transition: border-color .2s;
-}
-.topbar.scrolled { border-bottom-color: var(--glass-line); }
-.topbar .inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 56px; }
-.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; }
-.brand svg { width: 26px; height: 26px; flex: none; }
-.brand b { font-weight: 800; color: var(--brass); }
-.stamp { font-family: var(--font-data); font-size: 0.72rem; color: var(--muted); text-align: right; line-height: 1.3; }
-.stamp b { color: var(--ink); font-weight: 500; }
+/* Top line */
+.top .inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 18px 0; }
+.wordmark { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.03em; display: flex; align-items: center; gap: 8px; }
+.wordmark i { font-style: normal; color: var(--gold); }
+.wordmark svg { width: 18px; height: 18px; }
+.top .meta { font-size: 0.82rem; color: var(--muted); }
 
-main .inner { display: grid; gap: 40px; padding-block: 24px 64px; }
-section { display: grid; gap: 14px; min-width: 0; }
-.section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 8px 16px; }
-.section-head h2 { font-size: 1.3rem; font-weight: 700; }
-.section-head .sub { font-size: 0.86rem; color: var(--muted); }
-.eyebrow { font-family: var(--font-data); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+main .inner { display: grid; gap: 72px; padding-block: 36px 72px; }
 
-/* ---- Intro and summary strip ---- */
-.intro { display: grid; gap: 12px; }
-.intro h1 { font-size: clamp(1.75rem, 4.2vw, 2.6rem); line-height: 1.08; font-weight: 800; max-width: 22ch; }
-.intro .lede { color: var(--muted); max-width: 66ch; }
-.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
-.summary > div { padding: 14px 16px; display: grid; gap: 2px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
-.summary .big { font-family: var(--font-data); font-size: 1.5rem; font-weight: 500; font-variant-numeric: tabular-nums; }
-.summary .lbl { font-size: 0.8rem; color: var(--muted); }
-.summary .warnc { color: var(--warn); }
-.notice { display: grid; grid-template-columns: 18px 1fr; gap: 10px; font-size: 0.86rem; color: var(--muted); max-width: 90ch; }
-.notice svg { width: 18px; height: 18px; color: var(--warn); margin-top: 2px; }
+/* Hero */
+.hero { display: grid; gap: 18px; }
+.hero h1 { font-weight: 850; font-stretch: 78%; font-size: clamp(2.6rem, 8.4vw, 5.6rem); line-height: 0.92; letter-spacing: -0.035em; }
+.hero h1 .g { color: var(--gold); }
+.hero .sub { color: var(--muted); font-size: 1.02rem; max-width: 58ch; }
+.sieve-box { display: grid; gap: 10px; margin-top: 14px; }
+.readout { display: flex; align-items: baseline; gap: 12px; min-height: 2.2rem; white-space: nowrap; overflow: hidden; }
+.readout .r-rank { font-weight: 800; font-stretch: 72%; font-size: 1.6rem; color: var(--faint); min-width: 2.2ch; }
+.readout .r-name { font-weight: 650; font-size: 1.05rem; overflow: hidden; text-overflow: ellipsis; }
+.readout .r-score { margin-left: auto; font-weight: 800; font-stretch: 72%; font-size: 1.6rem; }
+.readout.lit .r-rank, .readout.lit .r-score { color: var(--gold); }
+.readout .hint { color: var(--muted); font-size: 0.9rem; white-space: normal; }
+.sieve { display: flex; align-items: flex-end; gap: 2px; height: clamp(150px, 26vw, 240px); touch-action: pan-y; cursor: pointer; user-select: none; -webkit-user-select: none; }
+.sieve b { flex: 1 1 0; min-width: 0; height: var(--h); background: var(--bar); border-radius: 2px 2px 0 0; transform-origin: bottom; transition: background-color .25s; }
+.sieve b.on { background: var(--gold); }
+.sieve b.hot { background: var(--ink); }
+.sieve-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; font-size: 0.82rem; color: var(--muted); }
+.sieve-foot .axis { display: flex; justify-content: space-between; flex: 1 1 100%; border-top: 1px solid var(--line); padding-top: 6px; }
+.key { display: inline-flex; align-items: center; gap: 8px; }
+.key::before { content: ""; width: 10px; height: 10px; border-radius: 2px; background: var(--gold); }
 
-/* ---- Pressable surfaces (scale is driven by a spring in JS) ---- */
-[data-press] { transform-origin: center; will-change: transform; touch-action: manipulation; }
-
-/* ---- Segmented control with a sliding thumb ---- */
-.seg { position: relative; display: inline-flex; padding: 3px; border-radius: 9px; background: var(--surface-2); border: 1px solid var(--line); isolation: isolate; }
-.seg button { position: relative; z-index: 1; border: 0; background: none; padding: 5px 14px; border-radius: 7px; font-size: 0.86rem; font-weight: 500; color: var(--muted); cursor: pointer; transition: color .15s; }
-.seg button[aria-pressed="true"] { color: var(--ink); }
+/* Segmented control */
+.seg { position: relative; display: inline-flex; padding: 3px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); isolation: isolate; }
+.seg button { position: relative; z-index: 1; border: 0; background: none; padding: 5px 14px; border-radius: 999px; font-size: 0.84rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: color .15s; }
+.seg button[aria-pressed="true"] { color: var(--bg); }
 .seg button:disabled { opacity: .35; cursor: default; }
-.seg-thumb { position: absolute; z-index: 0; top: 3px; bottom: 3px; left: 0; width: 0; border-radius: 7px; background: var(--surface); box-shadow: var(--shadow-sm), 0 0 0 1px var(--line); will-change: transform, width; }
+.seg-thumb { position: absolute; z-index: 0; top: 3px; bottom: 3px; left: 0; width: 0; border-radius: 999px; background: var(--ink); will-change: transform, width; }
 
-/* ---- Track record ---- */
-.verdict { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
-.stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 14px 16px; display: grid; gap: 6px; align-content: start; }
-.stat .big { font-family: var(--font-data); font-size: 1.6rem; font-weight: 500; line-height: 1; }
-.stat .big.good { color: var(--good); } .stat .big.bad { color: var(--bad); }
-.stat p { font-size: 0.85rem; color: var(--muted); }
-details.method { font-size: 0.9rem; border-top: 1px solid var(--line); padding-top: 10px; }
-details.method summary { cursor: pointer; color: var(--accent); font-weight: 500; }
+/* Sections */
+section { display: grid; gap: 18px; min-width: 0; }
+.head { display: grid; gap: 6px; }
+.head h2 { font-weight: 800; font-stretch: 85%; font-size: clamp(1.5rem, 3.4vw, 2.1rem); letter-spacing: -0.025em; line-height: 1.05; }
+.head p { color: var(--muted); font-size: 0.92rem; max-width: 70ch; }
+
+/* Shortlist: a ranked list, no cards */
+.picks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.pick { width: 100%; display: grid; grid-template-columns: 3.2rem minmax(0, 1fr) auto; gap: 4px 18px; align-items: center; padding: 18px 4px; border: 0; border-bottom: 1px solid var(--line); background: none; text-align: left; cursor: pointer; }
+.pick:hover .p-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.p-pos { font-weight: 850; font-stretch: 68%; font-size: 2.2rem; line-height: 1; color: var(--faint); }
+.p-main { display: grid; gap: 3px; min-width: 0; }
+.p-name { font-weight: 700; font-size: 1.12rem; letter-spacing: -0.01em; }
+.p-why { color: var(--muted); font-size: 0.88rem; }
+.p-side { display: flex; align-items: center; gap: 14px; }
+.p-score { font-weight: 850; font-stretch: 68%; font-size: 2.2rem; line-height: 1; color: var(--gold); min-width: 2ch; text-align: right; }
+.check { font-size: 0.76rem; font-weight: 600; color: var(--warn); background: var(--warn-soft); padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+
+/* All companies */
+.controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.controls input, .controls select { font-size: 0.9rem; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); min-width: 0; }
+.controls input { flex: 1 1 240px; }
+#sort-mobile { display: none; }
+.ledger { border-top: 1px solid var(--ink); }
+.row-head, .row { display: grid; grid-template-columns: 2.4rem minmax(0, 1.6fr) repeat(4, minmax(0, 0.6fr)) 3rem; gap: 14px; align-items: center; padding: 11px 4px; }
+.row-head { font-size: 0.76rem; color: var(--muted); border-bottom: 1px solid var(--line); }
+.row-head button { all: unset; cursor: pointer; }
+.row-head button[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+.row-head button:focus-visible { outline: 2px solid var(--gold); }
+.row { width: 100%; border: 0; border-bottom: 1px solid var(--line); background: none; text-align: left; cursor: pointer; }
+.row:hover { background: var(--surface); }
+.row.active { background: var(--gold-soft); }
+.rank { color: var(--faint); font-size: 0.85rem; }
+.co { min-width: 0; display: grid; }
+.co b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.co span { font-size: 0.78rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--warn); margin-left: 7px; vertical-align: 2px; }
+.star { color: var(--gold); margin-left: 6px; font-size: 0.8rem; }
+.tick { height: 4px; border-radius: 2px; background: var(--bar); overflow: hidden; }
+.tick::after { content: ""; display: block; height: 100%; width: var(--w); background: var(--muted); border-radius: 2px; }
+.ov { font-weight: 800; font-stretch: 72%; font-size: 1.25rem; text-align: right; }
+.row.lit .ov { color: var(--gold); }
+.empty { padding: 22px 4px; color: var(--muted); }
+
+/* Track record */
+.verdict { font-size: clamp(1.05rem, 2.2vw, 1.3rem); line-height: 1.45; max-width: 46ch; display: grid; gap: 10px; }
+.verdict strong { font-weight: 700; }
+details.method { font-size: 0.9rem; }
+details.method summary { cursor: pointer; font-weight: 600; }
 details.method p { margin-top: 10px; max-width: 75ch; color: var(--muted); }
 .table-scroll { overflow-x: auto; margin-top: 12px; }
 table { border-collapse: collapse; font-size: 0.84rem; min-width: 580px; }
-th, td { text-align: right; padding: 7px 10px; border-bottom: 1px solid var(--line); font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 7px 10px; border-bottom: 1px solid var(--line); }
 th:first-child, td:first-child { text-align: left; }
-th { font-family: var(--font-body); font-weight: 600; color: var(--muted); font-size: 0.76rem; }
+th { font-weight: 600; color: var(--muted); font-size: 0.76rem; }
 
-/* ---- Shortlist ---- */
-.sl-rule { font-size: 0.86rem; color: var(--muted); max-width: 80ch; }
-.shortlist { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 12px; }
-.pick { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 14px 16px; display: grid; gap: 10px; align-content: start; text-align: left; cursor: pointer; box-shadow: var(--shadow-sm); }
-.pick:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
-.pick-top { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: start; }
-.pick-name { font-weight: 600; font-size: 1.02rem; }
-.pick-meta { font-size: 0.78rem; color: var(--muted); }
-.score-pill { font-family: var(--font-data); font-size: 1.05rem; font-weight: 500; min-width: 44px; text-align: center; padding: 3px 8px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); }
-.pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
-.pick ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 0.84rem; }
+footer { font-size: 0.82rem; color: var(--muted); display: grid; gap: 8px; max-width: 78ch; border-top: 1px solid var(--line); padding-top: 20px; }
 
-/* Tags and flags */
+/* Sheet */
+.scrim { position: fixed; inset: 0; z-index: 40; background: var(--scrim); opacity: 0; }
+.sheet { position: fixed; z-index: 50; background: var(--surface); box-shadow: var(--shadow); display: flex; flex-direction: column; left: 0; right: 0; bottom: 0; height: calc(100% - env(safe-area-inset-top, 0px) - 28px); max-height: 900px; border-radius: 20px 20px 0 0; will-change: transform; outline: none; }
+.sheet[hidden], .scrim[hidden] { display: none; }
+.sheet-head { flex: none; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; padding: 8px max(18px, env(safe-area-inset-right, 0px)) 14px max(18px, env(safe-area-inset-left, 0px)); border-bottom: 1px solid var(--line); border-radius: inherit; background: var(--surface); }
+.sheet.dragging .sheet-head { cursor: grabbing; }
+.grabber { width: 38px; height: 5px; border-radius: 3px; background: var(--bar); margin: 0 auto 12px; }
+.sheet-title { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 14px; align-items: center; }
+.sheet-title h2 { font-weight: 800; font-stretch: 85%; font-size: 1.5rem; letter-spacing: -0.02em; line-height: 1.1; overflow-wrap: anywhere; }
+.sheet-meta { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+.sheet-score { font-weight: 850; font-stretch: 68%; font-size: 2.4rem; line-height: 1; color: var(--gold); }
+.close { width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--bg); color: var(--muted); display: grid; place-items: center; cursor: pointer; }
+.close svg { width: 14px; height: 14px; }
+.sheet-body { flex: 1; overflow-y: auto; overscroll-behavior: contain; display: grid; gap: 22px; align-content: start; padding: 18px max(18px, env(safe-area-inset-right, 0px)) calc(32px + env(safe-area-inset-bottom, 0px)) max(18px, env(safe-area-inset-left, 0px)); }
+@media (min-width: 960px) {
+  .sheet { left: auto; top: 0; height: auto; max-height: none; width: min(600px, 46vw); border-radius: 20px 0 0 20px; }
+  .sheet-head { padding-top: 20px; cursor: default; }
+  .grabber { display: none; }
+}
+.sheet.reduced, .scrim.reduced { transition: opacity .16s ease; }
 .tags { display: inline-flex; flex-wrap: wrap; gap: 4px; vertical-align: 1px; margin-left: 6px; }
-.tag { font-family: var(--font-data); font-size: 0.62rem; letter-spacing: 0.05em; padding: 1px 6px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; font-weight: 500; }
-.tag.lt { background: var(--good-soft); color: var(--good); }
+.tag { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.02em; padding: 1px 7px; border-radius: 999px; background: var(--bg); color: var(--muted); white-space: nowrap; }
+.tag.lt { background: var(--gold-soft); color: var(--gold-text); }
 .tag.check { background: var(--warn-soft); color: var(--warn); }
-.tag.no { background: var(--bad-soft); color: var(--bad); }
-.flag { display: grid; grid-template-columns: 14px 1fr; gap: 6px; }
-.flag::before { font-family: var(--font-data); font-weight: 600; }
+.tag.no { color: var(--bad); }
+.sheet h3 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; display: flex; justify-content: space-between; }
+.sheet h3 .s { color: var(--ink); letter-spacing: 0; }
+.detail-flags { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; font-size: 0.92rem; }
+.flag { display: grid; grid-template-columns: 16px 1fr; gap: 6px; }
+.flag::before { font-weight: 800; }
 .flag.good::before { content: "+"; color: var(--good); }
 .flag.bad::before { content: "!"; color: var(--bad); }
 .flag.note::before { content: "?"; color: var(--warn); }
-
-/* Pillar meters */
-.meter { display: grid; gap: 3px; min-width: 0; }
-.meter small { font-family: var(--font-data); font-size: 0.68rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.meter i { display: block; height: 5px; border-radius: 3px; background: var(--bar); overflow: hidden; }
-.meter i::after { content: ""; display: block; height: 100%; width: var(--w); background: var(--accent); border-radius: 3px; }
-
-/* ---- Ledger ---- */
-.controls { display: flex; flex-wrap: wrap; gap: 8px; }
-.controls input, .controls select { font-size: 0.9rem; padding: 8px 11px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); min-width: 0; }
-.controls input { flex: 1 1 220px; }
-.controls select { flex: 0 1 auto; }
-#sort-mobile { display: none; }
-.list { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
-.row-head, .row { display: grid; grid-template-columns: 34px minmax(0, 1.7fr) repeat(4, minmax(0, 1fr)) 64px; gap: 14px; align-items: center; padding: 10px 16px; }
-.row-head { font-size: 0.74rem; color: var(--muted); border-bottom: 1px solid var(--line); font-weight: 600; background: var(--surface-2); }
-.row-head button { all: unset; cursor: pointer; border-radius: 4px; }
-.row-head button[aria-pressed="true"] { color: var(--accent); }
-.row-head button[aria-pressed="true"]::after { content: " ↓"; }
-.row-head button:focus-visible { outline: 2px solid var(--accent); }
-.row { width: 100%; border: 0; border-bottom: 1px solid var(--line); background: var(--surface); text-align: left; cursor: pointer; }
-.row:last-child { border-bottom: 0; }
-.row:hover { background: var(--surface-2); }
-.row.active { background: var(--accent-soft); }
-.rank { font-family: var(--font-data); color: var(--muted); font-size: 0.82rem; }
-.co { min-width: 0; }
-.co b { font-weight: 600; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.co span { font-size: 0.78rem; color: var(--muted); display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.redcount { color: var(--bad); font-family: var(--font-data); font-size: 0.7rem; margin-left: 6px; }
-.overall { font-family: var(--font-data); font-weight: 500; text-align: right; font-size: 1.02rem; }
-.pos { color: var(--good); } .neg { color: var(--bad); }
-.empty { padding: 22px 16px; color: var(--muted); }
-
-footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-width: 80ch; border-top: 1px solid var(--line); padding-top: 18px; }
-
-/* ---- Sheet ---- */
-.scrim { position: fixed; inset: 0; z-index: 40; background: var(--scrim); opacity: 0; }
-.sheet {
-  position: fixed; z-index: 50; background: var(--surface); box-shadow: var(--shadow-lg); display: flex; flex-direction: column;
-  left: 0; right: 0; bottom: 0; height: calc(100% - env(safe-area-inset-top, 0px) - 28px); max-height: 900px;
-  border-radius: 18px 18px 0 0; will-change: transform; outline: none;
-}
-.sheet-head {
-  flex: none; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none;
-  padding: 8px max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px));
-  border-bottom: 1px solid var(--line); border-radius: inherit; background: var(--surface);
-}
-.sheet.dragging .sheet-head { cursor: grabbing; }
-.grabber { width: 38px; height: 5px; border-radius: 3px; background: var(--bar); margin: 0 auto 10px; }
-.sheet-title { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 12px; align-items: center; }
-.sheet-title h2 { font-size: 1.25rem; font-weight: 700; overflow-wrap: anywhere; }
-.sheet-title .pick-meta { margin-top: 2px; }
-.close { width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--surface-2); color: var(--muted); display: grid; place-items: center; cursor: pointer; }
-.close svg { width: 14px; height: 14px; }
-.sheet-body {
-  flex: 1; overflow-y: auto; overscroll-behavior: contain; display: grid; gap: 16px; align-content: start;
-  padding: 16px max(16px, env(safe-area-inset-right, 0px)) calc(28px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
-}
-@media (min-width: 960px) {
-  .sheet { left: auto; top: 0; height: auto; max-height: none; width: min(600px, 46vw); border-radius: 18px 0 0 18px; }
-  .sheet-head { padding-top: 16px; cursor: default; }
-  .grabber { display: none; }
-}
-.sheet[hidden], .scrim[hidden] { display: none; }
-.sheet.reduced { transition: opacity .16s ease; }
-.scrim.reduced { transition: opacity .16s ease; }
-
-.detail-flags { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 0.9rem; }
-.groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
-.group { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-md); padding: 12px 14px; display: grid; gap: 4px; align-content: start; }
-.group h3 { font-size: 0.82rem; display: flex; justify-content: space-between; margin-bottom: 4px; font-family: var(--font-body); font-weight: 600; letter-spacing: 0; }
-.kv { display: flex; justify-content: space-between; gap: 12px; font-size: 0.84rem; }
+.groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px 28px; }
+.group { display: grid; gap: 4px; align-content: start; }
+.kv { display: flex; justify-content: space-between; gap: 12px; font-size: 0.86rem; padding: 3px 0; border-bottom: 1px dashed var(--line); }
 .kv span:first-child { color: var(--muted); }
-.kv span:last-child { font-family: var(--font-data); font-variant-numeric: tabular-nums; text-align: right; }
-
-.recent { border: 1px solid var(--line); border-radius: var(--r-md); padding: 14px; display: grid; gap: 12px; }
-.recent h3 { font-size: 0.95rem; }
-.recent .sub { font-size: 0.78rem; color: var(--muted); }
-.recent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4px 24px; }
-.news { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 10px; font-size: 0.86rem; }
+.kv span:last-child { text-align: right; }
+.recent { display: grid; gap: 12px; }
+.recent .sub { font-size: 0.8rem; color: var(--muted); }
+.recent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 28px; }
+.news { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 12px; font-size: 0.9rem; }
 .news li { display: grid; gap: 2px; }
-.news a { color: var(--ink); text-decoration: none; } .news a:hover { color: var(--accent); text-decoration: underline; }
-.news .meta { font-size: 0.72rem; color: var(--muted); font-family: var(--font-data); }
-.ntag { font-family: var(--font-data); font-size: 0.62rem; border-radius: 999px; padding: 0 6px; margin-left: 6px; background: var(--surface-2); color: var(--muted); }
+.news a { text-decoration: none; } .news a:hover { text-decoration: underline; }
+.news .meta { font-size: 0.74rem; color: var(--muted); }
+.ntag { font-size: 0.66rem; font-weight: 600; border-radius: 999px; padding: 0 6px; margin-left: 6px; background: var(--bg); color: var(--muted); }
 .ntag.alert { background: var(--warn-soft); color: var(--warn); }
-.ntag.bad { background: var(--bad-soft); color: var(--bad); }
+.ntag.bad { color: var(--bad); }
 
 /* Price chart */
-.chart { border: 1px solid var(--line); border-radius: var(--r-md); padding: 14px 14px 10px; display: grid; gap: 8px; }
-.chart-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; min-height: 50px; }
-.chart-price { font-family: var(--font-data); font-size: 1.7rem; font-weight: 500; font-variant-numeric: tabular-nums; }
-.chart-change { font-family: var(--font-data); font-size: 0.88rem; font-variant-numeric: tabular-nums; }
+.chart { display: grid; gap: 8px; }
+.chart-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; min-height: 52px; }
+.chart-price { font-weight: 800; font-stretch: 75%; font-size: 2rem; line-height: 1.1; }
+.chart-change { font-size: 0.9rem; font-weight: 600; }
 .chart-change.up { color: var(--good); } .chart-change.down { color: var(--bad); }
 .chart-when { font-size: 0.76rem; color: var(--muted); display: block; }
 .chart svg { display: block; width: 100%; height: 190px; touch-action: pan-y; cursor: crosshair; }
@@ -247,72 +211,71 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
 .chart .base { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 4; opacity: .5; }
 .chart .grid { stroke: var(--line); stroke-width: 1; }
 .chart .cross { stroke: var(--muted); stroke-width: 1; }
-.chart .axis { fill: var(--muted); font-family: var(--font-data); font-size: 10px; }
-.chart .seg { align-self: start; }
-.chart .seg button { font-family: var(--font-data); font-size: 0.78rem; padding: 4px 12px; }
-.chart-foot { font-size: 0.72rem; color: var(--muted); }
+.chart .axis { fill: var(--muted); font-family: var(--font); font-size: 10px; }
+.chart .seg { justify-self: start; }
+.chart .seg button { font-size: 0.78rem; padding: 4px 12px; }
+.chart-foot { font-size: 0.74rem; color: var(--muted); }
 
 @media (max-width: 760px) {
+  main .inner { gap: 56px; padding-block: 24px 56px; }
   .row-head { display: none; }
   #sort-mobile { display: block; }
-  .row { grid-template-columns: 26px minmax(0, 1fr) 52px; row-gap: 8px; padding: 12px 14px; }
-  .row .meters { grid-column: 2 / 4; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
-  .row .overall { grid-column: 3; grid-row: 1; }
-  .stamp span { display: none; }
-  .summary { grid-template-columns: 1fr 1fr; }
-  .summary > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .top .meta .long { display: none; }
+  .row { grid-template-columns: 2rem minmax(0, 1fr) 2.6rem; }
+  .row .ticks { display: none; }
+  .pick { grid-template-columns: 2.4rem minmax(0, 1fr) auto; gap: 4px 12px; }
+  .p-pos, .p-score { font-size: 1.8rem; }
+  .p-side .check { display: none; }
+  .p-why .check-m { display: inline; }
 }
-@media (min-width: 761px) { .row .meters { display: contents; } }
+@media (min-width: 761px) { .row .ticks { display: contents; } .p-why .check-m { display: none; } }
 </style>
 
-<header class="topbar gutter" id="topbar">
+<header class="top gutter">
   <div class="inner">
-    <div class="brand" aria-label="EquiSift">
-      <svg viewBox="0 0 26 26" aria-hidden="true">
-        <rect x="2" y="4" width="22" height="3.2" rx="1.6" fill="var(--brass)"/>
-        <rect x="5.5" y="10" width="15" height="3.2" rx="1.6" fill="var(--brass)" opacity=".8"/>
-        <rect x="9" y="16" width="8" height="3.2" rx="1.6" fill="var(--brass)" opacity=".6"/>
-        <circle cx="13" cy="22.6" r="1.9" fill="var(--accent)"/>
-      </svg>
-      <span>Equi<b>Sift</b></span>
+    <div class="wordmark" aria-label="EquiSift">
+      <svg viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="2" width="16" height="2.6" rx="1.3" fill="currentColor"/><rect x="4" y="7.4" width="10" height="2.6" rx="1.3" fill="currentColor" opacity=".6"/><rect x="7" y="12.8" width="4" height="2.6" rx="1.3" fill="var(--gold)"/></svg>
+      <span>Equi<i>Sift</i></span>
     </div>
-    <p class="stamp" id="stamp"></p>
+    <p class="meta" id="stamp"></p>
   </div>
 </header>
 
 <main class="gutter">
 <div class="inner">
-  <section class="intro" aria-labelledby="intro-h">
-    <span class="eyebrow" id="asof"></span>
-    <h1 id="intro-h">Quality UK companies at sensible prices, sifted from the FTSE 100</h1>
-    <p class="lede">Every company is scored against its peers on four things read from its annual reports: how profitable it is, how strong the balance sheet is, whether profit turns into cash, and what the market charges for it. Banks, insurers and property companies are left out because these measures don't fit them.</p>
-    <div class="summary" id="summary"></div>
-    <p class="notice"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 1.5 17 16H1L9 1.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 7v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="13.4" r=".95" fill="currentColor"/></svg>
-      <span>A screen for deciding what to research, not a list of what to buy. Scores use annual reports only. News, results since the annual report and new chief executives or finance directors show as <b>Check first</b> warnings but don't change the scores, and Yahoo's data has gaps. Read the latest results before acting. Not financial advice.</span></p>
+  <section class="hero" aria-labelledby="hero-h">
+    <h1 id="hero-h"></h1>
+    <p class="sub">Every FTSE 100 company outside banking, insurance and property, scored against its peers on four years of annual reports: returns, balance sheet, cash and price. A research screen, not advice.</p>
+    <div class="sieve-box">
+      <div class="readout" id="readout" aria-live="polite"></div>
+      <div class="sieve" id="sieve" role="group" aria-label="Every company ranked by overall score"></div>
+      <div class="sieve-foot">
+        <div class="axis"><span>Highest overall score</span><span>Lowest</span></div>
+        <span class="key" id="key"></span>
+        <div class="seg" role="group" aria-label="Which shortlist" id="sl-seg">
+          <button type="button" data-mode="long" aria-pressed="true">Long-term</button>
+          <button type="button" data-mode="all" aria-pressed="false">All rules</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section aria-labelledby="sl-h">
-    <div class="section-head"><h2 id="sl-h">Shortlist</h2>
-      <div class="seg" role="group" aria-label="Which shortlist" id="sl-seg">
-        <button type="button" data-mode="long" aria-pressed="true">Long-term</button>
-        <button type="button" data-mode="all" aria-pressed="false">All</button>
-      </div>
-    </div>
-    <p class="sl-rule" id="sl-rule"></p>
-    <div class="shortlist" id="shortlist"></div>
+    <div class="head"><h2 id="sl-h">The shortlist</h2><p id="sl-rule"></p></div>
+    <ol class="picks" id="shortlist"></ol>
   </section>
 
   <section aria-labelledby="all-h">
-    <div class="section-head"><h2 id="all-h">All companies</h2><span class="sub" id="count"></span></div>
+    <div class="head"><h2 id="all-h">All companies</h2><p id="count"></p></div>
     <div class="controls">
       <input id="q" type="search" placeholder="Search company or ticker" autocomplete="off" aria-label="Search company or ticker">
       <select id="sector" aria-label="Sector"><option value="">All sectors</option></select>
       <select id="filter" aria-label="Filter">
         <option value="">Everything</option>
         <option value="long">Long-term shortlist</option>
-        <option value="short">Shortlist only</option>
+        <option value="short">Shortlist</option>
         <option value="clean">No red flags</option>
-        <option value="recent">Check first: recent warnings</option>
+        <option value="recent">Check first</option>
       </select>
       <select id="sort-mobile" aria-label="Sort by">
         <option value="overall_score">Sort: Overall</option>
@@ -322,12 +285,12 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
         <option value="valuation_score">Sort: Value</option>
       </select>
     </div>
-    <div class="list">
+    <div class="ledger">
       <div class="row-head" id="row-head">
         <span>#</span><span>Company</span>
         <button type="button" data-sort="profitability_score">Profit</button>
         <button type="button" data-sort="balance_sheet_score">Balance sheet</button>
-        <button type="button" data-sort="earnings_quality_score">Cash quality</button>
+        <button type="button" data-sort="earnings_quality_score">Cash</button>
         <button type="button" data-sort="valuation_score">Value</button>
         <button type="button" data-sort="overall_score" aria-pressed="true" style="text-align:right">Overall</button>
       </div>
@@ -336,20 +299,19 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
   </section>
 
   <section aria-labelledby="bt-h">
-    <div class="section-head"><h2 id="bt-h">Track record</h2><span class="sub" id="bt-sub"></span></div>
+    <div class="head"><h2 id="bt-h">Has it worked?</h2></div>
     <div class="verdict" id="verdict"></div>
     <details class="method">
-      <summary>How this was tested, and why it's weak evidence</summary>
-      <p>At each date below, every company was rescored using only the accounts published by then and that day's share price, then followed for twelve months, dividends included. "Top" and "bottom" are the best and worst fifth of companies by overall score. The periods overlap and all sit in one market, the universe is today's FTSE 100 (so companies that dropped out are missing), and trading costs are ignored. Treat it as a sign the quality scores aren't noise, not as proof.</p>
+      <summary>How it was tested, period by period</summary>
+      <p>At each date, every company was rescored using only the accounts published by then and that day's share price, then followed for twelve months, dividends included. "Top" and "bottom" are the best and worst fifth by overall score. The periods overlap and sit in one market, the universe is today's FTSE 100 (so companies that dropped out are missing), and trading costs are ignored. Treat it as a sign the quality scores aren't noise, not as proof.</p>
       <div class="table-scroll"><table id="bt-table"></table></div>
       <div class="table-scroll"><table id="bt-two"></table></div>
-      <p>The long-term list needs three years of margins, so it only exists from 2025. Returns are total returns over twelve months unless marked, each list held in equal amounts.</p>
     </details>
   </section>
 
   <footer>
-    <p>Scores are relative: each metric is ranked against the other companies (margins and debt against industry peers), then averaged, so 100 means best in the group. Overall weights the three quality pillars and valuation equally.</p>
-    <p>Data from Yahoo Finance; free data has gaps and errors. Code, methods and known limitations: <a href="https://github.com/jathnagulan-cmd/ftse-quality-scorecard" target="_blank" rel="noopener">github.com/jathnagulan-cmd/ftse-quality-scorecard</a></p>
+    <p>EquiSift is a screen for deciding what to research, not a list of what to buy, and not financial advice. Scores are relative: each metric is ranked against the other companies (margins and debt against industry peers), so 100 means best in the group. Quality carries three quarters of the overall score and price one quarter. News, results since the annual report and management changes are shown as <b>Check first</b> warnings but never change the scores.</p>
+    <p>Data from Yahoo Finance, which has gaps and errors. Code and methods: <a href="https://github.com/jathnagulan-cmd/ftse-quality-scorecard" target="_blank" rel="noopener">github.com/jathnagulan-cmd/ftse-quality-scorecard</a></p>
   </footer>
 </div>
 </main>
@@ -359,8 +321,8 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
   <div class="sheet-head" id="sheet-head">
     <div class="grabber" aria-hidden="true"></div>
     <div class="sheet-title">
-      <div style="min-width:0"><h2 id="sheet-name"></h2><p class="pick-meta" id="sheet-meta"></p></div>
-      <span class="score-pill" id="sheet-score" title="Overall score"></span>
+      <div style="min-width:0"><h2 id="sheet-name"></h2><p class="sheet-meta" id="sheet-meta"></p></div>
+      <span class="sheet-score" id="sheet-score" title="Overall score"></span>
       <button type="button" class="close" id="sheet-close" aria-label="Close" data-press>
         <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
@@ -530,76 +492,83 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
   const meters = (c) => meter(c.scores.profitability_score, "Profit") + meter(c.scores.balance_sheet_score, "Balance") + meter(c.scores.earnings_quality_score, "Cash") + meter(c.scores.valuation_score, "Value");
   const sub = (c) => esc(c.ticker.replace(/\.L$/, "")) + " · " + esc(c.industry || c.sector || "");
 
-  /* ================= Header, summary ================= */
+  /* ================= Top line and hero ================= */
   const asof = new Date(S.as_of + "T00:00:00");
-  $("asof").textContent = "Scored " + asof.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) + " · London-listed · prices in pence";
-  $("stamp").innerHTML = `<span>Prices as of </span><b>${esc(updatedText)}</b>`;
-  const checkCount = S.companies.filter(needsCheck).length;
-  const summaryItems = [
-    [S.count, "companies scored"],
-    [(S.long_term_shortlist || []).length, "on the long-term list"],
-    [S.shortlist.length, "on the full shortlist"],
-    [checkCount, "to check first", "warnc"],
-  ];
-  if (B && B.periods) summaryItems.push([`${B.quality.periods_top_beat_bottom_median}/${B.periods}`, "periods quality beat its bottom fifth"]);
-  $("summary").innerHTML = summaryItems.map(([n, l, cls]) => `<div><span class="big ${cls || ""}">${esc(n)}</span><span class="lbl">${esc(l)}</span></div>`).join("");
-  const topbar = $("topbar");
-  window.addEventListener("scroll", () => topbar.classList.toggle("scrolled", window.scrollY > 4), { passive: true });
-
-  /* ================= Track record ================= */
-  if (B && B.periods) {
-    $("bt-sub").textContent = B.periods + " twelve-month periods, May 2024 onwards";
-    const q = B.quality, v = B.valuation;
-    const stat = (big, cls, title, body) => `<div class="stat"><span class="eyebrow">${esc(title)}</span><span class="big ${cls}">${esc(big)}</span><p>${body}</p></div>`;
-    $("verdict").innerHTML = [
-      stat(`${q.periods_top_beat_bottom_median}/${B.periods}`, q.periods_top_beat_bottom_median > B.periods / 2 ? "good" : "bad", "Quality scores",
-        `periods where the top fifth beat the bottom fifth. Typical gap: <span class="num">${signedPct(q.avg_median_spread)}</span> a year (medians).`),
-      stat(`${B.shortlist_beat_universe_median}/${B.periods}`, B.shortlist_beat_universe_median > B.periods / 2 ? "good" : "bad", "Shortlist",
-        `periods where the shortlist beat the average company. <span class="num">${signedPct(B.shortlist_median_avg)}</span> vs <span class="num">${signedPct(B.universe_median_avg)}</span> (medians).`),
-      stat(`${v.periods_top_beat_bottom_median}/${B.periods}`, v.periods_top_beat_bottom_median > B.periods / 2 ? "good" : "bad", "Valuation scores",
-        `periods where the cheapest fifth beat the dearest. No reliable signal yet in this short window.`),
-      B.benchmark_avg != null ? stat(`${B.long_term_beat_benchmark}/${B.long_term_periods}`, B.long_term_beat_benchmark > B.long_term_periods / 2 ? "good" : "bad", "Long-term list vs a FTSE 100 tracker",
-        `periods it beat simply holding a tracker (<span class="num">${signedPct(B.long_term_avg)}</span> vs <span class="num">${signedPct(B.benchmark_avg)}</span> a year). The full shortlist beat it in ${B.shortlist_beat_benchmark}/${B.periods}. The tracker includes banks, which are excluded here and rallied hard.`) : "",
-    ].join("");
-    const rows = B.by_period.map((r) => `<tr><td>${esc(r.date)}</td><td>${r.companies}</td><td>${signedPct(r.overall_top)}</td><td>${signedPct(r.overall_bottom)}</td><td>${signedPct(r.overall_median_spread)}</td><td>${signedPct(r.shortlist_return)}</td><td>${r.long_term_size ? signedPct(r.long_term_return) + ` (${r.long_term_size})` : "none"}</td><td>${signedPct(r.benchmark_return)}</td></tr>`).join("");
-    $("bt-table").innerHTML = `<thead><tr><th>Scored on</th><th>Companies</th><th>Top fifth</th><th>Bottom fifth</th><th>Gap (medians)</th><th>Shortlist</th><th>Long-term (n)</th><th>FTSE tracker</th></tr></thead><tbody>${rows}</tbody>`;
-    if (B.two_year && B.two_year.length) {
-      const r2 = B.two_year.map((r) => `<tr><td>${esc(r.date)}</td><td>${signedPct(r.shortlist_return)}</td><td>${r.long_term_size ? signedPct(r.long_term_return) : "none"}</td><td>${signedPct(r.benchmark_return)}</td></tr>`).join("");
-      $("bt-two").innerHTML = `<caption style="text-align:left;padding:10px 0 4px;color:var(--muted)">Two-year returns, only dates with two full years since</caption><thead><tr><th>Scored on</th><th>Shortlist</th><th>Long-term</th><th>FTSE tracker</th></tr></thead><tbody>${r2}</tbody>`;
-    }
-  } else {
-    $("bt-sub").textContent = "Not run yet";
-  }
-
-  /* ================= Shortlist ================= */
-  const T212_NOTE = S.trading212_checked ? "Companies confirmed as unavailable on Trading 212 are left out." : "Trading 212 availability hasn't been checked yet, so nothing is excluded for it.";
-  const RULES = {
-    long: "For buying and holding: quality 60+, valuation 40+, at most one red flag, no cyclical industries, and operating margins that moved less than 3 points across the years available.",
-    all: "Quality 60+, valuation 40+, at most one red flag. Includes cyclical companies, marked with a caution note.",
+  $("stamp").innerHTML = `<span class="long">Scored ${asof.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })} · prices </span>${esc(updatedText)}`;
+  const T212_NOTE = S.trading212_checked ? " Companies confirmed as unavailable on Trading 212 are left out." : "";
+  const MODES = {
+    long: { names: S.long_term_shortlist || [], key: "Gold: passes every rule for the long-term list",
+      rule: "For buying and holding. Quality 60+, valuation 40+, at most one red flag, no cyclical industries, and operating margins that held within 3 points across the years available." },
+    all: { names: S.shortlist, key: "Gold: passes the shortlist rules",
+      rule: "Quality 60+, valuation 40+, at most one red flag. Cyclical companies are included, so treat their scores with caution." },
   };
   let slMode = "long";
-  function renderShortlist() {
-    const names = slMode === "long" ? (S.long_term_shortlist || []) : S.shortlist;
-    $("sl-rule").textContent = RULES[slMode] + " " + T212_NOTE;
-    $("shortlist").innerHTML = names.length ? names.map((n) => {
-      const c = byName[n], t = trend(c.ticker), w = recentWarnings(c);
-      const recent = [...w.red_flags.map((x) => ["bad", "Since the annual report: " + x]), ...w.notes.map((x) => ["note", "Since the annual report: " + x])];
-      return `<button type="button" class="pick" data-open="${esc(n)}" data-press>
-        <div class="pick-top"><div><div class="pick-name">${esc(n)}${tagsFor(c, false)}</div>
-          <div class="pick-meta">${sub(c)}${t && t.y1 != null ? ` · 1Y <span class="${t.y1 >= 0 ? "pos" : "neg"}">${signedPct(t.y1)}</span>` : ""}</div></div>
-          <span class="score-pill" title="Overall score">${c.scores.overall_score.toFixed(0)}</span></div>
-        <div class="pillars">${meters(c)}</div>
-        <ul>${flagList([...flagItems(flagsFor(c)), ...recent])}</ul></button>`;
-    }).join("") : `<p class="muted">Nothing meets these rules this month.</p>`;
-  }
-  Segmented($("sl-seg"), (b) => { slMode = b.dataset.mode; renderShortlist(); });
-  renderShortlist();
+  const inMode = (c) => MODES[slMode].names.includes(c.name);
+  const ranked = S.companies.slice().sort((a, b) => b.scores.overall_score - a.scores.overall_score);
 
-  /* ================= Ledger ================= */
+  function renderHero() {
+    const n = MODES[slMode].names.length;
+    $("hero-h").innerHTML = `${S.count} companies in.<br><span class="g">${n} worth a closer look.</span>`;
+    $("key").textContent = MODES[slMode].key;
+    sieve.querySelectorAll("b").forEach((bar, i) => bar.classList.toggle("on", inMode(ranked[i])));
+  }
+
+  // The sieve: every company as a bar, ranked. Drag across it to read; tap to open.
+  const sieve = $("sieve"), readout = $("readout");
+  const scores = ranked.map((c) => c.scores.overall_score), sMax = Math.max(...scores), sMin = Math.min(...scores);
+  sieve.innerHTML = ranked.map((c) => `<b style="--h:${(10 + ((c.scores.overall_score - sMin) / (sMax - sMin || 1)) * 90).toFixed(1)}%"></b>`).join("");
+  const bars = [...sieve.children];
+  const HINT = `<span class="hint">Each bar is one company, best on the left. Drag across to read them, tap one to open it.</span>`;
+  readout.innerHTML = HINT;
+  let hot = -1;
+  const barAt = (clientX) => {
+    const r = sieve.getBoundingClientRect();
+    return Math.max(0, Math.min(bars.length - 1, Math.floor(((clientX - r.left) / r.width) * bars.length)));
+  };
+  const showBar = (i) => {
+    if (i === hot) return;
+    if (hot >= 0) bars[hot].classList.remove("hot");
+    hot = i; bars[i].classList.add("hot");
+    const c = ranked[i];
+    readout.classList.toggle("lit", inMode(c));
+    readout.innerHTML = `<span class="r-rank">${i + 1}</span><span class="r-name">${esc(c.name)}</span><span class="r-score">${c.scores.overall_score.toFixed(0)}</span>`;
+  };
+  const clearBar = () => { if (hot >= 0) bars[hot].classList.remove("hot"); hot = -1; readout.classList.remove("lit"); readout.innerHTML = HINT; };
+  let sieveDown = null;
+  sieve.addEventListener("pointerdown", (e) => { sieveDown = [e.clientX, e.clientY]; showBar(barAt(e.clientX)); });
+  sieve.addEventListener("pointermove", (e) => showBar(barAt(e.clientX)));
+  sieve.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") clearBar(); });
+  sieve.addEventListener("pointercancel", () => { sieveDown = null; });
+  sieve.addEventListener("pointerup", (e) => {
+    if (sieveDown && Math.hypot(e.clientX - sieveDown[0], e.clientY - sieveDown[1]) < 10) openSheet(ranked[barAt(e.clientX)].name, null);
+    sieveDown = null;
+  });
+
+  /* ================= Shortlist ================= */
+  function reason(c) {
+    const f = flagsFor(c);
+    return f.strengths[0] || f.red_flags[0] || f.notes[0] || "";
+  }
+  function renderShortlist() {
+    const names = MODES[slMode].names;
+    $("sl-rule").textContent = MODES[slMode].rule + T212_NOTE;
+    $("shortlist").innerHTML = names.length ? names.map((n, i) => {
+      const c = byName[n], chk = needsCheck(c);
+      return `<li><button type="button" class="pick" data-open="${esc(n)}" data-press>
+        <span class="p-pos">${i + 1}</span>
+        <span class="p-main"><span class="p-name">${esc(n)}</span>
+          <span class="p-why">${esc(c.industry || c.sector || "")} · ${esc(reason(c))}${chk ? ' <span class="check-m" style="color:var(--warn);font-weight:600">· Check first</span>' : ""}</span></span>
+        <span class="p-side">${chk ? '<span class="check">Check first</span>' : ""}<span class="p-score">${c.scores.overall_score.toFixed(0)}</span></span>
+      </button></li>`;
+    }).join("") : `<li class="empty">Nothing passes these rules this month.</li>`;
+  }
+
+  /* ================= All companies ================= */
   [...new Set(S.companies.map((c) => c.sector).filter(Boolean))].sort().forEach((s) => {
     const o = document.createElement("option"); o.value = s; o.textContent = s; $("sector").appendChild(o);
   });
   let sortKey = "overall_score", activeName = null;
+  const tick = (v, label) => `<span class="tick" title="${label} ${isNum(v) ? v.toFixed(0) : "n/a"}" style="--w:${isNum(v) ? v : 0}%"></span>`;
   function render() {
     const q = $("q").value.trim().toLowerCase(), sec = $("sector").value, f = $("filter").value;
     let list = S.companies.filter((c) =>
@@ -607,16 +576,14 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
       (!sec || c.sector === sec) &&
       (f !== "short" || c.shortlisted) && (f !== "long" || c.long_term) && (f !== "clean" || c.flags.red_flags.length === 0) && (f !== "recent" || needsCheck(c)));
     list = list.slice().sort((a, b) => (b.scores[sortKey] ?? -1) - (a.scores[sortKey] ?? -1));
-    $("count").textContent = list.length === S.companies.length ? `${list.length} companies` : `${list.length} of ${S.companies.length} shown`;
-    $("rows").innerHTML = list.length ? list.map((c) => {
-      const red = c.flags.red_flags.length, t = trend(c.ticker);
-      return `<button type="button" class="row${c.name === activeName ? " active" : ""}" data-name="${esc(c.name)}" data-press aria-haspopup="dialog">
+    $("count").textContent = (list.length === S.companies.length ? `${list.length} companies` : `${list.length} of ${S.companies.length} shown`) +
+      ". Gold scores are on the shortlist above; an orange dot means something since the annual report needs checking.";
+    $("rows").innerHTML = list.length ? list.map((c) => `<button type="button" class="row${inMode(c) ? " lit" : ""}${c.name === activeName ? " active" : ""}" data-name="${esc(c.name)}" data-press aria-haspopup="dialog">
         <span class="rank">${c.rank}</span>
-        <span class="co"><b>${esc(c.name)}${tagsFor(c)}${red ? `<span class="redcount">${red} flag${red > 1 ? "s" : ""}</span>` : ""}</b><span>${sub(c)}${t && t.y1 != null ? ` · 1Y <span class="${t.y1 >= 0 ? "pos" : "neg"}">${signedPct(t.y1)}</span>` : ""}</span></span>
-        <span class="meters">${meters(c)}</span>
-        <span class="overall">${c.scores.overall_score.toFixed(0)}</span>
-      </button>`;
-    }).join("") : `<p class="empty">No companies match. Clear the search or filters to see all ${S.companies.length}.</p>`;
+        <span class="co"><b>${esc(c.name)}${needsCheck(c) ? '<span class="dot" title="Check first"></span>' : ""}</b><span>${esc(c.industry || c.sector || "")}</span></span>
+        <span class="ticks">${tick(c.scores.profitability_score, "Profit")}${tick(c.scores.balance_sheet_score, "Balance sheet")}${tick(c.scores.earnings_quality_score, "Cash")}${tick(c.scores.valuation_score, "Value")}</span>
+        <span class="ov">${c.scores.overall_score.toFixed(0)}</span>
+      </button>`).join("") : `<p class="empty">No companies match. Clear the search or filters to see all ${S.companies.length}.</p>`;
   }
   const setSort = (key) => {
     sortKey = key; $("sort-mobile").value = key;
@@ -626,7 +593,26 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
   $("row-head").addEventListener("click", (e) => { const b = e.target.closest("button[data-sort]"); if (b) setSort(b.dataset.sort); });
   $("sort-mobile").addEventListener("change", (e) => setSort(e.target.value));
   ["q", "sector", "filter"].forEach((id) => $(id).addEventListener("input", render));
-  render();
+
+  Segmented($("sl-seg"), (b) => { slMode = b.dataset.mode; renderHero(); renderShortlist(); render(); });
+  renderHero(); renderShortlist(); render();
+
+  /* ================= Has it worked? ================= */
+  if (B && B.periods) {
+    const q = B.quality, v = B.valuation;
+    const times = (n) => (n === 1 ? "once" : n + " times");
+    $("verdict").innerHTML = `
+      <p>Over ${B.periods} past twelve-month periods, the fifth of companies with the best quality scores beat the worst fifth <strong>${times(q.periods_top_beat_bottom_median)}</strong>, typically by <strong>${signedPct(q.avg_median_spread)}</strong> a year.</p>
+      <p class="muted">The full shortlist beat a FTSE 100 tracker in ${B.shortlist_beat_benchmark} of ${B.periods} periods; the long-term list in ${B.long_term_beat_benchmark} of ${B.long_term_periods}. Cheapness alone showed no reliable signal (${v.periods_top_beat_bottom_median} of ${B.periods}). The tracker includes banks, which EquiSift leaves out.</p>`;
+    const rows = B.by_period.map((r) => `<tr><td>${esc(r.date)}</td><td>${r.companies}</td><td>${signedPct(r.overall_top)}</td><td>${signedPct(r.overall_bottom)}</td><td>${signedPct(r.overall_median_spread)}</td><td>${signedPct(r.shortlist_return)}</td><td>${r.long_term_size ? signedPct(r.long_term_return) + ` (${r.long_term_size})` : "none"}</td><td>${signedPct(r.benchmark_return)}</td></tr>`).join("");
+    $("bt-table").innerHTML = `<thead><tr><th>Scored on</th><th>Companies</th><th>Top fifth</th><th>Bottom fifth</th><th>Gap (medians)</th><th>Shortlist</th><th>Long-term (n)</th><th>FTSE tracker</th></tr></thead><tbody>${rows}</tbody>`;
+    if (B.two_year && B.two_year.length) {
+      const r2 = B.two_year.map((r) => `<tr><td>${esc(r.date)}</td><td>${signedPct(r.shortlist_return)}</td><td>${r.long_term_size ? signedPct(r.long_term_return) : "none"}</td><td>${signedPct(r.benchmark_return)}</td></tr>`).join("");
+      $("bt-two").innerHTML = `<caption style="text-align:left;padding:10px 0 4px;color:var(--muted)">Two-year returns, only dates with two full years since</caption><thead><tr><th>Scored on</th><th>Shortlist</th><th>Long-term</th><th>FTSE tracker</th></tr></thead><tbody>${r2}</tbody>`;
+    }
+  } else {
+    $("verdict").innerHTML = "<p>The backtest hasn't been run yet.</p>";
+  }
 
   /* ================= Company detail ================= */
   const ALERT_CLASS = { "Profit warning": "bad", "Management change": "alert", "Deal": "alert", "Legal / regulatory": "alert" };
