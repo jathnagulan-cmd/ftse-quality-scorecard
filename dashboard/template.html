@@ -260,13 +260,15 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
       ["roce", "ROCE (average)", pct], ["roce_latest", "ROCE (latest year)", pct],
       ["operating_margin", "Operating margin (avg)", pct], ["gross_margin", "Gross margin (avg)", pct],
       ["margin_trend", "Margin trend per year", pp], ["margin_stability", "Margin swing", (v) => isNum(v) ? (v * 100).toFixed(1) + " pts" : "n/a"],
-      ["years_of_data", "Years of data", (v) => isNum(v) ? String(v) : "n/a"] ] },
+      ["years_of_data", "Years of data", (v) => isNum(v) ? String(v) : "n/a"],
+      ["cash_roce", "Cash ROCE (not scored)", pct] ] },
     { key: "balance_sheet_score", label: "Balance sheet", metrics: [
       ["net_debt_to_ebitda", "Net debt / EBITDA", mult], ["interest_cover", "Interest cover", mult],
       ["equity_ratio", "Equity ratio", pct], ["altman_z", "Altman Z'' (not scored)", (v) => isNum(v) ? v.toFixed(2) : "n/a"] ] },
     { key: "earnings_quality_score", label: "Cash quality", metrics: [
       ["cash_conversion", "Cash conversion", (v) => pct(v, 0)], ["accrual_ratio", "Accrual ratio", pct],
-      ["receivables_gap", "Receivables vs sales growth", pp] ] },
+      ["receivables_gap", "Receivables vs sales growth", pp],
+      ["share_count_change", "Share count, yearly change (not scored)", signedPct] ] },
     { key: "valuation_score", label: "Value", metrics: [
       ["ev_to_ebit", "EV / average EBIT", mult], ["fcf_yield", "Free cash flow yield", pct],
       ["pe_latest", "P/E, latest year (not scored)", (v) => isNum(v) ? v.toFixed(1) : "n/a"] ] },

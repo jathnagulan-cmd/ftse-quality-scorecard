@@ -38,6 +38,14 @@ the free data allows.
         steady margins whatever the economy does; commodity producers,
         airlines and housebuilders don't. Needs at least three years.
 
+Shown but not scored:
+
+  Cash ROCE = Free cash flow / (Total assets - Current liabilities), averaged
+        ROCE using cash instead of accounting profit (free cash flow = operating
+        cash flow after interest, minus capital expenditure). Borrowed from the
+        "CROIC" test in valinvest. Not scored because adding it made the
+        backtest worse (see README), but it is a useful cross-check on ROCE.
+
 Scoring: each metric is converted to a percentile rank (100 = best), then
 the five ranks are averaged into a pillar score out of 100. This is a *relative* score: it says
 how a company compares with its peers, not whether it is good in absolute
@@ -52,6 +60,7 @@ import numpy as np
 import pandas as pd
 
 from scorecard.scoring import rank_and_score
+from scorecard.earnings_quality import operating_cash_flows
 from scorecard.statements import get_row, safe_divide
 
 
@@ -91,6 +100,12 @@ def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.Da
     op_margin = safe_divide(ebit, revenue)
     gross_margin = safe_divide(gross_profit, revenue)
 
+    cash_roce = np.nan
+    if cashflow is not None:
+        _, ocf_post_interest = operating_cash_flows(cashflow)
+        capex = get_row(cashflow, "capex")  # reported as a negative number
+        cash_roce = average(safe_divide(ocf_post_interest + capex, capital_employed))
+
     def latest(s: pd.Series) -> float:
         s = s.dropna()
         return float(s.iloc[-1]) if len(s) else np.nan
@@ -104,6 +119,7 @@ def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.Da
         "roce_latest": latest(roce),
         "operating_margin_latest": latest(op_margin),
         "years_of_data": int(op_margin.notna().sum()),
+        "cash_roce": cash_roce,  # shown, not scored
     }
 
 

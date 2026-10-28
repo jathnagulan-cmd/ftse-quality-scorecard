@@ -92,6 +92,9 @@ def company_flags(p: pd.Series, b: pd.Series, e: pd.Series, v: pd.Series, indust
         good.append(f"Profits backed by cash: {cc:.0%} cash conversion")
     if _ok(e.accrual_ratio) and e.accrual_ratio > 0.05:
         bad.append(f"Profit running well ahead of cash (accrual ratio {e.accrual_ratio:.0%} of assets)")
+    sc = e.get("share_count_change")
+    if _ok(sc) and sc > 0.02:
+        notes.append(f"Share count up about {sc * 100:.0f}% a year: new shares are diluting existing holders")
     if _ok(e.receivables_gap) and e.receivables_gap > 0.10:
         bad.append(f"Money owed by customers grew {e.receivables_gap * 100:.0f} points faster than sales")
 

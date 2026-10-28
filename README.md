@@ -101,6 +101,33 @@ tracker would have beaten the long-term list, and that should be taken
 seriously. Two-year returns are also reported, but only two dates have two
 full years of history.
 
+**Why the long-term list lagged.** Mostly style, partly two bad picks:
+
+| Scored on | Long-term list | All non-cyclical companies scored | All companies scored | FTSE tracker |
+|---|---|---|---|---|
+| Feb 2025 (1 share) | +0.2% | +9.7% | +18.4% | +18.2% |
+| May 2025 (7) | −8.3% | +10.3% | +17.9% | +21.9% |
+| Aug 2025 (10) | +5.5% | +4.7% | +11.5% | +19.8% |
+
+The list only holds steady, non-cyclical businesses, and in this window that
+whole group trailed the market by 7 to 9 points while miners, airlines and
+banks rallied. Inside the list, WPP (−54% from May 2025, −26% from August) and
+Hikma (−30%, −18%) did most of the damage. The February list held a single
+share, so it says almost nothing. The rules have not been changed in
+response: three periods in one market can't separate a bad rule from an
+unlucky year for defensive shares.
+
+### Ideas tested and rejected
+
+Three metrics from [valinvest](https://github.com/astro30/valinvest) (MIT
+licence) were tried as extra parts of the quality score, rebuilt on Yahoo data:
+cash ROCE (free cash flow ÷ capital employed), the share of years with ROCE
+of 10% or more, and the yearly change in share count. Each one made the
+backtest **worse**. The quality score's typical top-vs-bottom gap (medians) fell
+from +15.2% a year to between +9.5% and +11.8%, and none had a signal on its
+own. So none is scored. Cash ROCE and share count change are shown on the
+dashboard as context, and a share count rising more than 2% a year is noted.
+
 The quality signal looks real; valuation showed nothing in this window. The
 weights have **not** been changed to fit this result: six overlapping periods
 in one market are far too few to tune on, and doing so would make the

@@ -29,6 +29,14 @@ Scored metrics:
         If money owed by customers grows much faster than sales, revenue may
         be being booked before it can be collected: a classic warning sign.
 
+Shown but not scored:
+
+  Share count change = yearly change in shares in issue over the years available
+        Positive means new shares were issued, so each existing share owns
+        less of the business (dilution); negative means buybacks. Borrowed
+        from Piotroski's F-score via valinvest. Not scored because it made the
+        backtest worse, but more than 2% a year is flagged as a note.
+
 Disposals: profit on selling a business lands in net income, but the sale
 proceeds are an investing cash flow, never an operating one. Left in, a big
 disposal looks like profit with no cash behind it (Smiths Group's £1.7bn gain
@@ -117,6 +125,15 @@ def growth(s: pd.Series) -> float:
     return s.iloc[-1] / s.iloc[-2] - 1
 
 
+def share_count_change(shares: pd.Series) -> float:
+    """Compound yearly change in shares in issue, first year to last."""
+    s = shares.dropna()
+    s = s[s > 0]
+    if len(s) < 2:
+        return np.nan
+    return float((s.iloc[-1] / s.iloc[0]) ** (1 / (len(s) - 1)) - 1)
+
+
 def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.DataFrame | None = None) -> dict[str, float]:
     if cashflow is None:
         raise ValueError("Earnings quality needs the cash flow statement")
@@ -130,6 +147,7 @@ def company_metrics(income: pd.DataFrame, balance: pd.DataFrame, cashflow: pd.Da
             get_row(balance, "total_assets"),
         ),
         "receivables_gap": growth(get_row(balance, "receivables")) - growth(get_row(income, "revenue")),
+        "share_count_change": share_count_change(get_row(balance, "shares")),  # shown, not scored
     }
 
 

@@ -84,3 +84,10 @@ def test_write_downs_stop_earning_credit_below_the_floor():
     )
     result = score(metrics)
     assert result.loc["Clean", "earnings_quality_score"] == result.loc["Big write-down", "earnings_quality_score"]
+
+
+def test_share_count_change_is_compound_yearly():
+    from scorecard.earnings_quality import share_count_change
+    s = pd.Series([100.0, 110.0, 121.0])
+    assert abs(share_count_change(s) - 0.10) < 1e-9
+    assert np.isnan(share_count_change(pd.Series([100.0])))

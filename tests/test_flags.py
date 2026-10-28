@@ -65,3 +65,9 @@ def test_only_confirmed_unavailable_companies_are_removed():
     flags = {n: {"red_flags": [], "strengths": [], "notes": []} for n in names}
     tradeable = pd.Series({"Listed": "yes", "Not on platform": "no"})
     assert list(shortlist(overall, flags, tradeable).index) == ["Listed", "Not checked"]
+
+
+def test_dilution_is_a_note_not_a_red_flag():
+    e = series(cash_conversion=0.9, accrual_ratio=0.0, receivables_gap=0.0, share_count_change=0.05)
+    f = company_flags(P_OK, B_OK, e, V_OK, "Packaged Foods")
+    assert any("diluting" in n for n in f["notes"]) and f["red_flags"] == []
