@@ -53,6 +53,11 @@ def _fetch_from_yahoo(ticker: str) -> tuple[dict[str, pd.DataFrame], dict]:
         if df is None or df.empty:
             raise ValueError(f"no annual {name} statement returned")
     info = t.info or {}
+    if not info.get("sector") and not info.get("currency"):
+        # A rate-limited reply comes back almost empty. Caching it would leave
+        # the company with no sector (so banks slip past the exclusion and the
+        # dashboard breaks) until the cache is cleared, so fail and retry next run.
+        raise ValueError("no company info returned (Yahoo may be rate-limiting)")
     meta = {k: info.get(k) for k in ("sector", "industry", "financialCurrency", "currency")}
     return statements, meta
 

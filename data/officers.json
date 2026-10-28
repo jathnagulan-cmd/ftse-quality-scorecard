@@ -1,0 +1,688 @@
+{
+ "AAF.L": {
+  "ceo": {
+   "name": "Mr. Sunil Kumar Taldar",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Kamal Dua",
+   "since": null
+  }
+ },
+ "AAL.L": {
+  "ceo": {
+   "name": "Mr. Duncan Graham Wanblad B.Sc.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. John Brian Heasley",
+   "since": null
+  }
+ },
+ "ABF.L": {
+  "ceo": {
+   "name": "Mr. George Garfield Weston",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Joana Edwards",
+   "since": null
+  }
+ },
+ "ANTO.L": {
+  "ceo": {
+   "name": "Mr. Ivan Arriagada Herrera",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Mauricio Ortiz",
+   "since": null
+  }
+ },
+ "AUTO.L": {
+  "ceo": {
+   "name": "Mr. Nathan James Coe",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. James Jonathan Warner C.M.A.",
+   "since": null
+  }
+ },
+ "AZN.L": {
+  "ceo": {
+   "name": "Mr. Pascal Claude Roland Soriot D.V.M., M.B.A.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Dr. Aradhana Sarin M.D.",
+   "since": null
+  }
+ },
+ "BA.L": {
+  "ceo": {
+   "name": "Dr. Charles Nicholas Woodburn CBE, Ph.D.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Bradley Madsen Greve",
+   "since": null
+  }
+ },
+ "BATS.L": {
+  "cfo": {
+   "name": "Mr. Dragos Ionut Constantinescu",
+   "since": null
+  }
+ },
+ "BKG.L": {
+  "ceo": {
+   "name": "Mr. Richard James Stearn B.Sc., BSc (Hons), F.C.A.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Neil Leslie Eady",
+   "since": null
+  }
+ },
+ "BNZL.L": {
+  "ceo": {
+   "name": "Mr. Frank Andre Van Zanten M.B.A.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Richard David Howes",
+   "since": null
+  }
+ },
+ "BP.L": {
+  "ceo": {
+   "name": "Ms. Marguerite Eileen O'Neill B.Sc., M.Sc.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Katherine Anne Thomson",
+   "since": null
+  }
+ },
+ "BRBY.L": {
+  "ceo": {
+   "name": "Mr. Joshua Gallay Schulman",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Catherine Elizabeth Ferry",
+   "since": null
+  }
+ },
+ "BT-A.L": {
+  "ceo": {
+   "name": "Ms. Allison Kirkby FCMA",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Patricia Cobian Gonz\u00e1lez",
+   "since": null
+  }
+ },
+ "BTRW.L": {
+  "ceo": {
+   "name": "Mr. Dean John Banks",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Rebecca Louise Napier",
+   "since": null
+  }
+ },
+ "CCH.L": {
+  "cfo": {
+   "name": "Mr. Anastasis Stamoulis",
+   "since": null
+  }
+ },
+ "CNA.L": {
+  "ceo": {
+   "name": "Mr. Christopher Michael O'Shea",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Russell Leslie O'Brien",
+   "since": null
+  }
+ },
+ "CPG.L": {
+  "ceo": {
+   "name": "Mr. Dominic William Blakemore",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Petros Parras",
+   "since": null
+  }
+ },
+ "CRDA.L": {
+  "ceo": {
+   "name": "Mr. Stephen Edward Foots CBE",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Stephen Richard Oxley",
+   "since": null
+  }
+ },
+ "CTEC.L": {
+  "ceo": {
+   "name": "Mr. Jonathan Peter Mason",
+   "since": null
+  }
+ },
+ "DCC.L": {
+  "ceo": {
+   "name": "Mr. Donal Murphy B.Comm, BFS, MBA",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Conor Murphy",
+   "since": null
+  }
+ },
+ "DGE.L": {
+  "ceo": {
+   "name": "Sir David John Lewis",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Manik Hiru Jhangiani CPA",
+   "since": null
+  }
+ },
+ "DPLM.L": {
+  "ceo": {
+   "name": "Mr. Jonathan David Thomson",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Wilson Ng",
+   "since": null
+  }
+ },
+ "EDV.L": {
+  "ceo": {
+   "name": "Mr. Ian David Cockerill AMP, B.Sc., BSc (Hons), M.Sc., MDP, MSc (Mining)",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Guy F. Young B.Comm, CA",
+   "since": null
+  }
+ },
+ "ENT.L": {
+  "ceo": {
+   "name": "Ms. Stella Julie David M.A.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Michael David Snape",
+   "since": null
+  }
+ },
+ "EXPN.L": {
+  "ceo": {
+   "name": "Mr. Brian J. Cassin",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Lloyd Mark Pitchford",
+   "since": null
+  }
+ },
+ "EZJ.L": {
+  "cfo": {
+   "name": "Mr. Jan De Raeymaeker",
+   "since": null
+  }
+ },
+ "FRES.L": {
+  "ceo": {
+   "name": "Mr. Octavio M. Alvidrez",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Mario Arreguin",
+   "since": null
+  }
+ },
+ "GAW.L": {
+  "ceo": {
+   "name": "Mr. Kevin Derek Rountree C.M.A.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Elizabeth Claire Harrison",
+   "since": null
+  }
+ },
+ "GLEN.L": {
+  "ceo": {
+   "name": "Mr. Gary Nagle C.A.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Steven Kalmin",
+   "since": null
+  }
+ },
+ "GSK.L": {
+  "ceo": {
+   "name": "Mr. Luke Victor Miels",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Julie Belita Brown A.C.A.",
+   "since": null
+  }
+ },
+ "HIK.L": {
+  "ceo": {
+   "name": "H.E Said Darwazah",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Areb AL KURDI",
+   "since": null
+  }
+ },
+ "HLMA.L": {
+  "cfo": {
+   "name": "Ms. Carole Jean Cran",
+   "since": null
+  }
+ },
+ "HLN.L": {
+  "ceo": {
+   "name": "Mr. Brian James McNamara",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Dawn Amanda Allen",
+   "since": null
+  }
+ },
+ "HWDN.L": {
+  "ceo": {
+   "name": "Mr. William Andrew Livingston",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Jacqueline Wynn Callaway",
+   "since": null
+  }
+ },
+ "IAG.L": {
+  "ceo": {
+   "name": "Mr. Luis Gallego Martin",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Jose Antonio Barrionuevo Urgel",
+   "since": null
+  }
+ },
+ "IHG.L": {
+  "ceo": {
+   "name": "Mr. Elie Wajih Maalouf",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Michael Glover",
+   "since": null
+  }
+ },
+ "IMB.L": {
+  "ceo": {
+   "name": "Mr. Lukas Jean-Baptiste Paravicini",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Murray McGowan",
+   "since": null
+  }
+ },
+ "IMI.L": {
+  "ceo": {
+   "name": "Mr. Roy Michael Twite",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Luke Robert Grant",
+   "since": null
+  }
+ },
+ "INF.L": {
+  "ceo": {
+   "name": "Lord Stephen Andrew Carter CBE",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Gareth Richard Wright",
+   "since": null
+  }
+ },
+ "ITRK.L": {
+  "ceo": {
+   "name": "Mr. Andre Pierre Joseph Lacroix",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Laura Crespi",
+   "since": null
+  }
+ },
+ "JD.L": {
+  "ceo": {
+   "name": "Mr. R\u00e9gis Andre Schultz",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Dominic James Platt",
+   "since": null
+  }
+ },
+ "KGF.L": {
+  "ceo": {
+   "name": "Mr. Thierry Dominique Gerard Garnier",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Bhavesh Mistry",
+   "since": null
+  }
+ },
+ "MKS.L": {
+  "ceo": {
+   "name": "Mr. Stuart Barry Machin",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Alison Ann Dolan",
+   "since": null
+  }
+ },
+ "MNDI.L": {
+  "ceo": {
+   "name": "Mr. Andrew Charles Wallis King CA(SA)",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Michael Andrew Powell",
+   "since": null
+  }
+ },
+ "MRO.L": {
+  "ceo": {
+   "name": "Mr. Peter G. Dilnot B.E., B.Eng, Interim",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Ross McCluskey",
+   "since": null
+  }
+ },
+ "NG.L": {
+  "ceo": {
+   "name": "Ms. Zoe Alexandra Yujnovich",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Andrew Jonathan Agg",
+   "since": null
+  }
+ },
+ "NXT.L": {
+  "ceo": {
+   "name": "Lord Simon Adam Wolfson",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Jonathan Neil Blanchard FCCA",
+   "since": null
+  }
+ },
+ "OCDO.L": {
+  "ceo": {
+   "name": "Mr. Timothy Steiner O.B.E.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Stephen Wayne Daintith",
+   "since": null
+  }
+ },
+ "PSN.L": {
+  "ceo": {
+   "name": "Mr. Dean Kendal Finch ACA, B.Sc, M.B.A",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Andrew James Duxbury",
+   "since": null
+  }
+ },
+ "PSON.L": {
+  "ceo": {
+   "name": "Mr. Omar Paul Abbosh",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Simon Glen Robson",
+   "since": null
+  }
+ },
+ "REL.L": {
+  "ceo": {
+   "name": "Mr. Erik Engstrom M.Sc Econ, M.Sc Eng., MBA",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Nicholas Lawrence Luff",
+   "since": null
+  }
+ },
+ "RIO.L": {
+  "ceo": {
+   "name": "Mr. Simon Callas Trott BSc(Hon), GAICD, GradDipFin",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Peter Lloyd Cunningham B.A.",
+   "since": null
+  }
+ },
+ "RKT.L": {
+  "ceo": {
+   "name": "Mr. Kristoffer Loe Licht",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Shannon Sue Eisenhardt",
+   "since": null
+  }
+ },
+ "RMV.L": {
+  "ceo": {
+   "name": "Mr. Johan Svanstrom",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Ruaridh Christian Macnachtan Hook",
+   "since": null
+  }
+ },
+ "RR.L": {
+  "ceo": {
+   "name": "Mr. M. Tufan Erginbilgic",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Helen McCabe",
+   "since": null
+  }
+ },
+ "RTO.L": {
+  "ceo": {
+   "name": "Mr. Michael A. Duffy Jr.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Paul Russell Edgecliffe-Johnson",
+   "since": null
+  }
+ },
+ "SBRY.L": {
+  "cfo": {
+   "name": "Ms. Blathnaid Bergin",
+   "since": null
+  }
+ },
+ "SGE.L": {
+  "ceo": {
+   "name": "Mr. Stephen Hare ACA, B.A., B.Com",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Jacqui Cartin",
+   "since": null
+  }
+ },
+ "SHEL.L": {
+  "ceo": {
+   "name": "Mr. Wael Sawan",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Sinead Gorman",
+   "since": null
+  }
+ },
+ "SMIN.L": {
+  "ceo": {
+   "name": "Mr. Roland Henry Clyne Carter",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Julian David Kenelm Fagge",
+   "since": null
+  }
+ },
+ "SN.L": {
+  "ceo": {
+   "name": "Dr. Deepak S. Nath Ph.D.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Pierre Palassian",
+   "since": null
+  }
+ },
+ "SPX.L": {
+  "ceo": {
+   "name": "Mr. Nimesh Balvir Patel B.Sc.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Louisa Sachiko Burdett ACA, BSc Hons",
+   "since": null
+  }
+ },
+ "SSE.L": {
+  "ceo": {
+   "name": "Mr. Martin James Pibworth",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Barry O'regan",
+   "since": null
+  }
+ },
+ "SVT.L": {
+  "ceo": {
+   "name": "Dr. James John Jesic B.E., Ph.D.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Helen Marie Miles A.C.M.A., CIMA",
+   "since": null
+  }
+ },
+ "TW.L": {
+  "ceo": {
+   "name": "Ms. Jennifer Daly CBE",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Christopher Carney",
+   "since": null
+  }
+ },
+ "ULVR.L": {
+  "ceo": {
+   "name": "Mr. Fernando Fernandez",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Srinivas Phatak",
+   "since": null
+  }
+ },
+ "UU.L": {
+  "ceo": {
+   "name": "Ms. Louise Beardmore",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Philip Anthony Aspin",
+   "since": null
+  }
+ },
+ "VOD.L": {
+  "ceo": {
+   "name": "Ms. Margherita Della Valle",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Maria Pilar L\u00f3pez \u00c1lvarez",
+   "since": null
+  }
+ },
+ "WEIR.L": {
+  "ceo": {
+   "name": "Mr. Andrew James Neilson",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Brian Michael Puffer",
+   "since": null
+  }
+ },
+ "WPP.L": {
+  "ceo": {
+   "name": "Ms. Cindy Rose Quackenbush O.B.E.",
+   "since": null
+  },
+  "cfo": {
+   "name": "Ms. Rosemary Joanne Wilson",
+   "since": null
+  }
+ },
+ "WTB.L": {
+  "ceo": {
+   "name": "Mr. Dominic James Paul",
+   "since": null
+  },
+  "cfo": {
+   "name": "Mr. Hemantkumar Kiribhai Patel M.B.E.",
+   "since": null
+  }
+ }
+}

@@ -40,9 +40,33 @@ share has risen more than 50% in a year or sits more than 30% below its
 price momentum works over months, not years, and rewarding it would push the
 tool towards chasing whatever has recently gone up.
 
-**This is a screen for deciding what to research, not a buy list.** It reads
-four years of accounts and nothing else: no news, guidance, management or
-anything after the last annual report.
+### Since the last annual report
+
+The scores only see annual reports, so the dashboard also shows, for each
+company, what has happened since (`scorecard/recent.py`, refreshed daily):
+
+- **Newer results:** Yahoo's trailing-twelve-month operating margin, which
+  includes any half-year or quarterly figures, compared with the margin in
+  the last annual report (flagged when it moves 2+ points and 15%+), the
+  latest period's sales and earnings growth, and the last and next results
+  dates.
+- **News:** headlines from the last 60 days that Yahoo links to the company,
+  with multi-stock roundups dropped. Headlines that look like a profit
+  warning, a management change, a deal or a legal or regulatory problem are
+  flagged for 30 days.
+- **Management changes:** the current chief executive and finance director
+  are compared with `data/officers.json` and a new name is flagged for a
+  year. The file is the baseline, so it's updated when the monthly refresh
+  commits; changes only show up from the first commit onwards.
+
+Companies with any of these warnings get a **Check first** tag. Like the
+price trend, none of this is scored: headlines are noisy, Yahoo's interim
+figures have gaps, and the backtest can't test them.
+
+**This is a screen for deciding what to research, not a buy list.** The
+scores read four years of accounts and nothing else, and the warnings above
+are a prompt to read the latest results and announcements, not a substitute
+for them.
 
 ## Backtest: has it worked?
 

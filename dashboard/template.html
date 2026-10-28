@@ -147,6 +147,18 @@ th { font-family: var(--font-body); font-weight: 600; color: var(--muted); font-
 .chart-foot { font-size: 0.74rem; color: var(--muted); }
 .trend { font-size: 0.8rem; color: var(--muted); font-family: var(--font-data); }
 .pos { color: var(--good); } .neg { color: var(--bad); }
+.tag.check { color: var(--warn); border-color: var(--warn); }
+.recent { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 10px; }
+.recent h3 { margin: 0; font-size: 0.82rem; }
+.recent .sub { font-size: 0.78rem; color: var(--muted); }
+.recent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4px 24px; }
+.news { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 0.86rem; }
+.news li { display: grid; gap: 2px; }
+.news a { color: var(--ink); text-decoration: none; } .news a:hover { color: var(--accent); text-decoration: underline; }
+.news .meta { font-size: 0.74rem; color: var(--muted); font-family: var(--font-data); }
+.news .ntag { font-family: var(--font-data); font-size: 0.66rem; border: 1px solid var(--muted); color: var(--muted); border-radius: 4px; padding: 0 4px; margin-left: 6px; }
+.news .ntag.alert { border-color: var(--warn); color: var(--warn); }
+.news .ntag.bad { border-color: var(--bad); color: var(--bad); }
 
 footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-width: 75ch; }
 
@@ -166,7 +178,7 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
     <span class="eyebrow" id="asof"></span>
     <h1>FTSE Quality Scorecard</h1>
     <p class="lede">UK companies ranked on four things read from their annual reports: how profitable they are, how strong the balance sheet is, whether profit turns into cash, and what the market is charging for them. Banks, insurers and property companies are excluded because these measures don't fit them.</p>
-    <p class="warning">This is a screen to decide what to research, not a list of what to buy. It cannot see news, management changes or anything after the last annual report. Check the latest results before acting. Not financial advice.</p>
+    <p class="warning">This is a screen to decide what to research, not a list of what to buy. The scores use annual reports only. Recent news, results published since the annual report and changes of chief executive or finance director are shown alongside each company as <b>Check first</b> warnings, but they don't change the scores, and Yahoo's headlines and interim figures have gaps. Read the latest results yourself before acting. Not financial advice.</p>
   </header>
 
   <section aria-labelledby="bt-h">
@@ -202,6 +214,7 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
         <option value="long">Long-term shortlist</option>
         <option value="short">Shortlist only</option>
         <option value="clean">No red flags</option>
+        <option value="recent">Check first: recent warnings</option>
       </select>
     </div>
     <div class="list">
@@ -320,6 +333,47 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
     return (limit ? items.slice(0, limit) : items).map(([k, t]) => `<li class="flag ${k}">${esc(t)}</li>`).join("");
   };
 
+  // Since the last annual report: shown next to the scores, never part of them
+  const R = DATA.recent || {};
+  const recentOf = (c) => R[c.ticker] || null;
+  function recentWarnings(c) {
+    const r = recentOf(c);
+    if (!r) return { strengths: [], red_flags: [], notes: [] };
+    return r.flags;
+  }
+  // "Check first" means something since the annual report needs reading: not just a results date
+  const needsCheck = (c) => { const f = recentWarnings(c); return f.red_flags.length > 0 || f.notes.some((t) => !t.startsWith("Results due")); };
+  const checkTag = (c) => needsCheck(c) ? '<span class="tag check">CHECK FIRST</span>' : "";
+  const fmtDate = (d) => d ? new Date(d + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "n/a";
+  const ALERT_CLASS = { "Profit warning": "bad", "Management change": "alert", "Deal": "alert", "Legal / regulatory": "alert" };
+  function recentPanel(c) {
+    const r = recentOf(c);
+    if (!r) return "";
+    if (r.unavailable) return `<div class="recent"><h3>Since the last annual report</h3><p class="sub">Yahoo didn't return news or newer results for this company today. Check its latest announcements directly.</p></div>`;
+    const res = r.results || {}, off = r.officers || {}, f = r.flags;
+    const person = (k) => off[k] ? esc(off[k].name) + (off[k].since ? ` <span class="tag check">NEW</span>` : "") : "n/a";
+    const kv = (l, v) => `<div class="kv"><span>${l}</span><span>${v}</span></div>`;
+    const items = [...f.strengths.map((t) => ["good", t]), ...f.red_flags.map((t) => ["bad", t]), ...f.notes.map((t) => ["note", t])];
+    const news = (r.news || []).map((h) => `<li><a href="${esc(h.link)}" target="_blank" rel="noopener">${esc(h.title)}</a>
+        <span class="meta">${fmtDate(h.date)} · ${esc(h.publisher)}${h.tags.map((t) => `<span class="ntag ${ALERT_CLASS[t] || ""}">${esc(t)}</span>`).join("")}</span></li>`).join("");
+    return `<div class="recent"><h3>Since the last annual report <span class="muted" style="font-weight:400">(not scored)</span></h3>
+      ${items.length ? `<ul class="detail-flags" style="list-style:none;margin:0;padding:0">${items.map(([k, t]) => `<li class="flag ${k}">${esc(t)}</li>`).join("")}</ul>` : `<p class="sub">Nothing flagged since the annual report.</p>`}
+      <div class="recent-grid">
+        ${kv("Annual report year end", fmtDate(res.annual_year_end))}
+        ${kv("Latest figures to", fmtDate(res.latest_period_end) + (res.newer_than_annual ? "" : " (annual)"))}
+        ${kv("Last results", fmtDate(res.last_results))}
+        ${kv("Next results", fmtDate(res.next_results))}
+        ${kv("Op. margin, annual report", pct(res.operating_margin_annual))}
+        ${kv("Op. margin, last 12 months", pct(res.operating_margin_ttm))}
+        ${kv("Sales growth, latest period", signedPct(res.sales_growth))}
+        ${kv("Earnings growth, latest period", signedPct(res.earnings_growth))}
+        ${kv("Chief executive", person("ceo"))}
+        ${kv("Finance director", person("cfo"))}
+      </div>
+      <div><span class="sub">Headlines, last 60 days</span>${news ? `<ul class="news" style="margin-top:6px">${news}</ul>` : `<p class="sub">None found that Yahoo links to this company.</p>`}</div>
+    </div>`;
+  }
+
   const t212 = (c) => c.trading212 === "yes" ? '<span class="tag">T212</span>' : c.trading212 === "no" ? '<span class="tag no">NOT ON T212</span>' : "";
   const T212_NOTE = S.trading212_checked ? "Companies confirmed as unavailable on Trading 212 are left out." : "Trading 212 availability hasn't been checked yet, so nothing is excluded for it.";
   const RULES = {
@@ -335,10 +389,10 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
     $("shortlist").innerHTML = names.length ? names.map((n) => {
       const c = byName[n];
       return `<button type="button" class="pick" data-open="${esc(n)}">
-        <div class="pick-top"><span class="pick-name">${esc(n)}${t212(c)}</span><span class="pick-score">${c.scores.overall_score.toFixed(0)}</span></div>
+        <div class="pick-top"><span class="pick-name">${esc(n)}${t212(c)}${checkTag(c)}</span><span class="pick-score">${c.scores.overall_score.toFixed(0)}</span></div>
         <span class="muted" style="font-size:.8rem">${esc(c.ticker)} · ${esc(c.industry || c.sector)} · quality ${c.scores.quality_score.toFixed(0)}, value ${c.scores.valuation_score.toFixed(0)}</span>
         ${(() => { const t = trend(c.ticker); return t ? `<span class="trend">Price: 1Y <span class="${t.y1 >= 0 ? "pos" : "neg"}">${trendText(t.y1)}</span> · ${Math.abs(t.fromHigh * 100).toFixed(0)}% below 52-week high</span>` : ""; })()}
-        <ul>${flagList(flagsFor(c))}</ul></button>`;
+        <ul>${flagList(flagsFor(c))}${(() => { const w = recentWarnings(c); return [...w.red_flags.map((t) => ["bad", t]), ...w.notes.map((t) => ["note", t])].map(([k, t]) => `<li class="flag ${k}">Since the annual report: ${esc(t)}</li>`).join(""); })()}</ul></button>`;
     }).join("") : `<p class="muted">Nothing meets these rules this month.</p>`;
   }
   $("sl-long").addEventListener("click", () => { slMode = "long"; renderShortlist(); });
@@ -360,6 +414,7 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
     return `<div class="detail" role="region" aria-label="${esc(c.name)} detail">
       <div class="chart" data-ticker="${esc(c.ticker)}" data-ccy="${esc(c.quote_currency || "GBp")}"></div>
       <ul class="detail-flags" style="list-style:none;margin:0;padding:0">${flagList(flagsFor(c)) || '<li class="muted">No flags.</li>'}</ul>
+      ${recentPanel(c)}
       <div class="groups">${groups}
         ${(() => { const t = trend(c.ticker), ccy = c.quote_currency || "GBp";
           const px = (v) => ccy === "GBp" ? v.toFixed(v < 100 ? 2 : 1) + "p" : ({ USD: "$", EUR: "€", GBP: "£" }[ccy] || "") + v.toFixed(2);
@@ -385,14 +440,14 @@ footer { font-size: 0.84rem; color: var(--muted); display: grid; gap: 6px; max-w
     let list = S.companies.filter((c) =>
       (!q || c.name.toLowerCase().includes(q) || c.ticker.toLowerCase().includes(q)) &&
       (!sec || c.sector === sec) &&
-      (f !== "short" || c.shortlisted) && (f !== "long" || c.long_term) && (f !== "clean" || c.flags.red_flags.length === 0));
+      (f !== "short" || c.shortlisted) && (f !== "long" || c.long_term) && (f !== "clean" || c.flags.red_flags.length === 0) && (f !== "recent" || needsCheck(c)));
     list = list.slice().sort((a, b) => (b.scores[sortKey] ?? -1) - (a.scores[sortKey] ?? -1));
     $("count").textContent = list.length === S.companies.length ? `${list.length} companies` : `${list.length} of ${S.companies.length} shown`;
     $("rows").innerHTML = list.length ? list.map((c) => {
       const isOpen = open.has(c.name), red = c.flags.red_flags.length;
       return `<button type="button" class="row" aria-expanded="${isOpen}" data-name="${esc(c.name)}">
         <span class="rank">${c.rank}</span>
-        <span class="co"><b>${esc(c.name)}${c.long_term ? '<span class="tag lt">LONG-TERM</span>' : c.shortlisted ? '<span class="tag">SHORTLIST</span>' : ""}${c.trading212 === "no" ? '<span class="tag no">NOT ON T212</span>' : ""}${red ? `<span class="redcount">${red} flag${red > 1 ? "s" : ""}</span>` : ""}</b><span>${esc(c.ticker)} · ${esc(c.industry || c.sector)}${(() => { const t = trend(c.ticker); return t && t.y1 != null ? ` · 1Y <span class="${t.y1 >= 0 ? "pos" : "neg"}">${trendText(t.y1)}</span>` : ""; })()}</span></span>
+        <span class="co"><b>${esc(c.name)}${c.long_term ? '<span class="tag lt">LONG-TERM</span>' : c.shortlisted ? '<span class="tag">SHORTLIST</span>' : ""}${c.trading212 === "no" ? '<span class="tag no">NOT ON T212</span>' : ""}${checkTag(c)}${red ? `<span class="redcount">${red} flag${red > 1 ? "s" : ""}</span>` : ""}</b><span>${esc(c.ticker)} · ${esc(c.industry || c.sector)}${(() => { const t = trend(c.ticker); return t && t.y1 != null ? ` · 1Y <span class="${t.y1 >= 0 ? "pos" : "neg"}">${trendText(t.y1)}</span>` : ""; })()}</span></span>
         <span class="meters">${meter(c.scores.profitability_score, "Profit")}${meter(c.scores.balance_sheet_score, "Balance")}${meter(c.scores.earnings_quality_score, "Cash")}${meter(c.scores.valuation_score, "Value")}</span>
         <span class="overall">${c.scores.overall_score.toFixed(0)}</span>
       </button>${isOpen ? detail(c) : ""}`;
