@@ -20,6 +20,7 @@
   --good: #16723e; --bad: #b3261e; --warn: #9a5b00; --warn-soft: #fbefdc;
   --scrim: rgba(8, 12, 18, 0.45);
   --shadow: 0 30px 80px rgba(8, 12, 18, 0.22), 0 4px 16px rgba(8, 12, 18, 0.08);
+  --mono-bg: 93%; --mono-fg: 30%; --mono-sat: 32%;
   --font: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
@@ -28,6 +29,7 @@
     --bar: #2a2f38; --gold: #e3aa3d; --gold-text: #e9b95c; --gold-soft: #2f2410;
     --good: #55cc88; --bad: #ff8b80; --warn: #f0b358; --warn-soft: #33250f;
     --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.35);
+    --mono-bg: 20%; --mono-fg: 78%; --mono-sat: 28%;
     color-scheme: dark;
   }
 }
@@ -36,6 +38,7 @@
   --bar: #2a2f38; --gold: #e3aa3d; --gold-text: #e9b95c; --gold-soft: #2f2410;
   --good: #55cc88; --bad: #ff8b80; --warn: #f0b358; --warn-soft: #33250f;
   --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.35);
+  --mono-bg: 20%; --mono-fg: 78%; --mono-sat: 28%;
   color-scheme: dark;
 }
 
@@ -70,6 +73,7 @@ main .inner { display: grid; gap: 72px; padding-block: 36px 72px; }
 .hero .sub { color: var(--muted); font-size: 1.02rem; max-width: 58ch; }
 .sieve-box { display: grid; gap: 10px; margin-top: 14px; }
 .readout { display: flex; align-items: baseline; gap: 12px; min-height: 2.2rem; white-space: nowrap; overflow: hidden; }
+.readout .mono { align-self: center; }
 .readout .r-rank { font-weight: 800; font-stretch: 72%; font-size: 1.6rem; color: var(--faint); min-width: 2.2ch; }
 .readout .r-name { font-weight: 650; font-size: 1.05rem; overflow: hidden; text-overflow: ellipsis; }
 .readout .r-score { margin-left: auto; font-weight: 800; font-stretch: 72%; font-size: 1.6rem; }
@@ -97,9 +101,19 @@ section { display: grid; gap: 18px; min-width: 0; }
 .head h2 { font-weight: 800; font-stretch: 85%; font-size: clamp(1.5rem, 3.4vw, 2.1rem); letter-spacing: -0.025em; line-height: 1.05; }
 .head p { color: var(--muted); font-size: 0.92rem; max-width: 70ch; }
 
+/* Ticker monograms: sector hue, ticker letters (company logos are not reproduced) */
+.mono { display: inline-grid; place-items: center; flex: none; width: 2.5rem; height: 2.5rem; border-radius: 10px;
+  background: hsl(var(--hue) var(--mono-sat) var(--mono-bg)); color: hsl(var(--hue) 45% var(--mono-fg));
+  font-weight: 800; font-stretch: 70%; font-size: 0.86rem; letter-spacing: 0.01em; line-height: 1; }
+.mono.l4 { font-size: 0.74rem; }
+.mono.sm { width: 2rem; height: 2rem; border-radius: 8px; font-size: 0.72rem; }
+.mono.sm.l4 { font-size: 0.62rem; }
+.mono.lg { width: 3rem; height: 3rem; border-radius: 12px; font-size: 1rem; }
+.mono.lg.l4 { font-size: 0.86rem; }
+
 /* Shortlist: a ranked list, no cards */
 .picks { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
-.pick { width: 100%; display: grid; grid-template-columns: 3.2rem minmax(0, 1fr) auto; gap: 4px 18px; align-items: center; padding: 18px 4px; border: 0; border-bottom: 1px solid var(--line); background: none; text-align: left; cursor: pointer; }
+.pick { width: 100%; display: grid; grid-template-columns: 3.2rem auto minmax(0, 1fr) auto; gap: 4px 18px; align-items: center; padding: 18px 4px; border: 0; border-bottom: 1px solid var(--line); background: none; text-align: left; cursor: pointer; }
 .pick:hover .p-name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .p-pos { font-weight: 850; font-stretch: 68%; font-size: 2.2rem; line-height: 1; color: var(--faint); }
 .p-main { display: grid; gap: 3px; min-width: 0; }
@@ -124,9 +138,10 @@ section { display: grid; gap: 18px; min-width: 0; }
 .row:hover { background: var(--surface); }
 .row.active { background: var(--gold-soft); }
 .rank { color: var(--faint); font-size: 0.85rem; }
-.co { min-width: 0; display: grid; }
-.co b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.co span { font-size: 0.78rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.co { min-width: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: center; }
+.co-t { min-width: 0; display: grid; }
+.co-t b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.co-t > span { font-size: 0.78rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--warn); margin-left: 7px; vertical-align: 2px; }
 .star { color: var(--gold); margin-left: 6px; font-size: 0.8rem; }
 .tick { height: 4px; border-radius: 2px; background: var(--bar); overflow: hidden; }
@@ -156,7 +171,7 @@ footer { font-size: 0.82rem; color: var(--muted); display: grid; gap: 8px; max-w
 .sheet-head { flex: none; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; padding: 8px max(18px, env(safe-area-inset-right, 0px)) 14px max(18px, env(safe-area-inset-left, 0px)); border-bottom: 1px solid var(--line); border-radius: inherit; background: var(--surface); }
 .sheet.dragging .sheet-head { cursor: grabbing; }
 .grabber { width: 38px; height: 5px; border-radius: 3px; background: var(--bar); margin: 0 auto 12px; }
-.sheet-title { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 14px; align-items: center; }
+.sheet-title { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 14px; align-items: center; }
 .sheet-title h2 { font-weight: 800; font-stretch: 85%; font-size: 1.5rem; letter-spacing: -0.02em; line-height: 1.1; overflow-wrap: anywhere; }
 .sheet-meta { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
 .sheet-score { font-weight: 850; font-stretch: 68%; font-size: 2.4rem; line-height: 1; color: var(--gold); }
@@ -223,7 +238,7 @@ footer { font-size: 0.82rem; color: var(--muted); display: grid; gap: 8px; max-w
   .top .meta .long { display: none; }
   .row { grid-template-columns: 2rem minmax(0, 1fr) 2.6rem; }
   .row .ticks { display: none; }
-  .pick { grid-template-columns: 2.4rem minmax(0, 1fr) auto; gap: 4px 12px; }
+  .pick { grid-template-columns: 1.8rem auto minmax(0, 1fr) auto; gap: 4px 12px; }
   .p-pos, .p-score { font-size: 1.8rem; }
   .p-side .check { display: none; }
   .p-why .check-m { display: inline; }
@@ -321,6 +336,7 @@ footer { font-size: 0.82rem; color: var(--muted); display: grid; gap: 8px; max-w
   <div class="sheet-head" id="sheet-head">
     <div class="grabber" aria-hidden="true"></div>
     <div class="sheet-title">
+      <span id="sheet-mono"></span>
       <div style="min-width:0"><h2 id="sheet-name"></h2><p class="sheet-meta" id="sheet-meta"></p></div>
       <span class="sheet-score" id="sheet-score" title="Overall score"></span>
       <button type="button" class="close" id="sheet-close" aria-label="Close" data-press>
@@ -455,6 +471,12 @@ footer { font-size: 0.82rem; color: var(--muted); display: grid; gap: 8px; max-w
       ["pe_latest", "P/E, latest year (not scored)", (v) => isNum(v) ? v.toFixed(1) : "n/a"] ] },
   ];
   const byName = Object.fromEntries(S.companies.map((c) => [c.name, c]));
+  // Sector hues, spaced around the wheel and kept clear of gold (~40°), which marks the shortlist
+  const HUES = [210, 160, 265, 350, 188, 125, 300, 12, 232, 95, 325, 175];
+  const sectorHue = Object.fromEntries([...new Set(S.companies.map((c) => c.sector || ""))].sort().map((s, i) => [s, HUES[i % HUES.length]]));
+  const monoText = (c) => c.ticker.replace(/\.L$/, "").split(/[-.]/)[0].slice(0, 4);
+  const mono = (c, size = "") => { const t = monoText(c);
+    return `<span class="mono ${size}${t.length > 3 ? " l4" : ""}" style="--hue:${sectorHue[c.sector || ""]}" title="${esc(c.sector || "")}" aria-hidden="true">${esc(t)}</span>`; };
 
   /* ================= Price trend (context, never scored) ================= */
   const trendCache = {};
@@ -531,7 +553,7 @@ footer { font-size: 0.82rem; color: var(--muted); display: grid; gap: 8px; max-w
     hot = i; bars[i].classList.add("hot");
     const c = ranked[i];
     readout.classList.toggle("lit", inMode(c));
-    readout.innerHTML = `<span class="r-rank">${i + 1}</span><span class="r-name">${esc(c.name)}</span><span class="r-score">${c.scores.overall_score.toFixed(0)}</span>`;
+    readout.innerHTML = `<span class="r-rank">${i + 1}</span>${mono(c, "sm")}<span class="r-name">${esc(c.name)}</span><span class="r-score">${c.scores.overall_score.toFixed(0)}</span>`;
   };
   const clearBar = () => { if (hot >= 0) bars[hot].classList.remove("hot"); hot = -1; readout.classList.remove("lit"); readout.innerHTML = HINT; };
   let sieveDown = null;
@@ -555,7 +577,7 @@ footer { font-size: 0.82rem; color: var(--muted); display: grid; gap: 8px; max-w
     $("shortlist").innerHTML = names.length ? names.map((n, i) => {
       const c = byName[n], chk = needsCheck(c);
       return `<li><button type="button" class="pick" data-open="${esc(n)}" data-press>
-        <span class="p-pos">${i + 1}</span>
+        <span class="p-pos">${i + 1}</span>${mono(c)}
         <span class="p-main"><span class="p-name">${esc(n)}</span>
           <span class="p-why">${esc(c.industry || c.sector || "")} · ${esc(reason(c))}${chk ? ' <span class="check-m" style="color:var(--warn);font-weight:600">· Check first</span>' : ""}</span></span>
         <span class="p-side">${chk ? '<span class="check">Check first</span>' : ""}<span class="p-score">${c.scores.overall_score.toFixed(0)}</span></span>
@@ -580,7 +602,7 @@ footer { font-size: 0.82rem; color: var(--muted); display: grid; gap: 8px; max-w
       ". Gold scores are on the shortlist above; an orange dot means something since the annual report needs checking.";
     $("rows").innerHTML = list.length ? list.map((c) => `<button type="button" class="row${inMode(c) ? " lit" : ""}${c.name === activeName ? " active" : ""}" data-name="${esc(c.name)}" data-press aria-haspopup="dialog">
         <span class="rank">${c.rank}</span>
-        <span class="co"><b>${esc(c.name)}${needsCheck(c) ? '<span class="dot" title="Check first"></span>' : ""}</b><span>${esc(c.industry || c.sector || "")}</span></span>
+        <span class="co">${mono(c, "sm")}<span class="co-t"><b>${esc(c.name)}${needsCheck(c) ? '<span class="dot" title="Check first"></span>' : ""}</b><span>${esc(c.industry || c.sector || "")}</span></span></span>
         <span class="ticks">${tick(c.scores.profitability_score, "Profit")}${tick(c.scores.balance_sheet_score, "Balance sheet")}${tick(c.scores.earnings_quality_score, "Cash")}${tick(c.scores.valuation_score, "Value")}</span>
         <span class="ov">${c.scores.overall_score.toFixed(0)}</span>
       </button>`).join("") : `<p class="empty">No companies match. Clear the search or filters to see all ${S.companies.length}.</p>`;
@@ -760,6 +782,7 @@ footer { font-size: 0.82rem; color: var(--muted); display: grid; gap: 8px; max-w
     trigger = from || null; activeName = name;
     document.querySelectorAll(".row").forEach((r) => r.classList.toggle("active", r.dataset.name === name));
     $("sheet-name").innerHTML = esc(c.name);
+    $("sheet-mono").innerHTML = mono(c, "lg");
     $("sheet-meta").innerHTML = sub(c) + " · rank " + c.rank + " of " + S.count + tagsFor(c);
     $("sheet-score").textContent = c.scores.overall_score.toFixed(0);
     body.innerHTML = detail(c); body.scrollTop = 0;
