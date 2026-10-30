@@ -1,11 +1,11 @@
 name,rank,ticker,sector,profitability_score,balance_sheet_score,earnings_quality_score,valuation_score,quality_score,overall_score
-International Airlines Group,1,IAG.L,Industrials,76.7,54.2,83.3,92.3,71.4,76.6
-Airtel Africa,2,AAF.L,Communication Services,70.0,62.5,88.7,78.9,73.7,75.0
-easyJet,3,EZJ.L,Industrials,48.3,61.1,94.7,90.8,68.0,73.7
-Howden Joinery,4,HWDN.L,Consumer Cyclical,65.5,83.1,72.0,70.4,73.5,72.8
-DCC,5,DCC.L,Energy,73.9,75.5,63.7,74.6,71.0,71.9
-Shell,6,SHEL.L,Energy,41.7,90.7,59.7,89.4,64.0,70.4
-Rightmove,8,RMV.L,Communication Services,66.0,98.1,54.9,57.0,73.0,69.0
-Rio Tinto,9,RIO.L,Basic Materials,63.3,91.2,49.3,71.8,67.9,68.9
-Tesco,10,TSCO.L,Consumer Defensive,75.0,76.9,61.6,60.6,71.2,68.5
-Auto Trader Group,11,AUTO.L,Communication Services,73.9,63.4,63.9,69.7,67.1,67.7
+International Airlines Group,1,IAG.L,Industrials,76.7,54.2,82.9,92.3,71.3,76.5
+Airtel Africa,2,AAF.L,Communication Services,70.0,62.0,88.4,81.0,73.5,75.4
+easyJet,3,EZJ.L,Industrials,48.3,61.1,94.4,90.1,67.9,73.5
+Howden Joinery,4,HWDN.L,Consumer Cyclical,65.5,83.1,70.8,68.3,73.1,71.9
+DCC,5,DCC.L,Energy,73.9,75.5,63.9,73.9,71.1,71.8
+Shell,6,SHEL.L,Energy,41.4,90.7,59.3,87.3,63.8,69.7
+Rightmove,8,RMV.L,Communication Services,66.0,98.1,54.6,58.5,72.9,69.3
+Rio Tinto,9,RIO.L,Basic Materials,63.1,91.2,49.5,73.2,67.9,69.2
+Tesco,10,TSCO.L,Consumer Defensive,75.0,76.9,61.6,59.2,71.2,68.2
+Auto Trader Group,12,AUTO.L,Communication Services,73.9,63.4,62.5,67.6,66.6,66.8
