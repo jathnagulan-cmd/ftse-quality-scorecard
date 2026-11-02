@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-30",
+ "as_of": "2026-11-02",
  "count": 72,
  "shortlist": [
   "International Airlines Group",
@@ -19,8 +19,9 @@
   "Rightmove",
   "Tesco",
   "Auto Trader Group",
-  "Intertek",
   "Associated British Foods",
+  "Intertek",
+  "Reckitt Benckiser",
   "Next",
   "BT Group"
  ],
@@ -62,11 +63,11 @@
     "receivables_gap": -0.2771,
     "share_count_change": -0.0269,
     "accrual_ratio_floored": -0.0361,
-    "ev_to_ebit": 7.8703,
-    "fcf_yield": 0.1093,
-    "pe_latest": 6.5976,
-    "market_cap": 22049039650.2668,
-    "enterprise_value": 28026039650.2668
+    "ev_to_ebit": 7.861,
+    "fcf_yield": 0.1094,
+    "pe_latest": 6.5877,
+    "market_cap": 22015958903.4685,
+    "enterprise_value": 27992958903.4685
    },
    "flags": {
     "strengths": [
@@ -119,11 +120,11 @@
     "receivables_gap": -0.3439,
     "share_count_change": -0.0092,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 10.3825,
-    "fcf_yield": 0.0812,
-    "pe_latest": 18.6317,
-    "market_cap": 12650902417.6535,
-    "enterprise_value": 18184902417.6535
+    "ev_to_ebit": 10.3966,
+    "fcf_yield": 0.0811,
+    "pe_latest": 18.6682,
+    "market_cap": 12675681973.0839,
+    "enterprise_value": 18209681973.0839
    },
    "flags": {
     "strengths": [
@@ -345,15 +346,15 @@
     "receivables_gap": 0.0279,
     "share_count_change": -0.0669,
     "accrual_ratio_floored": -0.0238,
-    "ev_to_ebit": 9.3391,
-    "fcf_yield": 0.0962,
-    "pe_latest": 17.2404,
-    "market_cap": 307517425888.5432,
-    "enterprise_value": 353530425888.5432
+    "ev_to_ebit": 9.355,
+    "fcf_yield": 0.096,
+    "pe_latest": 17.2742,
+    "market_cap": 308119765931.0998,
+    "enterprise_value": 354132765931.0998
    },
    "flags": {
     "strengths": [
-     "Cheap on normalised profits: 9.3x average operating profit"
+     "Cheap on normalised profits: 9.4x average operating profit"
     ],
     "red_flags": [
      "Operating margin falling about 2.1 points a year"
@@ -516,11 +517,11 @@
     "receivables_gap": 0.0598,
     "share_count_change": 0.0008,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 9.0969,
-    "fcf_yield": 0.0516,
-    "pe_latest": 13.3026,
-    "market_cap": 132573985895.0618,
-    "enterprise_value": 148638985895.0618
+    "ev_to_ebit": 9.1128,
+    "fcf_yield": 0.0515,
+    "pe_latest": 13.3287,
+    "market_cap": 132833661001.5218,
+    "enterprise_value": 148898661001.5218
    },
    "flags": {
     "strengths": [
@@ -605,9 +606,9 @@
     "profitability_score": 68.1,
     "balance_sheet_score": 80.6,
     "earnings_quality_score": 66.2,
-    "valuation_score": 54.2,
+    "valuation_score": 53.5,
     "quality_score": 71.6,
-    "overall_score": 67.3
+    "overall_score": 67.1
    },
    "metrics": {
     "roce": 0.1972,
@@ -629,11 +630,11 @@
     "receivables_gap": -1.4795,
     "share_count_change": -0.0062,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 12.9067,
-    "fcf_yield": 0.0381,
-    "pe_latest": 17.7297,
-    "market_cap": 12042029101.7699,
-    "enterprise_value": 12227529101.7699
+    "ev_to_ebit": 12.9316,
+    "fcf_yield": 0.038,
+    "pe_latest": 17.7645,
+    "market_cap": 12065616045.829,
+    "enterprise_value": 12251116045.829
    },
    "flags": {
     "strengths": [],
@@ -760,11 +761,65 @@
    "peer_group": "Sector: Consumer Cyclical"
   },
   {
+   "name": "Associated British Foods",
+   "ticker": "ABF.L",
+   "sector": "Consumer Defensive",
+   "industry": "Packaged Foods",
+   "rank": 14,
+   "reporting_currency": "GBP",
+   "quote_currency": "GBp",
+   "scores": {
+    "profitability_score": 47.8,
+    "balance_sheet_score": 79.2,
+    "earnings_quality_score": 61.6,
+    "valuation_score": 72.5,
+    "quality_score": 62.9,
+    "overall_score": 65.3
+   },
+   "metrics": {
+    "roce": 0.0999,
+    "operating_margin": 0.077,
+    "gross_margin": 0.226,
+    "margin_trend": 0.0044,
+    "margin_stability": 0.0099,
+    "roce_latest": 0.1034,
+    "operating_margin_latest": 0.081,
+    "years_of_data": 4,
+    "cash_roce": 0.0545,
+    "net_debt_to_ebitda": 1.025,
+    "interest_cover": 6.2332,
+    "equity_ratio": 0.5733,
+    "altman_z": 4.6414,
+    "altman_zone": "safe",
+    "cash_conversion": 0.8585,
+    "accrual_ratio": -0.0336,
+    "receivables_gap": -0.0206,
+    "share_count_change": -0.0254,
+    "accrual_ratio_floored": -0.0336,
+    "ev_to_ebit": 10.7095,
+    "fcf_yield": 0.059,
+    "pe_latest": 13.3452,
+    "market_cap": 13678875432.825,
+    "enterprise_value": 16307875432.825
+   },
+   "flags": {
+    "strengths": [
+     "Very steady margins: operating margin moved less than 1 point across 4 years"
+    ],
+    "red_flags": [],
+    "notes": []
+   },
+   "shortlisted": false,
+   "long_term": true,
+   "trading212": "unchecked",
+   "peer_group": "Sector: Consumer Defensive"
+  },
+  {
    "name": "Intertek",
    "ticker": "ITRK.L",
    "sector": "Industrials",
    "industry": "Specialty Business Services",
-   "rank": 14,
+   "rank": 15,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -818,7 +873,7 @@
    "ticker": "IMB.L",
    "sector": "Consumer Defensive",
    "industry": "Tobacco",
-   "rank": 15,
+   "rank": 16,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -873,7 +928,7 @@
    "ticker": "BKG.L",
    "sector": "Consumer Cyclical",
    "industry": "Residential Construction",
-   "rank": 16,
+   "rank": 17,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -934,7 +989,7 @@
    "ticker": "WTB.L",
    "sector": "Consumer Cyclical",
    "industry": "Lodging",
-   "rank": 17,
+   "rank": 18,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -990,46 +1045,46 @@
    "peer_group": "Industry: Lodging"
   },
   {
-   "name": "Associated British Foods",
-   "ticker": "ABF.L",
+   "name": "Reckitt Benckiser",
+   "ticker": "RKT.L",
    "sector": "Consumer Defensive",
-   "industry": "Packaged Foods",
-   "rank": 18,
+   "industry": "Household & Personal Products",
+   "rank": 19,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
-    "profitability_score": 44.8,
-    "balance_sheet_score": 75.8,
-    "earnings_quality_score": 61.6,
-    "valuation_score": 72.5,
-    "quality_score": 60.7,
-    "overall_score": 63.7
+    "profitability_score": 82.2,
+    "balance_sheet_score": 62.5,
+    "earnings_quality_score": 40.7,
+    "valuation_score": 69.0,
+    "quality_score": 61.8,
+    "overall_score": 63.6
    },
    "metrics": {
-    "roce": 0.0999,
-    "operating_margin": 0.077,
-    "gross_margin": 0.226,
-    "margin_trend": 0.0044,
-    "margin_stability": 0.0099,
-    "roce_latest": 0.1034,
-    "operating_margin_latest": 0.081,
+    "roce": 0.1822,
+    "operating_margin": 0.2371,
+    "gross_margin": 0.5982,
+    "margin_trend": 0.0019,
+    "margin_stability": 0.0054,
+    "roce_latest": 0.186,
+    "operating_margin_latest": 0.2412,
     "years_of_data": 4,
-    "cash_roce": 0.0545,
-    "net_debt_to_ebitda": 1.025,
-    "interest_cover": 6.2332,
-    "equity_ratio": 0.5733,
-    "altman_z": 4.6414,
+    "cash_roce": 0.1078,
+    "net_debt_to_ebitda": 1.6968,
+    "interest_cover": 8.0993,
+    "equity_ratio": 0.309,
+    "altman_z": 4.1662,
     "altman_zone": "safe",
-    "cash_conversion": 0.8585,
-    "accrual_ratio": -0.0336,
-    "receivables_gap": -0.0206,
-    "share_count_change": -0.0254,
-    "accrual_ratio_floored": -0.0336,
-    "ev_to_ebit": 10.7095,
-    "fcf_yield": 0.059,
-    "pe_latest": 13.3452,
-    "market_cap": 13678875432.825,
-    "enterprise_value": 16307875432.825
+    "cash_conversion": 0.7184,
+    "accrual_ratio": 0.0118,
+    "receivables_gap": -0.1123,
+    "share_count_change": -0.0299,
+    "accrual_ratio_floored": 0.0118,
+    "ev_to_ebit": 12.2133,
+    "fcf_yield": 0.0558,
+    "pe_latest": 10.9704,
+    "market_cap": 34907828800.0,
+    "enterprise_value": 41567828800.0
    },
    "flags": {
     "strengths": [
@@ -1041,14 +1096,124 @@
    "shortlisted": false,
    "long_term": true,
    "trading212": "unchecked",
+   "peer_group": "Industry: Household & Personal Products"
+  },
+  {
+   "name": "Coca-Cola HBC",
+   "ticker": "CCH.L",
+   "sector": "Consumer Defensive",
+   "industry": "Beverages - Non-Alcoholic",
+   "rank": 20,
+   "reporting_currency": "EUR",
+   "quote_currency": "GBp",
+   "scores": {
+    "profitability_score": 66.4,
+    "balance_sheet_score": 81.9,
+    "earnings_quality_score": 65.7,
+    "valuation_score": 34.5,
+    "quality_score": 71.3,
+    "overall_score": 62.1
+   },
+   "metrics": {
+    "roce": 0.1606,
+    "operating_margin": 0.1038,
+    "gross_margin": 0.3549,
+    "margin_trend": 0.0066,
+    "margin_stability": 0.0091,
+    "roce_latest": 0.1802,
+    "operating_margin_latest": 0.1157,
+    "years_of_data": 4,
+    "cash_roce": 0.0987,
+    "net_debt_to_ebitda": 0.669,
+    "interest_cover": 10.5047,
+    "equity_ratio": 0.3315,
+    "altman_z": 4.1383,
+    "altman_zone": "safe",
+    "cash_conversion": 0.9285,
+    "accrual_ratio": -0.039,
+    "receivables_gap": 0.0205,
+    "share_count_change": -0.0029,
+    "accrual_ratio_floored": -0.039,
+    "ev_to_ebit": 19.8778,
+    "fcf_yield": 0.0349,
+    "pe_latest": 21.7816,
+    "market_cap": 20483385808.6244,
+    "enterprise_value": 21666285808.6244
+   },
+   "flags": {
+    "strengths": [
+     "Very steady margins: operating margin moved less than 1 point across 4 years"
+    ],
+    "red_flags": [],
+    "notes": []
+   },
+   "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
    "peer_group": "Sector: Consumer Defensive"
+  },
+  {
+   "name": "JD Sports Fashion",
+   "ticker": "JD.L",
+   "sector": "Consumer Cyclical",
+   "industry": "Apparel Retail",
+   "rank": 21,
+   "reporting_currency": "GBP",
+   "quote_currency": "GBp",
+   "scores": {
+    "profitability_score": 63.6,
+    "balance_sheet_score": 45.4,
+    "earnings_quality_score": 42.6,
+    "valuation_score": 93.7,
+    "quality_score": 50.5,
+    "overall_score": 61.3
+   },
+   "metrics": {
+    "roce": 0.15,
+    "operating_margin": 0.0895,
+    "gross_margin": 0.4749,
+    "margin_trend": -0.0093,
+    "margin_stability": 0.0102,
+    "roce_latest": 0.126,
+    "operating_margin_latest": 0.0763,
+    "years_of_data": 4,
+    "cash_roce": 0.112,
+    "net_debt_to_ebitda": 1.4627,
+    "interest_cover": 5.0052,
+    "equity_ratio": 0.3054,
+    "altman_z": 2.8432,
+    "altman_zone": "safe",
+    "cash_conversion": 0.7577,
+    "accrual_ratio": -0.09,
+    "receivables_gap": 0.2653,
+    "share_count_change": -0.0171,
+    "accrual_ratio_floored": -0.05,
+    "ev_to_ebit": 7.4036,
+    "fcf_yield": 0.12,
+    "pe_latest": 10.3777,
+    "market_cap": 4524674699.045,
+    "enterprise_value": 7350674699.045
+   },
+   "flags": {
+    "strengths": [
+     "Cheap on normalised profits: 7.4x average operating profit"
+    ],
+    "red_flags": [
+     "Money owed by customers grew 27 points faster than sales"
+    ],
+    "notes": []
+   },
+   "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
+   "peer_group": "Industry: Apparel Retail"
   },
   {
    "name": "Sainsbury's",
    "ticker": "SBRY.L",
    "sector": "Consumer Defensive",
    "industry": "Grocery Stores",
-   "rank": 19,
+   "rank": 22,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -1102,67 +1267,11 @@
    "peer_group": "Industry: Grocery Stores"
   },
   {
-   "name": "JD Sports Fashion",
-   "ticker": "JD.L",
-   "sector": "Consumer Cyclical",
-   "industry": "Apparel Retail",
-   "rank": 20,
-   "reporting_currency": "GBP",
-   "quote_currency": "GBp",
-   "scores": {
-    "profitability_score": 63.6,
-    "balance_sheet_score": 45.4,
-    "earnings_quality_score": 42.6,
-    "valuation_score": 93.7,
-    "quality_score": 50.5,
-    "overall_score": 61.3
-   },
-   "metrics": {
-    "roce": 0.15,
-    "operating_margin": 0.0895,
-    "gross_margin": 0.4749,
-    "margin_trend": -0.0093,
-    "margin_stability": 0.0102,
-    "roce_latest": 0.126,
-    "operating_margin_latest": 0.0763,
-    "years_of_data": 4,
-    "cash_roce": 0.112,
-    "net_debt_to_ebitda": 1.4627,
-    "interest_cover": 5.0052,
-    "equity_ratio": 0.3054,
-    "altman_z": 2.8432,
-    "altman_zone": "safe",
-    "cash_conversion": 0.7577,
-    "accrual_ratio": -0.09,
-    "receivables_gap": 0.2653,
-    "share_count_change": -0.0171,
-    "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 7.4036,
-    "fcf_yield": 0.12,
-    "pe_latest": 10.3777,
-    "market_cap": 4524674699.045,
-    "enterprise_value": 7350674699.045
-   },
-   "flags": {
-    "strengths": [
-     "Cheap on normalised profits: 7.4x average operating profit"
-    ],
-    "red_flags": [
-     "Money owed by customers grew 27 points faster than sales"
-    ],
-    "notes": []
-   },
-   "shortlisted": false,
-   "long_term": false,
-   "trading212": "unchecked",
-   "peer_group": "Industry: Apparel Retail"
-  },
-  {
    "name": "Next",
    "ticker": "NXT.L",
    "sector": "Consumer Cyclical",
    "industry": "Apparel Retail",
-   "rank": 21,
+   "rank": 23,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -1213,114 +1322,6 @@
    "peer_group": "Industry: Apparel Retail"
   },
   {
-   "name": "Reckitt Benckiser",
-   "ticker": "RKT.L",
-   "sector": NaN,
-   "industry": NaN,
-   "rank": 22,
-   "reporting_currency": "GBP",
-   "quote_currency": "GBp",
-   "scores": {
-    "profitability_score": 72.2,
-    "balance_sheet_score": 62.5,
-    "earnings_quality_score": 40.7,
-    "valuation_score": 69.0,
-    "quality_score": 58.5,
-    "overall_score": 61.1
-   },
-   "metrics": {
-    "roce": 0.1822,
-    "operating_margin": 0.2371,
-    "gross_margin": 0.5982,
-    "margin_trend": 0.0019,
-    "margin_stability": 0.0054,
-    "roce_latest": 0.186,
-    "operating_margin_latest": 0.2412,
-    "years_of_data": 4,
-    "cash_roce": 0.1078,
-    "net_debt_to_ebitda": 1.6968,
-    "interest_cover": 8.0993,
-    "equity_ratio": 0.309,
-    "altman_z": 4.1662,
-    "altman_zone": "safe",
-    "cash_conversion": 0.7184,
-    "accrual_ratio": 0.0118,
-    "receivables_gap": -0.1123,
-    "share_count_change": -0.0299,
-    "accrual_ratio_floored": 0.0118,
-    "ev_to_ebit": 12.2133,
-    "fcf_yield": 0.0558,
-    "pe_latest": 10.9704,
-    "market_cap": 34907828800.0,
-    "enterprise_value": 41567828800.0
-   },
-   "flags": {
-    "strengths": [
-     "Very steady margins: operating margin moved less than 1 point across 4 years"
-    ],
-    "red_flags": [],
-    "notes": []
-   },
-   "shortlisted": false,
-   "long_term": false,
-   "trading212": "unchecked",
-   "peer_group": "All companies"
-  },
-  {
-   "name": "Coca-Cola HBC",
-   "ticker": "CCH.L",
-   "sector": "Consumer Defensive",
-   "industry": "Beverages - Non-Alcoholic",
-   "rank": 23,
-   "reporting_currency": "EUR",
-   "quote_currency": "GBp",
-   "scores": {
-    "profitability_score": 61.4,
-    "balance_sheet_score": 81.9,
-    "earnings_quality_score": 65.7,
-    "valuation_score": 33.1,
-    "quality_score": 69.7,
-    "overall_score": 60.5
-   },
-   "metrics": {
-    "roce": 0.1606,
-    "operating_margin": 0.1038,
-    "gross_margin": 0.3549,
-    "margin_trend": 0.0066,
-    "margin_stability": 0.0091,
-    "roce_latest": 0.1802,
-    "operating_margin_latest": 0.1157,
-    "years_of_data": 4,
-    "cash_roce": 0.0987,
-    "net_debt_to_ebitda": 0.669,
-    "interest_cover": 10.5047,
-    "equity_ratio": 0.3315,
-    "altman_z": 4.1383,
-    "altman_zone": "safe",
-    "cash_conversion": 0.9285,
-    "accrual_ratio": -0.039,
-    "receivables_gap": 0.0205,
-    "share_count_change": -0.0029,
-    "accrual_ratio_floored": -0.039,
-    "ev_to_ebit": 19.906,
-    "fcf_yield": 0.0349,
-    "pe_latest": 21.8143,
-    "market_cap": 20514163741.2359,
-    "enterprise_value": 21697063741.2359
-   },
-   "flags": {
-    "strengths": [
-     "Very steady margins: operating margin moved less than 1 point across 4 years"
-    ],
-    "red_flags": [],
-    "notes": []
-   },
-   "shortlisted": false,
-   "long_term": false,
-   "trading212": "unchecked",
-   "peer_group": "Sector: Consumer Defensive"
-  },
-  {
    "name": "BP",
    "ticker": "BP.L",
    "sector": "Energy",
@@ -1356,11 +1357,11 @@
     "receivables_gap": 0.2003,
     "share_count_change": -0.0539,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 6.4752,
-    "fcf_yield": 0.1233,
-    "pe_latest": 2348.586,
-    "market_cap": 129172231631.3399,
-    "enterprise_value": 164987231631.3399
+    "ev_to_ebit": 6.4852,
+    "fcf_yield": 0.1231,
+    "pe_latest": 2353.1862,
+    "market_cap": 129425243659.1075,
+    "enterprise_value": 165240243659.1075
    },
    "flags": {
     "strengths": [
@@ -1372,7 +1373,7 @@
     ],
     "notes": [
      "Cyclical industry (Oil & Gas Integrated): the data may not include a full downturn, so treat strong scores with caution",
-     "Headline P/E of 2349 reflects unusually low latest-year profit, not price alone"
+     "Headline P/E of 2353 reflects unusually low latest-year profit, not price alone"
     ]
    },
    "shortlisted": false,
@@ -1416,11 +1417,11 @@
     "receivables_gap": 0.0417,
     "share_count_change": -0.0002,
     "accrual_ratio_floored": 0.0307,
-    "ev_to_ebit": 11.0611,
-    "fcf_yield": 0.0469,
-    "pe_latest": 12.6901,
-    "market_cap": 5101425287.583,
-    "enterprise_value": 6462425287.583
+    "ev_to_ebit": 11.0782,
+    "fcf_yield": 0.0468,
+    "pe_latest": 12.715,
+    "market_cap": 5111417543.1956,
+    "enterprise_value": 6472417543.1956
    },
    "flags": {
     "strengths": [
@@ -1820,11 +1821,65 @@
    "peer_group": "Industry: Drug Manufacturers - General"
   },
   {
+   "name": "Sage Group",
+   "ticker": "SGE.L",
+   "sector": "Technology",
+   "industry": "Software - Application",
+   "rank": 33,
+   "reporting_currency": "GBP",
+   "quote_currency": "GBp",
+   "scores": {
+    "profitability_score": 77.2,
+    "balance_sheet_score": 71.8,
+    "earnings_quality_score": 56.5,
+    "valuation_score": 18.3,
+    "quality_score": 68.5,
+    "overall_score": 56.0
+   },
+   "metrics": {
+    "roce": 0.164,
+    "operating_margin": 0.18,
+    "gross_margin": 0.9282,
+    "margin_trend": 0.0133,
+    "margin_stability": 0.025,
+    "roce_latest": 0.2248,
+    "operating_margin_latest": 0.2109,
+    "years_of_data": 4,
+    "cash_roce": 0.1526,
+    "net_debt_to_ebitda": 1.9177,
+    "interest_cover": 9.6364,
+    "equity_ratio": 0.1939,
+    "altman_z": 0.8079,
+    "altman_zone": "distress",
+    "cash_conversion": 0.8977,
+    "accrual_ratio": -0.0433,
+    "receivables_gap": 0.0735,
+    "share_count_change": -0.0215,
+    "accrual_ratio_floored": -0.0433,
+    "ev_to_ebit": 30.1953,
+    "fcf_yield": 0.0338,
+    "pe_latest": 30.1235,
+    "market_cap": 11115564407.22,
+    "enterprise_value": 12304564407.22
+   },
+   "flags": {
+    "strengths": [],
+    "red_flags": [
+     "Expensive: 30x average operating profit, priced for strong growth"
+    ],
+    "notes": []
+   },
+   "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
+   "peer_group": "All companies"
+  },
+  {
    "name": "Fresnillo",
    "ticker": "FRES.L",
    "sector": "Basic Materials",
    "industry": "Other Precious Metals & Mining",
-   "rank": 33,
+   "rank": 34,
    "reporting_currency": "USD",
    "quote_currency": "GBp",
    "scores": {
@@ -1855,11 +1910,11 @@
     "receivables_gap": 0.0869,
     "share_count_change": 0.0,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 21.9802,
-    "fcf_yield": 0.0332,
-    "pe_latest": 15.9335,
-    "market_cap": 22051751082.4714,
-    "enterprise_value": 20146248082.4714
+    "ev_to_ebit": 22.0273,
+    "fcf_yield": 0.0331,
+    "pe_latest": 15.9647,
+    "market_cap": 22094944253.2229,
+    "enterprise_value": 20189441253.2229
    },
    "flags": {
     "strengths": [
@@ -1882,7 +1937,7 @@
    "ticker": "VOD.L",
    "sector": "Communication Services",
    "industry": "Telecom Services",
-   "rank": 34,
+   "rank": 35,
    "reporting_currency": "EUR",
    "quote_currency": "GBp",
    "scores": {
@@ -1913,11 +1968,11 @@
     "receivables_gap": 0.0896,
     "share_count_change": -0.0508,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 17.312,
-    "fcf_yield": 0.1216,
+    "ev_to_ebit": 17.3004,
+    "fcf_yield": 0.1217,
     "pe_latest": null,
-    "market_cap": 32987854241.2962,
-    "enterprise_value": 73294854241.2962
+    "market_cap": 32938361706.8871,
+    "enterprise_value": 73245361706.8871
    },
    "flags": {
     "strengths": [
@@ -1939,7 +1994,7 @@
    "ticker": "SSE.L",
    "sector": "Utilities",
    "industry": "Utilities - Diversified",
-   "rank": 35,
+   "rank": 36,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -1998,16 +2053,16 @@
    "ticker": "IMI.L",
    "sector": "Industrials",
    "industry": "Specialty Industrial Machinery",
-   "rank": 36,
+   "rank": 37,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
     "profitability_score": 70.8,
     "balance_sheet_score": 81.8,
     "earnings_quality_score": 37.5,
-    "valuation_score": 29.6,
+    "valuation_score": 30.3,
     "quality_score": 63.4,
-    "overall_score": 54.9
+    "overall_score": 55.1
    },
    "metrics": {
     "roce": 0.2052,
@@ -2048,11 +2103,68 @@
    "peer_group": "Industry: Specialty Industrial Machinery"
   },
   {
+   "name": "Diageo",
+   "ticker": "DGE.L",
+   "sector": "Consumer Defensive",
+   "industry": "Beverages - Wineries & Distilleries",
+   "rank": 38,
+   "reporting_currency": "USD",
+   "quote_currency": "GBp",
+   "scores": {
+    "profitability_score": 54.7,
+    "balance_sheet_score": 40.3,
+    "earnings_quality_score": 72.2,
+    "valuation_score": 52.8,
+    "quality_score": 55.7,
+    "overall_score": 55.0
+   },
+   "metrics": {
+    "roce": 0.1313,
+    "operating_margin": 0.2352,
+    "gross_margin": 0.5986,
+    "margin_trend": -0.0364,
+    "margin_stability": 0.0522,
+    "roce_latest": 0.0874,
+    "operating_margin_latest": 0.1607,
+    "years_of_data": 4,
+    "cash_roce": 0.0734,
+    "net_debt_to_ebitda": 3.6222,
+    "interest_cover": 2.9385,
+    "equity_ratio": 0.2321,
+    "altman_z": 2.4281,
+    "altman_zone": "grey",
+    "cash_conversion": 0.8108,
+    "accrual_ratio": -0.0506,
+    "receivables_gap": -0.0395,
+    "share_count_change": -0.0029,
+    "accrual_ratio_floored": -0.05,
+    "ev_to_ebit": 15.3057,
+    "fcf_yield": 0.05,
+    "pe_latest": 30.1878,
+    "market_cap": 52436213762.0293,
+    "enterprise_value": 72851213762.0293
+   },
+   "flags": {
+    "strengths": [],
+    "red_flags": [
+     "Operating margin falling about 3.6 points a year",
+     "Volatile margins (swing of 5 points): cyclical or erratic profits",
+     "High debt: net debt is 3.6x EBITDA (including leases)",
+     "Thin interest cover: operating profit covers interest only 2.9x"
+    ],
+    "notes": []
+   },
+   "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
+   "peer_group": "Sector: Consumer Defensive"
+  },
+  {
    "name": "Centrica",
    "ticker": "CNA.L",
    "sector": "Utilities",
    "industry": "Utilities - Independent Power Producers",
-   "rank": 37,
+   "rank": 39,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -2112,7 +2224,7 @@
    "ticker": "BRBY.L",
    "sector": "Consumer Cyclical",
    "industry": "Luxury Goods",
-   "rank": 38,
+   "rank": 40,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -2170,7 +2282,7 @@
    "ticker": "CTEC.L",
    "sector": "Healthcare",
    "industry": "Medical Instruments & Supplies",
-   "rank": 39,
+   "rank": 41,
    "reporting_currency": "USD",
    "quote_currency": "GBp",
    "scores": {
@@ -2201,11 +2313,11 @@
     "receivables_gap": 0.1554,
     "share_count_change": -0.0148,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 26.0589,
+    "ev_to_ebit": 26.1005,
     "fcf_yield": 0.0391,
-    "pe_latest": 36.5468,
-    "market_cap": 6395692111.7156,
-    "enterprise_value": 7845692111.7156
+    "pe_latest": 36.6184,
+    "market_cap": 6408219471.5803,
+    "enterprise_value": 7858219471.5803
    },
    "flags": {
     "strengths": [],
@@ -2224,16 +2336,16 @@
    "ticker": "SN.L",
    "sector": "Healthcare",
    "industry": "Medical Devices",
-   "rank": 40,
+   "rank": 42,
    "reporting_currency": "USD",
    "quote_currency": "GBp",
    "scores": {
     "profitability_score": 60.3,
     "balance_sheet_score": 75.5,
     "earnings_quality_score": 47.2,
-    "valuation_score": 32.4,
+    "valuation_score": 31.7,
     "quality_score": 61.0,
-    "overall_score": 53.8
+    "overall_score": 53.7
    },
    "metrics": {
     "roce": 0.0878,
@@ -2255,11 +2367,11 @@
     "receivables_gap": 0.0307,
     "share_count_change": -0.008,
     "accrual_ratio_floored": -0.0486,
-    "ev_to_ebit": 20.6866,
+    "ev_to_ebit": 20.7198,
     "fcf_yield": 0.0359,
-    "pe_latest": 20.152,
-    "market_cap": 12594971438.3394,
-    "enterprise_value": 15364971438.3394
+    "pe_latest": 20.1914,
+    "market_cap": 12619641440.7311,
+    "enterprise_value": 15389641440.7311
    },
    "flags": {
     "strengths": [],
@@ -2276,7 +2388,7 @@
    "ticker": "AAL.L",
    "sector": "Basic Materials",
    "industry": "Other Industrial Metals & Mining",
-   "rank": 41,
+   "rank": 43,
    "reporting_currency": "USD",
    "quote_currency": "GBp",
    "scores": {
@@ -2307,11 +2419,11 @@
     "receivables_gap": 0.3318,
     "share_count_change": 0.001,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 9.8723,
+    "ev_to_ebit": 9.8888,
     "fcf_yield": 0.0404,
     "pe_latest": null,
-    "market_cap": 53139693364.7663,
-    "enterprise_value": 62474693364.7663
+    "market_cap": 53243779060.3014,
+    "enterprise_value": 62578779060.3014
    },
    "flags": {
     "strengths": [
@@ -2331,68 +2443,11 @@
    "peer_group": "Industry: Other Industrial Metals & Mining"
   },
   {
-   "name": "Diageo",
-   "ticker": "DGE.L",
-   "sector": "Consumer Defensive",
-   "industry": "Beverages - Wineries & Distilleries",
-   "rank": 42,
-   "reporting_currency": "USD",
-   "quote_currency": "GBp",
-   "scores": {
-    "profitability_score": 54.7,
-    "balance_sheet_score": 33.6,
-    "earnings_quality_score": 72.2,
-    "valuation_score": 52.8,
-    "quality_score": 53.5,
-    "overall_score": 53.3
-   },
-   "metrics": {
-    "roce": 0.1313,
-    "operating_margin": 0.2352,
-    "gross_margin": 0.5986,
-    "margin_trend": -0.0364,
-    "margin_stability": 0.0522,
-    "roce_latest": 0.0874,
-    "operating_margin_latest": 0.1607,
-    "years_of_data": 4,
-    "cash_roce": 0.0734,
-    "net_debt_to_ebitda": 3.6222,
-    "interest_cover": 2.9385,
-    "equity_ratio": 0.2321,
-    "altman_z": 2.4281,
-    "altman_zone": "grey",
-    "cash_conversion": 0.8108,
-    "accrual_ratio": -0.0506,
-    "receivables_gap": -0.0395,
-    "share_count_change": -0.0029,
-    "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 15.2841,
-    "fcf_yield": 0.05,
-    "pe_latest": 30.1288,
-    "market_cap": 52333706767.2785,
-    "enterprise_value": 72748706767.2785
-   },
-   "flags": {
-    "strengths": [],
-    "red_flags": [
-     "Operating margin falling about 3.6 points a year",
-     "Volatile margins (swing of 5 points): cyclical or erratic profits",
-     "High debt: net debt is 3.6x EBITDA (including leases)",
-     "Thin interest cover: operating profit covers interest only 2.9x"
-    ],
-    "notes": []
-   },
-   "shortlisted": false,
-   "long_term": false,
-   "trading212": "unchecked",
-   "peer_group": "Sector: Consumer Defensive"
-  },
-  {
    "name": "Mondi",
    "ticker": "MNDI.L",
    "sector": "Basic Materials",
    "industry": "Paper & Paper Products",
-   "rank": 43,
+   "rank": 44,
    "reporting_currency": "EUR",
    "quote_currency": "GBp",
    "scores": {
@@ -2423,11 +2478,11 @@
     "receivables_gap": -0.0122,
     "share_count_change": -0.0001,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 8.5292,
-    "fcf_yield": 0.0547,
-    "pe_latest": 24.3516,
-    "market_cap": 4018013605.3834,
-    "enterprise_value": 6608013605.3834
+    "ev_to_ebit": 8.5214,
+    "fcf_yield": 0.0548,
+    "pe_latest": 24.3151,
+    "market_cap": 4011985275.2239,
+    "enterprise_value": 6601985275.2239
    },
    "flags": {
     "strengths": [
@@ -2449,7 +2504,7 @@
    "ticker": "TW.L",
    "sector": "Consumer Cyclical",
    "industry": "Residential Construction",
-   "rank": 44,
+   "rank": 45,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -2510,7 +2565,7 @@
    "ticker": "HLMA.L",
    "sector": "Industrials",
    "industry": "Conglomerates",
-   "rank": 45,
+   "rank": 46,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -2564,16 +2619,16 @@
    "ticker": "REL.L",
    "sector": "Industrials",
    "industry": "Specialty Business Services",
-   "rank": 46,
+   "rank": 47,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
     "profitability_score": 78.6,
     "balance_sheet_score": 53.2,
     "earnings_quality_score": 47.2,
-    "valuation_score": 31.0,
+    "valuation_score": 31.7,
     "quality_score": 59.7,
-    "overall_score": 52.5
+    "overall_score": 52.7
    },
    "metrics": {
     "roce": 0.284,
@@ -2618,7 +2673,7 @@
    "ticker": "UU.L",
    "sector": "Utilities",
    "industry": "Utilities - Regulated Water",
-   "rank": 47,
+   "rank": 48,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -2678,7 +2733,7 @@
    "ticker": "BNZL.L",
    "sector": "Industrials",
    "industry": "Specialty Business Services",
-   "rank": 48,
+   "rank": 49,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -2726,60 +2781,6 @@
    "long_term": false,
    "trading212": "unchecked",
    "peer_group": "Industry: Specialty Business Services"
-  },
-  {
-   "name": "Unilever",
-   "ticker": "ULVR.L",
-   "sector": "Consumer Defensive",
-   "industry": "Household & Personal Products",
-   "rank": 49,
-   "reporting_currency": "EUR",
-   "quote_currency": "GBp",
-   "scores": {
-    "profitability_score": 75.1,
-    "balance_sheet_score": 52.7,
-    "earnings_quality_score": 22.7,
-    "valuation_score": 52.8,
-    "quality_score": 50.2,
-    "overall_score": 50.8
-   },
-   "metrics": {
-    "roce": 0.1902,
-    "operating_margin": 0.1844,
-    "gross_margin": 0.4435,
-    "margin_trend": 0.0129,
-    "margin_stability": 0.0152,
-    "roce_latest": 0.2075,
-    "operating_margin_latest": 0.2005,
-    "years_of_data": 4,
-    "cash_roce": 0.1194,
-    "net_debt_to_ebitda": 1.9673,
-    "interest_cover": 9.2231,
-    "equity_ratio": 0.2204,
-    "altman_z": 2.8922,
-    "altman_zone": "safe",
-    "cash_conversion": 0.7646,
-    "accrual_ratio": -0.0149,
-    "receivables_gap": 0.7755,
-    "share_count_change": -0.0103,
-    "accrual_ratio_floored": -0.0149,
-    "ev_to_ebit": 15.2191,
-    "fcf_yield": 0.0471,
-    "pe_latest": 13.4492,
-    "market_cap": 127350170466.8685,
-    "enterprise_value": 149935170466.8685
-   },
-   "flags": {
-    "strengths": [],
-    "red_flags": [
-     "Money owed by customers grew 78 points faster than sales"
-    ],
-    "notes": []
-   },
-   "shortlisted": false,
-   "long_term": false,
-   "trading212": "unchecked",
-   "peer_group": "Sector: Consumer Defensive"
   },
   {
    "name": "InterContinental Hotels",
@@ -2948,58 +2949,58 @@
    "peer_group": "Industry: Specialty Industrial Machinery"
   },
   {
-   "name": "Sage Group",
-   "ticker": "SGE.L",
-   "sector": "Technology",
-   "industry": "Software - Application",
+   "name": "Unilever",
+   "ticker": "ULVR.L",
+   "sector": "Consumer Defensive",
+   "industry": "Household & Personal Products",
    "rank": 53,
-   "reporting_currency": "GBP",
+   "reporting_currency": "EUR",
    "quote_currency": "GBp",
    "scores": {
-    "profitability_score": 67.2,
-    "balance_sheet_score": 55.1,
-    "earnings_quality_score": 56.5,
-    "valuation_score": 18.3,
-    "quality_score": 59.6,
-    "overall_score": 49.3
+    "profitability_score": 63.1,
+    "balance_sheet_score": 56.0,
+    "earnings_quality_score": 22.7,
+    "valuation_score": 52.8,
+    "quality_score": 47.3,
+    "overall_score": 48.6
    },
    "metrics": {
-    "roce": 0.164,
-    "operating_margin": 0.18,
-    "gross_margin": 0.9282,
-    "margin_trend": 0.0133,
-    "margin_stability": 0.025,
-    "roce_latest": 0.2248,
-    "operating_margin_latest": 0.2109,
+    "roce": 0.1902,
+    "operating_margin": 0.1844,
+    "gross_margin": 0.4435,
+    "margin_trend": 0.0129,
+    "margin_stability": 0.0152,
+    "roce_latest": 0.2075,
+    "operating_margin_latest": 0.2005,
     "years_of_data": 4,
-    "cash_roce": 0.1526,
-    "net_debt_to_ebitda": 1.9177,
-    "interest_cover": 9.6364,
-    "equity_ratio": 0.1939,
-    "altman_z": 0.8079,
-    "altman_zone": "distress",
-    "cash_conversion": 0.8977,
-    "accrual_ratio": -0.0433,
-    "receivables_gap": 0.0735,
-    "share_count_change": -0.0215,
-    "accrual_ratio_floored": -0.0433,
-    "ev_to_ebit": 30.1953,
-    "fcf_yield": 0.0338,
-    "pe_latest": 30.1235,
-    "market_cap": 11115564407.22,
-    "enterprise_value": 12304564407.22
+    "cash_roce": 0.1194,
+    "net_debt_to_ebitda": 1.9673,
+    "interest_cover": 9.2231,
+    "equity_ratio": 0.2204,
+    "altman_z": 2.8922,
+    "altman_zone": "safe",
+    "cash_conversion": 0.7646,
+    "accrual_ratio": -0.0149,
+    "receivables_gap": 0.7755,
+    "share_count_change": -0.0103,
+    "accrual_ratio_floored": -0.0149,
+    "ev_to_ebit": 15.1997,
+    "fcf_yield": 0.0471,
+    "pe_latest": 13.429,
+    "market_cap": 127159103698.8474,
+    "enterprise_value": 149744103698.8474
    },
    "flags": {
     "strengths": [],
     "red_flags": [
-     "Expensive: 30x average operating profit, priced for strong growth"
+     "Money owed by customers grew 78 points faster than sales"
     ],
     "notes": []
    },
    "shortlisted": false,
    "long_term": false,
    "trading212": "unchecked",
-   "peer_group": "All companies"
+   "peer_group": "Industry: Household & Personal Products"
   },
   {
    "name": "Barratt Redrow",
@@ -3098,11 +3099,11 @@
     "receivables_gap": -0.0317,
     "share_count_change": 0.0021,
     "accrual_ratio_floored": -0.0227,
-    "ev_to_ebit": 24.3656,
-    "fcf_yield": 0.0518,
-    "pe_latest": 25.0961,
-    "market_cap": 11795189873.864,
-    "enterprise_value": 15604189873.864
+    "ev_to_ebit": 24.4017,
+    "fcf_yield": 0.0517,
+    "pe_latest": 25.1453,
+    "market_cap": 11818293329.3838,
+    "enterprise_value": 15627293329.3838
    },
    "flags": {
     "strengths": [],
@@ -3264,11 +3265,11 @@
     "receivables_gap": 0.1468,
     "share_count_change": 0.0002,
     "accrual_ratio_floored": -0.0199,
-    "ev_to_ebit": 34.0423,
-    "fcf_yield": 0.0274,
-    "pe_latest": 28.3483,
-    "market_cap": 289861737418.937,
-    "enterprise_value": 313291737418.937
+    "ev_to_ebit": 34.104,
+    "fcf_yield": 0.0273,
+    "pe_latest": 28.4039,
+    "market_cap": 290429494939.5001,
+    "enterprise_value": 313859494939.5001
    },
    "flags": {
     "strengths": [],
@@ -3407,9 +3408,9 @@
     "profitability_score": 80.3,
     "balance_sheet_score": 40.3,
     "earnings_quality_score": 38.4,
-    "valuation_score": 25.4,
+    "valuation_score": 24.6,
     "quality_score": 53.0,
-    "overall_score": 46.1
+    "overall_score": 45.9
    },
    "metrics": {
     "roce": 0.1769,
@@ -3431,11 +3432,11 @@
     "receivables_gap": 0.2521,
     "share_count_change": -0.0073,
     "accrual_ratio_floored": -0.0219,
-    "ev_to_ebit": 24.238,
-    "fcf_yield": 0.0349,
-    "pe_latest": 23.9396,
-    "market_cap": 35957345016.9722,
-    "enterprise_value": 41186345016.9722
+    "ev_to_ebit": 24.2794,
+    "fcf_yield": 0.0348,
+    "pe_latest": 23.9865,
+    "market_cap": 36027775330.5233,
+    "enterprise_value": 41256775330.5233
    },
    "flags": {
     "strengths": [],
@@ -3745,9 +3746,9 @@
     "profitability_score": 54.1,
     "balance_sheet_score": 46.6,
     "earnings_quality_score": 27.3,
-    "valuation_score": 40.8,
+    "valuation_score": 40.1,
     "quality_score": 42.7,
-    "overall_score": 42.2
+    "overall_score": 42.0
    },
    "metrics": {
     "roce": 0.1264,
@@ -3823,11 +3824,11 @@
     "receivables_gap": 0.1626,
     "share_count_change": -0.0299,
     "accrual_ratio_floored": -0.0406,
-    "ev_to_ebit": 11.6192,
+    "ev_to_ebit": 11.6347,
     "fcf_yield": 0.0582,
-    "pe_latest": 224.2915,
-    "market_cap": 81417824186.5943,
-    "enterprise_value": 119985824186.5943
+    "pe_latest": 224.7309,
+    "market_cap": 81577298777.4853,
+    "enterprise_value": 120145298777.4853
    },
    "flags": {
     "strengths": [],
@@ -3839,7 +3840,7 @@
     ],
     "notes": [
      "Cyclical industry (Other Industrial Metals & Mining): the data may not include a full downturn, so treat strong scores with caution",
-     "Headline P/E of 224 reflects unusually low latest-year profit, not price alone"
+     "Headline P/E of 225 reflects unusually low latest-year profit, not price alone"
     ]
    },
    "shortlisted": false,
@@ -3883,11 +3884,11 @@
     "receivables_gap": 0.4181,
     "share_count_change": 0.0,
     "accrual_ratio_floored": 0.0036,
-    "ev_to_ebit": 20.3709,
+    "ev_to_ebit": 20.4088,
     "fcf_yield": 0.0029,
-    "pe_latest": 31.0507,
-    "market_cap": 41263260316.9507,
-    "enterprise_value": 43426760316.9507
+    "pe_latest": 31.1115,
+    "market_cap": 41344083424.4657,
+    "enterprise_value": 43507583424.4657
    },
    "flags": {
     "strengths": [],
@@ -3913,12 +3914,12 @@
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
-    "profitability_score": 33.2,
-    "balance_sheet_score": 30.0,
+    "profitability_score": 37.2,
+    "balance_sheet_score": 33.3,
     "earnings_quality_score": 59.7,
     "valuation_score": 1.4,
-    "quality_score": 41.0,
-    "overall_score": 31.1
+    "quality_score": 43.4,
+    "overall_score": 32.9
    },
    "metrics": {
     "roce": -0.091,
