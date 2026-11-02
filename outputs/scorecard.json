@@ -5,8 +5,8 @@
   "International Airlines Group",
   "Airtel Africa",
   "easyJet",
-  "Howden Joinery",
   "DCC",
+  "Howden Joinery",
   "Shell",
   "Rightmove",
   "Rio Tinto",
@@ -63,16 +63,16 @@
     "receivables_gap": -0.2771,
     "share_count_change": -0.0269,
     "accrual_ratio_floored": -0.0361,
-    "ev_to_ebit": 7.861,
-    "fcf_yield": 0.1094,
-    "pe_latest": 6.5877,
-    "market_cap": 22015958903.4685,
-    "enterprise_value": 27992958903.4685
+    "ev_to_ebit": 8.0906,
+    "fcf_yield": 0.1063,
+    "pe_latest": 6.8323,
+    "market_cap": 22833552148.5985,
+    "enterprise_value": 28810552148.5985
    },
    "flags": {
     "strengths": [
      "Profits backed by cash: 110% cash conversion",
-     "Cheap on normalised profits: 7.9x average operating profit"
+     "Cheap on normalised profits: 8.1x average operating profit"
     ],
     "red_flags": [],
     "notes": [
@@ -96,9 +96,9 @@
     "profitability_score": 70.0,
     "balance_sheet_score": 62.0,
     "earnings_quality_score": 88.4,
-    "valuation_score": 81.0,
+    "valuation_score": 80.3,
     "quality_score": 73.5,
-    "overall_score": 75.4
+    "overall_score": 75.2
    },
    "metrics": {
     "roce": 0.2353,
@@ -120,11 +120,11 @@
     "receivables_gap": -0.3439,
     "share_count_change": -0.0092,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 10.3966,
-    "fcf_yield": 0.0811,
-    "pe_latest": 18.6682,
-    "market_cap": 12675681973.0839,
-    "enterprise_value": 18209681973.0839
+    "ev_to_ebit": 10.6313,
+    "fcf_yield": 0.0793,
+    "pe_latest": 19.2736,
+    "market_cap": 13086784873.4997,
+    "enterprise_value": 18620784873.4997
    },
    "flags": {
     "strengths": [
@@ -176,11 +176,11 @@
     "receivables_gap": -0.8165,
     "share_count_change": -0.0052,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 10.346,
-    "fcf_yield": 0.1532,
-    "pe_latest": 10.2556,
-    "market_cap": 5066283008.78,
-    "enterprise_value": 4464283008.78
+    "ev_to_ebit": 10.3598,
+    "fcf_yield": 0.153,
+    "pe_latest": 10.2677,
+    "market_cap": 5072252028.7546,
+    "enterprise_value": 4470252028.7546
    },
    "flags": {
     "strengths": [
@@ -200,74 +200,20 @@
    "peer_group": "Industry: Airlines"
   },
   {
-   "name": "Howden Joinery",
-   "ticker": "HWDN.L",
-   "sector": "Consumer Cyclical",
-   "industry": "Furnishings, Fixtures & Appliances",
-   "rank": 4,
-   "reporting_currency": "GBP",
-   "quote_currency": "GBp",
-   "scores": {
-    "profitability_score": 65.5,
-    "balance_sheet_score": 83.1,
-    "earnings_quality_score": 70.8,
-    "valuation_score": 68.3,
-    "quality_score": 73.1,
-    "overall_score": 71.9
-   },
-   "metrics": {
-    "roce": 0.2189,
-    "operating_margin": 0.1548,
-    "gross_margin": 0.6148,
-    "margin_trend": -0.0107,
-    "margin_stability": 0.014,
-    "roce_latest": 0.1908,
-    "operating_margin_latest": 0.1469,
-    "years_of_data": 4,
-    "cash_roce": 0.1553,
-    "net_debt_to_ebitda": 0.685,
-    "interest_cover": 15.1838,
-    "equity_ratio": 0.5059,
-    "altman_z": 5.0151,
-    "altman_zone": "safe",
-    "cash_conversion": 0.8102,
-    "accrual_ratio": -0.0511,
-    "receivables_gap": -0.0344,
-    "share_count_change": -0.0101,
-    "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 12.9431,
-    "fcf_yield": 0.0594,
-    "pe_latest": 16.1792,
-    "market_cap": 4331166408.92,
-    "enterprise_value": 4691566408.92
-   },
-   "flags": {
-    "strengths": [
-     "High return on capital: ROCE averaged 22%"
-    ],
-    "red_flags": [],
-    "notes": []
-   },
-   "shortlisted": true,
-   "long_term": true,
-   "trading212": "yes",
-   "peer_group": "Sector: Consumer Cyclical"
-  },
-  {
    "name": "DCC",
    "ticker": "DCC.L",
    "sector": "Energy",
    "industry": "Oil & Gas Refining & Marketing",
-   "rank": 5,
+   "rank": 4,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
     "profitability_score": 73.9,
     "balance_sheet_score": 75.5,
     "earnings_quality_score": 63.9,
-    "valuation_score": 73.9,
+    "valuation_score": 75.4,
     "quality_score": 71.1,
-    "overall_score": 71.8
+    "overall_score": 72.2
    },
    "metrics": {
     "roce": 0.0904,
@@ -289,11 +235,11 @@
     "receivables_gap": 0.0607,
     "share_count_change": -0.0472,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 13.2417,
-    "fcf_yield": 0.0803,
-    "pe_latest": 412.1564,
-    "market_cap": 5505585500.75,
-    "enterprise_value": 6695211500.75
+    "ev_to_ebit": 13.2502,
+    "fcf_yield": 0.0802,
+    "pe_latest": 412.4762,
+    "market_cap": 5509856707.5,
+    "enterprise_value": 6699482707.5
    },
    "flags": {
     "strengths": [
@@ -311,6 +257,60 @@
    "peer_group": "Sector: Energy"
   },
   {
+   "name": "Howden Joinery",
+   "ticker": "HWDN.L",
+   "sector": "Consumer Cyclical",
+   "industry": "Furnishings, Fixtures & Appliances",
+   "rank": 5,
+   "reporting_currency": "GBP",
+   "quote_currency": "GBp",
+   "scores": {
+    "profitability_score": 65.5,
+    "balance_sheet_score": 83.1,
+    "earnings_quality_score": 70.8,
+    "valuation_score": 66.2,
+    "quality_score": 73.1,
+    "overall_score": 71.4
+   },
+   "metrics": {
+    "roce": 0.2189,
+    "operating_margin": 0.1548,
+    "gross_margin": 0.6148,
+    "margin_trend": -0.0107,
+    "margin_stability": 0.014,
+    "roce_latest": 0.1908,
+    "operating_margin_latest": 0.1469,
+    "years_of_data": 4,
+    "cash_roce": 0.1553,
+    "net_debt_to_ebitda": 0.685,
+    "interest_cover": 15.1838,
+    "equity_ratio": 0.5059,
+    "altman_z": 5.0151,
+    "altman_zone": "safe",
+    "cash_conversion": 0.8102,
+    "accrual_ratio": -0.0511,
+    "receivables_gap": -0.0344,
+    "share_count_change": -0.0101,
+    "accrual_ratio_floored": -0.05,
+    "ev_to_ebit": 13.4116,
+    "fcf_yield": 0.0573,
+    "pe_latest": 16.8135,
+    "market_cap": 4500963225.2,
+    "enterprise_value": 4861363225.2
+   },
+   "flags": {
+    "strengths": [
+     "High return on capital: ROCE averaged 22%"
+    ],
+    "red_flags": [],
+    "notes": []
+   },
+   "shortlisted": true,
+   "long_term": true,
+   "trading212": "yes",
+   "peer_group": "Sector: Consumer Cyclical"
+  },
+  {
    "name": "Shell",
    "ticker": "SHEL.L",
    "sector": "Energy",
@@ -322,9 +322,9 @@
     "profitability_score": 41.4,
     "balance_sheet_score": 90.7,
     "earnings_quality_score": 59.3,
-    "valuation_score": 87.3,
+    "valuation_score": 89.4,
     "quality_score": 63.8,
-    "overall_score": 69.7
+    "overall_score": 70.2
    },
    "metrics": {
     "roce": 0.1233,
@@ -346,15 +346,15 @@
     "receivables_gap": 0.0279,
     "share_count_change": -0.0669,
     "accrual_ratio_floored": -0.0238,
-    "ev_to_ebit": 9.355,
-    "fcf_yield": 0.096,
-    "pe_latest": 17.2742,
-    "market_cap": 308119765931.0998,
-    "enterprise_value": 354132765931.0998
+    "ev_to_ebit": 9.1221,
+    "fcf_yield": 0.0985,
+    "pe_latest": 16.7799,
+    "market_cap": 299303258321.7744,
+    "enterprise_value": 345316258321.7744
    },
    "flags": {
     "strengths": [
-     "Cheap on normalised profits: 9.4x average operating profit"
+     "Cheap on normalised profits: 9.1x average operating profit"
     ],
     "red_flags": [
      "Operating margin falling about 2.1 points a year"
@@ -380,9 +380,9 @@
     "profitability_score": 54.7,
     "balance_sheet_score": 68.5,
     "earnings_quality_score": 63.4,
-    "valuation_score": 90.8,
+    "valuation_score": 91.5,
     "quality_score": 62.2,
-    "overall_score": 69.4
+    "overall_score": 69.5
    },
    "metrics": {
     "roce": 0.0869,
@@ -404,11 +404,11 @@
     "receivables_gap": 0.0194,
     "share_count_change": 0.0027,
     "accrual_ratio_floored": -0.0361,
-    "ev_to_ebit": 9.4688,
-    "fcf_yield": 0.137,
+    "ev_to_ebit": 9.4976,
+    "fcf_yield": 0.1366,
     "pe_latest": null,
-    "market_cap": 4374495571.6759,
-    "enterprise_value": 8512495571.6759
+    "market_cap": 4400380094.64,
+    "enterprise_value": 8538380094.64
    },
    "flags": {
     "strengths": [
@@ -438,9 +438,9 @@
     "profitability_score": 66.0,
     "balance_sheet_score": 98.1,
     "earnings_quality_score": 54.6,
-    "valuation_score": 58.5,
+    "valuation_score": 57.7,
     "quality_score": 72.9,
-    "overall_score": 69.3
+    "overall_score": 69.1
    },
    "metrics": {
     "roce": 3.2162,
@@ -462,11 +462,11 @@
     "receivables_gap": 0.0539,
     "share_count_change": -0.0273,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 14.9868,
-    "fcf_yield": 0.053,
-    "pe_latest": 18.1768,
-    "market_cap": 3945591003.5994,
-    "enterprise_value": 3909970003.5994
+    "ev_to_ebit": 15.3942,
+    "fcf_yield": 0.0516,
+    "pe_latest": 18.6666,
+    "market_cap": 4051900235.0194,
+    "enterprise_value": 4016279235.0194
    },
    "flags": {
     "strengths": [
@@ -493,9 +493,9 @@
     "profitability_score": 63.1,
     "balance_sheet_score": 91.2,
     "earnings_quality_score": 49.5,
-    "valuation_score": 73.2,
+    "valuation_score": 71.8,
     "quality_score": 67.9,
-    "overall_score": 69.2
+    "overall_score": 68.9
    },
    "metrics": {
     "roce": 0.175,
@@ -517,15 +517,15 @@
     "receivables_gap": 0.0598,
     "share_count_change": 0.0008,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 9.1128,
-    "fcf_yield": 0.0515,
-    "pe_latest": 13.3287,
-    "market_cap": 132833661001.5218,
-    "enterprise_value": 148898661001.5218
+    "ev_to_ebit": 9.2489,
+    "fcf_yield": 0.0507,
+    "pe_latest": 13.5518,
+    "market_cap": 135057000913.2637,
+    "enterprise_value": 151122000913.2637
    },
    "flags": {
     "strengths": [
-     "Cheap on normalised profits: 9.1x average operating profit"
+     "Cheap on normalised profits: 9.2x average operating profit"
     ],
     "red_flags": [
      "Operating margin falling about 2.7 points a year"
@@ -575,11 +575,11 @@
     "receivables_gap": 0.035,
     "share_count_change": -0.0438,
     "accrual_ratio_floored": -0.0235,
-    "ev_to_ebit": 17.7067,
-    "fcf_yield": 0.0639,
-    "pe_latest": 19.1849,
-    "market_cap": 34283427098.4,
-    "enterprise_value": 45227427098.4
+    "ev_to_ebit": 17.831,
+    "fcf_yield": 0.0634,
+    "pe_latest": 19.3625,
+    "market_cap": 34600866238.2,
+    "enterprise_value": 45544866238.2
    },
    "flags": {
     "strengths": [
@@ -606,9 +606,9 @@
     "profitability_score": 68.1,
     "balance_sheet_score": 80.6,
     "earnings_quality_score": 66.2,
-    "valuation_score": 53.5,
+    "valuation_score": 54.2,
     "quality_score": 71.6,
-    "overall_score": 67.1
+    "overall_score": 67.3
    },
    "metrics": {
     "roce": 0.1972,
@@ -630,11 +630,11 @@
     "receivables_gap": -1.4795,
     "share_count_change": -0.0062,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 12.9316,
-    "fcf_yield": 0.038,
-    "pe_latest": 17.7645,
-    "market_cap": 12065616045.829,
-    "enterprise_value": 12251116045.829
+    "ev_to_ebit": 12.9248,
+    "fcf_yield": 0.0381,
+    "pe_latest": 17.7549,
+    "market_cap": 12059156936.5968,
+    "enterprise_value": 12244656936.5968
    },
    "flags": {
     "strengths": [],
@@ -687,11 +687,11 @@
     "receivables_gap": -0.0386,
     "share_count_change": -0.036,
     "accrual_ratio_floored": -0.0394,
-    "ev_to_ebit": 13.3723,
-    "fcf_yield": 0.0618,
-    "pe_latest": 15.0731,
-    "market_cap": 4429998262.9049,
-    "enterprise_value": 4622798262.9049
+    "ev_to_ebit": 13.5627,
+    "fcf_yield": 0.061,
+    "pe_latest": 15.2971,
+    "market_cap": 4495822899.7849,
+    "enterprise_value": 4688622899.7849
    },
    "flags": {
     "strengths": [
@@ -717,9 +717,9 @@
     "profitability_score": 84.2,
     "balance_sheet_score": 100.0,
     "earnings_quality_score": 50.9,
-    "valuation_score": 30.3,
+    "valuation_score": 31.0,
     "quality_score": 78.4,
-    "overall_score": 66.4
+    "overall_score": 66.5
    },
    "metrics": {
     "roce": 0.7068,
@@ -741,11 +741,11 @@
     "receivables_gap": -0.1026,
     "share_count_change": 0.0013,
     "accrual_ratio_floored": 0.0231,
-    "ev_to_ebit": 22.3903,
-    "fcf_yield": 0.037,
-    "pe_latest": 25.2969,
-    "market_cap": 5211171425.7,
-    "enterprise_value": 5084271425.7
+    "ev_to_ebit": 22.6086,
+    "fcf_yield": 0.0367,
+    "pe_latest": 25.5376,
+    "market_cap": 5260738687.2,
+    "enterprise_value": 5133838687.2
    },
    "flags": {
     "strengths": [
@@ -772,9 +772,9 @@
     "profitability_score": 47.8,
     "balance_sheet_score": 79.2,
     "earnings_quality_score": 61.6,
-    "valuation_score": 72.5,
+    "valuation_score": 73.2,
     "quality_score": 62.9,
-    "overall_score": 65.3
+    "overall_score": 65.4
    },
    "metrics": {
     "roce": 0.0999,
@@ -796,11 +796,11 @@
     "receivables_gap": -0.0206,
     "share_count_change": -0.0254,
     "accrual_ratio_floored": -0.0336,
-    "ev_to_ebit": 10.7095,
-    "fcf_yield": 0.059,
-    "pe_latest": 13.3452,
-    "market_cap": 13678875432.825,
-    "enterprise_value": 16307875432.825
+    "ev_to_ebit": 10.8053,
+    "fcf_yield": 0.0585,
+    "pe_latest": 13.4875,
+    "market_cap": 13824736003.11,
+    "enterprise_value": 16453736003.11
    },
    "flags": {
     "strengths": [
@@ -826,9 +826,9 @@
     "profitability_score": 74.0,
     "balance_sheet_score": 76.4,
     "earnings_quality_score": 69.0,
-    "valuation_score": 40.8,
+    "valuation_score": 41.5,
     "quality_score": 73.1,
-    "overall_score": 65.0
+    "overall_score": 65.2
    },
    "metrics": {
     "roce": 0.1955,
@@ -850,11 +850,11 @@
     "receivables_gap": -0.0326,
     "share_count_change": -0.0163,
     "accrual_ratio_floored": -0.0471,
-    "ev_to_ebit": 20.6711,
-    "fcf_yield": 0.0466,
-    "pe_latest": 26.4988,
-    "market_cap": 9102324837.9,
-    "enterprise_value": 10421324837.9
+    "ev_to_ebit": 20.7015,
+    "fcf_yield": 0.0465,
+    "pe_latest": 26.5434,
+    "market_cap": 9117674458.2,
+    "enterprise_value": 10436674458.2
    },
    "flags": {
     "strengths": [
@@ -904,16 +904,16 @@
     "receivables_gap": 0.0284,
     "share_count_change": -0.0528,
     "accrual_ratio_floored": 0.0113,
-    "ev_to_ebit": 9.3341,
-    "fcf_yield": 0.0946,
-    "pe_latest": 11.4152,
-    "market_cap": 23640881302.48,
-    "enterprise_value": 32197881302.48
+    "ev_to_ebit": 9.4297,
+    "fcf_yield": 0.0936,
+    "pe_latest": 11.5745,
+    "market_cap": 23970791490.84,
+    "enterprise_value": 32527791490.84
    },
    "flags": {
     "strengths": [
      "Very steady margins: operating margin moved less than 1 point across 4 years",
-     "Cheap on normalised profits: 9.3x average operating profit"
+     "Cheap on normalised profits: 9.4x average operating profit"
     ],
     "red_flags": [],
     "notes": []
@@ -935,9 +935,9 @@
     "profitability_score": 71.1,
     "balance_sheet_score": 83.8,
     "earnings_quality_score": 11.1,
-    "valuation_score": 93.0,
+    "valuation_score": 90.8,
     "quality_score": 55.3,
-    "overall_score": 64.8
+    "overall_score": 64.2
    },
    "metrics": {
     "roce": 0.0986,
@@ -959,17 +959,17 @@
     "receivables_gap": 0.4779,
     "share_count_change": -0.0359,
     "accrual_ratio_floored": 0.0088,
-    "ev_to_ebit": 5.9133,
-    "fcf_yield": 0.0979,
-    "pe_latest": 10.1613,
-    "market_cap": 3234337404.0,
-    "enterprise_value": 2875037404.0
+    "ev_to_ebit": 6.2191,
+    "fcf_yield": 0.0931,
+    "pe_latest": 10.6285,
+    "market_cap": 3383042572.0,
+    "enterprise_value": 3023742572.0
    },
    "flags": {
     "strengths": [
      "Very steady margins: operating margin moved less than 1 point across 4 years",
      "Net cash: holds more cash than debt",
-     "Cheap on normalised profits: 5.9x average operating profit"
+     "Cheap on normalised profits: 6.2x average operating profit"
     ],
     "red_flags": [
      "Weak cash conversion: only 58% of EBITDA arrived as operating cash",
@@ -1020,11 +1020,11 @@
     "receivables_gap": -0.2164,
     "share_count_change": -0.0614,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 15.9924,
-    "fcf_yield": 0.0442,
-    "pe_latest": 21.4774,
-    "market_cap": 4572528643.65,
-    "enterprise_value": 9804928643.65
+    "ev_to_ebit": 16.1803,
+    "fcf_yield": 0.0437,
+    "pe_latest": 22.0184,
+    "market_cap": 4687718302.8,
+    "enterprise_value": 9920118302.8
    },
    "flags": {
     "strengths": [
@@ -1080,11 +1080,11 @@
     "receivables_gap": -0.1123,
     "share_count_change": -0.0299,
     "accrual_ratio_floored": 0.0118,
-    "ev_to_ebit": 12.2133,
-    "fcf_yield": 0.0558,
-    "pe_latest": 10.9704,
-    "market_cap": 34907828800.0,
-    "enterprise_value": 41567828800.0
+    "ev_to_ebit": 12.5281,
+    "fcf_yield": 0.0544,
+    "pe_latest": 11.3071,
+    "market_cap": 35979333900.0,
+    "enterprise_value": 42639333900.0
    },
    "flags": {
     "strengths": [
@@ -1110,9 +1110,9 @@
     "profitability_score": 66.4,
     "balance_sheet_score": 81.9,
     "earnings_quality_score": 65.7,
-    "valuation_score": 34.5,
+    "valuation_score": 33.8,
     "quality_score": 71.3,
-    "overall_score": 62.1
+    "overall_score": 62.0
    },
    "metrics": {
     "roce": 0.1606,
@@ -1134,11 +1134,11 @@
     "receivables_gap": 0.0205,
     "share_count_change": -0.0029,
     "accrual_ratio_floored": -0.039,
-    "ev_to_ebit": 19.8778,
-    "fcf_yield": 0.0349,
-    "pe_latest": 21.7816,
-    "market_cap": 20483385808.6244,
-    "enterprise_value": 21666285808.6244
+    "ev_to_ebit": 20.2772,
+    "fcf_yield": 0.0342,
+    "pe_latest": 22.2445,
+    "market_cap": 20918771504.3178,
+    "enterprise_value": 22101671504.3178
    },
    "flags": {
     "strengths": [
@@ -1188,15 +1188,15 @@
     "receivables_gap": 0.2653,
     "share_count_change": -0.0171,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 7.4036,
-    "fcf_yield": 0.12,
-    "pe_latest": 10.3777,
-    "market_cap": 4524674699.045,
-    "enterprise_value": 7350674699.045
+    "ev_to_ebit": 7.6207,
+    "fcf_yield": 0.1165,
+    "pe_latest": 10.8721,
+    "market_cap": 4740228997.8069,
+    "enterprise_value": 7566228997.8069
    },
    "flags": {
     "strengths": [
-     "Cheap on normalised profits: 7.4x average operating profit"
+     "Cheap on normalised profits: 7.6x average operating profit"
     ],
     "red_flags": [
      "Money owed by customers grew 27 points faster than sales"
@@ -1244,11 +1244,11 @@
     "receivables_gap": -0.2672,
     "share_count_change": -0.017,
     "accrual_ratio_floored": -0.0401,
-    "ev_to_ebit": 16.2312,
-    "fcf_yield": 0.0792,
-    "pe_latest": 19.5787,
-    "market_cap": 7694438322.8386,
-    "enterprise_value": 13228438322.8386
+    "ev_to_ebit": 16.3706,
+    "fcf_yield": 0.0785,
+    "pe_latest": 19.8678,
+    "market_cap": 7808050607.445,
+    "enterprise_value": 13342050607.445
    },
    "flags": {
     "strengths": [
@@ -1302,11 +1302,11 @@
     "receivables_gap": -0.0267,
     "share_count_change": -0.0162,
     "accrual_ratio_floored": 0.0285,
-    "ev_to_ebit": 18.4415,
-    "fcf_yield": 0.0448,
-    "pe_latest": 20.2081,
-    "market_cap": 17954885874.6,
-    "enterprise_value": 19667385874.6
+    "ev_to_ebit": 18.5073,
+    "fcf_yield": 0.0446,
+    "pe_latest": 20.2871,
+    "market_cap": 18025044985.8,
+    "enterprise_value": 19737544985.8
    },
    "flags": {
     "strengths": [
@@ -1357,15 +1357,15 @@
     "receivables_gap": 0.2003,
     "share_count_change": -0.0539,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 6.4852,
-    "fcf_yield": 0.1231,
-    "pe_latest": 2353.1862,
-    "market_cap": 129425243659.1075,
-    "enterprise_value": 165240243659.1075
+    "ev_to_ebit": 6.2633,
+    "fcf_yield": 0.1275,
+    "pe_latest": 2250.4171,
+    "market_cap": 123772940984.4823,
+    "enterprise_value": 159587940984.4823
    },
    "flags": {
     "strengths": [
-     "Cheap on normalised profits: 6.5x average operating profit"
+     "Cheap on normalised profits: 6.3x average operating profit"
     ],
     "red_flags": [
      "Operating margin falling about 2.9 points a year",
@@ -1373,7 +1373,7 @@
     ],
     "notes": [
      "Cyclical industry (Oil & Gas Integrated): the data may not include a full downturn, so treat strong scores with caution",
-     "Headline P/E of 2353 reflects unusually low latest-year profit, not price alone"
+     "Headline P/E of 2250 reflects unusually low latest-year profit, not price alone"
     ]
    },
    "shortlisted": false,
@@ -1393,9 +1393,9 @@
     "profitability_score": 67.5,
     "balance_sheet_score": 88.9,
     "earnings_quality_score": 21.8,
-    "valuation_score": 62.7,
+    "valuation_score": 62.0,
     "quality_score": 59.4,
-    "overall_score": 60.2
+    "overall_score": 60.0
    },
    "metrics": {
     "roce": 0.1672,
@@ -1417,11 +1417,11 @@
     "receivables_gap": 0.0417,
     "share_count_change": -0.0002,
     "accrual_ratio_floored": 0.0307,
-    "ev_to_ebit": 11.0782,
-    "fcf_yield": 0.0468,
-    "pe_latest": 12.715,
-    "market_cap": 5111417543.1956,
-    "enterprise_value": 6472417543.1956
+    "ev_to_ebit": 11.1641,
+    "fcf_yield": 0.0465,
+    "pe_latest": 12.8398,
+    "market_cap": 5161616329.004,
+    "enterprise_value": 6522616329.004
    },
    "flags": {
     "strengths": [
@@ -1449,9 +1449,9 @@
     "profitability_score": 66.9,
     "balance_sheet_score": 51.9,
     "earnings_quality_score": 66.2,
-    "valuation_score": 52.8,
+    "valuation_score": 52.1,
     "quality_score": 61.7,
-    "overall_score": 59.4
+    "overall_score": 59.3
    },
    "metrics": {
     "roce": 0.0829,
@@ -1473,11 +1473,11 @@
     "receivables_gap": 0.0024,
     "share_count_change": 0.0039,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 12.5822,
-    "fcf_yield": 0.0364,
-    "pe_latest": 20.796,
-    "market_cap": 22397281401.9587,
-    "enterprise_value": 43399281401.9587
+    "ev_to_ebit": 12.5937,
+    "fcf_yield": 0.0363,
+    "pe_latest": 20.8326,
+    "market_cap": 22436695285.5413,
+    "enterprise_value": 43438695285.5413
    },
    "flags": {
     "strengths": [
@@ -1505,9 +1505,9 @@
     "profitability_score": 64.7,
     "balance_sheet_score": 56.0,
     "earnings_quality_score": 75.9,
-    "valuation_score": 36.6,
+    "valuation_score": 35.2,
     "quality_score": 65.5,
-    "overall_score": 58.3
+    "overall_score": 58.0
    },
    "metrics": {
     "roce": 0.0558,
@@ -1529,11 +1529,11 @@
     "receivables_gap": -0.1473,
     "share_count_change": -0.0328,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 24.4018,
-    "fcf_yield": 0.0503,
-    "pe_latest": 960.751,
-    "market_cap": 10568260624.1453,
-    "enterprise_value": 13716860624.1453
+    "ev_to_ebit": 24.8936,
+    "fcf_yield": 0.0493,
+    "pe_latest": 985.8808,
+    "market_cap": 10844689323.4395,
+    "enterprise_value": 13993289323.4395
    },
    "flags": {
     "strengths": [],
@@ -1541,7 +1541,7 @@
      "Low return on capital: ROCE averaged 6%, below a typical cost of capital"
     ],
     "notes": [
-     "Headline P/E of 961 reflects unusually low latest-year profit, not price alone"
+     "Headline P/E of 986 reflects unusually low latest-year profit, not price alone"
     ]
    },
    "shortlisted": false,
@@ -1550,77 +1550,20 @@
    "peer_group": "Industry: Publishing"
   },
   {
-   "name": "Kingfisher",
-   "ticker": "KGF.L",
-   "sector": "Consumer Cyclical",
-   "industry": "Home Improvement Retail",
-   "rank": 28,
-   "reporting_currency": "GBP",
-   "quote_currency": "GBp",
-   "scores": {
-    "profitability_score": 36.4,
-    "balance_sheet_score": 50.7,
-    "earnings_quality_score": 68.5,
-    "valuation_score": 76.8,
-    "quality_score": 51.9,
-    "overall_score": 58.1
-   },
-   "metrics": {
-    "roce": 0.0627,
-    "operating_margin": 0.0428,
-    "gross_margin": 0.3721,
-    "margin_trend": -0.0055,
-    "margin_stability": 0.0082,
-    "roce_latest": 0.0588,
-    "operating_margin_latest": 0.0384,
-    "years_of_data": 4,
-    "cash_roce": 0.0808,
-    "net_debt_to_ebitda": 1.646,
-    "interest_cover": 4.0081,
-    "equity_ratio": 0.5403,
-    "altman_z": 2.8094,
-    "altman_zone": "safe",
-    "cash_conversion": 1.0235,
-    "accrual_ratio": -0.0707,
-    "receivables_gap": 0.0783,
-    "share_count_change": -0.0437,
-    "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 14.2204,
-    "fcf_yield": 0.1056,
-    "pe_latest": 24.3642,
-    "market_cap": 5969221648.6053,
-    "enterprise_value": 7885221648.6053
-   },
-   "flags": {
-    "strengths": [
-     "Very steady margins: operating margin moved less than 1 point across 4 years",
-     "Profits backed by cash: 102% cash conversion"
-    ],
-    "red_flags": [
-     "Low return on capital: ROCE averaged 6%, below a typical cost of capital"
-    ],
-    "notes": []
-   },
-   "shortlisted": false,
-   "long_term": false,
-   "trading212": "unchecked",
-   "peer_group": "Sector: Consumer Cyclical"
-  },
-  {
    "name": "Marks & Spencer",
    "ticker": "MKS.L",
    "sector": "Consumer Cyclical",
    "industry": "Department Stores",
-   "rank": 29,
+   "rank": 28,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
     "profitability_score": 47.8,
     "balance_sheet_score": 53.5,
     "earnings_quality_score": 63.0,
-    "valuation_score": 66.9,
+    "valuation_score": 67.6,
     "quality_score": 54.8,
-    "overall_score": 57.8
+    "overall_score": 58.0
    },
    "metrics": {
     "roce": 0.1166,
@@ -1642,11 +1585,11 @@
     "receivables_gap": 0.0855,
     "share_count_change": 0.0149,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 14.4297,
-    "fcf_yield": 0.0654,
-    "pe_latest": 32.6225,
-    "market_cap": 8462279401.32,
-    "enterprise_value": 10877479401.32
+    "ev_to_ebit": 14.5469,
+    "fcf_yield": 0.0649,
+    "pe_latest": 32.963,
+    "market_cap": 8550599056.9665,
+    "enterprise_value": 10965799056.9665
    },
    "flags": {
     "strengths": [
@@ -1661,20 +1604,129 @@
    "peer_group": "Sector: Consumer Cyclical"
   },
   {
+   "name": "Kingfisher",
+   "ticker": "KGF.L",
+   "sector": "Consumer Cyclical",
+   "industry": "Home Improvement Retail",
+   "rank": 29,
+   "reporting_currency": "GBP",
+   "quote_currency": "GBp",
+   "scores": {
+    "profitability_score": 36.4,
+    "balance_sheet_score": 50.7,
+    "earnings_quality_score": 68.5,
+    "valuation_score": 76.1,
+    "quality_score": 51.9,
+    "overall_score": 57.9
+   },
+   "metrics": {
+    "roce": 0.0627,
+    "operating_margin": 0.0428,
+    "gross_margin": 0.3721,
+    "margin_trend": -0.0055,
+    "margin_stability": 0.0082,
+    "roce_latest": 0.0588,
+    "operating_margin_latest": 0.0384,
+    "years_of_data": 4,
+    "cash_roce": 0.0808,
+    "net_debt_to_ebitda": 1.646,
+    "interest_cover": 4.0081,
+    "equity_ratio": 0.5403,
+    "altman_z": 2.8094,
+    "altman_zone": "safe",
+    "cash_conversion": 1.0235,
+    "accrual_ratio": -0.0707,
+    "receivables_gap": 0.0783,
+    "share_count_change": -0.0437,
+    "accrual_ratio_floored": -0.05,
+    "ev_to_ebit": 14.6733,
+    "fcf_yield": 0.1023,
+    "pe_latest": 25.3892,
+    "market_cap": 6220343288.0724,
+    "enterprise_value": 8136343288.0724
+   },
+   "flags": {
+    "strengths": [
+     "Very steady margins: operating margin moved less than 1 point across 4 years",
+     "Profits backed by cash: 102% cash conversion"
+    ],
+    "red_flags": [
+     "Low return on capital: ROCE averaged 6%, below a typical cost of capital"
+    ],
+    "notes": []
+   },
+   "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
+   "peer_group": "Sector: Consumer Cyclical"
+  },
+  {
+   "name": "GSK",
+   "ticker": "GSK.L",
+   "sector": "Healthcare",
+   "industry": "Drug Manufacturers - General",
+   "rank": 30,
+   "reporting_currency": "GBP",
+   "quote_currency": "GBp",
+   "scores": {
+    "profitability_score": 65.0,
+    "balance_sheet_score": 57.9,
+    "earnings_quality_score": 40.7,
+    "valuation_score": 65.5,
+    "quality_score": 54.5,
+    "overall_score": 57.3
+   },
+   "metrics": {
+    "roce": 0.1826,
+    "operating_margin": 0.2259,
+    "gross_margin": 0.7068,
+    "margin_trend": 0.0086,
+    "margin_stability": 0.0299,
+    "roce_latest": 0.2099,
+    "operating_margin_latest": 0.2552,
+    "years_of_data": 4,
+    "cash_roce": 0.098,
+    "net_debt_to_ebitda": 1.367,
+    "interest_cover": 12.1368,
+    "equity_ratio": 0.268,
+    "altman_z": 1.4255,
+    "altman_zone": "grey",
+    "cash_conversion": 0.764,
+    "accrual_ratio": -0.0127,
+    "receivables_gap": 0.0218,
+    "share_count_change": -0.0067,
+    "accrual_ratio_floored": -0.0127,
+    "ev_to_ebit": 12.5592,
+    "fcf_yield": 0.051,
+    "pe_latest": 12.8077,
+    "market_cap": 73208980624.89,
+    "enterprise_value": 87769980624.89
+   },
+   "flags": {
+    "strengths": [],
+    "red_flags": [],
+    "notes": []
+   },
+   "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
+   "peer_group": "Industry: Drug Manufacturers - General"
+  },
+  {
    "name": "Pearson",
    "ticker": "PSON.L",
    "sector": "Communication Services",
    "industry": "Publishing",
-   "rank": 30,
+   "rank": 31,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
     "profitability_score": 52.2,
     "balance_sheet_score": 95.4,
     "earnings_quality_score": 31.0,
-    "valuation_score": 50.7,
+    "valuation_score": 50.0,
     "quality_score": 59.5,
-    "overall_score": 57.3
+    "overall_score": 57.2
    },
    "metrics": {
     "roce": 0.0943,
@@ -1696,11 +1748,11 @@
     "receivables_gap": 0.069,
     "share_count_change": -0.0382,
     "accrual_ratio_floored": -0.0298,
-    "ev_to_ebit": 18.3586,
-    "fcf_yield": 0.0503,
-    "pe_latest": 24.6453,
-    "market_cap": 8256168115.0,
-    "enterprise_value": 9404168115.0
+    "ev_to_ebit": 18.278,
+    "fcf_yield": 0.0505,
+    "pe_latest": 24.5221,
+    "market_cap": 8214887274.425,
+    "enterprise_value": 9362887274.425
    },
    "flags": {
     "strengths": [],
@@ -1719,7 +1771,7 @@
    "ticker": "HLN.L",
    "sector": "Healthcare",
    "industry": "Drug Manufacturers - Specialty & Generic",
-   "rank": 31,
+   "rank": 32,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -1750,11 +1802,11 @@
     "receivables_gap": 0.0521,
     "share_count_change": -0.012,
     "accrual_ratio_floored": -0.0178,
-    "ev_to_ebit": 16.9535,
-    "fcf_yield": 0.0538,
-    "pe_latest": 17.0627,
-    "market_cap": 28443545510.9233,
-    "enterprise_value": 35767545510.9233
+    "ev_to_ebit": 17.1139,
+    "fcf_yield": 0.0533,
+    "pe_latest": 17.2657,
+    "market_cap": 28781948753.9534,
+    "enterprise_value": 36105948753.9534
    },
    "flags": {
     "strengths": [],
@@ -1769,72 +1821,79 @@
    "peer_group": "Industry: Drug Manufacturers - Specialty & Generic"
   },
   {
-   "name": "GSK",
-   "ticker": "GSK.L",
-   "sector": "Healthcare",
-   "industry": "Drug Manufacturers - General",
-   "rank": 32,
+   "name": "SSE",
+   "ticker": "SSE.L",
+   "sector": "Utilities",
+   "industry": "Utilities - Diversified",
+   "rank": 33,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
-    "profitability_score": 65.0,
-    "balance_sheet_score": 57.9,
-    "earnings_quality_score": 40.7,
-    "valuation_score": 62.0,
-    "quality_score": 54.5,
-    "overall_score": 56.4
+    "profitability_score": 50.0,
+    "balance_sheet_score": 76.9,
+    "earnings_quality_score": 82.9,
+    "valuation_score": 14.8,
+    "quality_score": 69.9,
+    "overall_score": 56.2
    },
    "metrics": {
-    "roce": 0.1826,
-    "operating_margin": 0.2259,
-    "gross_margin": 0.7068,
-    "margin_trend": 0.0086,
-    "margin_stability": 0.0299,
-    "roce_latest": 0.2099,
-    "operating_margin_latest": 0.2552,
+    "roce": 0.0626,
+    "operating_margin": 0.1614,
+    "gross_margin": 0.2888,
+    "margin_trend": 0.0806,
+    "margin_stability": 0.1234,
+    "roce_latest": 0.0661,
+    "operating_margin_latest": 0.1956,
     "years_of_data": 4,
-    "cash_roce": 0.098,
-    "net_debt_to_ebitda": 1.367,
-    "interest_cover": 12.1368,
-    "equity_ratio": 0.268,
-    "altman_z": 1.4255,
+    "cash_roce": -0.0041,
+    "net_debt_to_ebitda": 2.8865,
+    "interest_cover": 6.5127,
+    "equity_ratio": 0.4427,
+    "altman_z": 2.2585,
     "altman_zone": "grey",
-    "cash_conversion": 0.764,
-    "accrual_ratio": -0.0127,
-    "receivables_gap": 0.0218,
-    "share_count_change": -0.0067,
-    "accrual_ratio_floored": -0.0127,
-    "ev_to_ebit": 12.7343,
-    "fcf_yield": 0.0503,
-    "pe_latest": 13.0218,
-    "market_cap": 74432808473.1,
-    "enterprise_value": 88993808473.1
+    "cash_conversion": 1.1952,
+    "accrual_ratio": -0.0471,
+    "receivables_gap": -0.0797,
+    "share_count_change": 0.0342,
+    "accrual_ratio_floored": -0.0471,
+    "ev_to_ebit": 24.4597,
+    "fcf_yield": 0.0008,
+    "pe_latest": 25.9636,
+    "market_cap": 31382203421.4,
+    "enterprise_value": 39960503421.4
    },
    "flags": {
-    "strengths": [],
-    "red_flags": [],
-    "notes": []
+    "strengths": [
+     "Profits backed by cash: 120% cash conversion"
+    ],
+    "red_flags": [
+     "Low return on capital: ROCE averaged 6%, below a typical cost of capital",
+     "Volatile margins (swing of 12 points): cyclical or erratic profits"
+    ],
+    "notes": [
+     "Share count up about 3% a year: new shares are diluting existing holders"
+    ]
    },
    "shortlisted": false,
    "long_term": false,
    "trading212": "unchecked",
-   "peer_group": "Industry: Drug Manufacturers - General"
+   "peer_group": "Sector: Utilities"
   },
   {
    "name": "Sage Group",
    "ticker": "SGE.L",
    "sector": "Technology",
    "industry": "Software - Application",
-   "rank": 33,
+   "rank": 34,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
     "profitability_score": 77.2,
     "balance_sheet_score": 71.8,
     "earnings_quality_score": 56.5,
-    "valuation_score": 18.3,
+    "valuation_score": 17.6,
     "quality_score": 68.5,
-    "overall_score": 56.0
+    "overall_score": 55.8
    },
    "metrics": {
     "roce": 0.164,
@@ -1856,16 +1915,16 @@
     "receivables_gap": 0.0735,
     "share_count_change": -0.0215,
     "accrual_ratio_floored": -0.0433,
-    "ev_to_ebit": 30.1953,
-    "fcf_yield": 0.0338,
-    "pe_latest": 30.1235,
-    "market_cap": 11115564407.22,
-    "enterprise_value": 12304564407.22
+    "ev_to_ebit": 30.5586,
+    "fcf_yield": 0.0334,
+    "pe_latest": 30.5248,
+    "market_cap": 11263644551.88,
+    "enterprise_value": 12452644551.88
    },
    "flags": {
     "strengths": [],
     "red_flags": [
-     "Expensive: 30x average operating profit, priced for strong growth"
+     "Expensive: 31x average operating profit, priced for strong growth"
     ],
     "notes": []
    },
@@ -1873,64 +1932,6 @@
    "long_term": false,
    "trading212": "unchecked",
    "peer_group": "All companies"
-  },
-  {
-   "name": "Fresnillo",
-   "ticker": "FRES.L",
-   "sector": "Basic Materials",
-   "industry": "Other Precious Metals & Mining",
-   "rank": 34,
-   "reporting_currency": "USD",
-   "quote_currency": "GBp",
-   "scores": {
-    "profitability_score": 51.2,
-    "balance_sheet_score": 97.2,
-    "earnings_quality_score": 49.1,
-    "valuation_score": 25.4,
-    "quality_score": 65.8,
-    "overall_score": 55.7
-   },
-   "metrics": {
-    "roce": 0.1536,
-    "operating_margin": 0.2366,
-    "gross_margin": 0.3367,
-    "margin_trend": 0.1271,
-    "margin_stability": 0.1699,
-    "roce_latest": 0.361,
-    "operating_margin_latest": 0.5023,
-    "years_of_data": 4,
-    "cash_roce": 0.1003,
-    "net_debt_to_ebitda": -0.6847,
-    "interest_cover": 36.3306,
-    "equity_ratio": 0.6365,
-    "altman_z": 8.755,
-    "altman_zone": "safe",
-    "cash_conversion": 0.7817,
-    "accrual_ratio": -0.1026,
-    "receivables_gap": 0.0869,
-    "share_count_change": 0.0,
-    "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 22.0273,
-    "fcf_yield": 0.0331,
-    "pe_latest": 15.9647,
-    "market_cap": 22094944253.2229,
-    "enterprise_value": 20189441253.2229
-   },
-   "flags": {
-    "strengths": [
-     "Net cash: holds more cash than debt"
-    ],
-    "red_flags": [
-     "Volatile margins (swing of 17 points): cyclical or erratic profits"
-    ],
-    "notes": [
-     "Cyclical industry (Other Precious Metals & Mining): the data may not include a full downturn, so treat strong scores with caution"
-    ]
-   },
-   "shortlisted": false,
-   "long_term": false,
-   "trading212": "unchecked",
-   "peer_group": "Sector: Basic Materials"
   },
   {
    "name": "Vodafone",
@@ -1968,11 +1969,11 @@
     "receivables_gap": 0.0896,
     "share_count_change": -0.0508,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 17.3004,
-    "fcf_yield": 0.1217,
+    "ev_to_ebit": 17.147,
+    "fcf_yield": 0.1227,
     "pe_latest": null,
-    "market_cap": 32938361706.8871,
-    "enterprise_value": 73245361706.8871
+    "market_cap": 32289121904.2518,
+    "enterprise_value": 72596121904.2518
    },
    "flags": {
     "strengths": [
@@ -1990,124 +1991,69 @@
    "peer_group": "Industry: Telecom Services"
   },
   {
-   "name": "SSE",
-   "ticker": "SSE.L",
-   "sector": "Utilities",
-   "industry": "Utilities - Diversified",
+   "name": "Fresnillo",
+   "ticker": "FRES.L",
+   "sector": "Basic Materials",
+   "industry": "Other Precious Metals & Mining",
    "rank": 36,
-   "reporting_currency": "GBP",
+   "reporting_currency": "USD",
    "quote_currency": "GBp",
    "scores": {
-    "profitability_score": 50.0,
-    "balance_sheet_score": 76.9,
-    "earnings_quality_score": 82.9,
-    "valuation_score": 12.0,
-    "quality_score": 69.9,
-    "overall_score": 55.4
+    "profitability_score": 51.2,
+    "balance_sheet_score": 97.2,
+    "earnings_quality_score": 49.1,
+    "valuation_score": 23.2,
+    "quality_score": 65.8,
+    "overall_score": 55.2
    },
    "metrics": {
-    "roce": 0.0626,
-    "operating_margin": 0.1614,
-    "gross_margin": 0.2888,
-    "margin_trend": 0.0806,
-    "margin_stability": 0.1234,
-    "roce_latest": 0.0661,
-    "operating_margin_latest": 0.1956,
+    "roce": 0.1536,
+    "operating_margin": 0.2366,
+    "gross_margin": 0.3367,
+    "margin_trend": 0.1271,
+    "margin_stability": 0.1699,
+    "roce_latest": 0.361,
+    "operating_margin_latest": 0.5023,
     "years_of_data": 4,
-    "cash_roce": -0.0041,
-    "net_debt_to_ebitda": 2.8865,
-    "interest_cover": 6.5127,
-    "equity_ratio": 0.4427,
-    "altman_z": 2.2585,
-    "altman_zone": "grey",
-    "cash_conversion": 1.1952,
-    "accrual_ratio": -0.0471,
-    "receivables_gap": -0.0797,
-    "share_count_change": 0.0342,
-    "accrual_ratio_floored": -0.0471,
-    "ev_to_ebit": 24.6443,
-    "fcf_yield": 0.0008,
-    "pe_latest": 26.2131,
-    "market_cap": 31683723438.9,
-    "enterprise_value": 40262023438.9
+    "cash_roce": 0.1003,
+    "net_debt_to_ebitda": -0.6847,
+    "interest_cover": 36.3306,
+    "equity_ratio": 0.6365,
+    "altman_z": 8.755,
+    "altman_zone": "safe",
+    "cash_conversion": 0.7817,
+    "accrual_ratio": -0.1026,
+    "receivables_gap": 0.0869,
+    "share_count_change": 0.0,
+    "accrual_ratio_floored": -0.05,
+    "ev_to_ebit": 23.1275,
+    "fcf_yield": 0.0315,
+    "pe_latest": 16.6933,
+    "market_cap": 23103304125.1821,
+    "enterprise_value": 21197801125.1821
    },
    "flags": {
     "strengths": [
-     "Profits backed by cash: 120% cash conversion"
+     "Net cash: holds more cash than debt"
     ],
     "red_flags": [
-     "Low return on capital: ROCE averaged 6%, below a typical cost of capital",
-     "Volatile margins (swing of 12 points): cyclical or erratic profits"
+     "Volatile margins (swing of 17 points): cyclical or erratic profits"
     ],
     "notes": [
-     "Share count up about 3% a year: new shares are diluting existing holders"
+     "Cyclical industry (Other Precious Metals & Mining): the data may not include a full downturn, so treat strong scores with caution"
     ]
    },
    "shortlisted": false,
    "long_term": false,
    "trading212": "unchecked",
-   "peer_group": "Sector: Utilities"
-  },
-  {
-   "name": "IMI",
-   "ticker": "IMI.L",
-   "sector": "Industrials",
-   "industry": "Specialty Industrial Machinery",
-   "rank": 37,
-   "reporting_currency": "GBP",
-   "quote_currency": "GBp",
-   "scores": {
-    "profitability_score": 70.8,
-    "balance_sheet_score": 81.8,
-    "earnings_quality_score": 37.5,
-    "valuation_score": 30.3,
-    "quality_score": 63.4,
-    "overall_score": 55.1
-   },
-   "metrics": {
-    "roce": 0.2052,
-    "operating_margin": 0.1588,
-    "gross_margin": 0.4664,
-    "margin_trend": 0.0126,
-    "margin_stability": 0.0156,
-    "roce_latest": 0.2481,
-    "operating_margin_latest": 0.1833,
-    "years_of_data": 4,
-    "cash_roce": 0.1448,
-    "net_debt_to_ebitda": 0.9869,
-    "interest_cover": 15.032,
-    "equity_ratio": 0.4472,
-    "altman_z": 4.1624,
-    "altman_zone": "safe",
-    "cash_conversion": 0.7649,
-    "accrual_ratio": 0.0142,
-    "receivables_gap": 0.0066,
-    "share_count_change": -0.0163,
-    "accrual_ratio_floored": 0.0142,
-    "ev_to_ebit": 21.8049,
-    "fcf_yield": 0.0359,
-    "pe_latest": 22.8391,
-    "market_cap": 7077839325.32,
-    "enterprise_value": 7606639325.32
-   },
-   "flags": {
-    "strengths": [
-     "High return on capital: ROCE averaged 21%"
-    ],
-    "red_flags": [],
-    "notes": []
-   },
-   "shortlisted": false,
-   "long_term": false,
-   "trading212": "unchecked",
-   "peer_group": "Industry: Specialty Industrial Machinery"
+   "peer_group": "Sector: Basic Materials"
   },
   {
    "name": "Diageo",
    "ticker": "DGE.L",
    "sector": "Consumer Defensive",
    "industry": "Beverages - Wineries & Distilleries",
-   "rank": 38,
+   "rank": 37,
    "reporting_currency": "USD",
    "quote_currency": "GBp",
    "scores": {
@@ -2138,11 +2084,11 @@
     "receivables_gap": -0.0395,
     "share_count_change": -0.0029,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 15.3057,
-    "fcf_yield": 0.05,
-    "pe_latest": 30.1878,
-    "market_cap": 52436213762.0293,
-    "enterprise_value": 72851213762.0293
+    "ev_to_ebit": 15.6098,
+    "fcf_yield": 0.049,
+    "pe_latest": 31.0211,
+    "market_cap": 53883656202.2447,
+    "enterprise_value": 74298656202.2447
    },
    "flags": {
     "strengths": [],
@@ -2158,6 +2104,60 @@
    "long_term": false,
    "trading212": "unchecked",
    "peer_group": "Sector: Consumer Defensive"
+  },
+  {
+   "name": "IMI",
+   "ticker": "IMI.L",
+   "sector": "Industrials",
+   "industry": "Specialty Industrial Machinery",
+   "rank": 38,
+   "reporting_currency": "GBP",
+   "quote_currency": "GBp",
+   "scores": {
+    "profitability_score": 70.8,
+    "balance_sheet_score": 81.8,
+    "earnings_quality_score": 37.5,
+    "valuation_score": 29.6,
+    "quality_score": 63.4,
+    "overall_score": 54.9
+   },
+   "metrics": {
+    "roce": 0.2052,
+    "operating_margin": 0.1588,
+    "gross_margin": 0.4664,
+    "margin_trend": 0.0126,
+    "margin_stability": 0.0156,
+    "roce_latest": 0.2481,
+    "operating_margin_latest": 0.1833,
+    "years_of_data": 4,
+    "cash_roce": 0.1448,
+    "net_debt_to_ebitda": 0.9869,
+    "interest_cover": 15.032,
+    "equity_ratio": 0.4472,
+    "altman_z": 4.1624,
+    "altman_zone": "safe",
+    "cash_conversion": 0.7649,
+    "accrual_ratio": 0.0142,
+    "receivables_gap": 0.0066,
+    "share_count_change": -0.0163,
+    "accrual_ratio_floored": 0.0142,
+    "ev_to_ebit": 21.96,
+    "fcf_yield": 0.0356,
+    "pe_latest": 23.0137,
+    "market_cap": 7131943726.0,
+    "enterprise_value": 7660743726.0
+   },
+   "flags": {
+    "strengths": [
+     "High return on capital: ROCE averaged 21%"
+    ],
+    "red_flags": [],
+    "notes": []
+   },
+   "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
+   "peer_group": "Industry: Specialty Industrial Machinery"
   },
   {
    "name": "Centrica",
@@ -2195,11 +2195,11 @@
     "receivables_gap": 0.2713,
     "share_count_change": -0.0813,
     "accrual_ratio_floored": -0.0239,
-    "ev_to_ebit": 2.1298,
-    "fcf_yield": 0.1941,
+    "ev_to_ebit": 2.0813,
+    "fcf_yield": 0.1986,
     "pe_latest": null,
-    "market_cap": 6902326878.5018,
-    "enterprise_value": 5560326878.5018
+    "market_cap": 6775761477.6486,
+    "enterprise_value": 5433761477.6486
    },
    "flags": {
     "strengths": [
@@ -2231,9 +2231,9 @@
     "profitability_score": 43.1,
     "balance_sheet_score": 35.4,
     "earnings_quality_score": 65.7,
-    "valuation_score": 72.5,
+    "valuation_score": 73.2,
     "quality_score": 48.1,
-    "overall_score": 54.2
+    "overall_score": 54.4
    },
    "metrics": {
     "roce": 0.1174,
@@ -2255,11 +2255,11 @@
     "receivables_gap": 0.0397,
     "share_count_change": -0.018,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 14.9276,
-    "fcf_yield": 0.0951,
-    "pe_latest": 179.6113,
-    "market_cap": 3771837228.51,
-    "enterprise_value": 4623837228.51
+    "ev_to_ebit": 15.0722,
+    "fcf_yield": 0.0941,
+    "pe_latest": 181.7434,
+    "market_cap": 3816612124.385,
+    "enterprise_value": 4668612124.385
    },
    "flags": {
     "strengths": [],
@@ -2269,7 +2269,7 @@
      "Thin interest cover: operating profit covers interest only 2.0x"
     ],
     "notes": [
-     "Headline P/E of 180 reflects unusually low latest-year profit, not price alone"
+     "Headline P/E of 182 reflects unusually low latest-year profit, not price alone"
     ]
    },
    "shortlisted": false,
@@ -2289,9 +2289,9 @@
     "profitability_score": 62.8,
     "balance_sheet_score": 69.4,
     "earnings_quality_score": 56.0,
-    "valuation_score": 28.2,
+    "valuation_score": 28.9,
     "quality_score": 62.7,
-    "overall_score": 54.1
+    "overall_score": 54.3
    },
    "metrics": {
     "roce": 0.0971,
@@ -2313,11 +2313,11 @@
     "receivables_gap": 0.1554,
     "share_count_change": -0.0148,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 26.1005,
-    "fcf_yield": 0.0391,
-    "pe_latest": 36.6184,
-    "market_cap": 6408219471.5803,
-    "enterprise_value": 7858219471.5803
+    "ev_to_ebit": 26.205,
+    "fcf_yield": 0.0389,
+    "pe_latest": 36.7982,
+    "market_cap": 6439684045.1616,
+    "enterprise_value": 7889684045.1616
    },
    "flags": {
     "strengths": [],
@@ -2343,9 +2343,9 @@
     "profitability_score": 60.3,
     "balance_sheet_score": 75.5,
     "earnings_quality_score": 47.2,
-    "valuation_score": 31.7,
+    "valuation_score": 33.8,
     "quality_score": 61.0,
-    "overall_score": 53.7
+    "overall_score": 54.2
    },
    "metrics": {
     "roce": 0.0878,
@@ -2367,11 +2367,11 @@
     "receivables_gap": 0.0307,
     "share_count_change": -0.008,
     "accrual_ratio_floored": -0.0486,
-    "ev_to_ebit": 20.7198,
+    "ev_to_ebit": 20.6815,
     "fcf_yield": 0.0359,
-    "pe_latest": 20.1914,
-    "market_cap": 12619641440.7311,
-    "enterprise_value": 15389641440.7311
+    "pe_latest": 20.1458,
+    "market_cap": 12591154665.4699,
+    "enterprise_value": 15361154665.4699
    },
    "flags": {
     "strengths": [],
@@ -2419,16 +2419,14 @@
     "receivables_gap": 0.3318,
     "share_count_change": 0.001,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 9.8888,
-    "fcf_yield": 0.0404,
+    "ev_to_ebit": 10.1614,
+    "fcf_yield": 0.0393,
     "pe_latest": null,
-    "market_cap": 53243779060.3014,
-    "enterprise_value": 62578779060.3014
+    "market_cap": 54968739505.0196,
+    "enterprise_value": 64303739505.0196
    },
    "flags": {
-    "strengths": [
-     "Cheap on normalised profits: 9.9x average operating profit"
-    ],
+    "strengths": [],
     "red_flags": [
      "Operating margin falling about 3.2 points a year",
      "Money owed by customers grew 33 points faster than sales"
@@ -2478,16 +2476,16 @@
     "receivables_gap": -0.0122,
     "share_count_change": -0.0001,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 8.5214,
-    "fcf_yield": 0.0548,
-    "pe_latest": 24.3151,
-    "market_cap": 4011985275.2239,
-    "enterprise_value": 6601985275.2239
+    "ev_to_ebit": 8.5947,
+    "fcf_yield": 0.0543,
+    "pe_latest": 24.6593,
+    "market_cap": 4068781433.2959,
+    "enterprise_value": 6658781433.2959
    },
    "flags": {
     "strengths": [
      "Profits backed by cash: 96% cash conversion",
-     "Cheap on normalised profits: 8.5x average operating profit"
+     "Cheap on normalised profits: 8.6x average operating profit"
     ],
     "red_flags": [
      "Operating margin falling about 3.6 points a year"
@@ -2535,16 +2533,16 @@
     "receivables_gap": 0.3376,
     "share_count_change": 0.0009,
     "accrual_ratio_floored": 0.0067,
-    "ev_to_ebit": 4.7743,
-    "fcf_yield": 0.0914,
-    "pe_latest": 28.2597,
-    "market_cap": 2837277721.7879,
-    "enterprise_value": 2542577721.7879
+    "ev_to_ebit": 5.0443,
+    "fcf_yield": 0.0865,
+    "pe_latest": 29.6918,
+    "market_cap": 2981053810.5125,
+    "enterprise_value": 2686353810.5125
    },
    "flags": {
     "strengths": [
      "Net cash: holds more cash than debt",
-     "Cheap on normalised profits: 4.8x average operating profit"
+     "Cheap on normalised profits: 5.0x average operating profit"
     ],
     "red_flags": [
      "Operating margin falling about 2.6 points a year",
@@ -2596,16 +2594,16 @@
     "receivables_gap": 0.0033,
     "share_count_change": -0.0001,
     "accrual_ratio_floored": 0.0223,
-    "ev_to_ebit": 34.2369,
-    "fcf_yield": 0.0252,
-    "pe_latest": 34.9781,
-    "market_cap": 13022346922.0,
-    "enterprise_value": 13792346922.0
+    "ev_to_ebit": 34.7244,
+    "fcf_yield": 0.0248,
+    "pe_latest": 35.5056,
+    "market_cap": 13218739625.0,
+    "enterprise_value": 13988739625.0
    },
    "flags": {
     "strengths": [],
     "red_flags": [
-     "Expensive: 34x average operating profit, priced for strong growth"
+     "Expensive: 35x average operating profit, priced for strong growth"
     ],
     "notes": []
    },
@@ -2650,11 +2648,11 @@
     "receivables_gap": -0.0266,
     "share_count_change": -0.016,
     "accrual_ratio_floored": 0.0128,
-    "ev_to_ebit": 22.9261,
-    "fcf_yield": 0.0381,
-    "pe_latest": 26.3566,
-    "market_cap": 54426318464.32,
-    "enterprise_value": 61562318464.32
+    "ev_to_ebit": 22.9667,
+    "fcf_yield": 0.038,
+    "pe_latest": 26.4094,
+    "market_cap": 54535462151.08,
+    "enterprise_value": 61671462151.08
    },
    "flags": {
     "strengths": [
@@ -2680,9 +2678,9 @@
     "profitability_score": 62.8,
     "balance_sheet_score": 69.4,
     "earnings_quality_score": 66.7,
-    "valuation_score": 9.9,
+    "valuation_score": 10.6,
     "quality_score": 66.3,
-    "overall_score": 52.2
+    "overall_score": 52.4
    },
    "metrics": {
     "roce": 0.0424,
@@ -2704,11 +2702,11 @@
     "receivables_gap": 0.0348,
     "share_count_change": 0.0,
     "accrual_ratio_floored": -0.0346,
-    "ev_to_ebit": 30.2041,
+    "ev_to_ebit": 30.2756,
     "fcf_yield": 0.0089,
-    "pe_latest": 17.8258,
-    "market_cap": 10460168332.12,
-    "enterprise_value": 20146868332.12
+    "pe_latest": 17.9071,
+    "market_cap": 10507900521.38,
+    "enterprise_value": 20194600521.38
    },
    "flags": {
     "strengths": [
@@ -2764,11 +2762,11 @@
     "receivables_gap": 0.0488,
     "share_count_change": -0.0167,
     "accrual_ratio_floored": -0.0151,
-    "ev_to_ebit": 14.6955,
-    "fcf_yield": 0.0747,
-    "pe_latest": 20.0215,
-    "market_cap": 9193881199.2,
-    "enterprise_value": 11549181199.2
+    "ev_to_ebit": 14.8099,
+    "fcf_yield": 0.0741,
+    "pe_latest": 20.2173,
+    "market_cap": 9283765512.6,
+    "enterprise_value": 11639065512.6
    },
    "flags": {
     "strengths": [
@@ -2818,11 +2816,11 @@
     "receivables_gap": 0.0182,
     "share_count_change": -0.0499,
     "accrual_ratio_floored": -0.0275,
-    "ev_to_ebit": 28.8567,
-    "fcf_yield": 0.03,
-    "pe_latest": 33.2306,
-    "market_cap": 25188774892.5,
-    "enterprise_value": 28690774892.5
+    "ev_to_ebit": 29.4853,
+    "fcf_yield": 0.0294,
+    "pe_latest": 34.0551,
+    "market_cap": 25813786922.7768,
+    "enterprise_value": 29315786922.7768
    },
    "flags": {
     "strengths": [
@@ -2875,11 +2873,11 @@
     "receivables_gap": -0.0989,
     "share_count_change": 0.0003,
     "accrual_ratio_floored": 0.0043,
-    "ev_to_ebit": 42.0432,
-    "fcf_yield": 0.0225,
-    "pe_latest": 17.7699,
-    "market_cap": 103793776773.22,
-    "enterprise_value": 102017776773.22
+    "ev_to_ebit": 43.3132,
+    "fcf_yield": 0.0218,
+    "pe_latest": 18.2975,
+    "market_cap": 106875593223.0599,
+    "enterprise_value": 105099593223.0599
    },
    "flags": {
     "strengths": [
@@ -2887,7 +2885,7 @@
     ],
     "red_flags": [
      "Volatile margins (swing of 5 points): cyclical or erratic profits",
-     "Expensive: 42x average operating profit, priced for strong growth"
+     "Expensive: 43x average operating profit, priced for strong growth"
     ],
     "notes": []
    },
@@ -2932,11 +2930,11 @@
     "receivables_gap": 0.0073,
     "share_count_change": -0.0001,
     "accrual_ratio_floored": -0.0092,
-    "ev_to_ebit": 21.0635,
-    "fcf_yield": 0.031,
-    "pe_latest": 33.7363,
-    "market_cap": 5512504604.75,
-    "enterprise_value": 6167404604.75
+    "ev_to_ebit": 21.3784,
+    "fcf_yield": 0.0306,
+    "pe_latest": 34.3004,
+    "market_cap": 5604686956.0,
+    "enterprise_value": 6259586956.0
    },
    "flags": {
     "strengths": [],
@@ -2960,9 +2958,9 @@
     "profitability_score": 63.1,
     "balance_sheet_score": 56.0,
     "earnings_quality_score": 22.7,
-    "valuation_score": 52.8,
+    "valuation_score": 53.5,
     "quality_score": 47.3,
-    "overall_score": 48.6
+    "overall_score": 48.8
    },
    "metrics": {
     "roce": 0.1902,
@@ -2984,11 +2982,11 @@
     "receivables_gap": 0.7755,
     "share_count_change": -0.0103,
     "accrual_ratio_floored": -0.0149,
-    "ev_to_ebit": 15.1997,
-    "fcf_yield": 0.0471,
-    "pe_latest": 13.429,
-    "market_cap": 127159103698.8474,
-    "enterprise_value": 149744103698.8474
+    "ev_to_ebit": 15.2697,
+    "fcf_yield": 0.0469,
+    "pe_latest": 13.5018,
+    "market_cap": 127848576846.7929,
+    "enterprise_value": 150433576846.7929
    },
    "flags": {
     "strengths": [],
@@ -3014,9 +3012,9 @@
     "profitability_score": 20.8,
     "balance_sheet_score": 74.5,
     "earnings_quality_score": 16.2,
-    "valuation_score": 81.7,
+    "valuation_score": 81.0,
     "quality_score": 37.2,
-    "overall_score": 48.3
+    "overall_score": 48.1
    },
    "metrics": {
     "roce": 0.0535,
@@ -3038,16 +3036,16 @@
     "receivables_gap": 0.6943,
     "share_count_change": 0.1285,
     "accrual_ratio_floored": 0.0007,
-    "ev_to_ebit": 9.4447,
-    "fcf_yield": 0.0789,
-    "pe_latest": 18.6237,
-    "market_cap": 4529288832.2109,
-    "enterprise_value": 3805988832.2109
+    "ev_to_ebit": 9.834,
+    "fcf_yield": 0.0757,
+    "pe_latest": 19.2687,
+    "market_cap": 4686147493.8291,
+    "enterprise_value": 3962847493.8291
    },
    "flags": {
     "strengths": [
      "Net cash: holds more cash than debt",
-     "Cheap on normalised profits: 9.4x average operating profit"
+     "Cheap on normalised profits: 9.8x average operating profit"
     ],
     "red_flags": [
      "Low return on capital: ROCE averaged 5%, below a typical cost of capital",
@@ -3064,66 +3062,11 @@
    "peer_group": "Industry: Residential Construction"
   },
   {
-   "name": "Rentokil Initial",
-   "ticker": "RTO.L",
-   "sector": "Industrials",
-   "industry": "Specialty Business Services",
-   "rank": 55,
-   "reporting_currency": "USD",
-   "quote_currency": "GBp",
-   "scores": {
-    "profitability_score": 55.0,
-    "balance_sheet_score": 34.3,
-    "earnings_quality_score": 63.0,
-    "valuation_score": 39.4,
-    "quality_score": 50.8,
-    "overall_score": 47.9
-   },
-   "metrics": {
-    "roce": 0.0599,
-    "operating_margin": 0.1042,
-    "gross_margin": 0.8267,
-    "margin_trend": 0.0011,
-    "margin_stability": 0.0117,
-    "roce_latest": 0.0592,
-    "operating_margin_latest": 0.0953,
-    "years_of_data": 4,
-    "cash_roce": 0.0569,
-    "net_debt_to_ebitda": 3.1196,
-    "interest_cover": 2.632,
-    "equity_ratio": 0.3808,
-    "altman_z": 2.64,
-    "altman_zone": "safe",
-    "cash_conversion": 0.8813,
-    "accrual_ratio": -0.0227,
-    "receivables_gap": -0.0317,
-    "share_count_change": 0.0021,
-    "accrual_ratio_floored": -0.0227,
-    "ev_to_ebit": 24.4017,
-    "fcf_yield": 0.0517,
-    "pe_latest": 25.1453,
-    "market_cap": 11818293329.3838,
-    "enterprise_value": 15627293329.3838
-   },
-   "flags": {
-    "strengths": [],
-    "red_flags": [
-     "Low return on capital: ROCE averaged 6%, below a typical cost of capital",
-     "Thin interest cover: operating profit covers interest only 2.6x"
-    ],
-    "notes": []
-   },
-   "shortlisted": false,
-   "long_term": false,
-   "trading212": "unchecked",
-   "peer_group": "Industry: Specialty Business Services"
-  },
-  {
    "name": "BAE Systems",
    "ticker": "BA.L",
    "sector": "Industrials",
    "industry": "Aerospace & Defense",
-   "rank": 56,
+   "rank": 55,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
@@ -3154,11 +3097,11 @@
     "receivables_gap": 0.0749,
     "share_count_change": -0.0166,
     "accrual_ratio_floored": -0.0206,
-    "ev_to_ebit": 27.6805,
+    "ev_to_ebit": 27.7173,
     "fcf_yield": 0.038,
-    "pe_latest": 29.3865,
-    "market_cap": 60594874682.4,
-    "enterprise_value": 66024874682.4
+    "pe_latest": 29.429,
+    "market_cap": 60682693341.36,
+    "enterprise_value": 66112693341.36
    },
    "flags": {
     "strengths": [
@@ -3172,6 +3115,61 @@
    "long_term": false,
    "trading212": "unchecked",
    "peer_group": "Industry: Aerospace & Defense"
+  },
+  {
+   "name": "Rentokil Initial",
+   "ticker": "RTO.L",
+   "sector": "Industrials",
+   "industry": "Specialty Business Services",
+   "rank": 56,
+   "reporting_currency": "USD",
+   "quote_currency": "GBp",
+   "scores": {
+    "profitability_score": 55.0,
+    "balance_sheet_score": 34.3,
+    "earnings_quality_score": 63.0,
+    "valuation_score": 38.0,
+    "quality_score": 50.8,
+    "overall_score": 47.6
+   },
+   "metrics": {
+    "roce": 0.0599,
+    "operating_margin": 0.1042,
+    "gross_margin": 0.8267,
+    "margin_trend": 0.0011,
+    "margin_stability": 0.0117,
+    "roce_latest": 0.0592,
+    "operating_margin_latest": 0.0953,
+    "years_of_data": 4,
+    "cash_roce": 0.0569,
+    "net_debt_to_ebitda": 3.1196,
+    "interest_cover": 2.632,
+    "equity_ratio": 0.3808,
+    "altman_z": 2.64,
+    "altman_zone": "safe",
+    "cash_conversion": 0.8813,
+    "accrual_ratio": -0.0227,
+    "receivables_gap": -0.0317,
+    "share_count_change": 0.0021,
+    "accrual_ratio_floored": -0.0227,
+    "ev_to_ebit": 24.7601,
+    "fcf_yield": 0.0509,
+    "pe_latest": 25.6337,
+    "market_cap": 12047839884.5751,
+    "enterprise_value": 15856839884.5751
+   },
+   "flags": {
+    "strengths": [],
+    "red_flags": [
+     "Low return on capital: ROCE averaged 6%, below a typical cost of capital",
+     "Thin interest cover: operating profit covers interest only 2.6x"
+    ],
+    "notes": []
+   },
+   "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
+   "peer_group": "Industry: Specialty Business Services"
   },
   {
    "name": "Diploma",
@@ -3209,11 +3207,11 @@
     "receivables_gap": -0.0266,
     "share_count_change": 0.0249,
     "accrual_ratio_floored": 0.009,
-    "ev_to_ebit": 48.8261,
-    "fcf_yield": 0.0199,
-    "pe_latest": 52.1802,
-    "market_cap": 9648123666.05,
-    "enterprise_value": 10031323666.05
+    "ev_to_ebit": 49.283,
+    "fcf_yield": 0.0197,
+    "pe_latest": 52.6879,
+    "market_cap": 9741990053.35,
+    "enterprise_value": 10125190053.35
    },
    "flags": {
     "strengths": [],
@@ -3265,11 +3263,11 @@
     "receivables_gap": 0.1468,
     "share_count_change": 0.0002,
     "accrual_ratio_floored": -0.0199,
-    "ev_to_ebit": 34.104,
-    "fcf_yield": 0.0273,
-    "pe_latest": 28.4039,
-    "market_cap": 290429494939.5001,
-    "enterprise_value": 313859494939.5001
+    "ev_to_ebit": 33.878,
+    "fcf_yield": 0.0275,
+    "pe_latest": 28.2004,
+    "market_cap": 288349054431.3375,
+    "enterprise_value": 311779054431.3375
    },
    "flags": {
     "strengths": [],
@@ -3285,74 +3283,20 @@
    "peer_group": "Industry: Drug Manufacturers - General"
   },
   {
-   "name": "Compass Group",
-   "ticker": "CPG.L",
-   "sector": "Consumer Cyclical",
-   "industry": "Restaurants",
-   "rank": 59,
-   "reporting_currency": "USD",
-   "quote_currency": "USD",
-   "scores": {
-    "profitability_score": 55.6,
-    "balance_sheet_score": 52.1,
-    "earnings_quality_score": 55.6,
-    "valuation_score": 24.6,
-    "quality_score": 54.4,
-    "overall_score": 47.0
-   },
-   "metrics": {
-    "roce": 0.1895,
-    "operating_margin": 0.0679,
-    "gross_margin": 0.3291,
-    "margin_trend": 0.0032,
-    "margin_stability": 0.0036,
-    "roce_latest": 0.2053,
-    "operating_margin_latest": 0.0715,
-    "years_of_data": 4,
-    "cash_roce": 0.1395,
-    "net_debt_to_ebitda": 1.5474,
-    "interest_cover": 8.7169,
-    "equity_ratio": 0.2865,
-    "altman_z": 0.8284,
-    "altman_zone": "distress",
-    "cash_conversion": 0.8739,
-    "accrual_ratio": -0.0172,
-    "receivables_gap": 0.0073,
-    "share_count_change": -0.0121,
-    "accrual_ratio_floored": -0.0172,
-    "ev_to_ebit": 24.0607,
-    "fcf_yield": 0.0342,
-    "pe_latest": 30.6296,
-    "market_cap": 57216014414.4545,
-    "enterprise_value": 63633014414.4545
-   },
-   "flags": {
-    "strengths": [
-     "Very steady margins: operating margin moved less than 1 point across 4 years"
-    ],
-    "red_flags": [],
-    "notes": []
-   },
-   "shortlisted": false,
-   "long_term": false,
-   "trading212": "unchecked",
-   "peer_group": "Sector: Consumer Cyclical"
-  },
-  {
    "name": "National Grid",
    "ticker": "NG.L",
    "sector": "Utilities",
    "industry": "Utilities - Regulated Electric",
-   "rank": 60,
+   "rank": 59,
    "reporting_currency": "GBP",
    "quote_currency": "GBp",
    "scores": {
     "profitability_score": 64.4,
     "balance_sheet_score": 49.5,
     "earnings_quality_score": 53.2,
-    "valuation_score": 19.7,
+    "valuation_score": 21.1,
     "quality_score": 55.7,
-    "overall_score": 46.7
+    "overall_score": 47.1
    },
    "metrics": {
     "roce": 0.0566,
@@ -3374,11 +3318,11 @@
     "receivables_gap": 0.051,
     "share_count_change": 0.0753,
     "accrual_ratio_floored": -0.0043,
-    "ev_to_ebit": 20.5596,
+    "ev_to_ebit": 20.5355,
     "fcf_yield": -0.0135,
-    "pe_latest": 19.2507,
-    "market_cap": 62391639607.44,
-    "enterprise_value": 106318639607.44
+    "pe_latest": 19.2124,
+    "market_cap": 62267303936.64,
+    "enterprise_value": 106194303936.64
    },
    "flags": {
     "strengths": [
@@ -3397,6 +3341,60 @@
    "peer_group": "Sector: Utilities"
   },
   {
+   "name": "Compass Group",
+   "ticker": "CPG.L",
+   "sector": "Consumer Cyclical",
+   "industry": "Restaurants",
+   "rank": 60,
+   "reporting_currency": "USD",
+   "quote_currency": "USD",
+   "scores": {
+    "profitability_score": 55.6,
+    "balance_sheet_score": 52.1,
+    "earnings_quality_score": 55.6,
+    "valuation_score": 23.2,
+    "quality_score": 54.4,
+    "overall_score": 46.6
+   },
+   "metrics": {
+    "roce": 0.1895,
+    "operating_margin": 0.0679,
+    "gross_margin": 0.3291,
+    "margin_trend": 0.0032,
+    "margin_stability": 0.0036,
+    "roce_latest": 0.2053,
+    "operating_margin_latest": 0.0715,
+    "years_of_data": 4,
+    "cash_roce": 0.1395,
+    "net_debt_to_ebitda": 1.5474,
+    "interest_cover": 8.7169,
+    "equity_ratio": 0.2865,
+    "altman_z": 0.8284,
+    "altman_zone": "distress",
+    "cash_conversion": 0.8739,
+    "accrual_ratio": -0.0172,
+    "receivables_gap": 0.0073,
+    "share_count_change": -0.0121,
+    "accrual_ratio_floored": -0.0172,
+    "ev_to_ebit": 24.5613,
+    "fcf_yield": 0.0335,
+    "pe_latest": 31.3383,
+    "market_cap": 58539913580.0833,
+    "enterprise_value": 64956913580.0833
+   },
+   "flags": {
+    "strengths": [
+     "Very steady margins: operating margin moved less than 1 point across 4 years"
+    ],
+    "red_flags": [],
+    "notes": []
+   },
+   "shortlisted": false,
+   "long_term": false,
+   "trading212": "unchecked",
+   "peer_group": "Sector: Consumer Cyclical"
+  },
+  {
    "name": "Experian",
    "ticker": "EXPN.L",
    "sector": "Industrials",
@@ -3408,9 +3406,9 @@
     "profitability_score": 80.3,
     "balance_sheet_score": 40.3,
     "earnings_quality_score": 38.4,
-    "valuation_score": 24.6,
+    "valuation_score": 25.4,
     "quality_score": 53.0,
-    "overall_score": 45.9
+    "overall_score": 46.1
    },
    "metrics": {
     "roce": 0.1769,
@@ -3432,11 +3430,11 @@
     "receivables_gap": 0.2521,
     "share_count_change": -0.0073,
     "accrual_ratio_floored": -0.0219,
-    "ev_to_ebit": 24.2794,
-    "fcf_yield": 0.0348,
-    "pe_latest": 23.9865,
-    "market_cap": 36027775330.5233,
-    "enterprise_value": 41256775330.5233
+    "ev_to_ebit": 24.5349,
+    "fcf_yield": 0.0345,
+    "pe_latest": 24.2756,
+    "market_cap": 36461990232.3977,
+    "enterprise_value": 41690990232.3977
    },
    "flags": {
     "strengths": [],
@@ -3462,9 +3460,9 @@
     "profitability_score": 67.2,
     "balance_sheet_score": 73.1,
     "earnings_quality_score": 16.2,
-    "valuation_score": 26.1,
+    "valuation_score": 26.8,
     "quality_score": 52.2,
-    "overall_score": 45.6
+    "overall_score": 45.8
    },
    "metrics": {
     "roce": 0.1445,
@@ -3486,11 +3484,11 @@
     "receivables_gap": 0.4158,
     "share_count_change": -0.0261,
     "accrual_ratio_floored": -0.0007,
-    "ev_to_ebit": 21.2965,
-    "fcf_yield": 0.0323,
-    "pe_latest": 37.0793,
-    "market_cap": 9269833456.08,
-    "enterprise_value": 9469833456.08
+    "ev_to_ebit": 21.5979,
+    "fcf_yield": 0.0319,
+    "pe_latest": 37.6155,
+    "market_cap": 9403879991.04,
+    "enterprise_value": 9603879991.04
    },
    "flags": {
     "strengths": [],
@@ -3541,11 +3539,11 @@
     "receivables_gap": 0.023,
     "share_count_change": -0.0005,
     "accrual_ratio_floored": 0.0025,
-    "ev_to_ebit": 18.762,
-    "fcf_yield": 0.0317,
-    "pe_latest": 81.9043,
-    "market_cap": 5078064825.16,
-    "enterprise_value": 5601864825.16
+    "ev_to_ebit": 18.874,
+    "fcf_yield": 0.0315,
+    "pe_latest": 82.4437,
+    "market_cap": 5111509818.52,
+    "enterprise_value": 5635309818.52
    },
    "flags": {
     "strengths": [],
@@ -3598,11 +3596,11 @@
     "receivables_gap": 0.0649,
     "share_count_change": -0.0085,
     "accrual_ratio_floored": 0.0276,
-    "ev_to_ebit": 18.7405,
-    "fcf_yield": 0.0666,
-    "pe_latest": 12.8541,
-    "market_cap": 99799496269.76,
-    "enterprise_value": 131361496269.76
+    "ev_to_ebit": 18.6847,
+    "fcf_yield": 0.0668,
+    "pe_latest": 12.8037,
+    "market_cap": 99408296153.72,
+    "enterprise_value": 130970296153.72
    },
    "flags": {
     "strengths": [],
@@ -3655,11 +3653,11 @@
     "receivables_gap": 0.0551,
     "share_count_change": 0.0279,
     "accrual_ratio_floored": -0.05,
-    "ev_to_ebit": 13.5658,
-    "fcf_yield": 0.0728,
+    "ev_to_ebit": 13.7584,
+    "fcf_yield": 0.0718,
     "pe_latest": null,
-    "market_cap": 2979908558.2238,
-    "enterprise_value": 6621808558.2238
+    "market_cap": 3073930221.1462,
+    "enterprise_value": 6715830221.1462
    },
    "flags": {
     "strengths": [],
@@ -3714,8 +3712,8 @@
     "accrual_ratio_floored": 0.0483,
     "ev_to_ebit": null,
     "fcf_yield": null,
-    "pe_latest": 13.9727,
-    "market_cap": 3991997822.125,
+    "pe_latest": 14.4046,
+    "market_cap": 4115395587.0,
     "enterprise_value": null
    },
    "flags": {
@@ -3746,9 +3744,9 @@
     "profitability_score": 54.1,
     "balance_sheet_score": 46.6,
     "earnings_quality_score": 27.3,
-    "valuation_score": 40.1,
+    "valuation_score": 38.7,
     "quality_score": 42.7,
-    "overall_score": 42.0
+    "overall_score": 41.7
    },
    "metrics": {
     "roce": 0.1264,
@@ -3770,11 +3768,11 @@
     "receivables_gap": 0.0373,
     "share_count_change": 0.0,
     "accrual_ratio_floored": 0.0294,
-    "ev_to_ebit": 19.8888,
-    "fcf_yield": 0.0399,
-    "pe_latest": 26.876,
-    "market_cap": 6635684049.12,
-    "enterprise_value": 7909284049.12
+    "ev_to_ebit": 20.5939,
+    "fcf_yield": 0.0386,
+    "pe_latest": 28.0116,
+    "market_cap": 6916065065.28,
+    "enterprise_value": 8189665065.28
    },
    "flags": {
     "strengths": [
@@ -3800,9 +3798,9 @@
     "profitability_score": 32.2,
     "balance_sheet_score": 30.6,
     "earnings_quality_score": 32.4,
-    "valuation_score": 70.4,
+    "valuation_score": 71.1,
     "quality_score": 31.7,
-    "overall_score": 41.4
+    "overall_score": 41.6
    },
    "metrics": {
     "roce": 0.1319,
@@ -3824,11 +3822,11 @@
     "receivables_gap": 0.1626,
     "share_count_change": -0.0299,
     "accrual_ratio_floored": -0.0406,
-    "ev_to_ebit": 11.6347,
+    "ev_to_ebit": 11.6271,
     "fcf_yield": 0.0582,
-    "pe_latest": 224.7309,
-    "market_cap": 81577298777.4853,
-    "enterprise_value": 120145298777.4853
+    "pe_latest": 224.5146,
+    "market_cap": 81498783571.7322,
+    "enterprise_value": 120066783571.7322
    },
    "flags": {
     "strengths": [],
@@ -3860,9 +3858,9 @@
     "profitability_score": 60.7,
     "balance_sheet_score": 52.3,
     "earnings_quality_score": 18.1,
-    "valuation_score": 22.5,
+    "valuation_score": 20.4,
     "quality_score": 43.7,
-    "overall_score": 38.4
+    "overall_score": 37.9
    },
    "metrics": {
     "roce": 0.1072,
@@ -3884,11 +3882,11 @@
     "receivables_gap": 0.4181,
     "share_count_change": 0.0,
     "accrual_ratio_floored": 0.0036,
-    "ev_to_ebit": 20.4088,
-    "fcf_yield": 0.0029,
-    "pe_latest": 31.1115,
-    "market_cap": 41344083424.4657,
-    "enterprise_value": 43507583424.4657
+    "ev_to_ebit": 21.1968,
+    "fcf_yield": 0.0027,
+    "pe_latest": 32.3755,
+    "market_cap": 43023769475.2997,
+    "enterprise_value": 45187269475.2997
    },
    "flags": {
     "strengths": [],
@@ -3942,10 +3940,10 @@
     "share_count_change": 0.0053,
     "accrual_ratio_floored": -0.05,
     "ev_to_ebit": "inf",
-    "fcf_yield": -0.0763,
-    "pe_latest": 6.5874,
-    "market_cap": 2669204902.3408,
-    "enterprise_value": 3718804902.3408
+    "fcf_yield": -0.0741,
+    "pe_latest": 6.8572,
+    "market_cap": 2778557647.5346,
+    "enterprise_value": 3828157647.5346
    },
    "flags": {
     "strengths": [],
@@ -4002,11 +4000,11 @@
     "receivables_gap": 0.1108,
     "share_count_change": 0.0625,
     "accrual_ratio_floored": -0.0007,
-    "ev_to_ebit": 35.2704,
+    "ev_to_ebit": 35.2817,
     "fcf_yield": -0.0109,
-    "pe_latest": 43.2652,
-    "market_cap": 9925027861.74,
-    "enterprise_value": 18633327861.74
+    "pe_latest": 43.2913,
+    "market_cap": 9931032113.32,
+    "enterprise_value": 18639332113.32
    },
    "flags": {
     "strengths": [],
@@ -4062,11 +4060,11 @@
     "receivables_gap": 0.1601,
     "share_count_change": -0.019,
     "accrual_ratio_floored": 0.0514,
-    "ev_to_ebit": 79.9317,
-    "fcf_yield": 0.0097,
-    "pe_latest": 15.9904,
-    "market_cap": 5916461359.8573,
-    "enterprise_value": 7653461359.8573
+    "ev_to_ebit": 80.6543,
+    "fcf_yield": 0.0096,
+    "pe_latest": 16.1774,
+    "market_cap": 5985652383.2973,
+    "enterprise_value": 7722652383.2973
    },
    "flags": {
     "strengths": [],
@@ -4076,7 +4074,7 @@
      "Weak cash conversion: only 35% of EBITDA arrived as operating cash",
      "Profit running well ahead of cash (accrual ratio 5% of assets)",
      "Money owed by customers grew 16 points faster than sales",
-     "Expensive: 80x average operating profit, priced for strong growth"
+     "Expensive: 81x average operating profit, priced for strong growth"
     ],
     "notes": []
    },

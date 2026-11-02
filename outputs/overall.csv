@@ -1,73 +1,73 @@
 name,rank,ticker,sector,profitability_score,balance_sheet_score,earnings_quality_score,valuation_score,quality_score,overall_score
 International Airlines Group,1,IAG.L,Industrials,76.7,54.2,82.9,92.3,71.3,76.5
-Airtel Africa,2,AAF.L,Communication Services,70.0,62.0,88.4,81.0,73.5,75.4
+Airtel Africa,2,AAF.L,Communication Services,70.0,62.0,88.4,80.3,73.5,75.2
 easyJet,3,EZJ.L,Industrials,48.3,61.1,94.4,90.1,67.9,73.5
-Howden Joinery,4,HWDN.L,Consumer Cyclical,65.5,83.1,70.8,68.3,73.1,71.9
-DCC,5,DCC.L,Energy,73.9,75.5,63.9,73.9,71.1,71.8
-Shell,6,SHEL.L,Energy,41.4,90.7,59.3,87.3,63.8,69.7
-WPP,7,WPP.L,Communication Services,54.7,68.5,63.4,90.8,62.2,69.4
-Rightmove,8,RMV.L,Communication Services,66.0,98.1,54.6,58.5,72.9,69.3
-Rio Tinto,9,RIO.L,Basic Materials,63.1,91.2,49.5,73.2,67.9,69.2
+DCC,4,DCC.L,Energy,73.9,75.5,63.9,75.4,71.1,72.2
+Howden Joinery,5,HWDN.L,Consumer Cyclical,65.5,83.1,70.8,66.2,73.1,71.4
+Shell,6,SHEL.L,Energy,41.4,90.7,59.3,89.4,63.8,70.2
+WPP,7,WPP.L,Communication Services,54.7,68.5,63.4,91.5,62.2,69.5
+Rightmove,8,RMV.L,Communication Services,66.0,98.1,54.6,57.7,72.9,69.1
+Rio Tinto,9,RIO.L,Basic Materials,63.1,91.2,49.5,71.8,67.9,68.9
 Tesco,10,TSCO.L,Consumer Defensive,75.0,76.9,61.6,59.2,71.2,68.2
-Endeavour Mining,11,EDV.L,Basic Materials,68.1,80.6,66.2,53.5,71.6,67.1
+Endeavour Mining,11,EDV.L,Basic Materials,68.1,80.6,66.2,54.2,71.6,67.3
 Auto Trader Group,12,AUTO.L,Communication Services,73.9,63.4,62.5,67.6,66.6,66.8
-Games Workshop,13,GAW.L,Consumer Cyclical,84.2,100.0,50.9,30.3,78.4,66.4
-Associated British Foods,14,ABF.L,Consumer Defensive,47.8,79.2,61.6,72.5,62.9,65.3
-Intertek,15,ITRK.L,Industrials,74.0,76.4,69.0,40.8,73.1,65.0
+Games Workshop,13,GAW.L,Consumer Cyclical,84.2,100.0,50.9,31.0,78.4,66.5
+Associated British Foods,14,ABF.L,Consumer Defensive,47.8,79.2,61.6,73.2,62.9,65.4
+Intertek,15,ITRK.L,Industrials,74.0,76.4,69.0,41.5,73.1,65.2
 Imperial Brands,16,IMB.L,Consumer Defensive,65.3,70.4,37.5,86.6,57.7,64.9
-Berkeley Group,17,BKG.L,Consumer Cyclical,71.1,83.8,11.1,93.0,55.3,64.8
+Berkeley Group,17,BKG.L,Consumer Cyclical,71.1,83.8,11.1,90.8,55.3,64.2
 Whitbread,18,WTB.L,Consumer Cyclical,71.1,48.1,88.0,48.6,69.1,64.0
 Reckitt Benckiser,19,RKT.L,Consumer Defensive,82.2,62.5,40.7,69.0,61.8,63.6
-Coca-Cola HBC,20,CCH.L,Consumer Defensive,66.4,81.9,65.7,34.5,71.3,62.1
+Coca-Cola HBC,20,CCH.L,Consumer Defensive,66.4,81.9,65.7,33.8,71.3,62.0
 JD Sports Fashion,21,JD.L,Consumer Cyclical,63.6,45.4,42.6,93.7,50.5,61.3
 Sainsbury's,22,SBRY.L,Consumer Defensive,50.6,47.2,81.9,65.5,59.9,61.3
 Next,23,NXT.L,Consumer Cyclical,75.3,82.4,42.1,45.1,66.6,61.2
 BP,24,BP.L,Energy,56.7,38.0,50.5,95.8,48.4,60.2
-Hikma Pharmaceuticals,25,HIK.L,Healthcare,67.5,88.9,21.8,62.7,59.4,60.2
-BT Group,26,BT-A.L,Communication Services,66.9,51.9,66.2,52.8,61.7,59.4
-Informa,27,INF.L,Communication Services,64.7,56.0,75.9,36.6,65.5,58.3
-Kingfisher,28,KGF.L,Consumer Cyclical,36.4,50.7,68.5,76.8,51.9,58.1
-Marks & Spencer,29,MKS.L,Consumer Cyclical,47.8,53.5,63.0,66.9,54.8,57.8
-Pearson,30,PSON.L,Communication Services,52.2,95.4,31.0,50.7,59.5,57.3
-Haleon,31,HLN.L,Healthcare,60.3,58.3,54.2,55.6,57.6,57.1
-GSK,32,GSK.L,Healthcare,65.0,57.9,40.7,62.0,54.5,56.4
-Sage Group,33,SGE.L,Technology,77.2,71.8,56.5,18.3,68.5,56.0
-Fresnillo,34,FRES.L,Basic Materials,51.2,97.2,49.1,25.4,65.8,55.7
+Hikma Pharmaceuticals,25,HIK.L,Healthcare,67.5,88.9,21.8,62.0,59.4,60.0
+BT Group,26,BT-A.L,Communication Services,66.9,51.9,66.2,52.1,61.7,59.3
+Informa,27,INF.L,Communication Services,64.7,56.0,75.9,35.2,65.5,58.0
+Marks & Spencer,28,MKS.L,Consumer Cyclical,47.8,53.5,63.0,67.6,54.8,58.0
+Kingfisher,29,KGF.L,Consumer Cyclical,36.4,50.7,68.5,76.1,51.9,57.9
+GSK,30,GSK.L,Healthcare,65.0,57.9,40.7,65.5,54.5,57.3
+Pearson,31,PSON.L,Communication Services,52.2,95.4,31.0,50.0,59.5,57.2
+Haleon,32,HLN.L,Healthcare,60.3,58.3,54.2,55.6,57.6,57.1
+SSE,33,SSE.L,Utilities,50.0,76.9,82.9,14.8,69.9,56.2
+Sage Group,34,SGE.L,Technology,77.2,71.8,56.5,17.6,68.5,55.8
 Vodafone,35,VOD.L,Communication Services,30.3,51.9,68.5,71.8,50.2,55.6
-SSE,36,SSE.L,Utilities,50.0,76.9,82.9,12.0,69.9,55.4
-IMI,37,IMI.L,Industrials,70.8,81.8,37.5,30.3,63.4,55.1
-Diageo,38,DGE.L,Consumer Defensive,54.7,40.3,72.2,52.8,55.7,55.0
+Fresnillo,36,FRES.L,Basic Materials,51.2,97.2,49.1,23.2,65.8,55.2
+Diageo,37,DGE.L,Consumer Defensive,54.7,40.3,72.2,52.8,55.7,55.0
+IMI,38,IMI.L,Industrials,70.8,81.8,37.5,29.6,63.4,54.9
 Centrica,39,CNA.L,Utilities,45.3,50.0,22.7,100.0,39.3,54.5
-Burberry,40,BRBY.L,Consumer Cyclical,43.1,35.4,65.7,72.5,48.1,54.2
-Convatec Group,41,CTEC.L,Healthcare,62.8,69.4,56.0,28.2,62.7,54.1
-Smith & Nephew,42,SN.L,Healthcare,60.3,75.5,47.2,31.7,61.0,53.7
+Burberry,40,BRBY.L,Consumer Cyclical,43.1,35.4,65.7,73.2,48.1,54.4
+Convatec Group,41,CTEC.L,Healthcare,62.8,69.4,56.0,28.9,62.7,54.3
+Smith & Nephew,42,SN.L,Healthcare,60.3,75.5,47.2,33.8,61.0,54.2
 Anglo American,43,AAL.L,Basic Materials,41.1,57.9,51.4,62.7,50.1,53.3
 Mondi,44,MNDI.L,Basic Materials,18.5,36.9,80.1,76.8,45.2,53.1
 Taylor Wimpey,45,TW.L,Consumer Cyclical,48.3,60.2,12.0,90.8,40.2,52.8
 Halma,46,HLMA.L,Industrials,65.8,96.3,38.0,11.3,66.7,52.8
 RELX,47,REL.L,Industrials,78.6,53.2,47.2,31.7,59.7,52.7
-United Utilities,48,UU.L,Utilities,62.8,69.4,66.7,9.9,66.3,52.2
+United Utilities,48,UU.L,Utilities,62.8,69.4,66.7,10.6,66.3,52.4
 Bunzl,49,BNZL.L,Industrials,51.9,47.7,40.3,68.3,46.6,52.0
 InterContinental Hotels,50,IHG.L,Consumer Cyclical,65.0,67.1,54.6,15.5,62.2,50.6
 Rolls-Royce,51,RR.L,Industrials,63.3,67.6,62.0,9.2,64.3,50.5
 Spirax Group,52,SPX.L,Industrials,70.0,63.1,39.8,25.4,57.6,49.6
-Unilever,53,ULVR.L,Consumer Defensive,63.1,56.0,22.7,52.8,47.3,48.6
-Barratt Redrow,54,BTRW.L,Consumer Cyclical,20.8,74.5,16.2,81.7,37.2,48.3
-Rentokil Initial,55,RTO.L,Industrials,55.0,34.3,63.0,39.4,50.8,47.9
-BAE Systems,56,BA.L,Industrials,64.4,46.3,55.1,25.4,55.3,47.8
+Unilever,53,ULVR.L,Consumer Defensive,63.1,56.0,22.7,53.5,47.3,48.8
+Barratt Redrow,54,BTRW.L,Consumer Cyclical,20.8,74.5,16.2,81.0,37.2,48.1
+BAE Systems,55,BA.L,Industrials,64.4,46.3,55.1,25.4,55.3,47.8
+Rentokil Initial,56,RTO.L,Industrials,55.0,34.3,63.0,38.0,50.8,47.6
 Diploma,57,DPLM.L,Industrials,52.2,72.2,57.9,7.7,60.8,47.5
 AstraZeneca,58,AZN.L,Healthcare,61.9,70.4,43.5,12.7,58.6,47.1
-Compass Group,59,CPG.L,Consumer Cyclical,55.6,52.1,55.6,24.6,54.4,47.0
-National Grid,60,NG.L,Utilities,64.4,49.5,53.2,19.7,55.7,46.7
-Experian,61,EXPN.L,Industrials,80.3,40.3,38.4,24.6,53.0,45.9
-Smiths Group,62,SMIN.L,Industrials,67.2,73.1,16.2,26.1,52.2,45.6
+National Grid,59,NG.L,Utilities,64.4,49.5,53.2,21.1,55.7,47.1
+Compass Group,60,CPG.L,Consumer Cyclical,55.6,52.1,55.6,23.2,54.4,46.6
+Experian,61,EXPN.L,Industrials,80.3,40.3,38.4,25.4,53.0,46.1
+Smiths Group,62,SMIN.L,Industrials,67.2,73.1,16.2,26.8,52.2,45.8
 Croda International,63,CRDA.L,Basic Materials,46.6,64.4,39.8,31.0,50.3,45.4
 British American Tobacco,64,BATS.L,Consumer Defensive,47.2,54.2,18.1,58.5,39.8,44.5
 Entain,65,ENT.L,Consumer Cyclical,43.8,10.9,48.6,69.7,34.4,43.2
 Persimmon,66,PSN.L,Consumer Cyclical,38.3,85.4,4.6,,42.8,42.8
-Weir Group,67,WEIR.L,Industrials,54.1,46.6,27.3,40.1,42.7,42.0
-Glencore,68,GLEN.L,Basic Materials,32.2,30.6,32.4,70.4,31.7,41.4
-Antofagasta,69,ANTO.L,Basic Materials,60.7,52.3,18.1,22.5,43.7,38.4
+Weir Group,67,WEIR.L,Industrials,54.1,46.6,27.3,38.7,42.7,41.7
+Glencore,68,GLEN.L,Basic Materials,32.2,30.6,32.4,71.1,31.7,41.6
+Antofagasta,69,ANTO.L,Basic Materials,60.7,52.3,18.1,20.4,43.7,37.9
 Ocado,70,OCDO.L,Consumer Defensive,37.2,33.3,59.7,1.4,43.4,32.9
 Severn Trent,71,SVT.L,Utilities,40.3,35.6,40.3,5.6,38.7,30.4
 Melrose Industries,72,MRO.L,Industrials,29.7,43.8,8.3,6.3,27.3,22.0
